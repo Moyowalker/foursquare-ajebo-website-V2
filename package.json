@@ -1,9 +1,19 @@
 {
   "name": "foursquare-ajebo-website",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next out",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "repository": {
     "type": "git",
@@ -18,17 +28,24 @@
   "homepage": "https://github.com/EMOCOM-GROUP/foursquare-ajebo-website#readme",
   "description": "",
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/postcss": "^4.1.12",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^24.3.0",
     "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.8",
     "autoprefixer": "^10.4.21",
+    "clsx": "^2.1.1",
     "eslint": "^9.34.0",
     "eslint-config-next": "^15.5.2",
+    "lucide-react": "^0.542.0",
     "next": "^15.5.2",
     "postcss": "^8.5.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "tailwindcss": "^4.1.12",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.9.2"
   }
 }
