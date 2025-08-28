@@ -51,11 +51,11 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-gray-200;
   }
   
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-gray-900;
   }
 
   /* Smooth scrolling */
@@ -65,7 +65,7 @@
 
   /* Focus styles for accessibility */
   *:focus-visible {
-    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white;
   }
 
   /* Custom scrollbar */
@@ -74,43 +74,43 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-secondary;
+    @apply bg-gray-100;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-muted-foreground rounded-full;
+    @apply bg-gray-400 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-foreground;
+    @apply bg-gray-600;
   }
 }
 
 @layer components {
   /* Button variants */
   .btn {
-    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-white;
   }
 
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+    @apply bg-primary-500 text-white hover:bg-primary-600;
   }
 
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+    @apply bg-gray-100 text-gray-900 hover:bg-gray-200;
   }
 
   .btn-outline {
-    @apply border border-input hover:bg-accent hover:text-accent-foreground;
+    @apply border border-gray-300 hover:bg-gray-50 hover:text-gray-900;
   }
 
   .btn-ghost {
-    @apply hover:bg-accent hover:text-accent-foreground;
+    @apply hover:bg-gray-100 hover:text-gray-900;
   }
 
   /* Card styles */
   .card {
-    @apply rounded-lg border bg-card text-card-foreground shadow-sm;
+    @apply rounded-lg border border-gray-200 bg-white text-gray-900 shadow-sm;
   }
 
   .card-header {
@@ -127,11 +127,11 @@
 
   /* Form styles */
   .form-input {
-    @apply flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+    @apply flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
   }
 
   .form-textarea {
-    @apply flex min-h-[80px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+    @apply flex min-h-[80px] w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm ring-offset-white placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
   }
 
   /* Typography */
@@ -140,7 +140,7 @@
   }
 
   .heading-2 {
-    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+    @apply scroll-m-20 border-b border-gray-200 pb-2 text-3xl font-semibold tracking-tight first:mt-0;
   }
 
   .heading-3 {
@@ -156,7 +156,7 @@
   }
 
   .text-muted {
-    @apply text-sm text-muted-foreground;
+    @apply text-sm text-gray-500;
   }
 
   .text-small {

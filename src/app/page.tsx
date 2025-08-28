@@ -25,7 +25,7 @@ export default function HomePage() {
         {/* Quick Info Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="card p-6 text-center">
-            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">🏨</span>
             </div>
             <h3 className="heading-4 mb-2">Accommodation</h3>
@@ -35,7 +35,7 @@ export default function HomePage() {
           </div>
           
           <div className="card p-6 text-center">
-            <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">🏛️</span>
             </div>
             <h3 className="heading-4 mb-2">Event Halls</h3>
@@ -45,7 +45,7 @@ export default function HomePage() {
           </div>
           
           <div className="card p-6 text-center">
-            <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">🌿</span>
             </div>
             <h3 className="heading-4 mb-2">Peaceful Environment</h3>
@@ -56,9 +56,9 @@ export default function HomePage() {
         </div>
 
         {/* Development Status */}
-        <div className="card p-8 bg-gradient-to-r from-primary/5 to-secondary/5">
+        <div className="card p-8 bg-gradient-to-r from-primary-50 to-secondary-50">
           <h2 className="heading-3 text-center mb-4">🚧 Website Under Development</h2>
-          <p className="text-center text-muted-foreground mb-6">
+          <p className="text-center text-gray-500 mb-6">
             We're building an amazing experience for you. This is Phase 1 of our development process.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
