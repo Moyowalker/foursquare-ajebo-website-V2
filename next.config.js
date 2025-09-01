@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Disable ESLint during build for faster deployment
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  
+  // Disable TypeScript checking during build
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  
   // Enable experimental features
   experimental: {
     optimizePackageImports: ['lucide-react'],

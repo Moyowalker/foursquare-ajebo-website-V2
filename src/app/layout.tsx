@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 
 import { seoDefaults } from '@/lib/config';
 import { cn } from '@/lib/utils';
+import { SpectacularNavigation } from '@/components/layout/navigation';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -45,6 +46,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={cn(inter.className, 'antialiased')}>
         <div className="relative flex min-h-screen flex-col">
+          <SpectacularNavigation />
           <div className="flex-1">{children}</div>
         </div>
       </body>
