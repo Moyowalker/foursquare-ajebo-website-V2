@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foursquare Gospel Church Ajebo - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .coming-soon {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .contact {
+            background: rgba(255,255,255,0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+        
+        .contact h3 {
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .coming-soon {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo pulse">⛪</div>
+        <h1 class="subtitle">Foursquare Gospel Church Ajebo</h1>
+        
+        <div class="coming-soon">Coming Soon!</div>
+        
+        <div class="message">
+            Our new church website is under development and will be launching very soon. 
+            We're creating an amazing online experience for our church family with features including:
+            
+            <br><br>
+            
+            ✨ Member Portal & Dashboard<br>
+            🙏 Prayer Request System<br>
+            📅 Event Management<br>
+            💝 Online Giving Platform<br>
+            📚 Resource Library<br>
+            👥 Member Directory<br>
+            📱 Mobile-Responsive Design
+        </div>
+        
+        <div class="contact">
+            <h3>Stay Connected</h3>
+            <p><strong>Address:</strong> Lagos, Nigeria</p>
+            <p><strong>Service Times:</strong> Sundays 8:00 AM & 10:30 AM</p>
+            <p><strong>Phone:</strong> +234 XXX XXX XXXX</p>
+            <p><strong>Email:</strong> info@foursquareajebo.org</p>
+        </div>
+        
+        <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
+            Website launching soon • Built with ❤️ for our church family
+        </div>
+    </div>
+    
+    <script>
+        // Simple animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                container.style.transition = 'all 0.8s ease';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
