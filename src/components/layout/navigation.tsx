@@ -21,6 +21,7 @@ export function SpectacularNavigation() {
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
+    { name: 'Board', href: '/board' },
     { name: 'Facilities', href: '/facilities' },
     { name: 'Events', href: '/events' },
     { name: 'Blog', href: '/blog' },
