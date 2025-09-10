@@ -29,6 +29,7 @@
   "homepage": "https://github.com/EMOCOM-GROUP/foursquare-ajebo-website#readme",
   "description": "",
   "dependencies": {
+    "@socket.io/component-emitter": "^3.1.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.1.12",
@@ -41,13 +42,20 @@
     "eslint": "^9.34.0",
     "eslint-config-next": "^15.5.2",
     "framer-motion": "^12.23.12",
+    "hls.js": "^1.6.12",
     "lucide-react": "^0.542.0",
     "next": "^15.5.2",
+    "peer": "^1.0.2",
     "postcss": "^8.5.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-player": "^3.3.2",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "socket.io-stream": "^0.9.1",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "uuid": "^13.0.0"
   }
 }

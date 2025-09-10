@@ -22,6 +22,7 @@ export function SpectacularNavigation() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Board', href: '/board' },
+    { name: 'Live Stream', href: '/streaming' },
     { name: 'Facilities', href: '/facilities' },
     { name: 'Events', href: '/events' },
     { name: 'Blog', href: '/blog' },
