@@ -24,6 +24,7 @@ export function SpectacularNavigation() {
     { name: 'Board', href: '/board' },
     { name: 'Live Stream', href: '/streaming' },
     { name: 'Worship Platform', href: '/worship' },
+    { name: 'Ministry Platform', href: '/ministry' },
     { name: 'Facilities', href: '/facilities' },
     { name: 'Events', href: '/events' },
     { name: 'Blog', href: '/blog' },
