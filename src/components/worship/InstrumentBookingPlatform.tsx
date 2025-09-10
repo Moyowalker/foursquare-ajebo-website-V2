@@ -25,7 +25,7 @@ import {
   Phone,
   Mail,
   MapPin,
-  Tool,
+  Wrench,
   Star,
   BookOpen,
   Archive,
@@ -443,7 +443,7 @@ export const InstrumentBookingPlatform: React.FC<InstrumentBookingPlatformProps>
                 size="md"
                 onClick={() => setShowMaintenanceView(!showMaintenanceView)}
               >
-                <Tool className="w-4 h-4 mr-2" />
+                <Wrench className="w-4 h-4 mr-2" />
                 Maintenance
               </SpectacularButton>
             </div>
@@ -533,7 +533,7 @@ export const InstrumentBookingPlatform: React.FC<InstrumentBookingPlatformProps>
           {showMaintenanceView && (
             <GlassCard className="p-6 mb-8">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                <Tool className="w-6 h-6 text-yellow-400" />
+                <Wrench className="w-6 h-6 text-yellow-400" />
                 Maintenance Overview
               </h2>
 
