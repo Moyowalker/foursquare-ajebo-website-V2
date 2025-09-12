@@ -5,6 +5,19 @@
   
 [build.environment]
   NODE_VERSION = "18"
+  NPM_VERSION = "9"
+
+# Production context
+[context.production]
+  command = "npm run build"
+
+# Deploy preview context
+[context.deploy-preview]
+  command = "npm run build"
+
+# Branch deploy context
+[context.branch-deploy]
+  command = "npm run build"
 
 # Handle client-side routing for SPA
 [[redirects]]
@@ -20,6 +33,7 @@
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
 # Cache optimization
 [[headers]]
@@ -51,3 +65,16 @@
   for = "*.svg"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Environment variables for different contexts
+[context.production.environment]
+  NEXT_PUBLIC_SITE_URL = "https://foursquare-ajebo.netlify.app"
+  NEXT_PUBLIC_ENVIRONMENT = "production"
+
+[context.deploy-preview.environment]
+  NEXT_PUBLIC_SITE_URL = "$DEPLOY_PRIME_URL"
+  NEXT_PUBLIC_ENVIRONMENT = "preview"
+
+[context.branch-deploy.environment]
+  NEXT_PUBLIC_SITE_URL = "$DEPLOY_PRIME_URL"
+  NEXT_PUBLIC_ENVIRONMENT = "development"

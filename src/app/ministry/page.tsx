@@ -26,7 +26,7 @@ import {
   Clock
 } from 'lucide-react';
 import { SpectacularButton, GlassCard, GradientText } from '@/components/ui/spectacular';
-import { AdvancedAnalyticsDashboard } from '@/components/ministry/AdvancedAnalyticsDashboard';
+import AdvancedAnalyticsDashboard from '@/components/ministry/AdvancedAnalyticsDashboard';
 
 type MinistrySection = 'analytics' | 'management' | 'scheduling' | 'communications';
 
