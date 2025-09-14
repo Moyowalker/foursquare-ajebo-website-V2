@@ -307,6 +307,57 @@
     animation: shimmer 4s linear infinite;
   }
 
+  /* New hero animation utilities */
+  @keyframes fadeInUp {
+    0% { opacity:0; transform: translateY(28px); }
+    60% { opacity:1; }
+    100% { opacity:1; transform: translateY(0); }
+  }
+  @keyframes heroHeadline {
+    0% { opacity:0; filter: blur(8px); transform: translateY(24px) scale(.97); }
+    40% { opacity:1; filter: blur(0); }
+    100% { opacity:1; transform: translateY(0) scale(1); }
+  }
+  @keyframes ctaReveal {
+    0% { opacity:0; transform: translateY(20px) scale(.96); }
+    70% { opacity:1; }
+    100% { opacity:1; transform: translateY(0) scale(1); }
+  }
+  .animate-fadeInUp { animation: fadeInUp 1s cubic-bezier(.21,.65,.29,1) both; }
+  .animate-heroHeadline { animation: heroHeadline 1.6s cubic-bezier(.16,.84,.44,1) both; }
+  .animate-ctaReveal { animation: ctaReveal 1s cubic-bezier(.16,.84,.44,1) both; }
+
+  /* Premium Hero Animations */
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  @keyframes light-ray {
+    0% { opacity: 0; transform: translateX(-200px) skewX(-12deg); }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.1; }
+    100% { opacity: 0; transform: translateX(200px) skewX(-12deg); }
+  }
+  @keyframes bounce-gentle {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+  }
+  
+  .animate-gradient-shift { 
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite; 
+  }
+  .animate-light-ray { animation: light-ray 6s ease-in-out infinite; }
+  .animate-bounce-gentle { animation: bounce-gentle 2s infinite; }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fadeInUp, .animate-heroHeadline, .animate-ctaReveal, 
+    .animate-gradient-shift, .animate-light-ray, .animate-bounce-gentle { 
+      animation: none !important; 
+    }
+  }
+
   /* Interactive Elements */
   .interactive {
     @apply cursor-pointer transition-all duration-300 hover:transform hover:scale-105;
