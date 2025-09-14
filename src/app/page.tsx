@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from 'react';
-import { FoursquareLogo } from '@/components/ui/logo';
+import { SpectacularHeroSection } from '@/components/hero/SpectacularHeroSection';
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -24,76 +24,8 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white overflow-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        <div className="absolute inset-0 bg-dots opacity-30"></div>
-        <div 
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"
-          style={{
-            transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
-          }}
-        ></div>
-        <div 
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"
-          style={{
-            transform: `translate(${-mousePosition.x * 0.015}px, ${-mousePosition.y * 0.015}px)`,
-          }}
-        ></div>
-      </div>
-
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center">
-        <div className="container mx-auto px-4 py-32">
-          <div className="text-center space-y-8">
-            {/* Foursquare Logo */}
-            <div className="flex justify-center mb-8 animate-fade-in">
-              <FoursquareLogo size="xl" showText={false} />
-            </div>
-
-            {/* Main Heading with Spectacular Animation */}
-            <div className="space-y-4">
-              <h1 className="hero-text animate-fade-in bg-gradient-to-r from-foursquare-blue-500 via-foursquare-purple-500 to-foursquare-orange-500 bg-clip-text text-transparent">
-                Foursquare
-              </h1>
-              <h1 className="hero-text animate-slide-up bg-gradient-to-r from-foursquare-red-500 via-foursquare-blue-500 to-foursquare-purple-500 bg-clip-text text-transparent" style={{ animationDelay: '0.3s' }}>
-                Ajebo
-              </h1>
-              <div className="w-32 h-1 bg-gradient-to-r from-foursquare-blue-500 via-foursquare-purple-500 to-foursquare-orange-500 mx-auto rounded-full animate-scale-in" style={{ animationDelay: '0.6s' }}></div>
-            </div>
-
-            {/* Subtitle */}
-            <p className="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.9s' }}>
-              Where spiritual sanctuary meets modern excellence. A peaceful retreat center providing 
-              <span className="bg-gradient-to-r from-foursquare-blue-600 to-foursquare-purple-600 bg-clip-text text-transparent font-semibold"> world-class facilities</span> for conventions, 
-              retreats, and transformative community gatherings in the heart of Nigeria.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up" style={{ animationDelay: '1.2s' }}>
-              <button className="btn btn-primary px-12 py-4 text-lg font-semibold group bg-gradient-to-r from-foursquare-blue-600 via-foursquare-purple-600 to-foursquare-blue-700 hover:from-foursquare-blue-700 hover:via-foursquare-purple-700 hover:to-foursquare-blue-800">
-                <span className="relative z-10">Book Your Retreat</span>
-                <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-              <button className="btn btn-outline px-12 py-4 text-lg font-semibold group border-2 border-foursquare-blue-500 text-foursquare-blue-600 hover:bg-foursquare-blue-500 hover:text-white">
-                <span className="relative z-10">Explore Our Sanctuary</span>
-              </button>
-            </div>
-
-            {/* Floating Elements with Foursquare Colors */}
-            <div className="absolute top-20 left-20 w-4 h-4 bg-foursquare-blue-400 rounded-full animate-float opacity-60" style={{ animationDelay: '2s' }}></div>
-            <div className="absolute top-40 right-32 w-6 h-6 bg-foursquare-purple-400 rounded-full animate-bounce-gentle opacity-60" style={{ animationDelay: '2.5s' }}></div>
-            <div className="absolute bottom-40 left-16 w-3 h-3 bg-foursquare-orange-400 rounded-full animate-pulse-soft opacity-60" style={{ animationDelay: '3s' }}></div>
-            <div className="absolute top-60 right-16 w-5 h-5 bg-foursquare-red-400 rounded-full animate-float opacity-60" style={{ animationDelay: '3.5s' }}></div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-gentle">
-          <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse"></div>
-          </div>
-        </div>
-      </section>
+      {/* New Spectacular Hero */}
+      <SpectacularHeroSection variant="landing" />
 
       {/* Features Section */}
       <section className="section-padding relative">
@@ -253,9 +185,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Floating Action Button */}
-      <button className="btn-floating group">
-        <span className="text-2xl group-hover:animate-wiggle">📞</span>
+      {/* (Optional) Floating Action Button retained; can be repositioned later if needed */}
+      <button className="btn-floating group" aria-label="Contact us">
+        <span className="text-2xl group-hover:animate-wiggle" aria-hidden>📞</span>
       </button>
     </div>
   );
