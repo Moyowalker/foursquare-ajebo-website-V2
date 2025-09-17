@@ -92,6 +92,81 @@
   100% { opacity: 1; }
 }
 
+/* Advanced Wow Features Animations */
+@keyframes split-letter {
+  0% { 
+    opacity: 0; 
+    transform: translateY(50px) rotateX(-90deg); 
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: translateY(-10px) rotateX(0deg); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) rotateX(0deg); 
+  }
+}
+
+@keyframes parallax-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes scripture-slide {
+  0% { opacity: 0; transform: translateX(100px); }
+  10%, 90% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(-100px); }
+}
+
+@keyframes magnetic-attract {
+  0% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.02) translateY(-2px); }
+  100% { transform: scale(1.05) translateY(-5px); }
+}
+
+@keyframes interactive-glow {
+  0% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.3), 0 0 60px rgba(252, 211, 77, 0.2); }
+  100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
+}
+
+@keyframes trail-fade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0); }
+}
+
+@keyframes prayer-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes morning-glow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes evening-peace {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+}
+
+@keyframes night-serenity {
+  0%, 100% { background-position: 100% 0%; }
+  50% { background-position: 0% 100%; }
+}
+
+@keyframes gentle-sway {
+  0%, 100% { transform: translateX(0px) rotate(0deg); }
+  50% { transform: translateX(5px) rotate(1deg); }
+}
+
+@keyframes drift {
+  0% { transform: translateX(-10px) translateY(0px); }
+  50% { transform: translateX(10px) translateY(-5px); }
+  100% { transform: translateX(-10px) translateY(0px); }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -128,6 +203,77 @@
 .animate-fade-in {
   animation: fade-in 1s ease-out forwards;
   opacity: 0;
+}
+
+/* New Advanced Animation Classes */
+.animate-split-letter { 
+  animation: split-letter 0.8s ease-out forwards; 
+  opacity: 0; 
+}
+
+.animate-parallax-float { 
+  animation: parallax-float 4s ease-in-out infinite; 
+}
+
+.animate-scripture-slide { 
+  animation: scripture-slide 8s ease-in-out infinite; 
+}
+
+.animate-prayer-pulse { 
+  animation: prayer-pulse 2s ease-in-out infinite; 
+}
+
+.animate-morning-glow { 
+  animation: morning-glow 15s ease-in-out infinite; 
+}
+
+.animate-evening-peace { 
+  animation: evening-peace 20s ease-in-out infinite; 
+}
+
+.animate-night-serenity { 
+  animation: night-serenity 25s ease-in-out infinite; 
+}
+
+.animate-gentle-sway { 
+  animation: gentle-sway 4s ease-in-out infinite; 
+}
+
+.animate-drift { 
+  animation: drift 8s ease-in-out infinite; 
+}
+
+/* Interactive Effects */
+.magnetic:hover { 
+  animation: magnetic-attract 0.3s ease-out forwards; 
+}
+
+.interactive:hover { 
+  animation: interactive-glow 2s ease-in-out infinite; 
+}
+
+/* Mouse Trail */
+.mouse-trail {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(252, 211, 77, 0.6) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1000;
+  animation: trail-fade 1s ease-out forwards;
+}
+
+/* Split Text Container */
+.split-text-container {
+  display: inline-block;
+  perspective: 1000px;
+}
+
+.split-letter {
+  display: inline-block;
+  transform-origin: bottom center;
+  animation-fill-mode: both;
 }
 
 @layer base {
