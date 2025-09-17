@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { SpectacularHeroSection } from '@/components/hero/SpectacularHeroSection';
+import SupremeHeroSection from '@/components/hero/DazzlingHeroSection';
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -24,8 +24,8 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white overflow-hidden">
-      {/* New Spectacular Hero */}
-      <SpectacularHeroSection variant="landing" />
+      {/* Dazzling Spiritual Hero */}
+            <SupremeHeroSection />
 
       {/* Features Section */}
       <section className="section-padding relative">
