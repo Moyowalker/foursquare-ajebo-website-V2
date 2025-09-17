@@ -27,12 +27,12 @@ const SupremeHeroSection: React.FC = () => {
     "Come to me, all you who are weary and burdened. - Matthew 11:28"
   ];
 
-  // Dynamic color scheme based on time of day
+  // Dynamic spiritual color scheme based on time of day
   const getTimeBasedGradient = () => {
     const hour = new Date().getHours();
-    if (hour >= 5 && hour < 12) return 'from-amber-600 via-orange-500 to-yellow-400'; // Morning
-    if (hour >= 12 && hour < 18) return 'from-blue-600 via-purple-500 to-indigo-600'; // Afternoon  
-    return 'from-indigo-900 via-purple-900 to-blue-900'; // Evening/Night
+    if (hour >= 5 && hour < 12) return 'from-indigo-500 via-blue-600 to-indigo-700'; // Morning (Faith & Peace)
+    if (hour >= 12 && hour < 18) return 'from-indigo-600 via-purple-600 to-indigo-800'; // Afternoon (Depth & Wisdom)
+    return 'from-indigo-900 via-purple-900 to-indigo-950'; // Evening/Night (Serenity & Contemplation)
   };
 
   const getTimeBasedMessage = () => {
@@ -250,11 +250,11 @@ const SupremeHeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Scripture Carousel */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-4xl px-4" style={{ marginTop: '-100px' }}>
-          <div className="text-center mb-8">
-            <div className="bg-white/5 backdrop-blur-md rounded-2xl px-8 py-6 border border-white/10">
-              <p className="text-white/90 text-lg md:text-xl font-light leading-relaxed italic transition-opacity duration-500">
+        {/* Scripture Carousel - Moved to top area with responsive sizing */}
+        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 z-20 w-full max-w-3xl px-4">
+          <div className="text-center">
+            <div className="bg-white/5 backdrop-blur-md rounded-xl px-4 py-3 md:px-6 md:py-4 border border-white/10">
+              <p className="text-white/90 text-sm md:text-base lg:text-lg font-light leading-relaxed italic transition-opacity duration-500">
                 "{verses[currentVerse]}"
               </p>
             </div>
@@ -263,70 +263,72 @@ const SupremeHeroSection: React.FC = () => {
 
         {/* Natural Spiritual Elements */}
         <div className="absolute inset-0 z-5">
-          <div className="parallax-element absolute top-20 left-20 text-2xl text-amber-300/60 animate-float" style={{ animationDelay: '2s' }}>🌿</div>
+          <div className="parallax-element absolute top-20 left-20 text-2xl text-indigo-300/60 animate-float" style={{ animationDelay: '2s' }}>🌿</div>
           <div className="parallax-element absolute top-32 right-32 text-xl text-white/50 animate-float" style={{ animationDelay: '4s' }}>🕯️</div>
-          <div className="parallax-element absolute bottom-40 left-40 text-lg text-amber-200/70 animate-float" style={{ animationDelay: '3s' }}>🌸</div>
+          <div className="parallax-element absolute bottom-40 left-40 text-lg text-indigo-200/70 animate-float" style={{ animationDelay: '3s' }}>🌸</div>
           <div className="parallax-element absolute bottom-60 right-60 text-2xl text-blue-200/60 animate-float" style={{ animationDelay: '5s' }}>🌾</div>
           <div className="parallax-element absolute top-1/2 right-20 text-xl text-purple-300/50 animate-float" style={{ animationDelay: '1s' }}>🍃</div>
-          <div className="parallax-element absolute bottom-1/3 left-20 text-lg text-green-200/60 animate-float" style={{ animationDelay: '6s' }}>🌺</div>
+          <div className="parallax-element absolute bottom-1/3 left-20 text-lg text-indigo-200/60 animate-float" style={{ animationDelay: '6s' }}>🌺</div>
         </div>
 
-        {/* MAIN CONTENT - With Split Text Animation */}
-        <div className="relative z-25 flex items-center justify-center min-h-screen px-6 py-20" style={{ paddingTop: '350px' }}>
-          <div className="max-w-6xl mx-auto text-center">
+        {/* MAIN CONTENT - Responsive spacing */}
+        <div className="relative z-25 flex items-center justify-center min-h-screen px-4 py-8">
+          <div className="max-w-6xl mx-auto text-center" style={{ paddingTop: '120px' }}>
             
-            {/* Split Text Animated Headline */}
-            <h1 className="mb-6 leading-tight">
-              <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white drop-shadow-2xl">
+            {/* Split Text Animated Headline - Responsive sizing */}
+            <h1 className="mb-6 md:mb-8 leading-tight">
+              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white drop-shadow-2xl">
                 <SplitTextAnimation text="Come As You Are" delay={0.5} />
               </span>
-              <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light italic text-amber-300 mt-4">
+              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light italic text-indigo-200 mt-4 md:mt-6">
                 <SplitTextAnimation text="Leave Transformed" delay={1.5} />
               </span>
             </h1>
 
-            {/* Inspiring Description */}
-            <p className="text-lg sm:text-xl md:text-2xl text-white/95 max-w-4xl mx-auto leading-relaxed mb-12 font-light animate-fade-in" style={{ animationDelay: '3s' }}>
-              A sacred sanctuary where hearts find peace, souls discover purpose, 
-              and community becomes family. Your spiritual journey begins here.
-            </p>
+            {/* Inspiring Description - Responsive text sizing */}
+            <div className="mb-12 md:mb-16">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 max-w-4xl mx-auto leading-relaxed font-light animate-fade-in px-2" style={{ animationDelay: '3s' }}>
+                A sacred sanctuary where hearts find peace, souls discover purpose, 
+                and community becomes family. Your spiritual journey begins here.
+              </p>
+            </div>
 
-            {/* Enhanced CTA Buttons with Magnetic Effect */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            {/* Enhanced CTA Buttons - Responsive sizing */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-12 md:mb-16 px-2">
               
-              {/* Primary CTA */}
+              {/* Primary CTA - Updated to spiritual gold accents */}
               <Link
                 href="/facilities"
                 className="group relative magnetic transform hover:scale-110 transition-all duration-500 w-full sm:w-auto animate-bounce-in"
                 style={{ animationDelay: '3.5s' }}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-2xl blur opacity-60 animate-pulse" />
-                <div className="relative px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-2xl text-slate-900 font-bold text-lg shadow-2xl min-w-[260px] hover:shadow-amber-500/50">
-                  <div className="flex items-center justify-center gap-3">
-                    <span className="text-xl animate-bounce">🏛️</span>
-                    <span>Book Sacred Retreat</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-2xl blur opacity-60 animate-pulse" />
+                <div className="relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-2xl text-slate-900 font-bold text-base md:text-lg shadow-2xl min-w-[240px] md:min-w-[260px] hover:shadow-yellow-500/50">
+                  <div className="flex items-center justify-center gap-2 md:gap-3">
+                    <span className="text-lg md:text-xl animate-bounce">🏛️</span>
+                    <span className="text-sm md:text-base">Book Sacred Retreat</span>
                     <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
                   </div>
                 </div>
               </Link>
 
-              {/* Secondary CTA */}
+              {/* Secondary CTA - Streaming with indigo accents */}
               <Link
                 href="/streaming"
                 className="group relative magnetic transform hover:scale-110 transition-all duration-500 w-full sm:w-auto animate-bounce-in"
                 style={{ animationDelay: '4s' }}
               >
-                <div className="absolute inset-0 bg-white/20 rounded-2xl blur opacity-40 group-hover:bg-red-400/30 transition-colors" />
-                <div className="relative px-8 py-4 backdrop-blur-xl bg-white/10 border-2 border-white/30 rounded-2xl text-white font-semibold text-lg shadow-2xl min-w-[260px] hover:border-red-400/50">
-                  <div className="flex items-center justify-center gap-3">
-                    <span className="text-xl animate-pulse">{streamingNow ? '🔴' : '📺'}</span>
-                    <span>{streamingNow ? 'Join LIVE Now' : 'Join Worship'}</span>
+                <div className="absolute inset-0 bg-white/20 rounded-2xl blur opacity-40 group-hover:bg-indigo-400/30 transition-colors" />
+                <div className="relative px-6 py-3 md:px-8 md:py-4 backdrop-blur-xl bg-white/10 border-2 border-white/30 rounded-2xl text-white font-semibold text-base md:text-lg shadow-2xl min-w-[240px] md:min-w-[260px] hover:border-indigo-400/50">
+                  <div className="flex items-center justify-center gap-2 md:gap-3">
+                    <span className="text-lg md:text-xl animate-pulse">{streamingNow ? '🔴' : '📺'}</span>
+                    <span className="text-sm md:text-base">{streamingNow ? 'Join LIVE Now' : 'Join Worship'}</span>
                     <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
                   </div>
                 </div>
               </Link>
 
-              {/* Tertiary CTA */}
+              {/* Tertiary CTA - Giving with emerald accents */}
               <Link
                 href="/giving"
                 className="group relative magnetic transform hover:scale-110 transition-all duration-500 w-full sm:w-auto animate-bounce-in"
@@ -346,10 +348,10 @@ const SupremeHeroSection: React.FC = () => {
             {/* Enhanced Feature Cards with Interactive Hover */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
               {[
-                { icon: '🙏', title: 'Daily Prayer', desc: '24/7 intercession', color: 'from-blue-500/20 to-purple-500/20' },
-                { icon: '🏡', title: 'Retreat Suites', desc: 'Sacred rest spaces', color: 'from-green-500/20 to-emerald-500/20' },
+                { icon: '🙏', title: 'Daily Prayer', desc: '24/7 intercession', color: 'from-indigo-500/20 to-purple-500/20' },
+                { icon: '🏡', title: 'Retreat Suites', desc: 'Sacred rest spaces', color: 'from-blue-500/20 to-indigo-500/20' },
                 { icon: '🌊', title: 'Baptistry', desc: 'New life in Christ', color: 'from-cyan-500/20 to-blue-500/20' },
-                { icon: '🎵', title: 'Worship', desc: 'Heavenly music', color: 'from-amber-500/20 to-yellow-500/20' }
+                { icon: '🎵', title: 'Worship', desc: 'Heavenly music', color: 'from-purple-500/20 to-indigo-500/20' }
               ].map((item, index) => (
                 <div
                   key={index}
@@ -357,7 +359,7 @@ const SupremeHeroSection: React.FC = () => {
                   style={{ animationDelay: `${5 + index * 0.2}s` }}
                 >
                   <div className="text-3xl mb-2 group-hover:animate-bounce transition-all">{item.icon}</div>
-                  <div className="text-amber-300 font-bold text-base mb-1 group-hover:text-amber-200 transition-colors">{item.title}</div>
+                  <div className="text-indigo-200 font-bold text-base mb-1 group-hover:text-indigo-100 transition-colors">{item.title}</div>
                   <div className="text-white/80 text-xs group-hover:text-white transition-colors">{item.desc}</div>
                 </div>
               ))}
@@ -365,10 +367,10 @@ const SupremeHeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - Updated with spiritual colors */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce">
-          <div className="w-10 h-16 border-2 border-amber-400/60 rounded-full flex justify-center pt-4 backdrop-blur-sm bg-white/5">
-            <div className="w-2 h-6 bg-amber-400 rounded-full shadow-lg" />
+          <div className="w-10 h-16 border-2 border-indigo-400/60 rounded-full flex justify-center pt-4 backdrop-blur-sm bg-white/5">
+            <div className="w-2 h-6 bg-indigo-400 rounded-full shadow-lg" />
           </div>
         </div>
 
