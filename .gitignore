@@ -162,6 +162,3 @@ vite.config.ts.timestamp-*
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# Local Netlify folder
-.netlify
