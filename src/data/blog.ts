@@ -3,28 +3,28 @@ import { BlogPost, Author, BlogCategory, blogCategories } from '@/types/blog';
 // Mock authors
 export const authors: Author[] = [
   {
-    id: 'pastor-john',
-    name: 'Pastor John Doe',
+    id: 'pastor-emmanuel',
+    name: 'Pastor Emmanuel Adebayo',
     title: 'Senior Pastor',
-    bio: 'Pastor John has been leading Foursquare Ajebo for over 15 years, passionate about youth ministry and community outreach.',
-    avatar: '/images/authors/pastor-john.jpg',
-    email: 'pastor.john@foursquareajebo.org',
+    bio: 'Pastor Emmanuel has been leading Foursquare Ajebo for over 15 years, passionate about youth ministry and community outreach.',
+    avatar: '/images/authors/pastor-emmanuel.jpg',
+    email: 'pastor.emmanuel@foursquareajebo.org',
     socialMedia: {
-      facebook: 'https://facebook.com/pastorjohn',
-      twitter: 'https://twitter.com/pastorjohn',
-      instagram: 'https://instagram.com/pastorjohn'
+      facebook: 'https://facebook.com/pastoremmanuel',
+      twitter: 'https://twitter.com/pastoremmanuel',
+      instagram: 'https://instagram.com/pastoremmanuel'
     }
   },
   {
-    id: 'minister-sarah',
-    name: 'Minister Sarah Johnson',
-    title: 'Youth Pastor',
-    bio: 'Minister Sarah leads our vibrant youth ministry and coordinates our annual summer camps.',
-    avatar: '/images/authors/minister-sarah.jpg',
-    email: 'sarah@foursquareajebo.org',
+    id: 'pastor-grace',
+    name: 'Pastor (Mrs.) Grace Adebayo',
+    title: 'Associate Pastor - Women Ministry',
+    bio: 'Pastor Grace leads our vibrant women ministry and coordinates children programs at Foursquare Ajebo.',
+    avatar: '/images/authors/pastor-grace.jpg',
+    email: 'pastor.grace@foursquareajebo.org',
     socialMedia: {
-      instagram: 'https://instagram.com/ministersarah',
-      facebook: 'https://facebook.com/ministersarah'
+      instagram: 'https://instagram.com/pastorgrace',
+      facebook: 'https://facebook.com/pastorgrace'
     }
   },
   {
@@ -33,7 +33,7 @@ export const authors: Author[] = [
     title: 'Community Outreach Director',
     bio: 'Deacon Michael oversees our community programs and leads missions work in local communities.',
     avatar: '/images/authors/deacon-michael.jpg',
-    email: 'michael@foursquareajebo.org',
+    email: 'deacon.michael@foursquareajebo.org',
     socialMedia: {
       linkedin: 'https://linkedin.com/in/michaelwilliams'
     }
@@ -100,11 +100,11 @@ Don't miss out on this life-changing experience! Spaces are filling up quickly.
 
 **Register today:** [foursquareajebo.org/camp-registration](https://foursquareajebo.org/camp-registration)
 
-For questions, contact Minister Sarah at sarah@foursquareajebo.org or call (234) 801-234-5678.
+For questions, contact Pastor Grace at pastor.grace@foursquareajebo.org or call (234) 801-234-5678.
 
 *"For our God is a consuming fire." - Hebrews 12:29*
     `,
-    author: authors[1], // Minister Sarah
+    author: authors[1], // Pastor Grace
     category: 'announcements',
     tags: ['summer camp', 'youth', 'registration', 'faith', 'adventure'],
     featuredImage: '/images/blog/summer-camp-2025.jpg',
@@ -215,7 +215,7 @@ This past weekend, over 150 families gathered at the beautiful Yankari Resort fo
 Families arrived throughout the evening to warm welcomes and a delicious dinner. Children immediately made new friends while parents reconnected with fellow church members.
 
 ### Saturday Morning: Family Worship
-Pastor John led us in a powerful worship session focused on the importance of Christ-centered families. The children's choir blessed us with their beautiful voices.
+Pastor Emmanuel led us in a powerful worship session focused on the importance of Christ-centered families. The children's choir blessed us with their beautiful voices.
 
 ### Saturday Afternoon: Activities Galore
 - **Kids Zone:** Face painting, games, and storytelling

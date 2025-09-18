@@ -30,6 +30,8 @@
   "description": "",
   "dependencies": {
     "@socket.io/component-emitter": "^3.1.2",
+    "@stripe/stripe-js": "^7.9.0",
+    "@supabase/supabase-js": "^2.57.4",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.1.12",
@@ -37,6 +39,7 @@
     "@types/node": "^24.3.0",
     "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.8",
+    "@types/uuid": "^10.0.0",
     "autoprefixer": "^10.4.21",
     "clsx": "^2.1.1",
     "eslint": "^9.34.0",
@@ -50,12 +53,15 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-player": "^3.3.2",
+    "resend": "^6.1.0",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
     "socket.io-stream": "^0.9.1",
+    "stripe": "^18.5.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.9.2",
-    "uuid": "^13.0.0"
+    "uuid": "^13.0.0",
+    "zod": "^4.1.9"
   }
 }
