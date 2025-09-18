@@ -5,7 +5,7 @@ import { ArrowLeft, Clock, Music, Heart, Users, Calendar, MapPin } from 'lucide-
 export const metadata: Metadata = {
   title: 'Worship Services | Foursquare Gospel Church Ajebo',
   description: 'Join us for uplifting worship services every Sunday and throughout the week. Experience powerful praise, biblical teaching, and fellowship.',
-  keywords: ['worship', 'services', 'sunday service', 'praise', 'music', 'foursquare ajebo'],
+  keywords: ['worship', 'services', 'sunday service', 'praise', 'music', 'Foursquare Camp Ajebo'],
 };
 
 export default function WorshipPage() {

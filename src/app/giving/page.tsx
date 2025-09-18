@@ -199,7 +199,7 @@ export default function GivingPage() {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              About Giving at Foursquare Ajebo
+              About Giving at Foursquare Camp Ajebo
             </h2>
           </div>
 

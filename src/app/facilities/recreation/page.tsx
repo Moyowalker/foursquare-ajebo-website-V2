@@ -5,7 +5,7 @@ import { ArrowLeft, TreePine, Waves, Zap, Users, Calendar, Clock, Star, MapPin, 
 export const metadata: Metadata = {
   title: 'Recreation Facilities | Foursquare Gospel Church Ajebo',
   description: 'Enjoy our recreational facilities including gardens, sports courts, playground, and retreat spaces for relaxation and fellowship.',
-  keywords: ['recreation', 'sports', 'playground', 'gardens', 'fellowship', 'retreat', 'foursquare ajebo'],
+  keywords: ['recreation', 'sports', 'playground', 'gardens', 'fellowship', 'retreat', 'Foursquare Camp Ajebo'],
 };
 
 export default function RecreationPage() {

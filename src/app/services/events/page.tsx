@@ -5,7 +5,7 @@ import { ArrowLeft, Calendar, Clock, MapPin, Users, Star, Gift } from 'lucide-re
 export const metadata: Metadata = {
   title: 'Events | Foursquare Gospel Church Ajebo',
   description: 'Join us for exciting church events, conferences, revivals, and community gatherings throughout the year.',
-  keywords: ['events', 'conferences', 'revivals', 'church activities', 'community', 'foursquare ajebo'],
+  keywords: ['events', 'conferences', 'revivals', 'church activities', 'community', 'Foursquare Camp Ajebo'],
 };
 
 export default function EventsPage() {

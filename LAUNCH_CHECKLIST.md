@@ -1,4 +1,4 @@
-# 🚀 Foursquare Ajebo Website - Launch Checklist
+# 🚀 Foursquare Camp Ajebo Website - Launch Checklist
 
 ## ✅ Completed Optimizations
 

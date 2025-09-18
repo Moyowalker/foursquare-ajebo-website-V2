@@ -121,7 +121,7 @@ export const StreamingDashboard: React.FC<StreamingDashboardProps> = ({
           <div className="flex items-center justify-between mb-4">
             <div>
               <h1 className="text-3xl font-bold text-white mb-2">Live Streaming Dashboard</h1>
-              <p className="text-gray-300">Sunday Morning Service - Foursquare Ajebo</p>
+              <p className="text-gray-300">Sunday Morning Service - Foursquare Camp Ajebo</p>
             </div>
             
             <div className="flex items-center gap-4">

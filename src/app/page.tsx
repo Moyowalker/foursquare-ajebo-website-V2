@@ -18,7 +18,7 @@ export default function HomePage() {
             {/* Main Heading */}
             <div className="space-y-4">
               <h1 className="text-6xl md:text-8xl font-bold gradient-text">
-                Foursquare Ajebo
+                Foursquare Camp Ajebo
               </h1>
               <div className="w-32 h-1 gradient-primary mx-auto rounded-full"></div>
             </div>
@@ -117,7 +117,7 @@ export default function HomePage() {
               Welcome to Our Community
             </h2>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              At Foursquare Ajebo, we are dedicated to creating a welcoming space where 
+              At Foursquare Camp Ajebo, we are dedicated to creating a welcoming space where 
               faith grows, community thrives, and lives are transformed through God's love.
             </p>
             

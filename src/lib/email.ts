@@ -6,7 +6,7 @@ export const resend = process.env.RESEND_API_KEY
   : null;
 
 export const EMAIL_CONFIG = {
-  from: 'Foursquare Ajebo <noreply@foursquareajebo.org>',
+  from: 'Foursquare Camp Ajebo <noreply@foursquareajebo.org>',
   churchEmail: process.env.CHURCH_EMAIL || 'info@foursquareajebo.org',
   templates: {
     contactForm: {
@@ -20,11 +20,11 @@ export const EMAIL_CONFIG = {
         <p><strong>Message:</strong></p>
         <p>${data.message.replace(/\n/g, '<br>')}</p>
         <hr>
-        <p><em>Sent from Foursquare Ajebo Website Contact Form</em></p>
+        <p><em>Sent from Foursquare Camp Ajebo Website Contact Form</em></p>
       `,
     },
     donationConfirmation: {
-      subject: 'Thank you for your donation - Foursquare Ajebo',
+      subject: 'Thank you for your donation - Foursquare Camp Ajebo',
       template: (data: { name: string; amount: number; donationType: string; transactionId: string }) => `
         <h2>Thank You for Your Generous Donation!</h2>
         <p>Dear ${data.name},</p>

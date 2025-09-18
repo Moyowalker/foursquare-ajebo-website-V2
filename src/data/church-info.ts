@@ -1,8 +1,8 @@
-// Church Configuration - Real data for Foursquare Ajebo
+// Church Configuration - Real data for Foursquare Camp Ajebo
 export const churchInfo = {
   // Basic Information
-  name: 'Foursquare Gospel Church Ajebo',
-  shortName: 'Foursquare Ajebo',
+  name: 'Foursquare Camp Ajebo',
+  shortName: 'Foursquare Camp Ajebo',
   tagline: 'A peaceful spiritual retreat center',
   
   // Contact Information
@@ -19,11 +19,11 @@ export const churchInfo = {
       media: 'media@foursquareajebo.org'
     },
     address: {
-      street: 'Foursquare Gospel Church Ajebo',
+      street: 'Foursquare Camp Ajebo',
       area: 'Ajebo Community',
       state: 'Ogun State',
       country: 'Nigeria',
-      fullAddress: 'Foursquare Gospel Church Ajebo, Ajebo Community, Ogun State, Nigeria'
+      fullAddress: 'Foursquare Camp Ajebo, Ajebo Community, Ogun State, Nigeria'
     },
     social: {
       facebook: 'https://facebook.com/FoursquareAjebo',
@@ -64,7 +64,7 @@ export const churchInfo = {
       title: 'Senior Pastor',
       email: 'pastor.emmanuel@foursquareajebo.org',
       phone: '+234-803-123-4567',
-      bio: 'Pastor Emmanuel has been leading Foursquare Ajebo for over 15 years with unwavering dedication to God\'s word and community service.'
+      bio: 'Pastor Emmanuel has been leading Foursquare Camp Ajebo for over 15 years with unwavering dedication to God\'s word and community service.'
     },
     associatePastor: {
       name: 'Pastor (Mrs.) Grace Adebayo',

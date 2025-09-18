@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Legal Information | Foursquare Gospel Church Ajebo',
   description: 'Access legal documents, policies, and important information for Foursquare Gospel Church Ajebo.',
-  keywords: ['legal information', 'church policies', 'terms', 'privacy', 'foursquare ajebo'],
+  keywords: ['legal information', 'church policies', 'terms', 'privacy', 'Foursquare Camp Ajebo'],
 };
 
 export default function LegalPage() {

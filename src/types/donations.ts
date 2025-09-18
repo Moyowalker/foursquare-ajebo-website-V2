@@ -1,4 +1,4 @@
-// Donation System Types for Foursquare Ajebo Church
+// Donation System Types for Foursquare Camp Ajebo Church
 export interface DonationCategory {
   id: string;
   name: string;

@@ -5,7 +5,7 @@ import { ArrowLeft, Users, Heart, Music, Baby, Briefcase, Globe, Award, Star } f
 export const metadata: Metadata = {
   title: 'Ministry Team | Foursquare Gospel Church Ajebo',
   description: 'Meet our dedicated ministry team leaders and coordinators serving in various departments and programs.',
-  keywords: ['ministry team', 'leaders', 'coordinators', 'departments', 'volunteers', 'foursquare ajebo'],
+  keywords: ['ministry team', 'leaders', 'coordinators', 'departments', 'volunteers', 'Foursquare Camp Ajebo'],
 };
 
 export default function MinistryTeamPage() {

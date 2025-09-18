@@ -5,7 +5,7 @@ import { ArrowLeft, Calendar, MapPin, Users, Building, Award, Zap } from 'lucide
 export const metadata: Metadata = {
   title: 'Our Journey | Foursquare Gospel Church Ajebo',
   description: 'Discover the inspiring story of our church journey from humble beginnings to a thriving community impacting lives across Nigeria.',
-  keywords: ['history', 'journey', 'story', 'growth', 'milestones', 'foursquare ajebo'],
+  keywords: ['history', 'journey', 'story', 'growth', 'milestones', 'Foursquare Camp Ajebo'],
 };
 
 export default function JourneyPage() {

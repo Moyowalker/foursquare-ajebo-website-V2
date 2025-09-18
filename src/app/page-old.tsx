@@ -193,7 +193,7 @@ export default function HomePage() {
             <div className="card-glow p-12 animate-fade-in">
               <div className="text-6xl mb-8 animate-pulse-soft">✨</div>
               <blockquote className="text-2xl lg:text-3xl font-light text-gray-700 mb-8 leading-relaxed">
-                "An absolutely transformative experience. The peace, beauty, and hospitality at Foursquare Ajebo 
+                "An absolutely transformative experience. The peace, beauty, and hospitality at Foursquare Camp Ajebo 
                 exceeded all our expectations. This is where miracles happen."
               </blockquote>
               <div className="flex items-center justify-center space-x-4">
@@ -221,7 +221,7 @@ export default function HomePage() {
                 ✝️ Transforming Lives Through God's Love
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                At Foursquare Ajebo, we are dedicated to building a community where faith flourishes. Our mission is to 
+                At Foursquare Camp Ajebo, we are dedicated to building a community where faith flourishes. Our mission is to 
                 <span className="bg-gradient-to-r from-foursquare-blue-600 to-foursquare-purple-600 bg-clip-text text-transparent font-semibold"> spread the Gospel</span> and 
                 nurture spiritual growth through fellowship, worship, and service.
               </p>

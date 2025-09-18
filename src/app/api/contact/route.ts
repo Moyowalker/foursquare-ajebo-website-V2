@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
       await resend.emails.send({
         from: EMAIL_CONFIG.from,
         to: [validatedData.email],
-        subject: 'Thank you for contacting Foursquare Ajebo',
+        subject: 'Thank you for contacting Foursquare Camp Ajebo',
         html: `
           <h2>Thank you for reaching out!</h2>
           <p>Dear ${validatedData.name},</p>

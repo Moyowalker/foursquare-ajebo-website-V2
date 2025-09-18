@@ -5,7 +5,7 @@ import { ArrowLeft, Bed, Wifi, Car, Coffee, Shield, Users, Phone, MapPin } from 
 export const metadata: Metadata = {
   title: 'Accommodation | Foursquare Gospel Church Ajebo',
   description: 'Comfortable and affordable accommodation facilities for church guests, visitors, and event attendees.',
-  keywords: ['accommodation', 'guest house', 'lodging', 'visitors', 'church facilities', 'foursquare ajebo'],
+  keywords: ['accommodation', 'guest house', 'lodging', 'visitors', 'church facilities', 'Foursquare Camp Ajebo'],
 };
 
 export default function AccommodationPage() {

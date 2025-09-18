@@ -5,7 +5,7 @@ import { ArrowLeft, Users, Mic, Monitor, Coffee, Car, Wifi, Star, Calendar, Phon
 export const metadata: Metadata = {
   title: 'Conference Halls | Foursquare Gospel Church Ajebo',
   description: 'Modern conference halls and meeting spaces available for events, seminars, workshops, and corporate functions.',
-  keywords: ['conference halls', 'meeting rooms', 'events', 'seminars', 'corporate', 'foursquare ajebo'],
+  keywords: ['conference halls', 'meeting rooms', 'events', 'seminars', 'corporate', 'Foursquare Camp Ajebo'],
 };
 
 export default function ConferenceHallsPage() {

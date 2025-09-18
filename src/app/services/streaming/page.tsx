@@ -5,7 +5,7 @@ import { ArrowLeft, Play, Monitor, Smartphone, Wifi, Clock, Calendar, Users } fr
 export const metadata: Metadata = {
   title: 'Live Streaming | Foursquare Gospel Church Ajebo',
   description: 'Join our live worship services online from anywhere in the world. Stream on any device and be part of our global church family.',
-  keywords: ['live streaming', 'online church', 'watch live', 'virtual service', 'foursquare ajebo'],
+  keywords: ['live streaming', 'online church', 'watch live', 'virtual service', 'Foursquare Camp Ajebo'],
 };
 
 export default function StreamingPage() {

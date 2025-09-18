@@ -1,6 +1,6 @@
 // Site Configuration
 export const siteConfig = {
-  name: 'Foursquare Ajebo',
+  name: 'Foursquare Camp Ajebo',
   description: 'A faith-based church camp and retreat center providing spiritual and recreational facilities for conventions, retreats, and community programs.',
   url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
   ogImage: '/images/og-image.jpg',
@@ -77,8 +77,8 @@ export const seoDefaults = {
     'faith-based',
     'nigeria church',
   ].join(', '),
-  authors: [{ name: 'Foursquare Ajebo' }],
-  creator: 'Foursquare Ajebo',
+  authors: [{ name: 'Foursquare Camp Ajebo' }],
+  creator: 'Foursquare Camp Ajebo',
   openGraph: {
     type: 'website',
     locale: 'en_US',

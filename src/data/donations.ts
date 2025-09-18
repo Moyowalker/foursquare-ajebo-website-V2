@@ -1,6 +1,6 @@
 import { DonationCategory, DonationRecord, DonationStats, GivingGoal } from '@/types/donations';
 
-// Donation Categories for Foursquare Ajebo Church
+// Donation Categories for Foursquare Camp Ajebo Church
 export const donationCategories: DonationCategory[] = [
   {
     id: 'tithes',

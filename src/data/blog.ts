@@ -6,7 +6,7 @@ export const authors: Author[] = [
     id: 'pastor-emmanuel',
     name: 'Pastor Emmanuel Adebayo',
     title: 'Senior Pastor',
-    bio: 'Pastor Emmanuel has been leading Foursquare Ajebo for over 15 years, passionate about youth ministry and community outreach.',
+    bio: 'Pastor Emmanuel has been leading Foursquare Camp Ajebo for over 15 years, passionate about youth ministry and community outreach.',
     avatar: '/images/authors/pastor-emmanuel.jpg',
     email: 'pastor.emmanuel@foursquareajebo.org',
     socialMedia: {
@@ -19,7 +19,7 @@ export const authors: Author[] = [
     id: 'pastor-grace',
     name: 'Pastor (Mrs.) Grace Adebayo',
     title: 'Associate Pastor - Women Ministry',
-    bio: 'Pastor Grace leads our vibrant women ministry and coordinates children programs at Foursquare Ajebo.',
+    bio: 'Pastor Grace leads our vibrant women ministry and coordinates children programs at Foursquare Camp Ajebo.',
     avatar: '/images/authors/pastor-grace.jpg',
     email: 'pastor.grace@foursquareajebo.org',
     socialMedia: {
@@ -122,7 +122,7 @@ For questions, contact Pastor Grace at pastor.grace@foursquareajebo.org or call 
     likes: 89,
     comments: [],
     seo: {
-      metaTitle: 'Summer Youth Camp 2025 Registration Open | Foursquare Ajebo',
+      metaTitle: 'Summer Youth Camp 2025 Registration Open | Foursquare Camp Ajebo',
       metaDescription: 'Join us for Summer Youth Camp 2025: Fire & Faith. Register now for an unforgettable week of spiritual growth and adventure. Early bird pricing until March 31st.',
       keywords: ['summer camp', 'youth camp', 'foursquare', 'nigeria', 'christian camp', 'registration'],
       ogImage: '/images/blog/summer-camp-2025-og.jpg',
@@ -191,7 +191,7 @@ If you're reading this and facing your own mountain, I want to pray for you:
     likes: 156,
     comments: [],
     seo: {
-      metaTitle: 'Powerful Healing Testimony | Foursquare Ajebo',
+      metaTitle: 'Powerful Healing Testimony | Foursquare Camp Ajebo',
       metaDescription: 'Read Sister Mary\'s inspiring testimony of divine healing during our prayer and fasting week. God still performs miracles today.',
       keywords: ['healing testimony', 'miracle', 'divine healing', 'foursquare', 'faith'],
       ogImage: '/images/blog/healing-testimony-og.jpg',
@@ -287,9 +287,9 @@ Mark your calendars for **Family Retreat 2026** scheduled for **February 14-16, 
     likes: 92,
     comments: [],
     seo: {
-      metaTitle: 'Family Retreat 2025 Recap | Foursquare Ajebo',
+      metaTitle: 'Family Retreat 2025 Recap | Foursquare Camp Ajebo',
       metaDescription: 'Read about our amazing Family Retreat 2025 where over 150 families came together for worship, learning, and fun activities.',
-      keywords: ['family retreat', 'families', 'children', 'foursquare ajebo', 'retreat recap'],
+      keywords: ['family retreat', 'families', 'children', 'Foursquare Camp Ajebo', 'retreat recap'],
       ogImage: '/images/blog/family-retreat-2025-og.jpg',
       ogTitle: 'Family Retreat 2025: Building Stronger Bonds in Christ',
       ogDescription: 'Over 150 families gathered for an amazing weekend of worship, learning, and fun activities.'
@@ -431,9 +431,9 @@ Don't wait - there are people in our community who need our help right now. Toge
     likes: 134,
     comments: [],
     seo: {
-      metaTitle: 'New Ministry Launch: Compassion Hands | Foursquare Ajebo',
+      metaTitle: 'New Ministry Launch: Compassion Hands | Foursquare Camp Ajebo',
       metaDescription: 'Join our new Compassion Hands ministry as we serve the less privileged in our community through practical acts of love and service.',
-      keywords: ['ministry launch', 'community outreach', 'compassion hands', 'volunteer', 'foursquare ajebo'],
+      keywords: ['ministry launch', 'community outreach', 'compassion hands', 'volunteer', 'Foursquare Camp Ajebo'],
       ogImage: '/images/blog/compassion-hands-og.jpg',
       ogTitle: 'Compassion Hands Ministry - Serving Our Community',
       ogDescription: 'Be the hands and feet of Jesus in our community. Join our newest ministry focused on practical service and outreach.'
@@ -451,7 +451,7 @@ Don't wait - there are people in our community who need our help right now. Toge
 
 ## A Call to Consecration
 
-We invite every member of the Foursquare Ajebo family to join us for our annual **21 Days of Prayer and Fasting** starting **March 1st, 2025**. This year's theme, "Breakthrough 2025," reflects our heart's desire to see God move powerfully in our individual lives, families, church, and nation.
+We invite every member of the Foursquare Camp Ajebo family to join us for our annual **21 Days of Prayer and Fasting** starting **March 1st, 2025**. This year's theme, "Breakthrough 2025," reflects our heart's desire to see God move powerfully in our individual lives, families, church, and nation.
 
 ## Why 21 Days?
 
@@ -661,9 +661,9 @@ This is our time for breakthrough! God is ready to do immeasurably more than we 
     likes: 187,
     comments: [],
     seo: {
-      metaTitle: '21 Days of Prayer and Fasting 2025 | Foursquare Ajebo',
+      metaTitle: '21 Days of Prayer and Fasting 2025 | Foursquare Camp Ajebo',
       metaDescription: 'Join our annual 21 Days of Prayer and Fasting starting March 1st. Experience breakthrough in your personal life, family, and church.',
-      keywords: ['21 days prayer', 'fasting', 'breakthrough 2025', 'prayer and fasting', 'foursquare ajebo'],
+      keywords: ['21 days prayer', 'fasting', 'breakthrough 2025', 'prayer and fasting', 'Foursquare Camp Ajebo'],
       ogImage: '/images/blog/21-days-prayer-og.jpg',
       ogTitle: '21 Days of Prayer and Fasting: Breakthrough 2025',
       ogDescription: 'Experience divine breakthrough through 21 days of consecrated prayer and fasting. Join our church family starting March 1st.'

@@ -270,7 +270,7 @@ export default function FacilitiesPage() {
                 Experience Our Facilities
               </GradientText>
               <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                Explore our beautiful facilities and see why Foursquare Ajebo is the perfect venue 
+                Explore our beautiful facilities and see why Foursquare Camp Ajebo is the perfect venue 
                 for your next retreat, conference, or special event.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

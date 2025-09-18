@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Privacy Policy | Foursquare Gospel Church Ajebo',
   description: 'Learn how Foursquare Gospel Church Ajebo protects your privacy and handles your personal information.',
-  keywords: ['privacy policy', 'data protection', 'church privacy', 'foursquare ajebo'],
+  keywords: ['privacy policy', 'data protection', 'church privacy', 'Foursquare Camp Ajebo'],
 };
 
 export default function PrivacyPage() {

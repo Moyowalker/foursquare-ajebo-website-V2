@@ -548,7 +548,7 @@ export default function WorshipPlatform() {
       <footer className="px-4 py-8 border-t border-white/10">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-slate-400">
-            Powered by Foursquare Ajebo Church • Worship Platform v2.0
+            Powered by Foursquare Camp Ajebo Church • Worship Platform v2.0
           </p>
         </div>
       </footer>

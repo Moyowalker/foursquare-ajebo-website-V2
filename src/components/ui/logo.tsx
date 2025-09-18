@@ -38,8 +38,8 @@ export const FoursquareLogo: React.FC<LogoProps> = ({
       {/* Church Logo */}
       <div className={`relative ${sizeClasses[size]} flex-shrink-0`}>
         <Image
-          src="/images/church-logo.svg"
-          alt="Foursquare Gospel Church Ajebo Logo"
+          src="/images/church-logo.jpg"
+          alt="Foursquare Camp Ajebo Logo"
           width={sizePx[size]}
           height={sizePx[size]}
           className="w-full h-full object-contain"
@@ -51,7 +51,7 @@ export const FoursquareLogo: React.FC<LogoProps> = ({
       {showText && (
         <div className="flex flex-col">
           <span className={`font-bold text-white ${textSizes[size]} leading-tight`}>
-            Foursquare
+            Foursquare Camp
           </span>
           <span className={`font-semibold text-slate-300 ${size === 'sm' ? 'text-xs' : size === 'md' ? 'text-sm' : size === 'lg' ? 'text-base' : 'text-lg'} leading-tight`}>
             Ajebo

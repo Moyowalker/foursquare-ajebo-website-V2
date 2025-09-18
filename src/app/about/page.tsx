@@ -96,7 +96,7 @@ export default function AboutPage() {
           
           <ScrollReveal delay={200}>
             <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
-              For over two decades, Foursquare Ajebo has been a beacon of hope, 
+              For over two decades, Foursquare Camp Ajebo has been a beacon of hope, 
               transformation, and spiritual growth for thousands of young people across Nigeria.
             </p>
             <p className="text-lg text-slate-400 max-w-3xl mx-auto">
@@ -115,7 +115,7 @@ export default function AboutPage() {
                 Learn About Us
               </GradientText>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                Dive deeper into what makes Foursquare Ajebo special
+                Dive deeper into what makes Foursquare Camp Ajebo special
               </p>
             </div>
           </ScrollReveal>
@@ -195,7 +195,7 @@ export default function AboutPage() {
               </GradientText>
               <p className="text-xl text-slate-300 mb-8 leading-relaxed">
                 Join thousands of young people who have discovered their purpose and 
-                deepened their faith at Foursquare Ajebo.
+                deepened their faith at Foursquare Camp Ajebo.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <SpectacularButton 

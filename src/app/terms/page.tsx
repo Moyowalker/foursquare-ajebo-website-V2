@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Terms of Service | Foursquare Gospel Church Ajebo',
   description: 'Read the terms and conditions for using Foursquare Gospel Church Ajebo website and services.',
-  keywords: ['terms of service', 'terms and conditions', 'church terms', 'foursquare ajebo'],
+  keywords: ['terms of service', 'terms and conditions', 'church terms', 'Foursquare Camp Ajebo'],
 };
 
 export default function TermsPage() {

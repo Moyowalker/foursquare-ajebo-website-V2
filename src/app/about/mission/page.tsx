@@ -5,7 +5,7 @@ import { ArrowLeft, Heart, Users, Globe } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Our Mission | Foursquare Gospel Church Ajebo',
   description: 'Empowering spiritual growth and community through worship, prayer, and fellowship at Foursquare Gospel Church Ajebo.',
-  keywords: ['mission', 'purpose', 'spiritual growth', 'community', 'foursquare ajebo'],
+  keywords: ['mission', 'purpose', 'spiritual growth', 'community', 'Foursquare Camp Ajebo'],
 };
 
 export default function MissionPage() {

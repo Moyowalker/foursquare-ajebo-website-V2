@@ -29,7 +29,7 @@ export default function StreamingPage() {
             </h1>
             
             <p className="text-xl text-slate-300 leading-relaxed mb-8">
-              Join us for our Sunday worship service streaming live from Foursquare Ajebo Church. 
+              Join us for our Sunday worship service streaming live from Foursquare Camp Ajebo Church. 
               Experience powerful worship, inspiring sermons, and connect with our community online.
             </p>
           </div>
@@ -114,7 +114,7 @@ export default function StreamingPage() {
                 <p className="text-slate-300 mb-2">Sunday Worship</p>
                 <p className="text-slate-400 text-sm mb-4">10:00 AM - 12:00 PM WAT</p>
                 <div className="text-sm text-slate-400">
-                  <p>Location: Foursquare Ajebo</p>
+                  <p>Location: Foursquare Camp Ajebo</p>
                   <p>Ogun State, Nigeria</p>
                 </div>
               </GlassCard>

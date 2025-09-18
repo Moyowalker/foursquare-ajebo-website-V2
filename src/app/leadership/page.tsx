@@ -115,7 +115,7 @@ export default function LeadershipPage() {
           
           <ScrollReveal delay={200}>
             <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
-              Meet the passionate leaders who guide Foursquare Ajebo with wisdom, 
+              Meet the passionate leaders who guide Foursquare Camp Ajebo with wisdom, 
               vision, and unwavering commitment to youth ministry.
             </p>
             <p className="text-lg text-slate-400 max-w-3xl mx-auto">

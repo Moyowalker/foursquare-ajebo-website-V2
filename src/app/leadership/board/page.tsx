@@ -7,7 +7,7 @@ import Image from 'next/image';
 export const metadata: Metadata = {
   title: 'Board of Trustees | Foursquare Gospel Church Ajebo',
   description: 'Meet our dedicated board of trustees providing spiritual guidance, strategic direction, and administrative oversight.',
-  keywords: ['board', 'trustees', 'leadership', 'pastors', 'elders', 'deacons', 'foursquare ajebo'],
+  keywords: ['board', 'trustees', 'leadership', 'pastors', 'elders', 'deacons', 'Foursquare Camp Ajebo'],
 };
 
 export default function BoardPage() {

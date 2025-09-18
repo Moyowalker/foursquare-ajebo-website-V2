@@ -170,14 +170,14 @@ export default function GalleryPage() {
     {
       name: "Sarah Johnson",
       role: "Youth Leader",
-      text: "The facilities at Foursquare Ajebo are absolutely amazing! The spiritual atmosphere combined with modern amenities creates the perfect environment for transformation.",
+      text: "The facilities at Foursquare Camp Ajebo are absolutely amazing! The spiritual atmosphere combined with modern amenities creates the perfect environment for transformation.",
       image: "👩‍💼",
       rating: 5
     },
     {
       name: "Pastor David Okon",
       role: "Conference Speaker",
-      text: "I've spoken at many venues, but Foursquare Ajebo stands out. The technical setup, acoustics, and hospitality are world-class.",
+      text: "I've spoken at many venues, but Foursquare Camp Ajebo stands out. The technical setup, acoustics, and hospitality are world-class.",
       image: "👨‍💼",
       rating: 5
     },
@@ -234,7 +234,7 @@ export default function GalleryPage() {
           
           <ScrollReveal delay={200}>
             <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              Explore the beauty of Foursquare Ajebo through captivating images of our 
+              Explore the beauty of Foursquare Camp Ajebo through captivating images of our 
               facilities, events, and the transformative moments we create together.
             </p>
           </ScrollReveal>
@@ -340,7 +340,7 @@ export default function GalleryPage() {
                 </h3>
                 <p className="text-slate-300 mb-6 leading-relaxed">
                   Watch heartfelt testimonials from past participants sharing their 
-                  transformative experiences at Foursquare Ajebo.
+                  transformative experiences at Foursquare Camp Ajebo.
                 </p>
                 <SpectacularButton variant="outline" className="px-8 py-3">
                   Watch Videos ▶️

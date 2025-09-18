@@ -1,4 +1,4 @@
-// User Authentication and Member Portal Types for Foursquare Ajebo Church
+// User Authentication and Member Portal Types for Foursquare Camp Ajebo Church
 
 export interface User {
   id: string;

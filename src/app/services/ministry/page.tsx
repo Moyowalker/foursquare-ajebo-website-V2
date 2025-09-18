@@ -5,7 +5,7 @@ import { ArrowLeft, Baby, Book, Briefcase, Globe, Heart, Mic, Users } from 'luci
 export const metadata: Metadata = {
   title: 'Ministry | Foursquare Gospel Church Ajebo',
   description: 'Discover our various ministries serving different age groups and interests. Find your place to serve and grow in our church community.',
-  keywords: ['ministry', 'youth', 'children', 'women', 'men', 'outreach', 'foursquare ajebo'],
+  keywords: ['ministry', 'youth', 'children', 'women', 'men', 'outreach', 'Foursquare Camp Ajebo'],
 };
 
 export default function MinistryPage() {

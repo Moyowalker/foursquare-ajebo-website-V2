@@ -1,6 +1,6 @@
-# 🚀 Deployment Guide - Foursquare Ajebo Church Website
+# 🚀 Deployment Guide - Foursquare Camp Ajebo Church Website
 
-This guide covers deploying the Foursquare Ajebo Church website to Netlify with automated CI/CD pipelines.
+This guide covers deploying the Foursquare Camp Ajebo Church website to Netlify with automated CI/CD pipelines.
 
 ## 📋 Prerequisites
 

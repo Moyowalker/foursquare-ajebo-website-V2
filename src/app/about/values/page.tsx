@@ -5,7 +5,7 @@ import { ArrowLeft, Book, Heart, Lightbulb, Shield, Users } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Our Values | Foursquare Gospel Church Ajebo',
   description: 'Discover the core values that guide our church community: integrity, love, unity, biblical foundation, innovation, and service.',
-  keywords: ['values', 'principles', 'integrity', 'love', 'unity', 'foursquare ajebo'],
+  keywords: ['values', 'principles', 'integrity', 'love', 'unity', 'Foursquare Camp Ajebo'],
 };
 
 export default function ValuesPage() {
