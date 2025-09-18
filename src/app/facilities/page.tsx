@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { ScrollReveal, Parallax, FloatingElement } from '@/components/ui/animations';
 import { SpectacularButton, SpectacularCard, GradientText, PulsingOrb, GlassCard } from '@/components/ui/spectacular';
 
 export default function FacilitiesPage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [activeTab, setActiveTab] = useState('accommodation');
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,150 +27,34 @@ export default function FacilitiesPage() {
     }
   }, []);
 
-  const facilities = {
-    accommodation: [
-      {
-        name: "Executive Suites",
-        capacity: "2-4 guests",
-        features: ["Air conditioning", "Private bathroom", "Wi-Fi", "Flat screen TV", "Mini fridge"],
-        icon: "🏨",
-        color: "from-purple-400 to-pink-600",
-        description: "Luxurious suites perfect for leaders and VIP guests"
-      },
-      {
-        name: "Standard Dormitories",
-        capacity: "8-12 guests",
-        features: ["Bunk beds", "Shared bathrooms", "Ceiling fans", "Storage lockers", "Reading lights"],
-        icon: "🏠",
-        color: "from-blue-400 to-cyan-600",
-        description: "Comfortable shared accommodation for campers"
-      },
-      {
-        name: "Family Chalets",
-        capacity: "4-6 guests",
-        features: ["Private bathroom", "Living area", "Kitchenette", "Balcony", "Garden view"],
-        icon: "🏡",
-        color: "from-green-400 to-teal-600",
-        description: "Perfect for families attending camp together"
-      },
-      {
-        name: "Youth Hostels",
-        capacity: "16-20 guests",
-        features: ["Large dormitory", "Common area", "Study space", "Recreation corner", "24/7 security"],
-        icon: "🏢",
-        color: "from-orange-400 to-red-600",
-        description: "Budget-friendly option for large youth groups"
-      }
-    ],
-    conference: [
-      {
-        name: "Main Auditorium",
-        capacity: "1,000 seats",
-        features: ["Professional sound system", "LED screens", "Stage lighting", "AC", "Live streaming setup"],
-        icon: "🎭",
-        color: "from-purple-400 to-indigo-600",
-        description: "State-of-the-art venue for main sessions and conferences"
-      },
-      {
-        name: "Chapel",
-        capacity: "300 seats",
-        features: ["Intimate setting", "Prayer altar", "Piano", "Natural lighting", "Peaceful ambiance"],
-        icon: "⛪",
-        color: "from-blue-400 to-purple-600",
-        description: "Sacred space for worship and meditation"
-      },
-      {
-        name: "Conference Rooms",
-        capacity: "50-100 guests",
-        features: ["Projectors", "Whiteboards", "AC", "Flexible seating", "Breakout spaces"],
-        icon: "🏛️",
-        color: "from-green-400 to-blue-600",
-        description: "Perfect for workshops and small group sessions"
-      },
-      {
-        name: "Outdoor Amphitheater",
-        capacity: "500 guests",
-        features: ["Natural setting", "Covered stage", "Hillside seating", "Scenic backdrop", "Evening events"],
-        icon: "🌳",
-        color: "from-yellow-400 to-green-600",
-        description: "Beautiful outdoor venue under the stars"
-      }
-    ],
-    recreation: [
-      {
-        name: "Sports Complex",
-        capacity: "Multiple fields",
-        features: ["Football field", "Basketball court", "Volleyball court", "Tennis court", "Equipment provided"],
-        icon: "⚽",
-        color: "from-orange-400 to-red-600",
-        description: "Complete sports facilities for active recreation"
-      },
-      {
-        name: "Swimming Pool",
-        capacity: "50 swimmers",
-        features: ["Olympic size", "Lifeguard on duty", "Pool deck", "Changing rooms", "Safety equipment"],
-        icon: "🏊",
-        color: "from-cyan-400 to-blue-600",
-        description: "Refreshing pool for recreation and water activities"
-      },
-      {
-        name: "Game Center",
-        capacity: "Indoor activities",
-        features: ["Board games", "Video games", "Pool table", "Table tennis", "Chess sets"],
-        icon: "🎮",
-        color: "from-purple-400 to-pink-600",
-        description: "Indoor entertainment for all ages"
-      },
-      {
-        name: "Nature Trails",
-        capacity: "Unlimited",
-        features: ["Hiking paths", "Bird watching", "Photography spots", "Meditation areas", "Guided tours"],
-        icon: "🥾",
-        color: "from-green-400 to-emerald-600",
-        description: "Explore the beautiful natural surroundings"
-      }
-    ],
-    dining: [
-      {
-        name: "Main Dining Hall",
-        capacity: "800 guests",
-        features: ["Buffet service", "Local & international cuisine", "Dietary accommodations", "AC", "Scenic views"],
-        icon: "🍽️",
-        color: "from-yellow-400 to-orange-600",
-        description: "Spacious dining facility serving delicious meals"
-      },
-      {
-        name: "Café & Snack Bar",
-        capacity: "100 guests",
-        features: ["Light meals", "Beverages", "Snacks", "Wi-Fi", "Casual atmosphere"],
-        icon: "☕",
-        color: "from-brown-400 to-orange-600",
-        description: "Perfect spot for coffee breaks and casual meals"
-      },
-      {
-        name: "Outdoor Barbecue Area",
-        capacity: "200 guests",
-        features: ["Grilling stations", "Picnic tables", "Garden setting", "Group cooking", "Evening gatherings"],
-        icon: "🔥",
-        color: "from-red-400 to-pink-600",
-        description: "Enjoy outdoor cooking and dining experiences"
-      },
-      {
-        name: "Private Dining Rooms",
-        capacity: "20-50 guests",
-        features: ["Intimate setting", "Custom menus", "Service staff", "Special occasions", "Group bookings"],
-        icon: "🥂",
-        color: "from-purple-400 to-indigo-600",
-        description: "Exclusive dining for special events and VIP groups"
-      }
-    ]
-  };
-
-  const tabs = [
-    { id: 'accommodation', label: 'Accommodation', icon: '🏨' },
-    { id: 'conference', label: 'Conference', icon: '🎭' },
-    { id: 'recreation', label: 'Recreation', icon: '⚽' },
-    { id: 'dining', label: 'Dining', icon: '🍽️' }
+  const facilitySections = [
+    {
+      title: "Accommodation",
+      description: "Comfortable lodging options for all group sizes and budgets",
+      icon: "🏨",
+      href: "/facilities/accommodation",
+      color: "from-blue-400 to-purple-600",
+      preview: "From executive suites to family chalets and youth hostels, we provide comfortable accommodation for every need...",
+      highlights: ["Executive Suites", "Family Chalets", "Youth Hostels", "Standard Dormitories"]
+    },
+    {
+      title: "Conference Halls",
+      description: "State-of-the-art venues for conferences, workshops, and events",
+      icon: "🎭",
+      href: "/facilities/conference-halls",
+      color: "from-purple-400 to-pink-600",
+      preview: "Professional conference facilities with modern audiovisual equipment and flexible seating arrangements...",
+      highlights: ["Main Auditorium", "Chapel", "Conference Rooms", "Outdoor Amphitheater"]
+    },
+    {
+      title: "Recreation Facilities",
+      description: "Sports, entertainment, and leisure facilities for all ages",
+      icon: "⚽",
+      href: "/facilities/recreation",
+      color: "from-green-400 to-teal-600",
+      preview: "Comprehensive recreational facilities including sports complex, swimming pool, and nature trails...",
+      highlights: ["Sports Complex", "Swimming Pool", "Game Center", "Nature Trails"]
+    }
   ];
 
   return (
@@ -206,73 +90,61 @@ export default function FacilitiesPage() {
           </ScrollReveal>
           
           <ScrollReveal delay={200}>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
               World-class facilities designed to create the perfect environment for 
               spiritual growth, learning, and fellowship.
+            </p>
+            <p className="text-lg text-slate-400 max-w-3xl mx-auto">
+              From comfortable accommodation to state-of-the-art conference facilities, 
+              we provide everything needed for an exceptional experience.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Facility Tabs */}
-      <section className="relative py-12 px-4">
+      {/* Facility Sections Overview */}
+      <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
-            <div className="flex flex-wrap justify-center gap-4 mb-16">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`px-6 py-3 rounded-2xl font-semibold transition-all duration-300 ${
-                    activeTab === tab.id
-                      ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25'
-                      : 'bg-white/10 text-slate-300 hover:bg-white/20'
-                  }`}
-                >
-                  <span className="mr-2">{tab.icon}</span>
-                  {tab.label}
-                </button>
-              ))}
+            <div className="text-center mb-16">
+              <GradientText className="text-4xl md:text-5xl font-bold mb-6">
+                Our Facility Categories
+              </GradientText>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Explore our comprehensive facilities designed for every aspect of your visit
+              </p>
             </div>
           </ScrollReveal>
-        </div>
-      </section>
 
-      {/* Facilities Grid */}
-      <section className="relative py-12 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            {facilities[activeTab as keyof typeof facilities].map((facility, index) => (
-              <ScrollReveal key={facility.name} delay={index * 100}>
+          <div className="grid md:grid-cols-3 gap-8">
+            {facilitySections.map((section, index) => (
+              <ScrollReveal key={section.title} delay={index * 100}>
                 <FloatingElement>
-                  <GlassCard className="p-8 h-full group hover:scale-105 transition-all duration-500">
-                    <div className="flex items-start gap-6">
-                      <div className="text-5xl">{facility.icon}</div>
-                      <div className="flex-1">
-                        <h3 className={`text-2xl font-bold mb-2 bg-gradient-to-r ${facility.color} bg-clip-text text-transparent`}>
-                          {facility.name}
+                  <Link href={section.href} className="block group">
+                    <GlassCard className="p-8 h-full group-hover:scale-105 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-purple-500/20">
+                      <div className="text-center">
+                        <div className="text-6xl mb-6">{section.icon}</div>
+                        <h3 className={`text-2xl font-bold mb-4 bg-gradient-to-r ${section.color} bg-clip-text text-transparent group-hover:from-white group-hover:to-white transition-all duration-300`}>
+                          {section.title}
                         </h3>
-                        <p className="text-purple-400 font-semibold mb-3">
-                          Capacity: {facility.capacity}
-                        </p>
-                        <p className="text-slate-300 mb-6 leading-relaxed">
-                          {facility.description}
-                        </p>
+                        <p className="text-slate-400 mb-6 font-medium">{section.description}</p>
+                        <p className="text-slate-300 text-sm leading-relaxed mb-6">{section.preview}</p>
                         
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-semibold text-yellow-400 mb-3">Features:</h4>
-                          <div className="grid grid-cols-1 gap-2">
-                            {facility.features.map((feature, i) => (
-                              <div key={i} className="flex items-center gap-2">
-                                <div className="w-2 h-2 bg-gradient-to-r from-green-400 to-teal-400 rounded-full"></div>
-                                <span className="text-sm text-slate-300">{feature}</span>
-                              </div>
-                            ))}
-                          </div>
+                        {/* Facility Highlights */}
+                        <div className="grid grid-cols-2 gap-2 mb-6">
+                          {section.highlights.map((highlight, i) => (
+                            <div key={i} className="text-xs text-slate-400 bg-slate-800/50 rounded-lg px-2 py-1 text-center">
+                              {highlight}
+                            </div>
+                          ))}
+                        </div>
+                        
+                        <div className="flex items-center justify-center text-sm font-semibold text-purple-400 group-hover:text-white transition-colors">
+                          Explore Facilities <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
                         </div>
                       </div>
-                    </div>
-                  </GlassCard>
+                    </GlassCard>
+                  </Link>
                 </FloatingElement>
               </ScrollReveal>
             ))}
@@ -280,12 +152,12 @@ export default function FacilitiesPage() {
         </div>
       </section>
 
-      {/* Amenities Overview */}
+      {/* Additional Amenities */}
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <GradientText className="text-4xl md:text-6xl font-bold mb-6">
+              <GradientText className="text-4xl md:text-5xl font-bold mb-6">
                 Additional Amenities
               </GradientText>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto">
@@ -395,11 +267,11 @@ export default function FacilitiesPage() {
             <GlassCard className="p-12">
               <div className="text-6xl mb-6">🎥</div>
               <GradientText className="text-4xl md:text-5xl font-bold mb-6">
-                Take a Virtual Tour
+                Experience Our Facilities
               </GradientText>
               <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                Explore our beautiful facilities from the comfort of your home. 
-                See why Foursquare Ajebo is the perfect venue for your next event.
+                Explore our beautiful facilities and see why Foursquare Ajebo is the perfect venue 
+                for your next retreat, conference, or special event.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <SpectacularButton 

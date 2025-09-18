@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { ScrollReveal, Parallax, FloatingElement } from '@/components/ui/animations';
 import { SpectacularButton, SpectacularCard, GradientText, PulsingOrb, GlassCard } from '@/components/ui/spectacular';
 
@@ -26,66 +27,38 @@ export default function AboutPage() {
     }
   }, []);
 
-  const leadership = [
+  const aboutSections = [
     {
-      name: "Pastor Samuel Adeyemi",
-      role: "Senior Pastor & Founder",
-      bio: "With over 20 years of ministry experience, Pastor Samuel has led Foursquare Ajebo with vision and passion for youth development.",
-      image: "👨‍💼",
-      achievements: ["Founded Ajebo Camp in 2003", "Led 50+ youth retreats", "Mentored 1000+ young people"]
-    },
-    {
-      name: "Pastor Mary Adeyemi",
-      role: "Co-Pastor & Youth Coordinator",
-      bio: "Pastor Mary oversees all youth programs and coordinates camp activities with exceptional care and attention to detail.",
-      image: "👩‍💼",
-      achievements: ["Youth Ministry Leader", "Camp Activities Coordinator", "Counseling Specialist"]
-    },
-    {
-      name: "Deacon John Okafor",
-      role: "Camp Director",
-      bio: "Deacon John manages daily operations and ensures every camper has a transformative experience at Ajebo.",
-      image: "👨‍🏫",
-      achievements: ["Operations Management", "Safety Coordinator", "Facilities Oversight"]
-    }
-  ];
-
-  const values = [
-    {
-      icon: "🙏",
-      title: "Faith",
-      description: "Centered on Christian values and spiritual growth",
-      color: "from-blue-400 to-purple-600"
-    },
-    {
-      icon: "🤝",
-      title: "Community",
-      description: "Building lasting friendships and connections",
-      color: "from-green-400 to-teal-600"
-    },
-    {
-      icon: "🌟",
-      title: "Excellence",
-      description: "Pursuing the highest standards in all we do",
-      color: "from-yellow-400 to-orange-600"
-    },
-    {
-      icon: "💖",
-      title: "Love",
-      description: "Demonstrating Christ's love in every interaction",
-      color: "from-pink-400 to-red-600"
-    },
-    {
+      title: "Our Mission",
+      description: "Discover our purpose in empowering spiritual growth",
       icon: "🎯",
-      title: "Purpose",
-      description: "Helping young people discover their calling",
-      color: "from-purple-400 to-indigo-600"
+      href: "/about/mission",
+      color: "from-blue-400 to-purple-600",
+      preview: "Empowering spiritual growth and community through worship, prayer, and fellowship..."
     },
     {
-      icon: "🌱",
-      title: "Growth",
-      description: "Nurturing spiritual and personal development",
-      color: "from-emerald-400 to-green-600"
+      title: "Our Vision",
+      description: "Creating a serene spiritual retreat centre",
+      icon: "👁️",
+      href: "/about/vision",
+      color: "from-green-400 to-teal-600",
+      preview: "To provide a serene, comfortable, and secured spiritual retreat centre for worship, fellowship, and community building..."
+    },
+    {
+      title: "Our Values",
+      description: "The principles that guide everything we do",
+      icon: "💎",
+      href: "/about/values",
+      color: "from-yellow-400 to-orange-600",
+      preview: "Faith, Community, Excellence, Love, Purpose, and Growth - the core values that shape our ministry..."
+    },
+    {
+      title: "Our Journey",
+      description: "The story of our ministry from beginning to now",
+      icon: "🛤️",
+      href: "/about/journey",
+      color: "from-purple-400 to-pink-600",
+      preview: "From humble beginnings in 2003 to becoming a transformative force in youth ministry across Nigeria..."
     }
   ];
 
@@ -122,182 +95,52 @@ export default function AboutPage() {
           </ScrollReveal>
           
           <ScrollReveal delay={200}>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
               For over two decades, Foursquare Ajebo has been a beacon of hope, 
               transformation, and spiritual growth for thousands of young people across Nigeria.
+            </p>
+            <p className="text-lg text-slate-400 max-w-3xl mx-auto">
+              Explore our story, mission, and the values that drive our ministry forward.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
-      <section className="relative py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            <ScrollReveal>
-              <GlassCard className="p-8 h-full">
-                <div className="text-4xl mb-6">🎯</div>
-                <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                  Our Mission
-                </h3>
-                <p className="text-lg text-slate-300 leading-relaxed">
-                  To provide a transformative spiritual experience for young people, 
-                  fostering their relationship with God while developing leadership skills, 
-                  character, and purpose in a beautiful, serene environment.
-                </p>
-              </GlassCard>
-            </ScrollReveal>
-
-            <ScrollReveal delay={200}>
-              <GlassCard className="p-8 h-full">
-                <div className="text-4xl mb-6">👁️</div>
-                <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-green-400 to-teal-600 bg-clip-text text-transparent">
-                  Our Vision
-                </h3>
-                <p className="text-lg text-slate-300 leading-relaxed">
-                  To be the premier Christian youth retreat center in Nigeria, 
-                  known for excellence in spiritual formation, character development, 
-                  and creating lasting impact in the lives of young believers.
-                </p>
-              </GlassCard>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* History Section */}
+      {/* About Sections Overview */}
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <GradientText className="text-4xl md:text-6xl font-bold mb-6">
-                Our Journey
+              <GradientText className="text-4xl md:text-5xl font-bold mb-6">
+                Learn About Us
               </GradientText>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                From humble beginnings to becoming a transformative force in youth ministry
+                Dive deeper into what makes Foursquare Ajebo special
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="space-y-16">
-            <ScrollReveal delay={200}>
-              <GlassCard className="p-8">
-                <div className="flex flex-col md:flex-row items-center gap-8">
-                  <div className="text-6xl">📅</div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-4 text-yellow-400">2003 - The Beginning</h3>
-                    <p className="text-lg text-slate-300 leading-relaxed">
-                      Pastor Samuel and Mary Adeyemi, inspired by a divine vision, established 
-                      Foursquare Ajebo as a small retreat center with the dream of creating 
-                      a safe haven for young people to encounter God and discover their purpose.
-                    </p>
-                  </div>
-                </div>
-              </GlassCard>
-            </ScrollReveal>
-
-            <ScrollReveal delay={400}>
-              <GlassCard className="p-8">
-                <div className="flex flex-col md:flex-row items-center gap-8">
-                  <div className="text-6xl">🏗️</div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-4 text-blue-400">2010 - Expansion</h3>
-                    <p className="text-lg text-slate-300 leading-relaxed">
-                      As God blessed our ministry, we expanded our facilities to include 
-                      modern dormitories, a conference hall, recreational facilities, and 
-                      improved dining areas to accommodate our growing community.
-                    </p>
-                  </div>
-                </div>
-              </GlassCard>
-            </ScrollReveal>
-
-            <ScrollReveal delay={600}>
-              <GlassCard className="p-8">
-                <div className="flex flex-col md:flex-row items-center gap-8">
-                  <div className="text-6xl">🌟</div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-4 text-green-400">2020 - Recognition</h3>
-                    <p className="text-lg text-slate-300 leading-relaxed">
-                      Foursquare Ajebo gained national recognition as one of Nigeria's 
-                      premier Christian retreat centers, hosting international conferences 
-                      and impacting thousands of lives annually.
-                    </p>
-                  </div>
-                </div>
-              </GlassCard>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="relative py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <GradientText className="text-4xl md:text-6xl font-bold mb-6">
-                Our Core Values
-              </GradientText>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                The principles that guide everything we do at Foursquare Ajebo
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <ScrollReveal key={value.title} delay={index * 100}>
+          <div className="grid md:grid-cols-2 gap-8">
+            {aboutSections.map((section, index) => (
+              <ScrollReveal key={section.title} delay={index * 100}>
                 <FloatingElement>
-                  <GlassCard className="p-6 h-full group hover:scale-105 transition-all duration-500">
-                    <div className="text-4xl mb-4">{value.icon}</div>
-                    <h3 className={`text-2xl font-bold mb-4 bg-gradient-to-r ${value.color} bg-clip-text text-transparent`}>
-                      {value.title}
-                    </h3>
-                    <p className="text-slate-300 leading-relaxed">
-                      {value.description}
-                    </p>
-                  </GlassCard>
-                </FloatingElement>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership Section */}
-      <section className="relative py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <GradientText className="text-4xl md:text-6xl font-bold mb-6">
-                Our Leadership
-              </GradientText>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                Passionate leaders committed to nurturing the next generation
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {leadership.map((leader, index) => (
-              <ScrollReveal key={leader.name} delay={index * 200}>
-                <FloatingElement>
-                  <GlassCard className="p-6 text-center group hover:scale-105 transition-all duration-500">
-                    <div className="text-6xl mb-4">{leader.image}</div>
-                    <h3 className="text-xl font-bold mb-2 text-white">{leader.name}</h3>
-                    <p className="text-purple-400 font-semibold mb-4">{leader.role}</p>
-                    <p className="text-slate-300 mb-6 text-sm leading-relaxed">{leader.bio}</p>
-                    
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-semibold text-yellow-400 mb-2">Key Achievements:</h4>
-                      {leader.achievements.map((achievement, i) => (
-                        <div key={i} className="text-xs text-slate-400 bg-slate-800/50 rounded-full px-3 py-1">
-                          {achievement}
+                  <Link href={section.href} className="block group">
+                    <GlassCard className="p-8 h-full group-hover:scale-105 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-purple-500/20">
+                      <div className="flex items-start gap-6">
+                        <div className="text-4xl">{section.icon}</div>
+                        <div className="flex-1">
+                          <h3 className={`text-2xl font-bold mb-3 bg-gradient-to-r ${section.color} bg-clip-text text-transparent group-hover:from-white group-hover:to-white transition-all duration-300`}>
+                            {section.title}
+                          </h3>
+                          <p className="text-slate-400 mb-4 font-medium">{section.description}</p>
+                          <p className="text-slate-300 text-sm leading-relaxed mb-4">{section.preview}</p>
+                          <div className="flex items-center text-sm font-semibold text-purple-400 group-hover:text-white transition-colors">
+                            Learn More <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                          </div>
                         </div>
-                      ))}
-                    </div>
-                  </GlassCard>
+                      </div>
+                    </GlassCard>
+                  </Link>
                 </FloatingElement>
               </ScrollReveal>
             ))}
@@ -305,13 +148,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Impact Section */}
+      {/* Quick Stats Section */}
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <GradientText className="text-4xl md:text-6xl font-bold mb-6">
-                Our Impact
+              <GradientText className="text-4xl md:text-5xl font-bold mb-6">
+                Our Impact at a Glance
               </GradientText>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto">
                 Numbers that tell the story of transformation

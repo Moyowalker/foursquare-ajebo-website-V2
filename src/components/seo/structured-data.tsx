@@ -8,7 +8,7 @@ export function generateChurchStructuredData() {
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/images/logo.png`,
+    logo: `${siteConfig.url}/images/church-logo.svg`,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
     address: {
       '@type': 'PostalAddress',

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import { SpectacularButton } from '../ui/spectacular';
 import { FoursquareLogo } from '../ui/logo';
+import { mainNav, type NavItem } from '@/lib/navigation';
 
 export function SpectacularNavigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,41 +21,8 @@ export function SpectacularNavigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Home', href: '/' },
-    { 
-      name: 'About', 
-      href: '/about',
-      dropdown: [
-        { name: 'Our Story', href: '/about' },
-        { name: 'Leadership Board', href: '/board' },
-        { name: 'Our Facilities', href: '/facilities' },
-      ]
-    },
-    { 
-      name: 'Ministries', 
-      href: '/ministry',
-      dropdown: [
-        { name: 'Ministry Platform', href: '/ministry' },
-        { name: 'Worship Experience', href: '/worship' },
-        { name: 'Live Stream', href: '/streaming' },
-      ]
-    },
-    { 
-      name: 'Connect', 
-      href: '/events',
-      dropdown: [
-        { name: 'Events', href: '/events' },
-        { name: 'Blog', href: '/blog' },
-        { name: 'Gallery', href: '/gallery' },
-        { name: 'Contact', href: '/contact' },
-      ]
-    },
-    { name: 'Give', href: '/giving' },
-  ];
-
-  const handleDropdownHover = (itemName: string) => {
-    setActiveDropdown(itemName);
+  const handleDropdownHover = (itemTitle: string) => {
+    setActiveDropdown(itemTitle);
   };
 
   const handleDropdownLeave = () => {
@@ -80,38 +48,43 @@ export function SpectacularNavigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {mainNav.map((item) => (
               <div 
-                key={item.name}
+                key={item.title}
                 className="relative"
-                onMouseEnter={() => item.dropdown && handleDropdownHover(item.name)}
+                onMouseEnter={() => item.items && handleDropdownHover(item.title)}
                 onMouseLeave={handleDropdownLeave}
               >
                 <Link
-                  href={item.href}
+                  href={item.href || '#'}
                   className="flex items-center gap-1 text-slate-300 hover:text-white transition-colors duration-300 font-medium group py-2"
                 >
-                  {item.name}
-                  {item.dropdown && (
+                  {item.title}
+                  {item.items && (
                     <ChevronDown 
                       className={`w-4 h-4 transition-transform duration-200 ${
-                        activeDropdown === item.name ? 'rotate-180' : ''
+                        activeDropdown === item.title ? 'rotate-180' : ''
                       }`} 
                     />
                   )}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-foursquare-blue-500 to-foursquare-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
 
                 {/* Dropdown Menu */}
-                {item.dropdown && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-slate-900/95 backdrop-blur-md rounded-xl border border-white/20 shadow-xl py-2 z-50">
-                    {item.dropdown.map((dropdownItem) => (
+                {item.items && activeDropdown === item.title && (
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-slate-900/95 backdrop-blur-md rounded-xl border border-white/20 shadow-xl py-2 z-50">
+                    {item.items.map((dropdownItem) => (
                       <Link
-                        key={dropdownItem.name}
-                        href={dropdownItem.href}
-                        className="block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/10 transition-colors duration-200 first:rounded-t-xl last:rounded-b-xl"
+                        key={dropdownItem.title}
+                        href={dropdownItem.href || '#'}
+                        className="block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/10 transition-colors duration-200 first:rounded-t-xl last:rounded-b-xl group"
                       >
-                        {dropdownItem.name}
+                        <div className="font-medium">{dropdownItem.title}</div>
+                        {dropdownItem.description && (
+                          <div className="text-xs text-slate-400 mt-1 group-hover:text-slate-300">
+                            {dropdownItem.description}
+                          </div>
+                        )}
                       </Link>
                     ))}
                   </div>
@@ -122,20 +95,20 @@ export function SpectacularNavigation() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link href="/auth/login">
+            <Link href="/giving">
               <SpectacularButton 
                 variant="outline" 
                 size="sm"
               >
-                Login
+                Give
               </SpectacularButton>
             </Link>
-            <Link href="/auth/register">
+            <Link href="/contact">
               <SpectacularButton 
                 variant="primary" 
                 size="sm"
               >
-                Join Us
+                Visit Us
               </SpectacularButton>
             </Link>
           </div>
@@ -163,38 +136,43 @@ export function SpectacularNavigation() {
         {mobileMenuOpen && (
           <div className="lg:hidden mt-4 p-6 bg-slate-900/95 backdrop-blur-md rounded-2xl border border-white/20 shadow-dramatic animate-slide-down">
             <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <div key={item.name}>
+              {mainNav.map((item) => (
+                <div key={item.title}>
                   <Link
-                    href={item.href}
+                    href={item.href || '#'}
                     className="flex items-center justify-between text-slate-300 hover:text-white font-medium transition-colors py-2 border-b border-slate-700"
-                    onClick={() => !item.dropdown && setMobileMenuOpen(false)}
+                    onClick={() => !item.items && setMobileMenuOpen(false)}
                   >
-                    {item.name}
-                    {item.dropdown && (
+                    {item.title}
+                    {item.items && (
                       <ChevronDown 
                         className={`w-4 h-4 transition-transform duration-200 ${
-                          activeDropdown === item.name ? 'rotate-180' : ''
+                          activeDropdown === item.title ? 'rotate-180' : ''
                         }`}
                         onClick={(e) => {
                           e.preventDefault();
-                          setActiveDropdown(activeDropdown === item.name ? null : item.name);
+                          setActiveDropdown(activeDropdown === item.title ? null : item.title);
                         }}
                       />
                     )}
                   </Link>
                   
                   {/* Mobile Dropdown */}
-                  {item.dropdown && activeDropdown === item.name && (
+                  {item.items && activeDropdown === item.title && (
                     <div className="mt-2 ml-4 space-y-2">
-                      {item.dropdown.map((dropdownItem) => (
+                      {item.items.map((dropdownItem) => (
                         <Link
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
+                          key={dropdownItem.title}
+                          href={dropdownItem.href || '#'}
                           className="block text-slate-400 hover:text-white text-sm py-2 transition-colors"
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          {dropdownItem.name}
+                          <div className="font-medium">{dropdownItem.title}</div>
+                          {dropdownItem.description && (
+                            <div className="text-xs text-slate-500 mt-1">
+                              {dropdownItem.description}
+                            </div>
+                          )}
                         </Link>
                       ))}
                     </div>
@@ -202,24 +180,24 @@ export function SpectacularNavigation() {
                 </div>
               ))}
               <div className="pt-4 space-y-3 border-t border-slate-700">
-                <Link href="/auth/login" className="block">
+                <Link href="/giving" className="block">
                   <SpectacularButton 
                     variant="outline" 
                     size="md" 
                     className="w-full"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Login
+                    Give
                   </SpectacularButton>
                 </Link>
-                <Link href="/auth/register" className="block">
+                <Link href="/contact" className="block">
                   <SpectacularButton 
                     variant="primary" 
                     size="md" 
                     className="w-full"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Join Us
+                    Visit Us
                   </SpectacularButton>
                 </Link>
               </div>

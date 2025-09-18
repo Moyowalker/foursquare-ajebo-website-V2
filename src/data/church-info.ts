@@ -76,8 +76,8 @@ export const churchInfo = {
   },
 
   // Mission & Vision
-  mission: 'To build a community where faith flourishes, spreading the Gospel and nurturing spiritual growth through fellowship, worship, and service.',
-  vision: 'To be a beacon of hope and transformation in our community, raising disciples who will impact the world for Christ.',
+  mission: 'Empowering spiritual growth and community through worship, prayer, and fellowship.',
+  vision: 'To provide a serene, comfortable, and secured spiritual retreat centre for worship, fellowship, and community building, fostering spiritual growth and deepening faith among its visitors and stakeholders.',
   
   // Core Values
   values: [
