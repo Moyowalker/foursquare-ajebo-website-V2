@@ -1,6 +1,9 @@
 import { MetadataRoute } from 'next';
 import { siteConfig } from '@/lib/config';
 
+// Force static generation for static export
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
 
