@@ -12,21 +12,28 @@ export async function POST(request: NextRequest) {
     
     // Save to database if Supabase is configured
     if (supabaseAdmin) {
-      const { error: dbError } = await supabaseAdmin
-        .from('contact_messages')
-        .insert({
-          name: validatedData.name,
-          email: validatedData.email,
-          phone: validatedData.phone,
-          subject: validatedData.subject,
-          message: validatedData.message,
-          status: 'new',
-        });
-      
-      if (dbError) {
-        console.error('Database error:', dbError);
-        // Don't fail the entire request if database save fails
+      try {
+        const { error: dbError } = await supabaseAdmin
+          .from('contact_messages')
+          .insert({
+            name: validatedData.name,
+            email: validatedData.email,
+            phone: validatedData.phone,
+            subject: validatedData.subject,
+            message: validatedData.message,
+            status: 'new',
+          });
+        
+        if (dbError) {
+          console.error('Database error:', dbError);
+          // Don't fail the entire request if database save fails
+        }
+      } catch (dbError) {
+        console.error('Database connection error:', dbError);
+        // Continue without database save
       }
+    } else {
+      console.warn('Supabase not configured - skipping database save');
     }
     
     // Send email notification

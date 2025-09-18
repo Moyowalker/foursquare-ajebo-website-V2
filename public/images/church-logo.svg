@@ -1,0 +1,36 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background grid -->
+  <rect x="0" y="0" width="150" height="150" fill="#DC143C"/>
+  <rect x="150" y="0" width="150" height="150" fill="#503AAF"/>
+  <rect x="0" y="150" width="150" height="150" fill="#FF9F00"/>
+  <rect x="150" y="150" width="150" height="150" fill="#9C39A6"/>
+  
+  <!-- Top Left: Medical Cross (Healing) -->
+  <g transform="translate(75, 75)">
+    <rect x="-30" y="-10" width="60" height="20" fill="white"/>
+    <rect x="-10" y="-30" width="20" height="60" fill="white"/>
+  </g>
+  
+  <!-- Top Right: Communion Cup (Salvation) -->
+  <g transform="translate(225, 75)">
+    <path d="M -25 -20 L 25 -20 L 20 20 L -20 20 Z" fill="white"/>
+    <rect x="-3" y="-10" width="6" height="15" fill="#503AAF"/>
+    <ellipse cx="0" cy="-25" rx="28" ry="8" fill="white"/>
+  </g>
+  
+  <!-- Bottom Left: Dove (Holy Spirit) -->
+  <g transform="translate(75, 225)">
+    <path d="M -20 0 L 20 -15 L 30 5 L 20 20 L 10 15 L -20 20 L -25 5 Z" fill="white"/>
+    <circle cx="10" cy="0" r="3" fill="#FF9F00"/>
+    <path d="M 20 -15 L 35 -25 L 40 -15 L 30 -10" fill="white"/>
+  </g>
+  
+  <!-- Bottom Right: Crown (Kingdom of God) -->
+  <g transform="translate(225, 225)">
+    <path d="M -30 10 L 30 10 L 25 20 L -25 20 Z" fill="white"/>
+    <polygon points="-25,-5 -15,-15 -5,-5 5,-15 15,-5 25,-15 30,10 -30,10" fill="white"/>
+    <circle cx="-15" cy="-10" r="3" fill="#9C39A6"/>
+    <circle cx="0" cy="-12" r="4" fill="#9C39A6"/>
+    <circle cx="15" cy="-10" r="3" fill="#9C39A6"/>
+  </g>
+</svg>

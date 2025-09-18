@@ -34,14 +34,21 @@ export async function POST(request: NextRequest) {
     
     // Update donation status in database
     if (supabaseAdmin) {
-      const { error: updateError } = await supabaseAdmin
-        .from('donations')
-        .update({ status: 'completed' })
-        .eq('stripe_payment_intent_id', paymentIntentId);
-      
-      if (updateError) {
-        console.error('Failed to update donation status:', updateError);
+      try {
+        const { error: updateError } = await supabaseAdmin
+          .from('donations')
+          .update({ status: 'completed' })
+          .eq('stripe_payment_intent_id', paymentIntentId);
+        
+        if (updateError) {
+          console.error('Failed to update donation status:', updateError);
+        }
+      } catch (dbError) {
+        console.error('Database connection error:', dbError);
+        // Continue without database update
       }
+    } else {
+      console.warn('Supabase not configured - skipping database update');
     }
     
     // Send confirmation email if donor provided email
