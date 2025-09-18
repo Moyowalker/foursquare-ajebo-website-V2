@@ -1,8 +1,11 @@
 import { Stripe } from 'stripe';
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-06-20',
-});
+// Only initialize Stripe if secret key is available
+export const stripe = process.env.STRIPE_SECRET_KEY 
+  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2024-06-20',
+    })
+  : null;
 
 export const STRIPE_CONFIG = {
   currency: 'ngn', // Nigerian Naira

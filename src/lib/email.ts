@@ -1,6 +1,9 @@
 import { Resend } from 'resend';
 
-export const resend = new Resend(process.env.RESEND_API_KEY);
+// Only initialize Resend if API key is available
+export const resend = process.env.RESEND_API_KEY 
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 export const EMAIL_CONFIG = {
   from: 'Foursquare Ajebo <noreply@foursquareajebo.org>',

@@ -10,6 +10,14 @@ export async function POST(request: NextRequest) {
     // Validate the donation data
     const validatedData = donationFormSchema.parse(body);
     
+    // Check if Stripe is configured
+    if (!stripe) {
+      return NextResponse.json(
+        { error: 'Payment processing is currently unavailable. Please try again later.' },
+        { status: 503 }
+      );
+    }
+    
     // Create Stripe payment intent
     const paymentIntent = await stripe.paymentIntents.create({
       amount: Math.round(validatedData.amount * 100), // Convert to kobo (Nigerian currency cents)

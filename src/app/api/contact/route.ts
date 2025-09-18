@@ -31,6 +31,14 @@ export async function POST(request: NextRequest) {
     
     // Send email notification
     try {
+      if (!resend) {
+        console.warn('Resend not configured - skipping email sending');
+        return NextResponse.json({ 
+          success: true, 
+          message: 'Message received. Email service is currently unavailable, but we will respond soon!' 
+        });
+      }
+      
       const emailHtml = EMAIL_CONFIG.templates.contactForm.template(validatedData);
       
       await resend.emails.send({

@@ -14,6 +14,14 @@ export async function POST(request: NextRequest) {
       );
     }
     
+    // Check if Stripe is configured
+    if (!stripe) {
+      return NextResponse.json(
+        { error: 'Payment processing is currently unavailable' },
+        { status: 503 }
+      );
+    }
+    
     // Retrieve payment intent from Stripe
     const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
     
@@ -41,7 +49,7 @@ export async function POST(request: NextRequest) {
     const donorName = paymentIntent.metadata.donorName;
     const isAnonymous = paymentIntent.metadata.isAnonymous === 'true';
     
-    if (!isAnonymous && donorEmail && donorName) {
+    if (!isAnonymous && donorEmail && donorName && resend) {
       try {
         const emailHtml = EMAIL_CONFIG.templates.donationConfirmation.template({
           name: donorName,
