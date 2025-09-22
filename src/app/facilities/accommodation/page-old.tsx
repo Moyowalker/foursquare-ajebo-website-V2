@@ -5,9 +5,9 @@ import { getFacilitiesByCategory, getAccommodationBySubcategory } from '@/lib/im
 import FacilityCard from '@/components/ui/FacilityCard';
 
 export const metadata: Metadata = {
-  title: 'Accommodation | Foursquare Camp Ajebo',
-  description: 'Comfortable accommodation facilities including premium guest houses, leadership quarters, and standard lodging for church guests and retreat attendees.',
-  keywords: ['accommodation', 'guest house', 'lodging', 'International Guest House', 'Diamond Estate', 'Foursquare Camp Ajebo'],
+  title: 'Accommodation | Foursquare Gospel Church Ajebo',
+  description: 'Comfortable and affordable accommodation facilities for church guests, visitors, and event attendees.',
+  keywords: ['accommodation', 'guest house', 'lodging', 'visitors', 'church facilities', 'Foursquare Camp Ajebo'],
 };
 
 export default function AccommodationPage() {
@@ -15,6 +15,72 @@ export default function AccommodationPage() {
   const premiumFacilities = getAccommodationBySubcategory('premium');
   const leadershipFacilities = getAccommodationBySubcategory('leadership');
   const standardFacilities = getAccommodationBySubcategory('standard');
+  const accommodationTypes = [
+    {
+      id: 1,
+      name: 'Standard Rooms',
+      capacity: '1-2 persons',
+      price: '₦8,000/night',
+      features: [
+        'Air conditioning',
+        'Private bathroom',
+        'Free Wi-Fi',
+        'Television',
+        'Study desk',
+        'Wardrobe'
+      ],
+      description: 'Comfortable and affordable rooms perfect for individual travelers or couples.',
+      availability: 'Available'
+    },
+    {
+      id: 2,
+      name: 'Family Suites',
+      capacity: '4-6 persons',
+      price: '₦15,000/night',
+      features: [
+        'Separate living area',
+        'Kitchenette',
+        'Two bathrooms',
+        'Air conditioning',
+        'Free Wi-Fi',
+        'Dining area'
+      ],
+      description: 'Spacious suites ideal for families or small groups attending church events.',
+      availability: 'Limited'
+    },
+    {
+      id: 3,
+      name: 'Dormitory Beds',
+      capacity: '8-12 persons',
+      price: '₦3,000/night per bed',
+      features: [
+        'Shared facilities',
+        'Bunk beds',
+        'Lockers provided',
+        'Common room',
+        'Shared kitchen',
+        'Security'
+      ],
+      description: 'Budget-friendly option for youth groups, conference attendees, and retreats.',
+      availability: 'Available'
+    },
+    {
+      id: 4,
+      name: 'VIP Suites',
+      capacity: '2-4 persons',
+      price: '₦25,000/night',
+      features: [
+        'Executive furnishing',
+        'Full kitchen',
+        'Living and dining area',
+        'Premium amenities',
+        'Balcony/terrace',
+        'Premium bedding'
+      ],
+      description: 'Premium accommodation for special guests, pastors, and ministry leaders.',
+      availability: 'Available'
+    }
+  ];
 
   const amenities = [
     {
@@ -29,8 +95,8 @@ export default function AccommodationPage() {
     },
     {
       icon: Coffee,
-      name: 'Restaurant Access',
-      description: 'Delish Fingers restaurant on-site for meals'
+      name: 'Breakfast',
+      description: 'Complimentary continental breakfast included'
     },
     {
       icon: Shield,
@@ -63,7 +129,7 @@ export default function AccommodationPage() {
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Accommodation</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Comfortable lodging facilities from premium guest houses to standard accommodation for all visitors
+            Comfortable and affordable lodging for church guests, visitors, and event attendees
           </p>
         </div>
       </div>
@@ -73,25 +139,25 @@ export default function AccommodationPage() {
         <div className="max-w-7xl mx-auto">
           {/* Introduction */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Welcome to Foursquare Camp Ajebo</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Welcome to Our Guest House</h2>
             <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">
-              Our accommodation facilities provide comfortable, safe, and peaceful lodging 
-              for church visitors, conference attendees, ministry guests, and retreat participants. 
-              Experience Christian hospitality in our beautiful camp setting.
+              Our accommodation facility provides a comfortable, safe, and affordable place to stay 
+              for church visitors, conference attendees, ministry guests, and travelers. Experience 
+              Christian hospitality in a peaceful environment.
             </p>
 
             <div className="grid md:grid-cols-4 gap-6 bg-white rounded-2xl shadow-lg p-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">{accommodationFacilities.length}</div>
-                <p className="text-gray-700 font-medium">Buildings</p>
+                <div className="text-3xl font-bold text-blue-600 mb-2">24</div>
+                <p className="text-gray-700 font-medium">Total Rooms</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">100+</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">60+</div>
                 <p className="text-gray-700 font-medium">Guest Capacity</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-orange-600 mb-2">3</div>
-                <p className="text-gray-700 font-medium">Service Levels</p>
+                <div className="text-3xl font-bold text-orange-600 mb-2">98%</div>
+                <p className="text-gray-700 font-medium">Guest Satisfaction</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-600 mb-2">24/7</div>
@@ -105,50 +171,44 @@ export default function AccommodationPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Our Accommodation Buildings</h2>
             
             {/* Premium Accommodation */}
-            {premiumFacilities.length > 0 && (
-              <div className="mb-12">
-                <div className="flex items-center justify-center mb-6">
-                  <Star className="w-6 h-6 text-yellow-500 mr-2" />
-                  <h3 className="text-xl font-semibold text-gray-900">Premium Facilities</h3>
-                  <Star className="w-6 h-6 text-yellow-500 ml-2" />
-                </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {premiumFacilities.map((facility) => (
-                    <FacilityCard key={facility.id} facility={facility} showLink={false} />
-                  ))}
-                </div>
+            <div className="mb-12">
+              <div className="flex items-center justify-center mb-6">
+                <Star className="w-6 h-6 text-yellow-500 mr-2" />
+                <h3 className="text-xl font-semibold text-gray-900">Premium Facilities</h3>
+                <Star className="w-6 h-6 text-yellow-500 ml-2" />
               </div>
-            )}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {premiumFacilities.map((facility) => (
+                  <FacilityCard key={facility.id} facility={facility} showLink={false} />
+                ))}
+              </div>
+            </div>
 
             {/* Leadership Accommodation */}
-            {leadershipFacilities.length > 0 && (
-              <div className="mb-12">
-                <div className="flex items-center justify-center mb-6">
-                  <Users className="w-6 h-6 text-blue-500 mr-2" />
-                  <h3 className="text-xl font-semibold text-gray-900">Leadership & Ministry</h3>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  {leadershipFacilities.map((facility) => (
-                    <FacilityCard key={facility.id} facility={facility} showLink={false} />
-                  ))}
-                </div>
+            <div className="mb-12">
+              <div className="flex items-center justify-center mb-6">
+                <Users className="w-6 h-6 text-blue-500 mr-2" />
+                <h3 className="text-xl font-semibold text-gray-900">Leadership & Ministry</h3>
               </div>
-            )}
+              <div className="grid md:grid-cols-2 gap-6">
+                {leadershipFacilities.map((facility) => (
+                  <FacilityCard key={facility.id} facility={facility} showLink={false} />
+                ))}
+              </div>
+            </div>
 
             {/* Standard Accommodation */}
-            {standardFacilities.length > 0 && (
-              <div className="mb-12">
-                <div className="flex items-center justify-center mb-6">
-                  <Bed className="w-6 h-6 text-green-500 mr-2" />
-                  <h3 className="text-xl font-semibold text-gray-900">Standard Accommodation</h3>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  {standardFacilities.map((facility) => (
-                    <FacilityCard key={facility.id} facility={facility} showLink={false} />
-                  ))}
-                </div>
+            <div className="mb-12">
+              <div className="flex items-center justify-center mb-6">
+                <Bed className="w-6 h-6 text-green-500 mr-2" />
+                <h3 className="text-xl font-semibold text-gray-900">Standard Accommodation</h3>
               </div>
-            )}
+              <div className="grid md:grid-cols-2 gap-6">
+                {standardFacilities.map((facility) => (
+                  <FacilityCard key={facility.id} facility={facility} showLink={false} />
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Amenities */}
@@ -252,7 +312,7 @@ export default function AccommodationPage() {
                     <MapPin className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-medium">Address</p>
-                      <p className="text-blue-100 text-sm">Foursquare Camp Ajebo, Ogun State, Nigeria</p>
+                      <p className="text-blue-100 text-sm">Church Compound, Ajebo, Ogun State, Nigeria</p>
                     </div>
                   </div>
                   <div className="flex items-start">

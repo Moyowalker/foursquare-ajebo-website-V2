@@ -423,6 +423,163 @@ function DonationFormSection() {
   );
 }
 
+// Donation accounts data
+const donationAccounts = [
+  {
+    purpose: "Facilities Usage & Operations",
+    description: "Support daily operations, maintenance, and usage of our camp facilities",
+    icon: "🏢",
+    accounts: [
+      {
+        name: "Foursquare city development",
+        number: "0055089669",
+        bank: "Access Bank"
+      },
+      {
+        name: "Foursquare camp development", 
+        number: "1100075671",
+        bank: "FFS MFB"
+      }
+    ]
+  },
+  {
+    purpose: "Block Industry Development",
+    description: "Support construction and infrastructure development projects",
+    icon: "🏗️",
+    accounts: [
+      {
+        name: "Foursquare city development",
+        number: "1475103265", 
+        bank: "Access Bank"
+      }
+    ]
+  },
+  {
+    purpose: "School Development",
+    description: "Support educational facility development and academic programs",
+    icon: "🎓",
+    accounts: [
+      {
+        name: "Foursquare city development",
+        number: "1475115235",
+        bank: "Access Bank"
+      }
+    ]
+  }
+];
+
+function DirectBankingSection() {
+  const [selectedAccount, setSelectedAccount] = useState<number | null>(null);
+  const [copiedField, setCopiedField] = useState<string | null>(null);
+
+  const copyToClipboard = async (text: string, fieldId: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedField(fieldId);
+      setTimeout(() => setCopiedField(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
+  return (
+    <div className="bg-white border border-gray-200 rounded-xl p-8 mb-8">
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Direct Bank Transfer</h2>
+        <p className="text-gray-600">
+          Choose your donation purpose and get the appropriate bank account details for direct transfer
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-6 mb-8">
+        {donationAccounts.map((accountGroup, index) => (
+          <div
+            key={index}
+            className={`border rounded-lg p-6 cursor-pointer transition-all ${
+              selectedAccount === index
+                ? 'border-blue-500 bg-blue-50'
+                : 'border-gray-200 hover:border-gray-300'
+            }`}
+            onClick={() => setSelectedAccount(selectedAccount === index ? null : index)}
+          >
+            <div className="text-center">
+              <div className="text-4xl mb-3">{accountGroup.icon}</div>
+              <h3 className="font-bold text-gray-900 mb-2">{accountGroup.purpose}</h3>
+              <p className="text-sm text-gray-600">{accountGroup.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {selectedAccount !== null && (
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <h3 className="text-lg font-bold text-gray-900 mb-4">
+            {donationAccounts[selectedAccount].icon} {donationAccounts[selectedAccount].purpose}
+          </h3>
+          <p className="text-gray-600 mb-6">{donationAccounts[selectedAccount].description}</p>
+          
+          <div className="space-y-4">
+            {donationAccounts[selectedAccount].accounts.map((account, accountIndex) => (
+              <div key={accountIndex} className="bg-white border border-gray-200 rounded-lg p-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-500 mb-1">Account Name</label>
+                    <div className="flex items-center justify-between bg-gray-50 p-2 rounded">
+                      <span className="font-mono text-sm">{account.name}</span>
+                      <button
+                        onClick={() => copyToClipboard(account.name, `name-${selectedAccount}-${accountIndex}`)}
+                        className="text-blue-600 hover:text-blue-700 text-sm"
+                      >
+                        {copiedField === `name-${selectedAccount}-${accountIndex}` ? '✅ Copied' : '📋 Copy'}
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-500 mb-1">Account Number</label>
+                    <div className="flex items-center justify-between bg-gray-50 p-2 rounded">
+                      <span className="font-mono text-sm font-bold">{account.number}</span>
+                      <button
+                        onClick={() => copyToClipboard(account.number, `number-${selectedAccount}-${accountIndex}`)}
+                        className="text-blue-600 hover:text-blue-700 text-sm"
+                      >
+                        {copiedField === `number-${selectedAccount}-${accountIndex}` ? '✅ Copied' : '📋 Copy'}
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-500 mb-1">Bank</label>
+                    <div className="flex items-center justify-between bg-gray-50 p-2 rounded">
+                      <span className="font-mono text-sm">{account.bank}</span>
+                      <button
+                        onClick={() => copyToClipboard(account.bank, `bank-${selectedAccount}-${accountIndex}`)}
+                        className="text-blue-600 hover:text-blue-700 text-sm"
+                      >
+                        {copiedField === `bank-${selectedAccount}-${accountIndex}` ? '✅ Copied' : '📋 Copy'}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <h4 className="font-medium text-blue-900 mb-2">📝 Transfer Instructions</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• Use the account details above for your bank transfer</li>
+              <li>• Include your name in the transfer description</li>
+              <li>• Send transfer receipt to our email for record keeping</li>
+              <li>• Transfers are usually processed within 24 hours</li>
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function DonatePage() {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -434,6 +591,21 @@ export default function DonatePage() {
           </Link>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Make a Donation</h1>
           <p className="text-gray-600">Thank you for your generous heart and faithful giving</p>
+        </div>
+
+        {/* Donation Options Tabs */}
+        <div className="flex justify-center mb-8">
+          <div className="flex bg-white border border-gray-200 rounded-lg p-1">
+            <button className="px-6 py-2 bg-blue-100 text-blue-700 rounded-md font-medium">
+              💳 Online Donation
+            </button>
+            <button 
+              onClick={() => document.getElementById('direct-banking')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-6 py-2 text-gray-600 hover:text-gray-900 font-medium"
+            >
+              🏦 Bank Transfer
+            </button>
+          </div>
         </div>
 
         {/* Progress Steps */}
@@ -455,6 +627,11 @@ export default function DonatePage() {
         <ErrorBoundary fallback={<DonationErrorFallback />}>
           <DonationFormSection />
         </ErrorBoundary>
+
+        {/* Direct Banking Section */}
+        <div id="direct-banking" className="mt-16">
+          <DirectBankingSection />
+        </div>
       </div>
     </div>
   );

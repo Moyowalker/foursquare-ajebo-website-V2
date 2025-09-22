@@ -63,6 +63,11 @@ export const mainNav: NavItem[] = [
     ]
   },
   {
+    title: "Announcements",
+    href: "/announcements",
+    description: "Latest news, updates, and important announcements"
+  },
+  {
     title: "Our Leadership",
     href: "/leadership", 
     items: [
@@ -96,6 +101,22 @@ export const mainNav: NavItem[] = [
         title: "Recreation",
         href: "/facilities/recreation",
         description: "Sports, dining, and recreational amenities"
+      },
+    ]
+  },
+  {
+    title: "Giving",
+    href: "/giving",
+    items: [
+      {
+        title: "Ways to Give",
+        href: "/giving",
+        description: "Learn about different ways to support our ministry"
+      },
+      {
+        title: "Make a Donation",
+        href: "/giving/donate",
+        description: "Give online or view bank account details"
       },
     ]
   },

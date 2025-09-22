@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google';
 import { seoDefaults } from '@/lib/config';
 import { cn } from '@/lib/utils';
 import { SpectacularNavigation } from '@/components/layout/navigation';
+import { Footer } from '@/components/layout/Footer';
 import { GoogleAnalytics } from '@/components/seo/analytics';
 import { StructuredData, generateChurchStructuredData } from '@/components/seo/structured-data';
 import { ErrorBoundary } from '@/components/ui/error-boundary';
@@ -79,6 +80,9 @@ export default function RootLayout({
                 {children}
               </ErrorBoundary>
             </div>
+            <ErrorBoundary>
+              <Footer />
+            </ErrorBoundary>
           </div>
         </ErrorBoundary>
         

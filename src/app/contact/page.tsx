@@ -188,22 +188,22 @@ export default function ContactPage() {
     {
       icon: "📍",
       title: "Address",
-      details: ["Foursquare Gospel Church Ajebo", "Ajebo Community", "Ogun State, Nigeria"]
+      details: ["Foursquare Camp Ajebo", "Ajebo Community", "Ogun State, Nigeria"]
     },
     {
       icon: "📞",
       title: "Phone Numbers",
-      details: ["+234 xxx xxx xxxx", "WhatsApp: +234 xxx xxx xxxx", "Reception: +234 xxx xxx xxxx"]
+      details: ["WhatsApp: +234 703 655 5871", "Reception: +234 703 219 2546"]
     },
     {
       icon: "📧",
       title: "Email Addresses",
-      details: ["info@foursquareajebo.org", "pastor@foursquareajebo.org", "events@foursquareajebo.org"]
+      details: ["info@foursquarecamp.org.ng", "foursquarecampngr@gmail.com"]
     },
     {
       icon: "🌐",
       title: "Connect With Us",
-      details: ["@FoursquareAjebo", "Sunday Service: 8:00 AM", "Wednesday: 6:00 PM"]
+      details: ["@FoursquareCampAjebo", "Sunday Service: 8:00 AM", "Wednesday: 6:00 PM"]
     }
   ];
 

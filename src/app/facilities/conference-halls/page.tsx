@@ -1,112 +1,41 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Users, Mic, Monitor, Coffee, Car, Wifi, Star, Calendar, Phone } from 'lucide-react';
+import { getFacilitiesByCategory } from '@/lib/image-config';
+import FacilityCard from '@/components/ui/FacilityCard';
 
 export const metadata: Metadata = {
-  title: 'Conference Halls | Foursquare Gospel Church Ajebo',
-  description: 'Modern conference halls and meeting spaces available for events, seminars, workshops, and corporate functions.',
-  keywords: ['conference halls', 'meeting rooms', 'events', 'seminars', 'corporate', 'Foursquare Camp Ajebo'],
+  title: 'Conference Facilities | Foursquare Camp Ajebo',
+  description: 'Modern auditorium and conference facilities equipped with professional audio-visual systems for events, seminars, workshops, and corporate functions.',
+  keywords: ['auditorium', 'conference', 'events', 'seminars', 'corporate', 'Foursquare Camp Ajebo'],
 };
 
 export default function ConferenceHallsPage() {
-  const conferenceHalls = [
-    {
-      id: 1,
-      name: 'Main Auditorium',
-      capacity: '500-800 persons',
-      seating: ['Theater style: 800', 'Banquet style: 500', 'Classroom style: 400'],
-      price: '₦100,000/day',
-      features: [
-        'Professional sound system',
-        'LED screens and projectors',
-        'Stage lighting',
-        'Air conditioning',
-        'Wheelchair accessible',
-        'Live streaming capability'
-      ],
-      description: 'Our largest venue perfect for conferences, conventions, and major events.',
-      image: '/images/facilities/main-auditorium.jpg',
-      availability: 'Available'
-    },
-    {
-      id: 2,
-      name: 'Fellowship Hall',
-      capacity: '200-300 persons',
-      seating: ['Theater style: 300', 'Banquet style: 200', 'U-shape: 80'],
-      price: '₦50,000/day',
-      features: [
-        'Built-in audio system',
-        'Projection screen',
-        'Natural lighting',
-        'Air conditioning',
-        'Kitchen access',
-        'Flexible seating'
-      ],
-      description: 'Versatile space ideal for seminars, workshops, and medium-sized gatherings.',
-      image: '/images/facilities/fellowship-hall.jpg',
-      availability: 'Available'
-    },
-    {
-      id: 3,
-      name: 'Board Room',
-      capacity: '20-30 persons',
-      seating: ['Boardroom style: 30', 'U-shape: 25', 'Conference: 20'],
-      price: '₦15,000/day',
-      features: [
-        'Conference table setup',
-        'Video conferencing',
-        'Whiteboard and flipcharts',
-        'High-speed internet',
-        'Coffee station',
-        'Private entrance'
-      ],
-      description: 'Executive meeting space for board meetings, planning sessions, and small groups.',
-      image: '/images/facilities/board-room.jpg',
-      availability: 'Limited'
-    },
-    {
-      id: 4,
-      name: 'Training Rooms (3)',
-      capacity: '30-50 persons each',
-      seating: ['Classroom style: 50', 'Workshop style: 40', 'Circle: 30'],
-      price: '₦25,000/day per room',
-      features: [
-        'Interactive whiteboards',
-        'Breakout capabilities',
-        'Individual lighting',
-        'Moveable furniture',
-        'Storage space',
-        'Sound isolation'
-      ],
-      description: 'Perfect for training sessions, workshops, and breakout meetings.',
-      image: '/images/facilities/training-rooms.jpg',
-      availability: 'Available'
-    }
-  ];
+  const conferenceFacilities = getFacilitiesByCategory('conference');
 
   const services = [
     {
       icon: Mic,
-      name: 'Audio/Visual Equipment',
-      description: 'Professional sound systems, microphones, projectors, and screens',
+      name: 'Professional Audio System',
+      description: 'High-quality sound system with wireless microphones and mixing board',
       included: true
     },
     {
       icon: Monitor,
-      name: 'Technical Support',
-      description: 'On-site technical support for all equipment and systems',
+      name: 'Video Projection',
+      description: 'Large screens and modern projectors for presentations and videos',
       included: true
     },
     {
       icon: Coffee,
       name: 'Catering Services',
-      description: 'Full catering services for meals, refreshments, and coffee breaks',
+      description: 'Full catering services through our Delish Fingers restaurant',
       included: false
     },
     {
       icon: Car,
-      name: 'Parking',
-      description: 'Ample free parking spaces for all attendees',
+      name: 'Ample Parking',
+      description: 'Free parking spaces available for all event attendees',
       included: true
     },
     {
@@ -117,52 +46,82 @@ export default function ConferenceHallsPage() {
     },
     {
       icon: Users,
-      name: 'Event Coordination',
-      description: 'Professional event coordination and setup services',
-      included: false
+      name: 'Event Support',
+      description: 'Professional event coordination and technical support',
+      included: true
+    }
+  ];
+
+  const eventTypes = [
+    {
+      name: 'Corporate Conferences',
+      description: 'Large-scale business conferences, product launches, and company meetings',
+      capacity: '500+ attendees',
+      features: ['Professional staging', 'Live streaming', 'Break-out areas']
+    },
+    {
+      name: 'Religious Gatherings',
+      description: 'Church conferences, revival meetings, and spiritual events',
+      capacity: 'Up to 800 attendees',
+      features: ['Worship-friendly setup', 'Altar space', 'Prayer areas']
+    },
+    {
+      name: 'Educational Seminars',
+      description: 'Training sessions, workshops, and educational conferences',
+      capacity: '200-500 attendees',
+      features: ['Interactive setup', 'Workshop spaces', 'Resource centers']
+    },
+    {
+      name: 'Cultural Events',
+      description: 'Community events, celebrations, and cultural gatherings',
+      capacity: 'Flexible arrangements',
+      features: ['Cultural staging', 'Performance area', 'Exhibition space']
     }
   ];
 
   const packages = [
     {
       name: 'Basic Package',
-      price: 'Starting from ₦15,000',
+      price: 'Starting from ₦50,000',
       duration: 'Half Day (4 hours)',
       features: [
-        'Room rental',
-        'Basic AV equipment',
+        'Auditorium rental',
+        'Basic sound system',
+        'Standard lighting',
         'Wi-Fi access',
-        'Basic setup',
-        'Parking'
+        'Parking included'
       ],
       popular: false
     },
     {
       name: 'Standard Package',
-      price: 'Starting from ₦25,000',
+      price: 'Starting from ₦100,000',
       duration: 'Full Day (8 hours)',
       features: [
-        'Room rental',
-        'Full AV equipment',
+        'Auditorium rental',
+        'Full audio-visual system',
+        'Professional lighting',
         'Wi-Fi access',
-        'Professional setup',
-        'Parking',
-        'Coffee breaks (2)'
+        'Parking included',
+        'Technical support',
+        'Basic refreshments'
       ],
       popular: true
     },
     {
       name: 'Premium Package',
-      price: 'Starting from ₦50,000',
+      price: 'Starting from ₦200,000',
       duration: 'Full Day + Extended',
       features: [
-        'Room rental',
+        'Auditorium rental',
         'Premium AV equipment',
+        'Stage lighting design',
         'Wi-Fi access',
+        'Parking included',
+        'Full technical support',
+        'Complete catering',
         'Event coordination',
-        'Parking',
-        'Full catering',
-        'Technical support'
+        'Live streaming setup'
       ],
       popular: false
     }
@@ -180,9 +139,9 @@ export default function ConferenceHallsPage() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Facilities
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Conference Halls</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Conference Facilities</h1>
           <p className="text-xl text-indigo-100 max-w-3xl">
-            Modern, well-equipped spaces for conferences, seminars, workshops, and corporate events
+            State-of-the-art auditorium and conference facilities for your events, seminars, and gatherings
           </p>
         </div>
       </div>
@@ -192,105 +151,61 @@ export default function ConferenceHallsPage() {
         <div className="max-w-7xl mx-auto">
           {/* Introduction */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Professional Event Spaces</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Professional Event Venue</h2>
             <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">
-              Our state-of-the-art conference facilities provide the perfect environment for your 
-              corporate events, seminars, workshops, and special gatherings. With modern technology 
-              and professional support, we ensure your event is a success.
+              Our modern auditorium provides the perfect setting for conferences, seminars, 
+              religious gatherings, and corporate events. With professional audio-visual equipment 
+              and comfortable seating, we ensure your event is memorable and successful.
             </p>
 
             <div className="grid md:grid-cols-4 gap-6 bg-white rounded-2xl shadow-lg p-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-indigo-600 mb-2">7</div>
-                <p className="text-gray-700 font-medium">Event Spaces</p>
+                <div className="text-3xl font-bold text-indigo-600 mb-2">800</div>
+                <p className="text-gray-700 font-medium">Seating Capacity</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600 mb-2">1,200+</div>
-                <p className="text-gray-700 font-medium">Total Capacity</p>
+                <div className="text-3xl font-bold text-purple-600 mb-2">1</div>
+                <p className="text-gray-700 font-medium">Main Auditorium</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">100+</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">500+</div>
                 <p className="text-gray-700 font-medium">Events Hosted</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">98%</div>
-                <p className="text-gray-700 font-medium">Client Satisfaction</p>
+                <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
+                <p className="text-gray-700 font-medium">Modern Equipment</p>
               </div>
             </div>
           </div>
 
-          {/* Conference Halls */}
+          {/* Main Auditorium */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Available Venues</h2>
-            <div className="space-y-8">
-              {conferenceHalls.map((hall) => (
-                <div key={hall.id} className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                  <div className="grid lg:grid-cols-2 gap-8 p-8">
-                    <div>
-                      <div className="flex items-start justify-between mb-4">
-                        <div>
-                          <h3 className="text-2xl font-bold text-gray-900 mb-2">{hall.name}</h3>
-                          <p className="text-indigo-600 font-medium mb-1">{hall.capacity}</p>
-                          <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
-                            hall.availability === 'Available' 
-                              ? 'bg-green-100 text-green-700' 
-                              : 'bg-orange-100 text-orange-700'
-                          }`}>
-                            {hall.availability}
-                          </span>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-2xl font-bold text-green-600">{hall.price}</div>
-                        </div>
-                      </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Our Conference Venue</h2>
+            <div className="grid lg:grid-cols-1 gap-6">
+              {conferenceFacilities.map((facility) => (
+                <FacilityCard key={facility.id} facility={facility} showLink={false} className="lg:max-w-4xl mx-auto" />
+              ))}
+            </div>
+          </div>
 
-                      <p className="text-gray-600 mb-6">{hall.description}</p>
-
-                      <div className="mb-6">
-                        <h4 className="font-semibold text-gray-900 mb-3">Seating Arrangements</h4>
-                        <div className="space-y-1">
-                          {hall.seating.map((arrangement, index) => (
-                            <p key={index} className="text-sm text-gray-600">• {arrangement}</p>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-gray-900 mb-3">Features & Amenities</h4>
-                        <div className="grid grid-cols-2 gap-2">
-                          {hall.features.map((feature, index) => (
-                            <div key={index} className="flex items-center text-sm text-gray-600">
-                              <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-2"></span>
-                              {feature}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-gray-100 rounded-xl p-6 flex items-center justify-center">
-                      <div className="text-center">
-                        <Monitor className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                        <p className="text-gray-500">Hall Image</p>
-                        <p className="text-sm text-gray-400">{hall.name}</p>
-                      </div>
-                    </div>
+          {/* Event Types */}
+          <div className="mb-16">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Perfect for Various Events</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {eventTypes.map((eventType, index) => (
+                <div key={index} className="bg-white rounded-xl shadow-lg p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{eventType.name}</h3>
+                  <p className="text-gray-600 mb-4">{eventType.description}</p>
+                  <div className="mb-4">
+                    <span className="text-sm font-medium text-indigo-600">{eventType.capacity}</span>
                   </div>
-
-                  <div className="bg-gray-50 px-8 py-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4 text-sm text-gray-600">
-                        <span>Starting from {hall.price}</span>
-                        <span>•</span>
-                        <span>{hall.capacity}</span>
+                  <div className="space-y-2">
+                    {eventType.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center text-sm text-gray-600">
+                        <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-2"></span>
+                        {feature}
                       </div>
-                      <Link 
-                        href="/contact" 
-                        className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-medium"
-                      >
-                        Book Now
-                      </Link>
-                    </div>
+                    ))}
                   </div>
                 </div>
               ))}
@@ -304,21 +219,19 @@ export default function ConferenceHallsPage() {
               {services.map((service, index) => {
                 const IconComponent = service.icon;
                 return (
-                  <div key={index} className="relative">
-                    <div className="text-center p-4 border border-gray-200 rounded-lg">
-                      <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                        <IconComponent className="w-6 h-6 text-indigo-600" />
-                      </div>
-                      <h3 className="font-semibold text-gray-900 mb-2">{service.name}</h3>
-                      <p className="text-sm text-gray-600 mb-3">{service.description}</p>
-                      <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${
-                        service.included 
-                          ? 'bg-green-100 text-green-700' 
-                          : 'bg-blue-100 text-blue-700'
-                      }`}>
-                        {service.included ? 'Included' : 'Available'}
-                      </span>
+                  <div key={index} className="text-center p-4 border border-gray-200 rounded-lg">
+                    <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <IconComponent className="w-6 h-6 text-indigo-600" />
                     </div>
+                    <h3 className="font-semibold text-gray-900 mb-2">{service.name}</h3>
+                    <p className="text-sm text-gray-600 mb-3">{service.description}</p>
+                    <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${
+                      service.included 
+                        ? 'bg-green-100 text-green-700' 
+                        : 'bg-blue-100 text-blue-700'
+                    }`}>
+                      {service.included ? 'Included' : 'Available'}
+                    </span>
                   </div>
                 );
               })}
@@ -381,7 +294,7 @@ export default function ConferenceHallsPage() {
                   1
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Check Availability</h3>
-                <p className="text-sm text-gray-600">Contact us with your preferred dates and requirements</p>
+                <p className="text-sm text-gray-600">Contact us with your preferred dates and event requirements</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">
