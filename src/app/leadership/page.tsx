@@ -34,7 +34,7 @@ export default function LeadershipPage() {
       icon: "👔",
       href: "/leadership/board",
       color: "from-blue-400 to-purple-600",
-      preview: "Our board consists of experienced leaders who guide the ministry with wisdom, integrity, and vision...",
+      preview: "Our board consists of experienced leaders who guide the ministry with wisdom, integrity, and vision for Camp Ajebo's future...",
       highlights: ["Strategic Leadership", "Financial Oversight", "Ministry Vision", "Community Impact"]
     },
     {
