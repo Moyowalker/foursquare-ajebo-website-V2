@@ -34,7 +34,7 @@ export function OptimizedScrollReveal({ children, className, delay = 0 }: LazyMo
       whileInView="animate"
       viewport={{ once: true, margin: "-100px" }}
       variants={slideUp}
-      transition={{ ...slideUp.transition, delay: delay * 0.1 }}
+      transition={{ ...slideUp.transition, delay: delay * 0.1 } as any}
     >
       {children}
     </motion.div>

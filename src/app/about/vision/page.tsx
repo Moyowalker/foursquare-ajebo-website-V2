@@ -10,19 +10,19 @@ export const metadata: Metadata = {
 
 export default function VisionPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16">
+      <div className="bg-slate-800 text-white py-16">
         <div className="container mx-auto px-4">
           <Link 
             href="/about" 
-            className="inline-flex items-center text-purple-100 hover:text-white mb-6 transition-colors"
+            className="inline-flex items-center text-slate-300 hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to About Us
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Vision</h1>
-          <p className="text-xl text-purple-100 max-w-3xl">
+          <p className="text-xl text-slate-300 max-w-3xl">
             A serene spiritual retreat centre fostering growth and community
           </p>
         </div>
@@ -34,7 +34,7 @@ export default function VisionPage() {
           {/* Vision Statement */}
           <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
             <div className="text-center mb-8">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Eye className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Vision Statement</h2>
@@ -54,8 +54,8 @@ export default function VisionPage() {
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="bg-white rounded-xl shadow-lg p-6">
               <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
-                  <Target className="w-5 h-5 text-purple-600" />
+                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                  <Target className="w-5 h-5 text-blue-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">Spiritual Transformation</h3>
               </div>
@@ -73,8 +73,8 @@ export default function VisionPage() {
 
             <div className="bg-white rounded-xl shadow-lg p-6">
               <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center mr-4">
-                  <Star className="w-5 h-5 text-pink-600" />
+                <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center mr-4">
+                  <Star className="w-5 h-5 text-slate-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">Community Impact</h3>
               </div>
@@ -92,8 +92,8 @@ export default function VisionPage() {
 
             <div className="bg-white rounded-xl shadow-lg p-6">
               <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                  <Lightbulb className="w-5 h-5 text-blue-600" />
+                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
+                  <Lightbulb className="w-5 h-5 text-gray-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">Innovation & Excellence</h3>
               </div>
@@ -111,8 +111,8 @@ export default function VisionPage() {
 
             <div className="bg-white rounded-xl shadow-lg p-6">
               <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-4">
-                  <Eye className="w-5 h-5 text-green-600" />
+                <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mr-4">
+                  <Eye className="w-5 h-5 text-indigo-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">Global Expansion</h3>
               </div>
@@ -130,19 +130,19 @@ export default function VisionPage() {
           </div>
 
           {/* Future Goals */}
-          <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 mb-12">
+          <div className="bg-blue-50 rounded-2xl p-8 mb-12 border border-blue-100">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Our 2030 Vision Goals</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600 mb-2">5,000+</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">5,000+</div>
                 <p className="text-gray-700 font-medium">Active Members</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-pink-600 mb-2">50+</div>
+                <div className="text-3xl font-bold text-slate-600 mb-2">50+</div>
                 <p className="text-gray-700 font-medium">Church Plants</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">100+</div>
+                <div className="text-3xl font-bold text-indigo-600 mb-2">100+</div>
                 <p className="text-gray-700 font-medium">Community Programs</p>
               </div>
             </div>
@@ -152,21 +152,21 @@ export default function VisionPage() {
           <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Our Vision in Action</h2>
             <div className="space-y-6">
-              <div className="border-l-4 border-purple-500 pl-6">
+              <div className="border-l-4 border-blue-500 pl-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Transformed Lives</h3>
                 <p className="text-gray-600">
                   We see individuals discovering their identity in Christ, overcoming 
                   challenges, and becoming agents of positive change in their families and communities.
                 </p>
               </div>
-              <div className="border-l-4 border-pink-500 pl-6">
+              <div className="border-l-4 border-slate-500 pl-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Strong Families</h3>
                 <p className="text-gray-600">
                   Families built on biblical foundations, experiencing love, unity, and 
                   purpose while raising the next generation of godly leaders.
                 </p>
               </div>
-              <div className="border-l-4 border-blue-500 pl-6">
+              <div className="border-l-4 border-indigo-500 pl-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Healthy Communities</h3>
                 <p className="text-gray-600">
                   Communities marked by justice, compassion, and prosperity where 
@@ -195,13 +195,13 @@ export default function VisionPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/about/values" 
-                className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-medium"
+                className="bg-slate-600 text-white px-6 py-3 rounded-lg hover:bg-slate-700 transition-colors font-medium"
               >
                 Our Values
               </Link>
               <Link 
                 href="/contact" 
-                className="border border-purple-600 text-purple-600 px-6 py-3 rounded-lg hover:bg-purple-50 transition-colors font-medium"
+                className="border border-slate-600 text-slate-600 px-6 py-3 rounded-lg hover:bg-slate-50 transition-colors font-medium"
               >
                 Get Involved
               </Link>

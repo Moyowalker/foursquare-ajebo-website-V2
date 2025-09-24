@@ -10,19 +10,19 @@ export const metadata: Metadata = {
 
 export default function MissionPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+      <div className="bg-slate-800 text-white py-16">
         <div className="container mx-auto px-4">
           <Link 
             href="/about" 
-            className="inline-flex items-center text-blue-100 hover:text-white mb-6 transition-colors"
+            className="inline-flex items-center text-slate-300 hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to About Us
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Mission</h1>
-          <p className="text-xl text-blue-100 max-w-3xl">
+          <p className="text-xl text-slate-300 max-w-3xl">
             Empowering spiritual growth and community through worship, prayer, and fellowship
           </p>
         </div>
@@ -34,7 +34,7 @@ export default function MissionPage() {
           {/* Mission Statement */}
           <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
             <div className="text-center mb-8">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Mission Statement</h2>
@@ -86,7 +86,7 @@ export default function MissionPage() {
           </div>
 
           {/* Our Calling */}
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mb-12">
+          <div className="bg-blue-50 rounded-2xl p-8 mb-12 border border-blue-100">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Our Calling</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>

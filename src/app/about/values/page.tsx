@@ -10,19 +10,19 @@ export const metadata: Metadata = {
 
 export default function ValuesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-green-600 to-teal-600 text-white py-16">
+      <div className="bg-slate-800 text-white py-16">
         <div className="container mx-auto px-4">
           <Link 
             href="/about" 
-            className="inline-flex items-center text-green-100 hover:text-white mb-6 transition-colors"
+            className="inline-flex items-center text-slate-300 hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to About Us
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Values</h1>
-          <p className="text-xl text-green-100 max-w-3xl">
+          <p className="text-xl text-slate-300 max-w-3xl">
             The principles that shape our character and guide our actions
           </p>
         </div>
@@ -255,7 +255,7 @@ export default function ValuesPage() {
           </div>
 
           {/* Living Our Values */}
-          <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-2xl p-8 mt-16 mb-12">
+          <div className="bg-blue-50 rounded-2xl p-8 mt-16 mb-12 border border-blue-100">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Living Our Values Daily</h2>
             <p className="text-gray-600 text-center mb-8">
               Our values come alive through practical everyday actions and decisions:
@@ -300,13 +300,13 @@ export default function ValuesPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/about/journey" 
-                className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-medium"
+                className="bg-slate-600 text-white px-6 py-3 rounded-lg hover:bg-slate-700 transition-colors font-medium"
               >
                 Our Journey
               </Link>
               <Link 
                 href="/contact" 
-                className="border border-green-600 text-green-600 px-6 py-3 rounded-lg hover:bg-green-50 transition-colors font-medium"
+                className="border border-slate-600 text-slate-600 px-6 py-3 rounded-lg hover:bg-slate-50 transition-colors font-medium"
               >
                 Visit Us
               </Link>

@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: Math.round(validatedData.amount * 100), // Convert to kobo (Nigerian currency cents)
       currency: STRIPE_CONFIG.currency,
-      payment_method_types: STRIPE_CONFIG.paymentMethods,
+      payment_method_types: [...STRIPE_CONFIG.paymentMethods],
       metadata: {
         donationType: validatedData.donationType,
         donorName: validatedData.donorName || 'Anonymous',

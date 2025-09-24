@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { donationCategories, givingGoals, mockDonationStats, formatCurrency, calculateProgress } from '@/data/donations';
 import { SpectacularButton, SpectacularCard, SpectacularBadge } from '@/components/ui/spectacular';
 
@@ -13,31 +14,65 @@ export default function GivingPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20" />
-        <div className="absolute inset-0 bg-[url('/images/church-pattern.svg')] opacity-5" />
+      {/* Heart-Centered Giving Hero */}
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        {/* Professional Warm Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-800 via-orange-900 to-slate-900"></div>
         
-        <div className="container mx-auto text-center relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Give With Purpose
-              </span>
+        {/* Subtle Pattern */}
+        <div className="absolute inset-0 opacity-6">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        
+        {/* Professional Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-amber-400/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-32 right-24 w-40 h-40 bg-orange-400/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-24 left-32 w-36 h-36 bg-slate-400/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10 pt-8">
+          <Link 
+            href="/" 
+            className="inline-flex items-center text-amber-200 hover:text-white mb-8 transition-all duration-300 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-white/20"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Home
+          </Link>
+          
+          <div className="max-w-6xl mx-auto text-center">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+              Give With <span className="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent">Purpose</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
+            
+            <p className="text-xl md:text-2xl text-amber-100 max-w-4xl mx-auto leading-relaxed mb-6">
               Your generous giving helps us spread God's love, build our community, 
               and transform lives around the world.
             </p>
+            
+            <div className="inline-flex items-center bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full mb-8">
+              <span className="text-amber-100 font-medium">💝 Generous Hearts • 🙏 Faithful Giving • ❤️ Transforming Lives</span>
+            </div>
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <SpectacularButton size="lg" className="px-8 py-4">
+              <SpectacularButton size="lg" className="px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600">
                 Give Now 💝
               </SpectacularButton>
-              <SpectacularButton variant="outline" size="lg" className="px-8 py-4">
+              <SpectacularButton variant="outline" size="lg" className="px-8 py-4 border-white/30 text-white hover:bg-white/10">
                 Learn More About Giving
               </SpectacularButton>
             </div>
           </div>
+        </div>
+        
+        {/* Loving Bottom Transition */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1200 120" fill="none" className="w-full h-12">
+            <path d="M0,30 Q150,90 300,30 T600,30 Q750,90 900,30 T1200,30 L1200,120 L0,120 Z" fill="rgb(15 23 42)" />
+          </svg>
         </div>
       </section>
 

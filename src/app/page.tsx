@@ -1,255 +1,449 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
-import { FoursquareLogo } from '@/components/ui/logo';
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section - Rich Gradient Background */}
+      {/* Hero Section - Immersive with Nature */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Beautiful Multi-layered Background */}
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          {/* Primary gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900"></div>
-          
-          {/* Secondary overlay gradient for depth */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-blue-800/50 via-transparent to-purple-800/50"></div>
-          
-          {/* Animated floating elements for visual interest */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-40 -left-40 w-80 h-80 bg-yellow-400/10 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-orange-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-            <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-purple-400/5 rounded-full blur-2xl animate-pulse delay-500"></div>
+          <div className="w-full h-full bg-gradient-to-br from-emerald-800 via-teal-700 to-sky-800">
+            <Image
+              src="/images/facilities/real/main-conference-hall.jpeg"
+              alt="Rev. Gabriel Adome Building - Foursquare Camp Ajebo Main Conference Center"
+              fill
+              className="object-cover mix-blend-overlay"
+              priority
+            />
           </div>
-          
-          {/* Subtle pattern overlay */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-              backgroundSize: '40px 40px'
-            }}></div>
-          </div>
+          {/* Natural overlay - deep forest green to sky blue */}
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/80 via-teal-800/70 to-sky-900/80"></div>
         </div>
 
-        <div className="container mx-auto px-4 py-32 relative z-10">
-          <div className="text-center space-y-8 max-w-5xl mx-auto">
-            {/* Logo */}
+        <div className="container mx-auto px-4 py-20 relative z-10">
+          <div className="text-center space-y-8 max-w-6xl mx-auto">
+            {/* Church Logo */}
             <div className="flex justify-center mb-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <FoursquareLogo size="xl" showText={false} className="brightness-0 invert" />
+              <div className="bg-white/20 backdrop-blur-sm rounded-full p-6 border border-white/20">
+                <Image
+                  src="/images/church-logo.jpg"
+                  alt="Foursquare Logo"
+                  width={80}
+                  height={80}
+                  className="rounded-full"
+                />
               </div>
             </div>
 
-            {/* Main Heading */}
+            {/* Main Heading - Clean and Elegant */}
             <div className="space-y-6">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
-                Foursquare Camp Ajebo
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white leading-tight tracking-wide">
+                Foursquare Camp <span className="font-normal text-amber-100">Ajebo</span>
               </h1>
-              <div className="w-32 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto rounded-full"></div>
-              <p className="text-xl md:text-2xl text-yellow-100 font-medium">
+              <div className="w-24 h-0.5 bg-amber-200 mx-auto"></div>
+              <p className="text-2xl md:text-3xl text-amber-100 font-light tracking-wide">
                 Where Faith Meets Fellowship
               </p>
             </div>
 
-            {/* Subtitle */}
-            <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
-              Experience world-class spiritual retreat facilities in the heart of Nigeria. 
-              Our peaceful campus offers everything you need for worship, fellowship, 
+            {/* Subtitle - Elegant and Inviting */}
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-4xl mx-auto font-light">
+              Discover serenity and spiritual growth in our peaceful retreat center. 
+              Nestled in natural beauty, we offer world-class facilities for worship, 
               conferences, and meaningful community gatherings.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
-              <Link href="/contact" className="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-semibold px-10 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Book Your Visit
+            {/* CTA Buttons - Natural Colors */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-12">
+              <Link 
+                href="/contact" 
+                className="bg-amber-600 hover:bg-amber-700 text-white font-medium px-12 py-4 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Plan Your Visit
               </Link>
-              <Link href="/facilities" className="bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/30 font-semibold px-10 py-4 rounded-full text-lg transition-all duration-300">
-                Explore Facilities
+              <Link 
+                href="/facilities" 
+                className="bg-white/20 backdrop-blur-sm border border-white/40 text-white hover:bg-white/30 font-medium px-12 py-4 rounded-lg text-lg transition-all duration-300"
+              >
+                Explore Our Campus
               </Link>
             </div>
 
-            {/* Enhanced Stats with Icons */}
+            {/* Stats - Clean and Natural */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-20">
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="text-4xl font-bold text-yellow-400 mb-2">15+</div>
-                <div className="text-gray-200 font-medium">Years of Service</div>
+              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <div className="text-3xl font-light text-amber-200 mb-2">20+</div>
+                <div className="text-white/80 font-light">Years Serving</div>
               </div>
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="text-4xl font-bold text-yellow-400 mb-2">1000+</div>
-                <div className="text-gray-200 font-medium">Happy Guests</div>
+              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <div className="text-3xl font-light text-amber-200 mb-2">10,000+</div>
+                <div className="text-white/80 font-light">Lives Touched</div>
               </div>
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="text-4xl font-bold text-yellow-400 mb-2">50+</div>
-                <div className="text-gray-200 font-medium">Events Hosted</div>
+              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <div className="text-3xl font-light text-amber-200 mb-2">500+</div>
+                <div className="text-white/80 font-light">Annual Guests</div>
               </div>
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="text-4xl font-bold text-yellow-400 mb-2">24/7</div>
-                <div className="text-gray-200 font-medium">Support</div>
+              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <div className="text-3xl font-light text-amber-200 mb-2">24/7</div>
+                <div className="text-white/80 font-light">Hospitality</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
       </section>
 
-      {/* Featured Facilities Section - Image Rich */}
-      <section className="py-24 bg-gray-50">
+      {/* About the Camp & Mission Section */}
+      <section className="py-24 bg-stone-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">
-              World-Class Facilities
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+              {/* Content */}
+              <div className="space-y-8">
+                <div>
+                  <h2 className="text-4xl md:text-5xl font-light text-stone-800 mb-6 leading-tight">
+                    A Sacred Space for <span className="text-teal-700">Spiritual Growth</span>
+                  </h2>
+                  <div className="w-16 h-0.5 bg-teal-600 mb-8"></div>
+                </div>
+                
+                <p className="text-xl text-stone-600 leading-relaxed font-light">
+                  For over two decades, Foursquare Camp Ajebo has been a sanctuary where faith deepens, 
+                  community flourishes, and hearts are transformed. Nestled in the serene landscape of 
+                  Nigeria, our camp offers a peaceful retreat from the world's distractions.
+                </p>
+                
+                <p className="text-lg text-stone-600 leading-relaxed">
+                  Whether you're seeking personal renewal, planning a spiritual retreat, or organizing 
+                  a conference, our facilities and community provide the perfect environment for 
+                  meaningful encounters with God and one another.
+                </p>
+
+                {/* Mission Pillars */}
+                <div className="grid md:grid-cols-3 gap-6 pt-8">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">🙏</span>
+                    </div>
+                    <h3 className="font-medium text-stone-800 mb-2">Worship</h3>
+                    <p className="text-sm text-stone-600">Authentic spiritual experiences</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">🤝</span>
+                    </div>
+                    <h3 className="font-medium text-stone-800 mb-2">Fellowship</h3>
+                    <p className="text-sm text-stone-600">Genuine Christian community</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">📖</span>
+                    </div>
+                    <h3 className="font-medium text-stone-800 mb-2">Learning</h3>
+                    <p className="text-sm text-stone-600">Biblical teaching and growth</p>
+                  </div>
+                </div>
+
+                <div className="pt-8">
+                  <Link 
+                    href="/about" 
+                    className="inline-flex items-center text-teal-700 hover:text-teal-800 font-medium transition-colors"
+                  >
+                    Learn more about our story
+                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Image */}
+              <div className="relative">
+                <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                <div className="relative h-72 overflow-hidden bg-gradient-to-br from-emerald-600 to-teal-700">
+                  <Image
+                    src="/images/facilities/real/international-guest-house.jpeg"
+                    alt="International Guest House - Premium Accommodation at Camp Ajebo"
+                    fill
+                    className="object-cover mix-blend-overlay"
+                  />
+                </div>
+                {/* Decorative Element */}
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-teal-100 rounded-2xl -z-10"></div>
+                <div className="absolute -top-6 -left-6 w-24 h-24 bg-amber-100 rounded-full -z-10"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Activities & Programs Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light text-stone-800 mb-6">
+              Activities & Faith-Based Programs
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Discover our comprehensive range of modern facilities designed to support 
-              your spiritual journey, conferences, retreats, and community gatherings.
+            <div className="w-16 h-0.5 bg-teal-600 mx-auto mb-8"></div>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed font-light">
+              Experience diverse programs designed to strengthen your faith, build community, 
+              and create lasting spiritual memories.
             </p>
           </div>
 
-          {/* Main Featured Facilities Grid */}
+          {/* Programs Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {/* Spiritual Retreats */}
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="relative h-48 bg-emerald-100 overflow-hidden">
+                <Image
+                  src="/images/facilities/real/jehovah-shammah-house.jpg"
+                  alt="Jehovah Shammah House - Peaceful Retreat Accommodation"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-xl font-medium text-stone-800 mb-4">Spiritual Retreats</h3>
+                <p className="text-stone-600 mb-6 leading-relaxed">
+                  Escape from daily distractions and focus on deepening your relationship with God 
+                  through prayer, meditation, and biblical study.
+                </p>
+                <div className="flex items-center text-teal-700 font-medium">
+                  <span className="text-sm">Learn more</span>
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Worship Services */}
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="relative h-48 bg-sky-100 overflow-hidden">
+                <Image
+                  src="/images/facilities/real/main-conference-hall.jpg"
+                  alt="Rev. Gabriel Adome Building - Main Worship and Conference Center"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-xl font-medium text-stone-800 mb-4">Worship Services</h3>
+                <p className="text-stone-600 mb-6 leading-relaxed">
+                  Join us for uplifting worship experiences with contemporary music, 
+                  inspiring messages, and heartfelt communion with God.
+                </p>
+                <div className="flex items-center text-sky-700 font-medium">
+                  <span className="text-sm">Service times</span>
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Conferences & Events */}
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="relative h-48 bg-amber-100 overflow-hidden">
+                <Image
+                  src="/images/facilities/real/accommodation/executive-guest-house.jpg"
+                  alt="Executive Guest House - Premium Conference Accommodation"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-xl font-medium text-stone-800 mb-4">Conferences & Events</h3>
+                <p className="text-stone-600 mb-6 leading-relaxed">
+                  Host your spiritual conferences, leadership training, and special events 
+                  in our well-equipped facilities.
+                </p>
+                <div className="flex items-center text-amber-700 font-medium">
+                  <span className="text-sm">Plan event</span>
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Youth Programs */}
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="relative h-48 bg-rose-100 overflow-hidden">
+                <Image
+                  src="/images/facilities/real/outdoor-stadium.jpg"
+                  alt="Sports Stadium - Youth Recreation and Activities"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-xl font-medium text-stone-800 mb-4">Youth Programs</h3>
+                <p className="text-stone-600 mb-6 leading-relaxed">
+                  Dynamic programs designed to engage young people in faith, leadership, 
+                  and community service through fun and meaningful activities.
+                </p>
+                <div className="flex items-center text-rose-700 font-medium">
+                  <span className="text-sm">Join youth</span>
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Community Outreach */}
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="relative h-48 bg-teal-100 overflow-hidden">
+                <Image
+                  src="/images/facilities/real/dining-restaurant.jpg"
+                  alt="Delishringers Restaurant - Community Dining and Fellowship"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-xl font-medium text-stone-800 mb-4">Community Outreach</h3>
+                <p className="text-stone-600 mb-6 leading-relaxed">
+                  Serve the local community through charitable works, educational programs, 
+                  and initiatives that demonstrate God's love in action.
+                </p>
+                <div className="flex items-center text-teal-700 font-medium">
+                  <span className="text-sm">Get involved</span>
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Prayer & Meditation */}
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="relative h-48 bg-indigo-100 overflow-hidden">
+                <Image
+                  src="/images/facilities/real/modern-guest-rooms.jpg"
+                  alt="Modern Guest Houses - Peaceful Accommodation for Prayer and Reflection"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-xl font-medium text-stone-800 mb-4">Prayer & Meditation</h3>
+                <p className="text-stone-600 mb-6 leading-relaxed">
+                  Find quiet spaces for personal prayer and meditation in our peaceful 
+                  garden areas and dedicated prayer rooms.
+                </p>
+                <div className="flex items-center text-indigo-700 font-medium">
+                  <span className="text-sm">Find peace</span>
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Premium Facilities Showcase */}
+      <section className="py-24 bg-stone-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light text-stone-800 mb-6">
+              Premium Facilities & Accommodations
+            </h2>
+            <div className="w-16 h-0.5 bg-teal-600 mx-auto mb-8"></div>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed font-light">
+              Experience comfort and tranquility in our thoughtfully designed facilities, 
+              crafted to support your spiritual journey and community gatherings.
+            </p>
+          </div>
+
+          {/* Featured Facilities */}
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            {/* International Guest House */}
-            <div className="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+            {/* Guest House */}
+            <div className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
               <div className="relative h-80">
                 <Image
-                  src="/images/facilities/accommodation/guest-house-interior.jpg"
-                  alt="International Guest House Interior"
+                  src="/images/facilities/real/accommodation/international-guest-house.jpg"
+                  alt="International Guest House - Premium Accommodation"
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/images/facilities/accommodation/placeholder.jpg";
-                  }}
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <h3 className="text-2xl font-bold mb-2">International Guest House</h3>
-                  <p className="text-gray-200">Premium accommodation with modern amenities and peaceful surroundings</p>
+                <div className="absolute inset-0 bg-stone-900/40"></div>
+                <div className="absolute bottom-8 left-8 right-8 text-white">
+                  <h3 className="text-3xl font-light mb-3">Guest Accommodations</h3>
+                  <p className="text-stone-200 font-light">Comfortable rooms designed for rest and reflection</p>
                 </div>
               </div>
             </div>
 
-            {/* Grand Auditorium */}
-            <div className="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+            {/* Conference Center */}
+            <div className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
               <div className="relative h-80">
                 <Image
-                  src="/images/facilities/conference/auditorium-main.jpg"
-                  alt="Grand Auditorium"
+                  src="/images/facilities/real/conference/gabriel-adombe-building.jpg"
+                  alt="Gabriel Adombe Building - Main Conference Center"
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/images/facilities/conference/placeholder.jpg";
-                  }}
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <h3 className="text-2xl font-bold mb-2">Grand Auditorium</h3>
-                  <p className="text-gray-200">State-of-the-art venue for large conferences and worship services</p>
+                <div className="absolute inset-0 bg-stone-900/40"></div>
+                <div className="absolute bottom-8 left-8 right-8 text-white">
+                  <h3 className="text-3xl font-light mb-3">Conference Center</h3>
+                  <p className="text-stone-200 font-light">Modern venues for worship and gatherings</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Secondary Facilities Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Delish Fingers Restaurant */}
-            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="relative h-48">
-                <Image
-                  src="/images/facilities/dining/restaurant-interior.jpg"
-                  alt="Delish Fingers Restaurant"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/images/facilities/dining/placeholder.jpg";
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          {/* Facilities Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🍽️</span>
               </div>
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <h4 className="font-bold text-lg">Delish Fingers</h4>
-                <p className="text-sm text-gray-200">Fine Dining Restaurant</p>
-              </div>
+              <h4 className="font-medium text-stone-800 mb-2">Delish Fingers Restaurant</h4>
+              <p className="text-sm text-stone-600">Fine dining with local and international cuisine</p>
             </div>
 
-            {/* Sports & Recreation */}
-            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="relative h-48">
-                <Image
-                  src="/images/facilities/recreation/sports-complex.jpg"
-                  alt="Sports & Recreation Center"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/images/facilities/recreation/placeholder.jpg";
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🏃</span>
               </div>
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <h4 className="font-bold text-lg">Sports Centre</h4>
-                <p className="text-sm text-gray-200">Recreation & Wellness</p>
-              </div>
+              <h4 className="font-medium text-stone-800 mb-2">Recreation Center</h4>
+              <p className="text-sm text-stone-600">Sports facilities and wellness activities</p>
             </div>
 
-            {/* Conference Rooms */}
-            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="relative h-48">
-                <Image
-                  src="/images/facilities/conference/meeting-room.jpg"
-                  alt="Conference Meeting Room"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/images/facilities/conference/placeholder.jpg";
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🌳</span>
               </div>
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <h4 className="font-bold text-lg">Meeting Rooms</h4>
-                <p className="text-sm text-gray-200">Private Conferences</p>
-              </div>
+              <h4 className="font-medium text-stone-800 mb-2">Beautiful Grounds</h4>
+              <p className="text-sm text-stone-600">Landscaped gardens perfect for reflection</p>
             </div>
 
-            {/* Infrastructure */}
-            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="relative h-48">
-                <Image
-                  src="/images/facilities/infrastructure/campus-grounds.jpg"
-                  alt="Campus Infrastructure"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/images/facilities/infrastructure/placeholder.jpg";
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🏢</span>
               </div>
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <h4 className="font-bold text-lg">Campus Grounds</h4>
-                <p className="text-sm text-gray-200">Beautiful Infrastructure</p>
-              </div>
+              <h4 className="font-medium text-stone-800 mb-2">Meeting Rooms</h4>
+              <p className="text-sm text-stone-600">Intimate spaces for prayer and discussion</p>
             </div>
           </div>
 
-          {/* CTA Section */}
-          <div className="text-center mt-16">
+          <div className="text-center mt-12">
             <Link 
               href="/facilities" 
-              className="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="inline-flex items-center bg-teal-700 hover:bg-teal-800 text-white font-medium px-8 py-4 rounded-lg text-lg transition-all duration-300 shadow-lg"
             >
               Explore All Facilities
               <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -283,10 +477,6 @@ export default function HomePage() {
                   alt="Foursquare Camp Ajebo Main Entrance"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/images/facilities/infrastructure/placeholder.jpg";
-                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
@@ -298,53 +488,37 @@ export default function HomePage() {
             {/* Gallery images */}
             <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
               <Image
-                src="/images/facilities/accommodation/guest-rooms.jpg"
-                alt="Comfortable Guest Rooms"
+                src="/images/facilities/real/modern-guest-rooms.jpg"
+                alt="Modern Guest Rooms - Premium Accommodation"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "/images/facilities/accommodation/placeholder.jpg";
-                }}
               />
             </div>
 
             <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
               <Image
-                src="/images/facilities/dining/outdoor-dining.jpg"
-                alt="Outdoor Dining Area"
+                src="/images/facilities/real/dining-restaurant.jpg"
+                alt="Delishringers Restaurant - Quality Dining Experience"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "/images/facilities/dining/placeholder.jpg";
-                }}
               />
             </div>
 
             <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
               <Image
-                src="/images/facilities/recreation/garden-area.jpg"
-                alt="Beautiful Garden Areas"
+                src="/images/facilities/real/jehovah-shammah-house.jpg"
+                alt="Jehovah Shammah House - Spiritual Retreat Center"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "/images/facilities/recreation/placeholder.jpg";
-                }}
               />
             </div>
 
             <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
               <Image
-                src="/images/facilities/conference/worship-hall.jpg"
-                alt="Worship Hall"
+                src="/images/facilities/real/outdoor-stadium.jpg"
+                alt="Outdoor Stadium - Recreation and Events"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "/images/facilities/conference/placeholder.jpg";
-                }}
               />
             </div>
           </div>
@@ -425,48 +599,237 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Visual CTA Section with Contact */}
+      {/* Gallery & Campus Highlights */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light text-stone-800 mb-6">
+              Campus Highlights & Gallery
+            </h2>
+            <div className="w-16 h-0.5 bg-teal-600 mx-auto mb-8"></div>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed font-light">
+              Discover the beauty and serenity of our campus through these glimpses 
+              of life at Foursquare Camp Ajebo.
+            </p>
+          </div>
+
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
+            {/* Featured large image */}
+            <div className="col-span-2 row-span-2">
+              <div className="relative h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                <div style={{background: 'linear-gradient(135deg, #065f46 0%, #0891b2 100%)'}} className="w-full h-full flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <span className="text-6xl block mb-4">⛪</span>
+                    <h4 className="font-light text-xl">Welcome to Our Sacred Space</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Gallery thumbnails */}
+            <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+              <div style={{background: '#0891b2'}} className="w-full h-full flex items-center justify-center">
+                <span className="text-4xl text-white">🏨</span>
+              </div>
+            </div>
+
+            <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+              <div style={{background: '#059669'}} className="w-full h-full flex items-center justify-center">
+                <span className="text-4xl text-white">🍽️</span>
+              </div>
+            </div>
+
+            <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+              <div style={{background: 'linear-gradient(135deg, #10b981 0%, #0891b2 100%)'}} className="w-full h-full flex items-center justify-center">
+                <span className="text-4xl text-white">🌿</span>
+              </div>
+            </div>
+
+            <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+              <div style={{background: 'linear-gradient(135deg, #0891b2 0%, #7c2d12 100%)'}} className="w-full h-full flex items-center justify-center">
+                <span className="text-4xl text-white">🏃</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Impact Statistics */}
+          <div className="bg-teal-700 rounded-2xl py-16 px-8 text-white mb-16">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h3 className="text-3xl font-light mb-4">Our Community Impact</h3>
+                <div className="w-12 h-0.5 bg-amber-200 mx-auto"></div>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                  <div className="text-4xl font-light text-amber-200 mb-2">500+</div>
+                  <div className="text-teal-100 font-light">Guest Capacity</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-light text-amber-200 mb-2">12</div>
+                  <div className="text-teal-100 font-light">Facility Types</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-light text-amber-200 mb-2">1000+</div>
+                  <div className="text-teal-100 font-light">Lives Touched</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-light text-amber-200 mb-2">24/7</div>
+                  <div className="text-teal-100 font-light">Care & Support</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <Link 
+              href="/gallery" 
+              className="inline-flex items-center bg-emerald-700 hover:bg-emerald-800 text-white font-medium px-8 py-4 rounded-lg text-lg transition-all duration-300 shadow-lg"
+            >
+              View Full Gallery
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials & Impact Stories */}
+      <section className="py-24 bg-stone-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light text-stone-800 mb-6">
+              Stories of <span className="text-teal-700">Transformation</span>
+            </h2>
+            <div className="w-16 h-0.5 bg-teal-600 mx-auto mb-8"></div>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed font-light">
+              Hear from those whose lives have been touched by their experience at Camp Ajebo, 
+              where faith deepens and community flourishes.
+            </p>
+          </div>
+
+          {/* Testimonials Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {/* Testimonial 1 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-xl">👤</span>
+                </div>
+                <div>
+                  <h4 className="font-medium text-stone-800">Pastor Sarah O.</h4>
+                  <p className="text-sm text-stone-500">Youth Leader</p>
+                </div>
+              </div>
+              <p className="text-stone-600 leading-relaxed mb-6 italic">
+                "Camp Ajebo provided the perfect environment for our youth retreat. The peaceful 
+                atmosphere and excellent facilities allowed our young people to truly connect 
+                with God and each other."
+              </p>
+              <div className="flex text-amber-400">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-xl">👤</span>
+                </div>
+                <div>
+                  <h4 className="font-medium text-stone-800">Rev. Michael A.</h4>
+                  <p className="text-sm text-stone-500">Conference Organizer</p>
+                </div>
+              </div>
+              <p className="text-stone-600 leading-relaxed mb-6 italic">
+                "The conference facilities exceeded our expectations. Professional setup, 
+                comfortable accommodations, and the spiritual atmosphere made our leadership 
+                conference truly impactful."
+              </p>
+              <div className="flex text-amber-400">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-xl">👤</span>
+                </div>
+                <div>
+                  <h4 className="font-medium text-stone-800">Mrs. Grace N.</h4>
+                  <p className="text-sm text-stone-500">Retreat Participant</p>
+                </div>
+              </div>
+              <p className="text-stone-600 leading-relaxed mb-6 italic">
+                "My personal retreat at Camp Ajebo was life-changing. The quiet spaces for 
+                prayer and meditation, combined with the warm fellowship, renewed my spirit 
+                and strengthened my faith."
+              </p>
+              <div className="flex text-amber-400">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center">
+            <h3 className="text-2xl font-light text-stone-800 mb-4">
+              Ready to Create Your Own Story?
+            </h3>
+            <p className="text-stone-600 mb-8 max-w-2xl mx-auto">
+              Join the thousands who have experienced spiritual growth and community at Camp Ajebo.
+            </p>
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center bg-teal-700 hover:bg-teal-800 text-white font-medium px-8 py-4 rounded-lg text-lg transition-all duration-300 shadow-lg"
+            >
+              Share Your Story
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Final Call to Action - Conversion Focused */}
       <section className="relative py-24 overflow-hidden">
-        {/* Background Image */}
+        {/* Natural background with earth tones */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/facilities/infrastructure/sunset-campus.jpg"
-            alt="Beautiful Campus at Sunset"
-            fill
-            className="object-cover"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.style.display = 'none';
-              target.parentElement!.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80"></div>
+          <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, #065f46 0%, #0891b2 50%, #7c2d12 100%)'}}></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Ready to Experience Camp Ajebo?
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-4xl md:text-6xl font-light text-white mb-8 leading-tight">
+              Begin Your <span className="text-amber-200">Spiritual Journey</span>
             </h2>
-            <p className="text-xl text-blue-100 mb-12 leading-relaxed">
-              Whether you're planning a spiritual retreat, conference, wedding, or family gathering, 
-              we're here to make your event unforgettable. Contact us today to begin your journey.
+            <div className="w-20 h-0.5 bg-amber-200 mx-auto mb-8"></div>
+            
+            <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto font-light">
+              Whether you're seeking personal renewal, planning a retreat, organizing a conference, 
+              or celebrating a special occasion, Camp Ajebo provides the perfect sanctuary for 
+              meaningful spiritual encounters.
             </p>
 
-            {/* Contact Options Grid */}
+            {/* Contact Options */}
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {/* WhatsApp Contact */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300">
-                <div className="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              {/* WhatsApp */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
+                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">WhatsApp</h3>
-                <p className="text-blue-100 mb-4">Quick inquiries & bookings</p>
+                <h3 className="text-lg font-medium text-white mb-2">WhatsApp</h3>
+                <p className="text-white/70 mb-4 text-sm">Quick responses</p>
                 <a 
                   href="https://wa.me/2347036555871" 
-                  className="text-green-400 hover:text-green-300 font-semibold"
+                  className="text-green-300 hover:text-green-200 font-medium"
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
@@ -474,35 +837,35 @@ export default function HomePage() {
                 </a>
               </div>
 
-              {/* Phone Contact */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300">
-                <div className="bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              {/* Phone */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
+                <div className="w-16 h-16 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Call Us</h3>
-                <p className="text-blue-100 mb-4">Reception & reservations</p>
+                <h3 className="text-lg font-medium text-white mb-2">Call Direct</h3>
+                <p className="text-white/70 mb-4 text-sm">Personal assistance</p>
                 <a 
                   href="tel:+2347032192546" 
-                  className="text-blue-300 hover:text-blue-200 font-semibold"
+                  className="text-sky-300 hover:text-sky-200 font-medium"
                 >
                   +234 703 219 2546
                 </a>
               </div>
 
-              {/* Email Contact */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300">
-                <div className="bg-purple-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              {/* Email */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
+                <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Email Us</h3>
-                <p className="text-blue-100 mb-4">Detailed inquiries</p>
+                <h3 className="text-lg font-medium text-white mb-2">Email Us</h3>
+                <p className="text-white/70 mb-4 text-sm">Detailed planning</p>
                 <a 
                   href="mailto:info@foursquarecampajebo.org" 
-                  className="text-purple-300 hover:text-purple-200 font-semibold"
+                  className="text-amber-300 hover:text-amber-200 font-medium"
                 >
                   info@foursquarecampajebo.org
                 </a>
@@ -510,41 +873,38 @@ export default function HomePage() {
             </div>
 
             {/* Primary Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
               <Link 
                 href="/contact" 
-                className="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-bold px-12 py-5 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                className="bg-amber-600 hover:bg-amber-700 text-white font-medium px-12 py-4 rounded-lg text-xl transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Book Your Stay Now
+                Plan Your Visit Today
               </Link>
               <Link 
                 href="/facilities" 
-                className="bg-white/20 backdrop-blur-sm border-2 border-white/40 text-white hover:bg-white/30 font-semibold px-12 py-5 rounded-full text-xl transition-all duration-300"
+                className="bg-white/20 backdrop-blur-sm border border-white/40 text-white hover:bg-white/30 font-medium px-12 py-4 rounded-lg text-xl transition-all duration-300"
               >
-                Explore Our Facilities
+                Tour Our Facilities
               </Link>
             </div>
 
-            {/* Additional Links */}
-            <div className="flex flex-wrap justify-center gap-8 mt-12 text-blue-200">
-              <Link href="/giving" className="hover:text-white transition-colors duration-200">
+            {/* Quick Links */}
+            <div className="flex flex-wrap justify-center gap-8 text-white/70">
+              <Link href="/about" className="hover:text-white transition-colors duration-200 font-light">
+                Our Story
+              </Link>
+              <Link href="/giving" className="hover:text-white transition-colors duration-200 font-light">
                 Support Our Mission
               </Link>
-              <Link href="/about" className="hover:text-white transition-colors duration-200">
-                About Us
-              </Link>
-              <Link href="/events" className="hover:text-white transition-colors duration-200">
+              <Link href="/events" className="hover:text-white transition-colors duration-200 font-light">
                 Upcoming Events
               </Link>
-              <Link href="/gallery" className="hover:text-white transition-colors duration-200">
-                Photo Gallery
+              <Link href="/gallery" className="hover:text-white transition-colors duration-200 font-light">
+                Gallery
               </Link>
             </div>
           </div>
         </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"></div>
       </section>
     </div>
   );

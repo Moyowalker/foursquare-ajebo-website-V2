@@ -12,7 +12,7 @@ interface EventCalendarProps {
   className?: string;
 }
 
-export function EventCalendar({ 
+function EventCalendar({ 
   events = mockEvents, 
   onEventClick, 
   showFilters = true,
@@ -397,3 +397,6 @@ export function EventCalendar({
     </div>
   );
 }
+
+export default EventCalendar;
+export { EventCalendar };

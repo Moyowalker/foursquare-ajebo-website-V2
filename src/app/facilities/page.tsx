@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { ScrollReveal, Parallax, FloatingElement } from '@/components/ui/animations';
 import { SpectacularButton, SpectacularCard, GradientText, PulsingOrb, GlassCard } from '@/components/ui/spectacular';
 
@@ -66,9 +67,9 @@ export default function FacilitiesPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(139,92,246,0.3),transparent_50%)]"></div>
         
         {/* Floating Orbs */}
-        <PulsingOrb size={250} color="rgba(139, 92, 246, 0.1)" top="15%" left="15%" duration={5} />
-        <PulsingOrb size={180} color="rgba(59, 130, 246, 0.1)" top="60%" left="85%" duration={7} />
-        <PulsingOrb size={120} color="rgba(16, 185, 129, 0.1)" top="80%" left="20%" duration={4} />
+        <PulsingOrb size="xl" color="purple" intensity="low" className="absolute top-[15%] left-[15%]" />
+        <PulsingOrb size="lg" color="blue" intensity="medium" className="absolute top-[60%] left-[85%]" />
+        <PulsingOrb size="md" color="orange" intensity="high" className="absolute top-[80%] left-[20%]" />
       </div>
 
       {/* Mouse Follower */}
@@ -80,25 +81,60 @@ export default function FacilitiesPage() {
         }}
       />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <ScrollReveal>
-            <GradientText className="text-6xl md:text-8xl font-bold mb-8">
-              Our Facilities
-            </GradientText>
-          </ScrollReveal>
+      {/* Architectural Facilities Hero */}
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        {/* Professional Facilities Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-slate-800 via-blue-900 to-slate-700"></div>
+        
+        {/* Clean Architectural Grid */}
+        <div className="absolute inset-0 opacity-8">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+        
+        {/* Subtle Professional Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-16 left-24 w-16 h-24 bg-blue-400/8 rounded-lg blur-sm"></div>
+          <div className="absolute top-32 right-32 w-20 h-32 bg-slate-400/8 rounded-lg blur-sm"></div>
+          <div className="absolute bottom-32 left-16 w-24 h-16 bg-blue-500/8 rounded-lg blur-sm"></div>
+          <div className="absolute top-1/2 right-16 w-12 h-20 bg-slate-500/8 rounded-lg blur-sm"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10 pt-8">
+          <Link 
+            href="/" 
+            className="inline-flex items-center text-blue-200 hover:text-white mb-8 transition-all duration-300 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-white/20"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Home
+          </Link>
           
-          <ScrollReveal delay={200}>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
-              World-class facilities designed to create the perfect environment for 
-              spiritual growth, learning, and fellowship.
-            </p>
-            <p className="text-lg text-slate-400 max-w-3xl mx-auto">
-              From comfortable accommodation to state-of-the-art conference facilities, 
-              we provide everything needed for an exceptional experience.
-            </p>
-          </ScrollReveal>
+          <div className="max-w-6xl mx-auto text-center">
+            <ScrollReveal>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+                Our <span className="bg-gradient-to-r from-blue-300 to-slate-300 bg-clip-text text-transparent">Facilities</span>
+              </h1>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={200}>
+              <p className="text-xl md:text-2xl text-slate-200 max-w-4xl mx-auto leading-relaxed mb-6">
+                World-class facilities designed to create the perfect environment for 
+                spiritual growth, learning, and fellowship.
+              </p>
+              <div className="inline-flex items-center bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full">
+                <span className="text-slate-200 font-medium">🏨 Accommodation • 🎭 Conference • ⚽ Recreation • 🏛️ Excellence</span>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+        
+        {/* Modern Architectural Transition */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1200 120" fill="none" className="w-full h-12">
+            <path d="M0,20 L200,60 L400,30 L600,70 L800,40 L1000,65 L1200,25 L1200,120 L0,120 Z" fill="rgb(15 23 42)" />
+          </svg>
         </div>
       </section>
 

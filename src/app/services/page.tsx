@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { ScrollReveal, FloatingElement } from '@/components/ui/animations';
 import { SpectacularButton, GradientText, PulsingOrb, GlassCard } from '@/components/ui/spectacular';
 
@@ -89,25 +90,59 @@ export default function ServicesPage() {
         }}
       />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <ScrollReveal>
-            <GradientText className="text-6xl md:text-8xl font-bold mb-8">
-              Our Services
-            </GradientText>
-          </ScrollReveal>
+      {/* Dynamic Services Hero */}
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        {/* Professional Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-900 via-slate-800 to-emerald-900"></div>
+        
+        {/* Subtle Pattern */}
+        <div className="absolute inset-0 opacity-8">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+        
+        {/* Professional Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-16 left-16 w-28 h-28 bg-blue-400/10 rounded-full blur-2xl"></div>
+          <div className="absolute top-32 right-24 w-36 h-36 bg-emerald-400/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-24 left-32 w-32 h-32 bg-slate-400/10 rounded-full blur-2xl"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10 pt-8">
+          <Link 
+            href="/" 
+            className="inline-flex items-center text-blue-200 hover:text-white mb-8 transition-all duration-300 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-white/20"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Home
+          </Link>
           
-          <ScrollReveal delay={200}>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
-              Discover the many ways we serve our community and help young people 
-              grow in faith, character, and purpose.
-            </p>
-            <p className="text-lg text-slate-400 max-w-3xl mx-auto">
-              From powerful worship experiences to transformative programs, we offer comprehensive services 
-              designed to meet you wherever you are on your spiritual journey.
-            </p>
-          </ScrollReveal>
+          <div className="max-w-6xl mx-auto text-center">
+            <ScrollReveal>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+                Our <span className="bg-gradient-to-r from-emerald-300 to-blue-300 bg-clip-text text-transparent">Services</span>
+              </h1>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={200}>
+              <p className="text-xl md:text-2xl text-slate-200 max-w-4xl mx-auto leading-relaxed mb-6">
+                Discover the many ways we serve our community and help young people 
+                grow in faith, character, and purpose.
+              </p>
+              <div className="inline-flex items-center bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full">
+                <span className="text-blue-100 font-medium">🙏 Worship • 🎪 Events • 👥 Ministry • 📺 Streaming</span>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+        
+        {/* Bottom Geometric Transition */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1200 120" fill="none" className="w-full h-12">
+            <path d="M0,80 Q200,40 400,80 T800,80 Q1000,40 1200,80 L1200,120 L0,120 Z" fill="rgb(15 23 42)" />
+          </svg>
         </div>
       </section>
 

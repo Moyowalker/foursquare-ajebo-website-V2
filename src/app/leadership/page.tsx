@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { ScrollReveal, FloatingElement } from '@/components/ui/animations';
 import { SpectacularButton, GradientText, PulsingOrb, GlassCard } from '@/components/ui/spectacular';
 
@@ -104,25 +105,59 @@ export default function LeadershipPage() {
         }}
       />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <ScrollReveal>
-            <GradientText className="text-6xl md:text-8xl font-bold mb-8">
-              Our Leadership
-            </GradientText>
-          </ScrollReveal>
+      {/* Professional Leadership Hero */}
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        {/* Professional Leadership Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"></div>
+        
+        {/* Subtle Grid Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}></div>
+        </div>
+        
+        {/* Professional Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-blue-400/8 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-16 w-40 h-40 bg-slate-400/8 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-32 left-1/3 w-28 h-28 bg-blue-500/8 rounded-full blur-2xl"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10 pt-8">
+          <Link 
+            href="/" 
+            className="inline-flex items-center text-blue-200 hover:text-white mb-8 transition-all duration-300 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-white/20"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Home
+          </Link>
           
-          <ScrollReveal delay={200}>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
-              Meet the passionate leaders who guide Foursquare Camp Ajebo with wisdom, 
-              vision, and unwavering commitment to youth ministry.
-            </p>
-            <p className="text-lg text-slate-400 max-w-3xl mx-auto">
-              Our leadership team combines decades of experience with fresh perspectives, 
-              united in the mission to transform young lives through Christ.
-            </p>
-          </ScrollReveal>
+          <div className="max-w-6xl mx-auto text-center">
+            <ScrollReveal>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+                Our <span className="bg-gradient-to-r from-blue-300 to-slate-300 bg-clip-text text-transparent">Leadership</span>
+              </h1>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={200}>
+              <p className="text-xl md:text-2xl text-slate-200 max-w-4xl mx-auto leading-relaxed mb-6">
+                Meet the passionate leaders who guide Foursquare Camp Ajebo with wisdom, 
+                vision, and unwavering commitment to youth ministry.
+              </p>
+              <div className="inline-flex items-center bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full">
+                <span className="text-blue-100 font-medium">👔 Board of Directors • 👥 Ministry Team • ⭐ Excellence in Leadership</span>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+        
+        {/* Professional Bottom Transition */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1200 120" fill="none" className="w-full h-12">
+            <path d="M0,40 Q300,100 600,40 T1200,40 L1200,120 L0,120 Z" fill="rgb(15 23 42)" />
+          </svg>
         </div>
       </section>
 
