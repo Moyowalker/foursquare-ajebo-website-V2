@@ -133,7 +133,7 @@ export default function HomePage() {
                 </div>
                 
                 <p className="text-xl text-stone-600 leading-relaxed font-light">
-                  For over two decades, Foursquare Camp Ajebo has been a sanctuary where faith deepens, 
+                  For over five decades, Foursquare Camp Ajebo has been a sanctuary where faith deepens, 
                   community flourishes, and hearts are transformed. Nestled in the serene landscape of 
                   Nigeria, our camp offers a peaceful retreat from the world's distractions.
                 </p>

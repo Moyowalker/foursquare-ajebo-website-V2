@@ -37,7 +37,7 @@ export const mainNav: NavItem[] = [
     ]
   },
   {
-    title: "Our Services",
+    title: "Services",
     href: "/services",
     items: [
       {
@@ -60,33 +60,6 @@ export const mainNav: NavItem[] = [
         href: "/services/streaming",
         description: "Join us online for live services"
       },
-    ]
-  },
-  {
-    title: "Announcements",
-    href: "/announcements",
-    description: "Latest news, updates, and important announcements"
-  },
-  {
-    title: "Our Leadership",
-    href: "/leadership", 
-    items: [
-      {
-        title: "Board of Directors",
-        href: "/leadership/board",
-        description: "Meet our church leadership team"
-      },
-      {
-        title: "Ministry Team",
-        href: "/leadership/ministry-team", 
-        description: "Our pastors and ministry leaders"
-      },
-    ]
-  },
-  {
-    title: "Services & Facilities",
-    href: "/facilities",
-    items: [
       {
         title: "Accommodation",
         href: "/facilities/accommodation",
@@ -105,18 +78,18 @@ export const mainNav: NavItem[] = [
     ]
   },
   {
-    title: "Giving",
-    href: "/giving",
+    title: "Our Leadership",
+    href: "/leadership", 
     items: [
       {
-        title: "Ways to Give",
-        href: "/giving",
-        description: "Learn about different ways to support our ministry"
+        title: "Board of Directors",
+        href: "/leadership/board",
+        description: "Meet our church leadership team"
       },
       {
-        title: "Make a Donation",
-        href: "/giving/donate",
-        description: "Give online or view bank account details"
+        title: "Ministry Team",
+        href: "/leadership/ministry-team", 
+        description: "Our pastors and ministry leaders"
       },
     ]
   },
@@ -149,8 +122,7 @@ export const footerNav = [
     title: "Connect",
     items: [
       { title: "Contact", href: "/contact" },
-      { title: "Giving", href: "/giving" },
-      { title: "Visit Us", href: "/contact#location" },
+      { title: "Announcements", href: "/announcements" },
     ]
   },
   {

@@ -71,7 +71,7 @@ export default function AboutPage() {
             </h1>
             
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
-              For over two decades, Foursquare Camp Ajebo has been a beacon of hope, 
+              For over five decades, Foursquare Camp Ajebo has been a beacon of hope, 
               transformation, and spiritual growth for thousands of young people across Nigeria.
             </p>
             

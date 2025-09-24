@@ -41,7 +41,7 @@ export const boardMembers: BoardMember[] = [
     position: 'Treasurer',
     title: 'Treasurer',
     department: 'Treasurer',
-    bio: 'Elder Johnson brings 20 years of corporate experience and 10 years of church leadership. He oversees church administration, financial planning, and strategic development initiatives.',
+    bio: 'Elder Johnson brings 30+ years of corporate experience and 15 years of church leadership. He oversees church administration, financial planning, and strategic development initiatives.',
     imageUrl: '/images/board/sam.jpg',
     phone: '+234-800-123-4569',
     email: 'elder.johnson@foursquareajebo.org',
