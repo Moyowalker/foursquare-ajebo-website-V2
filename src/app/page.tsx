@@ -4,89 +4,107 @@ import Image from 'next/image';
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section - Immersive with Nature */}
+      {/* Hero Section - Dynamic and Engaging */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        {/* Animated Background Image */}
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full bg-gradient-to-br from-emerald-800 via-teal-700 to-sky-800">
             <Image
               src="/images/facilities/real/main-conference-hall.jpeg"
               alt="Rev. Gabriel Adome Building - Foursquare Camp Ajebo Main Conference Center"
               fill
-              className="object-cover mix-blend-overlay"
+              className="object-cover mix-blend-overlay animate-pulse"
               priority
             />
           </div>
-          {/* Natural overlay - deep forest green to sky blue */}
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/80 via-teal-800/70 to-sky-900/80"></div>
+          {/* Animated gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/90 via-teal-800/80 to-sky-900/90 animate-pulse"></div>
+          
+          {/* Floating particles/elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-10 w-2 h-2 bg-amber-200 rounded-full animate-bounce opacity-70"></div>
+            <div className="absolute top-40 right-20 w-3 h-3 bg-white/30 rounded-full animate-ping opacity-60"></div>
+            <div className="absolute bottom-32 left-20 w-1 h-1 bg-teal-200 rounded-full animate-pulse opacity-80"></div>
+            <div className="absolute top-60 left-1/3 w-2 h-2 bg-sky-200 rounded-full animate-bounce opacity-50" style={{animationDelay: '1s'}}></div>
+            <div className="absolute bottom-20 right-1/4 w-2 h-2 bg-amber-300 rounded-full animate-pulse opacity-60" style={{animationDelay: '2s'}}></div>
+          </div>
         </div>
 
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="text-center space-y-8 max-w-6xl mx-auto">
-            {/* Church Logo */}
+            {/* Animated Church Logo */}
             <div className="flex justify-center mb-8">
-              <div className="bg-white/20 backdrop-blur-sm rounded-full p-6 border border-white/20">
+              <div className="bg-white/20 backdrop-blur-sm rounded-full p-6 border border-white/30 shadow-2xl transform hover:scale-110 transition-all duration-500 hover:bg-white/30">
                 <Image
                   src="/images/church-logo.jpg"
                   alt="Foursquare Logo"
                   width={80}
                   height={80}
-                  className="rounded-full"
+                  className="rounded-full animate-pulse"
                 />
               </div>
             </div>
 
-            {/* Main Heading - Clean and Elegant */}
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white leading-tight tracking-wide">
-                Foursquare Camp <span className="font-normal text-amber-100">Ajebo</span>
+            {/* Dynamic Main Heading with Gradient Text */}
+            <div className="space-y-6 transform translate-y-0 animate-fadeInUp">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-teal-200 leading-tight tracking-wide animate-pulse">
+                Foursquare Camp <span className="font-medium bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent">Ajebo</span>
               </h1>
-              <div className="w-24 h-0.5 bg-amber-200 mx-auto"></div>
-              <p className="text-2xl md:text-3xl text-amber-100 font-light tracking-wide">
+              <div className="w-32 h-1 bg-gradient-to-r from-amber-300 to-teal-300 mx-auto rounded-full animate-pulse"></div>
+              <p className="text-2xl md:text-4xl bg-gradient-to-r from-amber-100 to-white bg-clip-text text-transparent font-light tracking-wider animate-fadeInUp" style={{animationDelay: '0.3s'}}>
                 Where Faith Meets Fellowship
               </p>
             </div>
 
-            {/* Subtitle - Elegant and Inviting */}
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-4xl mx-auto font-light">
-              Discover serenity and spiritual growth in our peaceful retreat center. 
-              Nestled in natural beauty, we offer world-class facilities for worship, 
-              conferences, and meaningful community gatherings.
-            </p>
+            {/* Enhanced Subtitle with Typewriter Effect Feel */}
+            <div className="transform translate-y-0 animate-fadeInUp" style={{animationDelay: '0.6s'}}>
+              <p className="text-xl md:text-2xl text-white/95 leading-relaxed max-w-4xl mx-auto font-light shadow-lg">
+                Discover serenity and spiritual growth in our peaceful retreat center. 
+                <span className="text-amber-200 font-medium"> Nestled in natural beauty</span>, we offer world-class facilities for worship, 
+                conferences, and meaningful community gatherings.
+              </p>
+            </div>
 
-            {/* CTA Buttons - Natural Colors */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-12">
+            {/* Enhanced CTA Buttons with Animations */}
+            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center pt-12 transform translate-y-0 animate-fadeInUp" style={{animationDelay: '0.9s'}}>
               <Link 
                 href="/contact" 
-                className="bg-amber-600 hover:bg-amber-700 text-white font-medium px-12 py-4 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="group relative bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600 text-white font-semibold px-16 py-5 rounded-full text-xl transition-all duration-500 shadow-2xl hover:shadow-amber-500/50 transform hover:scale-110 overflow-hidden"
               >
-                Plan Your Visit
+                <span className="relative z-10">Plan Your Visit</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-300 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-teal-400 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
               </Link>
               <Link 
                 href="/facilities" 
-                className="bg-white/20 backdrop-blur-sm border border-white/40 text-white hover:bg-white/30 font-medium px-12 py-4 rounded-lg text-lg transition-all duration-300"
+                className="group relative bg-white/10 backdrop-blur-md border-2 border-white/40 text-white hover:bg-white/20 hover:border-white/60 font-semibold px-16 py-5 rounded-full text-xl transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:scale-105"
               >
-                Explore Our Campus
+                <span className="relative z-10">Explore Our Campus</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-400/20 to-sky-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
               </Link>
             </div>
 
-            {/* Stats - Clean and Natural */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-20">
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-light text-amber-200 mb-2">20+</div>
-                <div className="text-white/80 font-light">Years Serving</div>
+            {/* Interactive Stats with Hover Effects */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-20 transform translate-y-0 animate-fadeInUp" style={{animationDelay: '1.2s'}}>
+              <div className="group text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/30 shadow-xl hover:bg-white/20 hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer">
+                <div className="text-5xl font-light bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">20+</div>
+                <div className="text-white/90 font-medium text-lg group-hover:text-white transition-colors duration-300">Years Serving</div>
+                <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-amber-300 to-teal-300 mx-auto mt-2 transition-all duration-500"></div>
               </div>
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-light text-amber-200 mb-2">10,000+</div>
-                <div className="text-white/80 font-light">Lives Touched</div>
+              <div className="group text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/30 shadow-xl hover:bg-white/20 hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer" style={{animationDelay: '0.1s'}}>
+                <div className="text-5xl font-light bg-gradient-to-r from-teal-200 to-sky-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">10,000+</div>
+                <div className="text-white/90 font-medium text-lg group-hover:text-white transition-colors duration-300">Lives Touched</div>
+                <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-teal-300 to-sky-300 mx-auto mt-2 transition-all duration-500"></div>
               </div>
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-light text-amber-200 mb-2">500+</div>
-                <div className="text-white/80 font-light">Annual Guests</div>
+              <div className="group text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/30 shadow-xl hover:bg-white/20 hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer" style={{animationDelay: '0.2s'}}>
+                <div className="text-5xl font-light bg-gradient-to-r from-emerald-200 to-teal-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">500+</div>
+                <div className="text-white/90 font-medium text-lg group-hover:text-white transition-colors duration-300">Annual Guests</div>
+                <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-emerald-300 to-teal-300 mx-auto mt-2 transition-all duration-500"></div>
               </div>
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-light text-amber-200 mb-2">24/7</div>
-                <div className="text-white/80 font-light">Hospitality</div>
+              <div className="group text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/30 shadow-xl hover:bg-white/20 hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer" style={{animationDelay: '0.3s'}}>
+                <div className="text-5xl font-light bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">24/7</div>
+                <div className="text-white/90 font-medium text-lg group-hover:text-white transition-colors duration-300">Hospitality</div>
+                <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-amber-300 to-amber-400 mx-auto mt-2 transition-all duration-500"></div>
               </div>
             </div>
           </div>
