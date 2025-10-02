@@ -10,7 +10,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full bg-gradient-to-br from-emerald-800 via-teal-700 to-sky-800">
             <Image
-              src="/images/facilities/real/main-conference-hall.jpeg"
+              src="/images/facilities/real/main-conference-hall.jpeg.JPG"
               alt="Rev. Gabriel Adome Building - Foursquare Camp Ajebo Main Conference Center"
               fill
               className="object-cover mix-blend-overlay animate-pulse"
@@ -187,7 +187,7 @@ export default function HomePage() {
                 <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-72 overflow-hidden bg-gradient-to-br from-emerald-600 to-teal-700">
                   <Image
-                    src="/images/facilities/real/international-guest-house.jpeg"
+                    src="/images/facilities/real/international-guest-house.jpeg.jpg"
                     alt="International Guest House - Premium Accommodation at Camp Ajebo"
                     fill
                     className="object-cover mix-blend-overlay"
@@ -223,7 +223,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="relative h-48 bg-emerald-100 overflow-hidden">
                 <Image
-                  src="/images/facilities/real/jehovah-shammah-house.jpg"
+                  src="/images/facilities/real/jehovah-shammah-house.jpeg"
                   alt="Jehovah Shammah House - Peaceful Retreat Accommodation"
                   fill
                   className="object-cover"
@@ -248,7 +248,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="relative h-48 bg-sky-100 overflow-hidden">
                 <Image
-                  src="/images/facilities/real/main-conference-hall.jpg"
+                  src="/images/facilities/real/main-conference-hall.jpeg.JPG"
                   alt="Rev. Gabriel Adome Building - Main Worship and Conference Center"
                   fill
                   className="object-cover"
@@ -298,7 +298,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="relative h-48 bg-rose-100 overflow-hidden">
                 <Image
-                  src="/images/facilities/real/outdoor-stadium.jpg"
+                  src="/images/facilities/real/outdoor-stadium.JPG"
                   alt="Sports Stadium - Youth Recreation and Activities"
                   fill
                   className="object-cover"
@@ -323,7 +323,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="relative h-48 bg-teal-100 overflow-hidden">
                 <Image
-                  src="/images/facilities/real/dining-restaurant.jpg"
+                  src="/images/facilities/real/dining-restaurant.JPG"
                   alt="Delishringers Restaurant - Community Dining and Fellowship"
                   fill
                   className="object-cover"
@@ -348,7 +348,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="relative h-48 bg-indigo-100 overflow-hidden">
                 <Image
-                  src="/images/facilities/real/modern-guest-rooms.jpg"
+                  src="/images/facilities/real/modern-guest-rooms.JPG"
                   alt="Modern Guest Houses - Peaceful Accommodation for Prayer and Reflection"
                   fill
                   className="object-cover"
@@ -491,8 +491,8 @@ export default function HomePage() {
             <div className="col-span-2 row-span-2">
               <div className="relative h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <Image
-                  src="/images/facilities/infrastructure/main-gate.jpg"
-                  alt="Foursquare Camp Ajebo Main Entrance"
+                  src="/images/facilities/real/main-conference-hall.jpeg.JPG"
+                  alt="Foursquare Camp Ajebo Main Conference Center"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"
                 />
@@ -504,36 +504,30 @@ export default function HomePage() {
             </div>
 
             {/* Gallery images */}
-            <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <Image
+                  src="/images/facilities/real/modern-guest-rooms.JPG"
+                  alt="Modern Guest Rooms - Premium Accommodation"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>              <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <Image
+                  src="/images/facilities/real/dining-restaurant.JPG"
+                  alt="Delishringers Restaurant - Quality Dining Experience"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>              <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <Image
+                  src="/images/facilities/real/jehovah-shammah-house.jpeg"
+                  alt="Jehovah Shammah House - Spiritual Retreat Center"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>            <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
               <Image
-                src="/images/facilities/real/modern-guest-rooms.jpg"
-                alt="Modern Guest Rooms - Premium Accommodation"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-
-            <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-              <Image
-                src="/images/facilities/real/dining-restaurant.jpg"
-                alt="Delishringers Restaurant - Quality Dining Experience"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-
-            <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-              <Image
-                src="/images/facilities/real/jehovah-shammah-house.jpg"
-                alt="Jehovah Shammah House - Spiritual Retreat Center"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-
-            <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-              <Image
-                src="/images/facilities/real/outdoor-stadium.jpg"
+                src="/images/facilities/real/outdoor-stadium.JPG"
                 alt="Outdoor Stadium - Recreation and Events"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
