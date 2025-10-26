@@ -1,120 +1,119 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
+import PaymentModal from '@/components/payments/PaymentModal';
+import FloatingPayButton from '@/components/payments/FloatingPayButton';
+import { PaymentCategory } from '@/types/payments';
+import Hero from '@/components/layout/Hero';
+
+// Payments data used by redesigned grid
+import type { PaymentCategory as Cat } from '@/types/payments';
+
+type PaymentItem = {
+  key: Cat;
+  title: string;
+  emoji: string;
+  description: string;
+  group: 'services' | 'utilities' | 'facilities' | 'other';
+};
+
+const PAYMENT_ITEMS: PaymentItem[] = [
+  { key: 'service-charge', title: 'Service Charge', emoji: '💳', description: 'Pay monthly or annual dues', group: 'services' },
+  { key: 'electricity', title: 'Electricity Vending', emoji: '⚡', description: 'Purchase prepaid units', group: 'utilities' },
+  { key: 'land-allocation', title: 'Land Allocation', emoji: '🏞️', description: 'Application fees & processing', group: 'services' },
+  { key: 'guest-house', title: 'Guest House', emoji: '🏠', description: 'Accommodation reservations', group: 'facilities' },
+  { key: 'block-industry', title: 'Block Industry', emoji: '🧱', description: 'Support construction projects', group: 'services' },
+  { key: 'school-fees', title: 'School Fees', emoji: '🎓', description: 'Educational expenses', group: 'services' },
+  { key: 'facilities-rental', title: 'Facilities Rental', emoji: '🏢', description: 'Meeting rooms & halls', group: 'facilities' },
+];
 
 export default function HomePage() {
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [selectedPaymentCategory, setSelectedPaymentCategory] = useState<PaymentCategory | undefined>();
+  const [activeTab, setActiveTab] = useState<'all' | 'services' | 'utilities' | 'facilities'>('all');
+  const [query, setQuery] = useState('');
+
+  const openPaymentModal = (category?: PaymentCategory) => {
+    setSelectedPaymentCategory(category);
+    setIsPaymentModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section - Dynamic and Engaging */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Background Image */}
-        <div className="absolute inset-0 z-0">
-          <div className="w-full h-full bg-gradient-to-br from-emerald-800 via-teal-700 to-sky-800">
-            <Image
-              src="/images/facilities/real/main-conference-hall.jpeg.JPG"
-              alt="Rev. Gabriel Adome Building - Foursquare Camp Ajebo Main Conference Center"
-              fill
-              className="object-cover mix-blend-overlay animate-pulse"
-              priority
+      <Hero onQuickPay={() => openPaymentModal()} />
+
+      {/* Quick Payments Section */}
+  <section className="relative py-20 overflow-hidden">
+        {/* Soft gradient + decor */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-b from-teal-50 via-white to-emerald-50" />
+          <div className="absolute -top-28 -left-28 h-96 w-96 rounded-full bg-gradient-to-tr from-teal-200 via-emerald-200 to-cyan-200 blur-3xl opacity-50" />
+          <div className="absolute -bottom-32 -right-24 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-amber-100 via-rose-100 to-pink-100 blur-3xl opacity-40" />
+          <div
+            className="absolute inset-0 opacity-[0.06]"
+            style={{
+              backgroundImage:
+                'linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px)',
+              backgroundSize: '42px 42px',
+            }}
+          />
+        </div>
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs text-stone-600 border border-stone-200">
+                Payments
+              </div>
+              <h2 className="mt-4 text-4xl md:text-5xl font-semibold mb-3">
+                <span className="bg-gradient-to-r from-teal-700 to-emerald-600 bg-clip-text text-transparent">Quick & Secure Payments</span>
+              </h2>
+              <p className="text-lg md:text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
+                Make payments conveniently for church services, utilities, and facilities.
+              </p>
+            </div>
+
+            {/* Controls: Tabs + Search */}
+            <Controls
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              query={query}
+              setQuery={setQuery}
+              onAll={() => openPaymentModal()}
             />
-          </div>
-          {/* Animated gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/90 via-teal-800/80 to-sky-900/90 animate-pulse"></div>
-          
-          {/* Floating particles/elements */}
-          <div className="absolute inset-0">
-            <div className="absolute top-20 left-10 w-2 h-2 bg-amber-200 rounded-full animate-bounce opacity-70"></div>
-            <div className="absolute top-40 right-20 w-3 h-3 bg-white/30 rounded-full animate-ping opacity-60"></div>
-            <div className="absolute bottom-32 left-20 w-1 h-1 bg-teal-200 rounded-full animate-pulse opacity-80"></div>
-            <div className="absolute top-60 left-1/3 w-2 h-2 bg-sky-200 rounded-full animate-bounce opacity-50" style={{animationDelay: '1s'}}></div>
-            <div className="absolute bottom-20 right-1/4 w-2 h-2 bg-amber-300 rounded-full animate-pulse opacity-60" style={{animationDelay: '2s'}}></div>
-          </div>
-        </div>
 
-        <div className="container mx-auto px-4 py-20 relative z-10">
-          <div className="text-center space-y-8 max-w-6xl mx-auto">
-            {/* Animated Church Logo */}
-            <div className="flex justify-center mb-8">
-              <div className="bg-white/20 backdrop-blur-sm rounded-full p-6 border border-white/30 shadow-2xl transform hover:scale-110 transition-all duration-500 hover:bg-white/30">
-                <Image
-                  src="/images/church-logo.jpg"
-                  alt="Foursquare Logo"
-                  width={80}
-                  height={80}
-                  className="rounded-full animate-pulse"
-                />
+            {/* Grid */}
+            <PaymentsGrid
+              items={PAYMENT_ITEMS}
+              activeTab={activeTab}
+              query={query}
+              onSelect={(c) => openPaymentModal(c)}
+            />
+
+            {/* Security Features */}
+            <div className="mt-10 flex flex-wrap justify-center items-center gap-4 text-sm">
+              <div className="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-2 border border-stone-200 text-stone-700">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span>Secure Payments</span>
               </div>
-            </div>
-
-            {/* Dynamic Main Heading with Gradient Text */}
-            <div className="space-y-6 transform translate-y-0 animate-fadeInUp">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-teal-200 leading-tight tracking-wide animate-pulse">
-                Foursquare Camp <span className="font-medium bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent">Ajebo</span>
-              </h1>
-              <div className="w-32 h-1 bg-gradient-to-r from-amber-300 to-teal-300 mx-auto rounded-full animate-pulse"></div>
-              <p className="text-2xl md:text-4xl bg-gradient-to-r from-amber-100 to-white bg-clip-text text-transparent font-light tracking-wider animate-fadeInUp" style={{animationDelay: '0.3s'}}>
-                Where Faith Meets Fellowship
-              </p>
-            </div>
-
-            {/* Enhanced Subtitle with Typewriter Effect Feel */}
-            <div className="transform translate-y-0 animate-fadeInUp" style={{animationDelay: '0.6s'}}>
-              <p className="text-xl md:text-2xl text-white/95 leading-relaxed max-w-4xl mx-auto font-light shadow-lg">
-                Discover serenity and spiritual growth in our peaceful retreat center. 
-                <span className="text-amber-200 font-medium"> Nestled in natural beauty</span>, we offer world-class facilities for worship, 
-                conferences, and meaningful community gatherings.
-              </p>
-            </div>
-
-            {/* Enhanced CTA Buttons with Animations */}
-            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center pt-12 transform translate-y-0 animate-fadeInUp" style={{animationDelay: '0.9s'}}>
-              <Link 
-                href="/contact" 
-                className="group relative bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600 text-white font-semibold px-16 py-5 rounded-full text-xl transition-all duration-500 shadow-2xl hover:shadow-amber-500/50 transform hover:scale-110 overflow-hidden"
-              >
-                <span className="relative z-10">Plan Your Visit</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-300 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
-                <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-teal-400 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
-              </Link>
-              <Link 
-                href="/facilities" 
-                className="group relative bg-white/10 backdrop-blur-md border-2 border-white/40 text-white hover:bg-white/20 hover:border-white/60 font-semibold px-16 py-5 rounded-full text-xl transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:scale-105"
-              >
-                <span className="relative z-10">Explore Our Campus</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-400/20 to-sky-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
-              </Link>
-            </div>
-
-            {/* Interactive Stats with Hover Effects */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-20 transform translate-y-0 animate-fadeInUp" style={{animationDelay: '1.2s'}}>
-              <div className="group text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/30 shadow-xl hover:bg-white/20 hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer">
-                <div className="text-5xl font-light bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">20+</div>
-                <div className="text-white/90 font-medium text-lg group-hover:text-white transition-colors duration-300">Years Serving</div>
-                <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-amber-300 to-teal-300 mx-auto mt-2 transition-all duration-500"></div>
+              <div className="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-2 border border-stone-200 text-stone-700">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Instant Confirmation</span>
               </div>
-              <div className="group text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/30 shadow-xl hover:bg-white/20 hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer" style={{animationDelay: '0.1s'}}>
-                <div className="text-5xl font-light bg-gradient-to-r from-teal-200 to-sky-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">10,000+</div>
-                <div className="text-white/90 font-medium text-lg group-hover:text-white transition-colors duration-300">Lives Touched</div>
-                <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-teal-300 to-sky-300 mx-auto mt-2 transition-all duration-500"></div>
-              </div>
-              <div className="group text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/30 shadow-xl hover:bg-white/20 hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer" style={{animationDelay: '0.2s'}}>
-                <div className="text-5xl font-light bg-gradient-to-r from-emerald-200 to-teal-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">500+</div>
-                <div className="text-white/90 font-medium text-lg group-hover:text-white transition-colors duration-300">Annual Guests</div>
-                <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-emerald-300 to-teal-300 mx-auto mt-2 transition-all duration-500"></div>
-              </div>
-              <div className="group text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/30 shadow-xl hover:bg-white/20 hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer" style={{animationDelay: '0.3s'}}>
-                <div className="text-5xl font-light bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">24/7</div>
-                <div className="text-white/90 font-medium text-lg group-hover:text-white transition-colors duration-300">Hospitality</div>
-                <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-amber-300 to-amber-400 mx-auto mt-2 transition-all duration-500"></div>
+              <div className="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-2 border border-stone-200 text-stone-700">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span>Email Receipt</span>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
         </div>
       </section>
 
@@ -976,6 +975,133 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Payment Modal */}
+      <PaymentModal
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+        initialCategory={selectedPaymentCategory}
+      />
+
+      {/* Floating Payment Button */}
+      <FloatingPayButton onClick={() => openPaymentModal()} />
+    </div>
+  );
+}
+
+// --- Local UI components for Payments redesign ---
+type ControlsProps = {
+  activeTab: 'all' | 'services' | 'utilities' | 'facilities';
+  setActiveTab: (t: 'all' | 'services' | 'utilities' | 'facilities') => void;
+  query: string;
+  setQuery: (v: string) => void;
+  onAll: () => void;
+};
+
+function Controls({ activeTab, setActiveTab, query, setQuery, onAll }: ControlsProps) {
+  const tabs: Array<{ id: ControlsProps['activeTab']; label: string }> = [
+    { id: 'all', label: 'All' },
+    { id: 'services', label: 'Services' },
+    { id: 'utilities', label: 'Utilities' },
+    { id: 'facilities', label: 'Facilities' },
+  ];
+
+  return (
+    <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      {/* Tabs */}
+      <div className="flex gap-2 overflow-x-auto py-1">
+        {tabs.map((t) => (
+          <button
+            key={t.id}
+            onClick={() => setActiveTab(t.id)}
+            className={`shrink-0 rounded-full px-4 py-2 text-sm border transition-colors ${
+              activeTab === t.id
+                ? 'bg-teal-600 text-white border-teal-600'
+                : 'bg-white/80 text-stone-700 border-stone-200 hover:bg-white'
+            }`}
+            aria-pressed={activeTab === t.id}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Search + All */}
+      <div className="flex w-full md:w-auto items-center gap-3">
+        <div className="relative flex-1 md:flex-initial">
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search payments…"
+            className="w-full md:w-64 rounded-xl border border-stone-200 bg-white/80 px-4 py-2 text-sm text-stone-800 placeholder-stone-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
+          <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-stone-400">⌕</span>
+        </div>
+        <button
+          onClick={onAll}
+          className="rounded-xl border-2 border-teal-600/50 bg-teal-50 px-4 py-2 text-sm font-medium text-teal-800 hover:bg-teal-100"
+        >
+          All Payments
+        </button>
+      </div>
+    </div>
+  );
+}
+
+type PaymentsGridProps = {
+  items: PaymentItem[];
+  activeTab: 'all' | 'services' | 'utilities' | 'facilities';
+  query: string;
+  onSelect: (c: Cat) => void;
+};
+
+function PaymentsGrid({ items, activeTab, query, onSelect }: PaymentsGridProps) {
+  const filtered = items.filter((i) => {
+    const matchesTab = activeTab === 'all' || i.group === activeTab;
+    const q = query.trim().toLowerCase();
+    const matchesQuery =
+      q === '' || i.title.toLowerCase().includes(q) || i.description.toLowerCase().includes(q);
+    return matchesTab && matchesQuery;
+  });
+
+  return (
+    <div>
+      {/* Featured tile */}
+      <div className="mb-6 grid lg:grid-cols-3 gap-6">
+        <button
+          onClick={() => onSelect('electricity')}
+          className="relative col-span-1 lg:col-span-3 overflow-hidden rounded-2xl border border-teal-200 bg-gradient-to-r from-teal-600 to-emerald-600 p-6 text-left text-white shadow-lg hover:shadow-xl transition-shadow"
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="text-4xl">⚡</div>
+              <div>
+                <div className="text-sm uppercase tracking-wide text-white/80">Featured</div>
+                <h3 className="text-2xl font-semibold">Electricity Vending</h3>
+                <p className="text-white/85">Buy prepaid units and get instant confirmation</p>
+              </div>
+            </div>
+            <div className="hidden md:block rounded-xl bg-white/15 px-3 py-1 text-sm">Most popular</div>
+          </div>
+          <div className="pointer-events-none absolute -right-10 -bottom-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
+        </button>
+      </div>
+
+      {/* Items grid */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {filtered.map((i) => (
+          <button
+            key={i.key}
+            onClick={() => onSelect(i.key)}
+            className="group bg-white/80 backdrop-blur-sm hover:bg-white rounded-2xl p-6 text-left transition-all duration-300 border border-stone-200 hover:border-stone-300 hover:shadow-md"
+          >
+            <div className="text-5xl mb-4">{i.emoji}</div>
+            <h3 className="text-lg font-semibold text-stone-900 mb-1">{i.title}</h3>
+            <p className="text-stone-600 text-sm mb-3">{i.description}</p>
+            <div className="text-teal-700 text-xs font-medium opacity-80 group-hover:opacity-100">Click to pay →</div>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
