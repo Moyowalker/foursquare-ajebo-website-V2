@@ -86,11 +86,6 @@ export const mainNav: NavItem[] = [
         href: "/leadership/board",
         description: "Meet our church leadership team"
       },
-      {
-        title: "Ministry Team",
-        href: "/leadership/ministry-team", 
-        description: "Our pastors and ministry leaders"
-      },
     ]
   },
   {

@@ -36,9 +36,9 @@ export default function HeroLight({ onQuickPay }: Props) {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-4 text-sm text-stone-600">
-              <span className="rounded-md bg-stone-100 px-3 py-1">24/7 Hospitality</span>
-              <span className="rounded-md bg-stone-100 px-3 py-1">500+ Guest Capacity</span>
-              <span className="rounded-md bg-stone-100 px-3 py-1">Modern Conference Center</span>
+              <span className="rounded-md bg-stone-100 px-3 py-1">50+ Years of Ministry</span>
+              <span className="rounded-md bg-stone-100 px-3 py-1">50000+ Annual Guests</span>
+              <span className="rounded-md bg-stone-100 px-3 py-1">Millions of Lives Touched</span>
             </div>
           </div>
 

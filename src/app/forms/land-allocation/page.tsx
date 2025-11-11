@@ -26,7 +26,8 @@ interface FormData {
   // Confirmation Details
   confirmationDate: string;
   confirmationLocation: string;
-  confirmationPastor: string;
+  confirmingPastorZone: string;
+  confirmingPastorZonePhone: string;
   
   // Land Allocation Preferences
   landAllocation: string[];
@@ -62,7 +63,8 @@ export default function LandAllocationForm() {
     complianceAgreement: '',
     confirmationDate: '',
     confirmationLocation: '',
-    confirmationPastor: '',
+  confirmingPastorZone: '',
+  confirmingPastorZonePhone: '',
     landAllocation: [],
     preAllocationLocation: '',
     preAllocationMethod: '',
@@ -366,13 +368,25 @@ export default function LandAllocationForm() {
               
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Confirming Pastor
+                  Confirming Pastor/Zone
                 </label>
                 <input
                   type="text"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  value={formData.confirmationPastor}
-                  onChange={(e) => handleInputChange('confirmationPastor', e.target.value)}
+                  value={formData.confirmingPastorZone}
+                  onChange={(e) => handleInputChange('confirmingPastorZone', e.target.value)}
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Confirming Pastor/Zone Phone Number
+                </label>
+                <input
+                  type="tel"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  value={formData.confirmingPastorZonePhone}
+                  onChange={(e) => handleInputChange('confirmingPastorZonePhone', e.target.value)}
                 />
               </div>
             </div>

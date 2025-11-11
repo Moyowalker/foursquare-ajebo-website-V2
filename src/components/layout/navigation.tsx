@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 
@@ -11,6 +11,7 @@ export function SpectacularNavigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,12 +23,30 @@ export function SpectacularNavigation() {
   }, []);
 
   const handleDropdownHover = (itemTitle: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
     setActiveDropdown(itemTitle);
   };
 
   const handleDropdownLeave = () => {
-    setActiveDropdown(null);
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+    closeTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+      closeTimeoutRef.current = null;
+    }, 200);
   };
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <nav className={`
@@ -53,8 +72,14 @@ export function SpectacularNavigation() {
                 <div 
                   key={item.title}
                   className="relative"
-                  onMouseEnter={() => item.items && handleDropdownHover(item.title)}
-                  onMouseLeave={handleDropdownLeave}
+                  onMouseEnter={() => {
+                    if (item.items) {
+                      handleDropdownHover(item.title);
+                    } else {
+                      setActiveDropdown(null);
+                    }
+                  }}
+                  onMouseLeave={() => item.items && handleDropdownLeave()}
                 >
                   <Link
                     href={item.href || '#'}
@@ -73,7 +98,11 @@ export function SpectacularNavigation() {
 
                   {/* Dropdown Menu */}
                   {item.items && activeDropdown === item.title && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-slate-900/95 backdrop-blur-md rounded-xl border border-white/20 shadow-xl py-2 z-50">
+                    <div 
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-slate-900/95 backdrop-blur-md rounded-xl border border-white/20 shadow-xl py-2 z-50"
+                      onMouseEnter={() => handleDropdownHover(item.title)}
+                      onMouseLeave={handleDropdownLeave}
+                    >
                       {item.items.map((dropdownItem) => (
                         <Link
                           key={dropdownItem.title}

@@ -23,7 +23,7 @@ export default function JourneyPage() {
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Journey</h1>
           <p className="text-xl text-slate-300 max-w-3xl">
-            From humble beginnings to a thriving community of faith
+            Celebrating 70 years of faithful ministry and community impact across Nigeria
           </p>
         </div>
       </div>
@@ -37,8 +37,8 @@ export default function JourneyPage() {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Our journey began with a simple vision: to create a place where people could 
               experience God's love, grow in their faith, and make a positive impact in their 
-              community. Today, we celebrate decades of God's faithfulness and look forward 
-              to continued growth and impact.
+              community. Today, we celebrate seven decades of God's faithfulness, millions of 
+              lives transformed, and the vibrant legacy that continues to grow.
             </p>
           </div>
 
@@ -151,17 +151,18 @@ export default function JourneyPage() {
                   </div>
                   <p className="text-gray-600 mb-4">
                     Embraced digital ministry during the pandemic, launched online services, 
-                    and developed modern facilities. Currently planning major expansion projects 
-                    and church planting initiatives.
+                    and developed modern facilities. Recently celebrated our 70th anniversary 
+                    convention as more than 50,000 annual guests gather and millions are reached 
+                    through hybrid experiences.
                   </p>
                   <div className="grid grid-cols-2 gap-4 text-sm text-gray-500">
                     <div className="flex items-center">
                       <Users className="w-4 h-4 mr-2" />
-                      1000+ total reach
+                      Millions reached worldwide
                     </div>
                     <div className="flex items-center">
                       <Zap className="w-4 h-4 mr-2" />
-                      Digital ministry platform
+                      50,000+ annual guests
                     </div>
                   </div>
                 </div>
@@ -174,16 +175,16 @@ export default function JourneyPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Our Achievements</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">1000+</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">2,000,000+</div>
                 <p className="text-gray-700 font-medium">Lives Transformed</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-slate-600 mb-2">15+</div>
-                <p className="text-gray-700 font-medium">Active Ministries</p>
+                <div className="text-3xl font-bold text-slate-600 mb-2">50+</div>
+                <p className="text-gray-700 font-medium">Years of Ministry Legacy</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-indigo-600 mb-2">5+</div>
-                <p className="text-gray-700 font-medium">Church Plants</p>
+                <div className="text-3xl font-bold text-indigo-600 mb-2">50000+</div>
+                <p className="text-gray-700 font-medium">Annual Guests Welcomed</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-gray-600 mb-2">25+</div>
@@ -199,7 +200,7 @@ export default function JourneyPage() {
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Spiritual Impact</h3>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Thousands of people brought to faith in Christ</li>
+                  <li>• Millions of people brought to faith in Christ</li>
                   <li>• Hundreds of baptisms and dedications</li>
                   <li>• Strong discipleship and leadership development</li>
                   <li>• Active prayer and worship community</li>
@@ -210,7 +211,7 @@ export default function JourneyPage() {
                 <ul className="space-y-2 text-gray-600">
                   <li>• Educational scholarships and support</li>
                   <li>• Healthcare and wellness programs</li>
-                  <li>• Skills training and empowerment</li>
+                  <li>• Annual conventions welcoming 50,000+ guests</li>
                   <li>• Community development initiatives</li>
                 </ul>
               </div>
@@ -221,9 +222,9 @@ export default function JourneyPage() {
           <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Leadership Through the Years</h2>
             <p className="text-gray-600 text-center mb-8">
-              Our church has been blessed with dedicated pastoral leadership that has guided 
-              us through seasons of growth, challenges, and triumph. Each leader has brought 
-              unique gifts and vision that have shaped who we are today.
+              For seventy years, our church has been blessed with dedicated pastoral leadership 
+              that has guided us through seasons of growth, challenges, and triumph. Each leader 
+              has brought unique gifts and vision that have shaped who we are today.
             </p>
             <div className="text-center">
               <Link 
@@ -240,7 +241,7 @@ export default function JourneyPage() {
           <div className="bg-slate-800 rounded-xl shadow-lg p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-4">Looking Forward</h2>
             <p className="text-slate-200 mb-6 max-w-2xl mx-auto">
-              As we look to the future, we are excited about the opportunities ahead. 
+              Fresh from our 70th anniversary convention, we are excited about the opportunities ahead. 
               We are planning new facilities, expanding our community outreach, 
               and preparing for the next chapter of our journey together.
             </p>

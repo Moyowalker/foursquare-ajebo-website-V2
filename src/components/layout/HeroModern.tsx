@@ -139,9 +139,9 @@ export default function HeroModern({ onQuickPay }: Props) {
               transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
               className="mt-10 grid grid-cols-3 gap-5 max-w-2xl"
             >
-              <AnimatedCounter target="20+" label="Years Serving" />
-              <AnimatedCounter target="500+" label="Annual Guests" />
-              <AnimatedCounter target="24/7" label="Hospitality" />
+              <AnimatedCounter target="50+" label="Years of Ministry" />
+              <AnimatedCounter target="50000+" label="Annual Guests" />
+              {/* <AnimatedCounter target="1000000+" label="Lives Impacted" /> */}
             </motion.div>
           </div>
 

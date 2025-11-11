@@ -129,25 +129,6 @@ export default function VisionPage() {
             </div>
           </div>
 
-          {/* Future Goals */}
-          <div className="bg-blue-50 rounded-2xl p-8 mb-12 border border-blue-100">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Our 2030 Vision Goals</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">5,000+</div>
-                <p className="text-gray-700 font-medium">Active Members</p>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-slate-600 mb-2">50+</div>
-                <p className="text-gray-700 font-medium">Church Plants</p>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-indigo-600 mb-2">100+</div>
-                <p className="text-gray-700 font-medium">Community Programs</p>
-              </div>
-            </div>
-          </div>
-
           {/* Vision in Action */}
           <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Our Vision in Action</h2>

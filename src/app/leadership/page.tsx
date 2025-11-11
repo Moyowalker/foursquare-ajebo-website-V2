@@ -35,17 +35,8 @@ export default function LeadershipPage() {
       icon: "👔",
       href: "/leadership/board",
       color: "from-blue-400 to-purple-600",
-      preview: "Our board consists of experienced leaders who guide the ministry with wisdom, integrity, and vision for Camp Ajebo's future...",
-      highlights: ["Strategic Leadership", "Financial Oversight", "Ministry Vision", "Community Impact"]
-    },
-    {
-      title: "Ministry Team",
-      description: "Discover the passionate team members who lead our various ministry programs",
-      icon: "👥",
-      href: "/leadership/ministry-team",
-      color: "from-green-400 to-teal-600",
-      preview: "Our ministry team brings diverse skills and deep commitment to serving young people across all our programs...",
-      highlights: ["Youth Ministry", "Worship Leaders", "Program Coordinators", "Spiritual Mentors"]
+      preview: "For more than 70 years, our board has guided the ministry with wisdom, integrity, and a clear vision for Camp Ajebo's future...",
+      highlights: ["70-Year Legacy", "Strategic Leadership", "Global Ministry Vision", "Millions of Lives Touched"]
     }
   ];
 
@@ -143,11 +134,11 @@ export default function LeadershipPage() {
             
             <ScrollReveal delay={200}>
               <p className="text-xl md:text-2xl text-slate-200 max-w-4xl mx-auto leading-relaxed mb-6">
-                Meet the passionate leaders who guide Foursquare Camp Ajebo with wisdom, 
-                vision, and unwavering commitment to youth ministry.
+                Meet the visionary leaders who have guided Foursquare Camp Ajebo for over 70 years, 
+                welcoming more than 50,000 annual guests and touching millions of lives with the Gospel.
               </p>
               <div className="inline-flex items-center bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full">
-                <span className="text-blue-100 font-medium">👔 Board of Directors • 👥 Ministry Team • ⭐ Excellence in Leadership</span>
+                <span className="text-blue-100 font-medium">👔 Board of Directors • �️ 70 Years of Ministry • 🌍 Millions Reached</span>
               </div>
             </ScrollReveal>
           </div>
@@ -175,7 +166,7 @@ export default function LeadershipPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-12">
             {leadershipSections.map((section, index) => (
               <ScrollReveal key={section.title} delay={index * 200}>
                 <FloatingElement>
@@ -237,43 +228,6 @@ export default function LeadershipPage() {
                     <p className="text-slate-300 leading-relaxed">
                       {principle.description}
                     </p>
-                  </GlassCard>
-                </FloatingElement>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership Impact */}
-      <section className="relative py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <GradientText className="text-4xl md:text-5xl font-bold mb-6">
-                Leadership Impact
-              </GradientText>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                The measurable results of effective leadership in ministry
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { number: "25+", label: "Leadership Team", icon: "👥" },
-              { number: "100+", label: "Leaders Developed", icon: "🌟" },
-              { number: "15+", label: "Years Experience", icon: "⏰" },
-              { number: "1000+", label: "Lives Mentored", icon: "🤲" }
-            ].map((stat, index) => (
-              <ScrollReveal key={stat.label} delay={index * 100}>
-                <FloatingElement>
-                  <GlassCard className="p-6 text-center group hover:scale-105 transition-all duration-500">
-                    <div className="text-4xl mb-4">{stat.icon}</div>
-                    <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-yellow-400 to-orange-600 bg-clip-text text-transparent">
-                      {stat.number}
-                    </div>
-                    <div className="text-slate-300 font-semibold">{stat.label}</div>
                   </GlassCard>
                 </FloatingElement>
               </ScrollReveal>

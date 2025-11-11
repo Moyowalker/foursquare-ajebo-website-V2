@@ -71,7 +71,7 @@ export default function AboutPage() {
             </h1>
             
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
-              For over five decades, Foursquare Camp Ajebo has been a beacon of hope, 
+              For over seven decades, Foursquare Camp Ajebo has been a beacon of hope, 
               transformation, and spiritual growth for thousands of young people across Nigeria.
             </p>
             
@@ -137,9 +137,9 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { number: "20+", label: "Years of Ministry", icon: "🎂" },
-              { number: "10,000+", label: "Lives Impacted", icon: "💝" },
-              { number: "500+", label: "Annual Campers", icon: "🏕️" },
+              { number: "70+", label: "Years of Ministry", icon: "🎂" },
+              { number: "2,000,000+", label: "Lives Impacted", icon: "💝" },
+              { number: "50,000+", label: "Annual Guests", icon: "🏕️" },
               { number: "50+", label: "Leadership Programs", icon: "👑" }
             ].map((stat) => (
               <div key={stat.label} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300">

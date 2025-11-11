@@ -132,7 +132,7 @@ export default function HomePage() {
                 </div>
                 
                 <p className="text-xl text-stone-600 leading-relaxed font-light">
-                  For over five decades, Foursquare Camp Ajebo has been a sanctuary where faith deepens, 
+                  For over seven decades, Foursquare Camp Ajebo has been a sanctuary where faith deepens, 
                   community flourishes, and hearts are transformed. Nestled in the serene landscape of 
                   Nigeria, our camp offers a peaceful retreat from the world's distractions.
                 </p>
@@ -182,20 +182,19 @@ export default function HomePage() {
               </div>
 
               {/* Image */}
-              <div className="relative">
-                <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-72 overflow-hidden bg-gradient-to-br from-emerald-600 to-teal-700">
+              <div className="relative group">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
                   <Image
                     src="/images/facilities/real/international-guest-house.jpeg.jpg"
                     alt="International Guest House - Premium Accommodation at Camp Ajebo"
                     fill
-                    className="object-cover mix-blend-overlay"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 </div>
-                {/* Decorative Element */}
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-teal-100 rounded-2xl -z-10"></div>
-                <div className="absolute -top-6 -left-6 w-24 h-24 bg-amber-100 rounded-full -z-10"></div>
-                </div>
+                {/* Decorative Elements */}
+                <div className="absolute -top-8 -left-8 w-32 h-32 bg-teal-100/50 rounded-full blur-2xl -z-10"></div>
+                <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-amber-100/50 rounded-full blur-2xl -z-10"></div>
               </div>
             </div>
           </div>
@@ -538,20 +537,20 @@ export default function HomePage() {
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl py-12 px-8 text-white mb-16">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold mb-2">500+</div>
-                <div className="text-blue-100">Guest Capacity</div>
+                <div className="text-4xl font-bold mb-2">50,000+</div>
+                <div className="text-blue-100">Annual Guests</div>
               </div>
               <div>
                 <div className="text-4xl font-bold mb-2">12</div>
                 <div className="text-blue-100">Facility Types</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">100%</div>
-                <div className="text-blue-100">Customer Satisfaction</div>
+                <div className="text-4xl font-bold mb-2">2,000,000+</div>
+                <div className="text-blue-100">Lives Impacted</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">24/7</div>
-                <div className="text-blue-100">Hospitality Service</div>
+                <div className="text-4xl font-bold mb-2">70+</div>
+                <div className="text-blue-100">Years of Ministry</div>
               </div>
             </div>
           </div>
@@ -673,20 +672,20 @@ export default function HomePage() {
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div>
-                  <div className="text-4xl font-light text-amber-200 mb-2">500+</div>
-                  <div className="text-teal-100 font-light">Guest Capacity</div>
+                  <div className="text-4xl font-light text-amber-200 mb-2">50,000+</div>
+                  <div className="text-teal-100 font-light">Annual Guests</div>
                 </div>
                 <div>
                   <div className="text-4xl font-light text-amber-200 mb-2">12</div>
                   <div className="text-teal-100 font-light">Facility Types</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-light text-amber-200 mb-2">1000+</div>
+                  <div className="text-4xl font-light text-amber-200 mb-2">2,000,000+</div>
                   <div className="text-teal-100 font-light">Lives Touched</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-light text-amber-200 mb-2">24/7</div>
-                  <div className="text-teal-100 font-light">Care & Support</div>
+                  <div className="text-4xl font-light text-amber-200 mb-2">70+</div>
+                  <div className="text-teal-100 font-light">Years of Ministry</div>
                 </div>
               </div>
             </div>
