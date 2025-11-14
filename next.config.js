@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable static export for manual deployment
-  output: 'export',
+  // Removed output: 'export' to enable API routes and server functions
   trailingSlash: true,
   
   // Disable ESLint during build for faster deployment
@@ -16,8 +15,8 @@ const nextConfig = {
   
   // Image optimization configuration
   images: {
-    // For static export, we need unoptimized: true
-    unoptimized: true,
+    // Enable optimization for server deployment
+    unoptimized: false,
     
     // Allowed domains for external images
     domains: [
