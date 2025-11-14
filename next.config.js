@@ -15,8 +15,8 @@ const nextConfig = {
   
   // Image optimization configuration
   images: {
-    // Enable optimization for server deployment
-    unoptimized: false,
+    // Disable optimization for Netlify compatibility (free tier doesn't support image optimization)
+    unoptimized: true,
     
     // Allowed domains for external images
     domains: [
