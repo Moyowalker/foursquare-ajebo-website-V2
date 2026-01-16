@@ -3,11 +3,6 @@ const nextConfig = {
   // Removed output: 'export' to enable API routes and server functions
   trailingSlash: true,
   
-  // Disable ESLint during build for faster deployment
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  
   // Disable TypeScript checking during build
   typescript: {
     ignoreBuildErrors: true,
@@ -18,12 +13,24 @@ const nextConfig = {
     // Disable optimization for Netlify compatibility (free tier doesn't support image optimization)
     unoptimized: true,
     
-    // Allowed domains for external images
-    domains: [
-      'foursquareajebo.org',
-      'www.foursquareajebo.org',
-      'images.unsplash.com',
-      'source.unsplash.com'
+    // Use remotePatterns instead of deprecated domains
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'foursquareajebo.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.foursquareajebo.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'source.unsplash.com',
+      },
     ],
     
     // Device sizes for responsive images
@@ -38,31 +45,8 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react'],
   },
   
-  // Webpack configuration for better optimization
-  webpack: (config, { isServer }) => {
-    // Optimize for performance
-    config.optimization = {
-      ...config.optimization,
-      splitChunks: {
-        chunks: 'all',
-        cacheGroups: {
-          default: {
-            minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true,
-          },
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            priority: -10,
-            chunks: 'all',
-          },
-        },
-      },
-    };
-
-    return config;
-  },
+  // Add empty turbopack config to silence migration warning
+  turbopack: {},
   
   // Compress output
   compress: true,

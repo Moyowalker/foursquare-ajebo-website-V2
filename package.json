@@ -29,6 +29,7 @@
   "homepage": "https://github.com/EMOCOM-GROUP/foursquare-ajebo-website#readme",
   "description": "",
   "dependencies": {
+    "@react-email/render": "^1.4.0",
     "@socket.io/component-emitter": "^3.1.2",
     "@stripe/stripe-js": "^7.9.0",
     "@supabase/supabase-js": "^2.57.4",
@@ -48,7 +49,7 @@
     "hls.js": "^1.6.12",
     "lucide-react": "^0.542.0",
     "mongodb": "^6.21.0",
-    "next": "^15.5.2",
+    "next": "^16.1.2",
     "peer": "^1.0.2",
     "postcss": "^8.5.6",
     "react": "^19.1.1",
