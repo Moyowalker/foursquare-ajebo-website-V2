@@ -1,0 +1,16 @@
+{
+  "name": "Foursquare Gospel Church Ajebo",
+  "short_name": "Foursquare Ajebo",
+  "description": "Foursquare Gospel Church Ajebo - Faith, Family, Fellowship",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
