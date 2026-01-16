@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 import { PaymentFormData } from '@/types/payments';
 import { getPaymentType } from '@/data/payments';
 import { resend } from '@/lib/email';

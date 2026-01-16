@@ -155,8 +155,8 @@ export default function PaymentModal({
 
   if (!isOpen) return null;
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent) => {
+    e?.preventDefault();
     setError('');
     setVerificationMessage('');
 
@@ -199,9 +199,21 @@ export default function PaymentModal({
         }),
       });
 
-      const result = await response.json();
+      let result: any = null;
+      try {
+        result = await response.json();
+      } catch {
+        result = null;
+      }
 
-      if (result.success) {
+      if (!response.ok) {
+        const message = result?.message || `Payment request failed (${response.status}).`;
+        setError(message);
+        setStep('form');
+        return;
+      }
+
+      if (result?.success) {
         const paystackKey = result.publicKey || '';
         const paystackReference = result.reference || reference;
         const authorizationUrl = result.authorizationUrl || '';
@@ -267,7 +279,7 @@ export default function PaymentModal({
           throw setupError;
         }
       } else {
-        setError(result.message || 'Payment initiation failed');
+        setError(result?.message || 'Payment initiation failed');
         setStep('form');
       }
     } catch (error) {

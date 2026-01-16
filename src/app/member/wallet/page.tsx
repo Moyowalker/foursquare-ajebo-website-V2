@@ -30,6 +30,7 @@ export default function MemberWalletPage() {
     const userData = localStorage.getItem('user');
     if (!userData) {
       router.push('/auth/login');
+      setLoading(false);
       return;
     }
 
@@ -43,10 +44,23 @@ export default function MemberWalletPage() {
     const loadWallet = async () => {
       try {
         const response = await fetch(`/api/wallet?userId=${user.id}&email=${encodeURIComponent(user.email)}&name=${encodeURIComponent(`${user.firstName} ${user.lastName}`)}`);
-        const result = await response.json();
-        if (result.success) {
+        let result: any = null;
+        try {
+          result = await response.json();
+        } catch {
+          result = null;
+        }
+
+        if (!response.ok) {
+          setError(result?.message || 'Unable to load wallet.');
+          return;
+        }
+
+        if (result?.success) {
           setWallet(result.wallet);
           setLedger(result.ledger || []);
+        } else {
+          setError(result?.message || 'Unable to load wallet.');
         }
       } catch {
         setError('Unable to load wallet.');
