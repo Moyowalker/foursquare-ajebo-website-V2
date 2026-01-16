@@ -77,8 +77,8 @@ export default function NewPrayerRequestPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent) => {
+    e?.preventDefault();
     
     if (!validateForm() || !user) return;
 
@@ -307,7 +307,7 @@ export default function NewPrayerRequestPage() {
               </Link>
               <SpectacularButton
                 disabled={isSubmitting}
-                onClick={() => handleSubmit({} as React.FormEvent)}
+                onClick={() => void handleSubmit()}
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Prayer Request 🙏'}
               </SpectacularButton>

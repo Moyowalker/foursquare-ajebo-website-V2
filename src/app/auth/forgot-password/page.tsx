@@ -14,8 +14,8 @@ export default function ForgotPasswordPage() {
     return /\S+@\S+\.\S+/.test(email);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent) => {
+    e?.preventDefault();
     
     if (!email.trim()) {
       setError('Email address is required');
@@ -149,7 +149,7 @@ export default function ForgotPasswordPage() {
 
             <SpectacularButton
               disabled={isLoading}
-              onClick={() => handleSubmit({} as React.FormEvent)}
+              onClick={() => void handleSubmit()}
               className="w-full mb-6"
             >
               {isLoading ? 'Sending Instructions...' : 'Send Reset Instructions ✨'}

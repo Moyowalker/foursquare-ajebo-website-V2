@@ -80,8 +80,8 @@ export default function RegisterPage() {
     setCurrentStep(currentStep - 1);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent) => {
+    e?.preventDefault();
     if (!validateStep(3)) return;
 
     setIsLoading(true);
@@ -444,7 +444,7 @@ export default function RegisterPage() {
                 ) : (
                   <SpectacularButton
                     disabled={isLoading}
-                    onClick={() => handleSubmit({} as React.FormEvent)}
+                    onClick={() => void handleSubmit()}
                   >
                     {isLoading ? 'Creating Account...' : 'Create Account ✨'}
                   </SpectacularButton>

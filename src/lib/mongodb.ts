@@ -26,7 +26,10 @@ export async function getMongoClient(): Promise<MongoClient> {
       throw new Error('Missing MONGODB_URI');
     }
 
-    cache.promise = new MongoClient(uri).connect();
+    cache.promise = new MongoClient(uri, {
+      serverSelectionTimeoutMS: 5000,
+      connectTimeoutMS: 5000,
+    }).connect();
   }
 
   cache.client = await cache.promise;

@@ -44,8 +44,8 @@ function LoginContent() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent) => {
+    e?.preventDefault();
     if (!validateForm()) return;
 
     setIsLoading(true);
@@ -172,7 +172,7 @@ function LoginContent() {
 
             <SpectacularButton
               disabled={isLoading}
-              onClick={() => handleSubmit({} as React.FormEvent)}
+              onClick={() => void handleSubmit()}
               className="w-full mb-6"
             >
               {isLoading ? 'Signing In...' : 'Sign In ✨'}
