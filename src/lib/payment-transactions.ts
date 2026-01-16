@@ -5,6 +5,7 @@ export type PaymentStatus = 'pending' | 'completed' | 'failed';
 
 export interface PaymentTransactionRecord {
   reference: string;
+  gateway?: 'paystack' | 'venco' | 'wallet';
   category: PaymentCategory;
   amount: number;
   status: PaymentStatus;
@@ -12,7 +13,7 @@ export interface PaymentTransactionRecord {
   customerEmail: string;
   customerPhone: string;
   details?: string | null;
-  vencoTransactionId?: string | null;
+  gatewayReference?: string | null;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -27,6 +28,7 @@ export async function upsertPaymentTransaction(record: PaymentTransactionRecord)
     { reference: record.reference },
     {
       $set: {
+        gateway: record.gateway || 'paystack',
         category: record.category,
         amount: record.amount,
         status: record.status,
@@ -34,7 +36,7 @@ export async function upsertPaymentTransaction(record: PaymentTransactionRecord)
         customerEmail: record.customerEmail,
         customerPhone: record.customerPhone,
         details: record.details || null,
-        vencoTransactionId: record.vencoTransactionId || null,
+        gatewayReference: record.gatewayReference || null,
         updatedAt: now,
       },
       $setOnInsert: {
@@ -45,14 +47,14 @@ export async function upsertPaymentTransaction(record: PaymentTransactionRecord)
   );
 }
 
-export async function updatePaymentStatus(reference: string, status: PaymentStatus, vencoTransactionId?: string | null) {
+export async function updatePaymentStatus(reference: string, status: PaymentStatus, gatewayReference?: string | null) {
   const db = await getMongoDb();
   return db.collection(COLLECTION).updateOne(
     { reference },
     {
       $set: {
         status,
-        vencoTransactionId: vencoTransactionId || null,
+        gatewayReference: gatewayReference || null,
         updatedAt: new Date(),
       },
     }

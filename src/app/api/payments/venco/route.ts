@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { formatVencoAmount, getVencoCallbackUrl, getVencoWebhookUrl, initiateVencoPayment, isVencoConfigured, verifyVencoPayment } from '@/lib/venco';
 import { PaymentFormData } from '@/types/payments';
 import { getPaymentType } from '@/data/payments';
 import { resend } from '@/lib/email';
-import { findPaymentByReference, upsertPaymentTransaction, updatePaymentStatus } from '@/lib/payment-transactions';
+import { upsertPaymentTransaction, updatePaymentStatus } from '@/lib/payment-transactions';
+import { formatPaystackAmount, getPaystackPublicKey, initializePaystackTransaction, isPaystackConfigured, verifyPaystackTransaction } from '@/lib/paystack';
 
 export async function POST(request: NextRequest) {
   try {
@@ -57,30 +57,27 @@ export async function POST(request: NextRequest) {
     // Generate reference if not provided
     const reference = body.reference || `PAY-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
 
-    // Initiate Venco payment
-    const vencoResponse = await initiateVencoPayment({
-      amount: formatVencoAmount(body.amount),
-      currency: 'NGN',
-      reference: reference,
-      customerName: body.name,
-      customerEmail: body.email,
-      customerPhone: body.phone,
-      description: `${paymentType.name} - Foursquare Gospel Church Ajebo`,
-      callbackUrl: getVencoCallbackUrl(),
-      webhookUrl: getVencoWebhookUrl(),
-      returnUrl: `${request.nextUrl.origin}/giving/thank-you`,
+    const callbackUrl = `${request.nextUrl.origin}/giving/thank-you`;
+
+    const paystackResponse = await initializePaystackTransaction({
+      email: body.email,
+      amount: formatPaystackAmount(body.amount),
+      reference,
+      callbackUrl,
       metadata: {
         category: body.category,
         details: body.details || '',
         paymentType: paymentType.name,
+        customerName: body.name,
+        customerPhone: body.phone,
       },
     });
 
-    if (vencoResponse.status === 'failed') {
+    if (!paystackResponse?.status) {
       return NextResponse.json(
         {
           success: false,
-          message: vencoResponse.message || 'Payment initiation failed',
+          message: paystackResponse?.message || 'Payment initiation failed',
         },
         { status: 500 }
       );
@@ -90,14 +87,15 @@ export async function POST(request: NextRequest) {
     try {
       await upsertPaymentTransaction({
         reference,
+        gateway: 'paystack',
         category: body.category,
         amount: body.amount,
-        status: vencoResponse.status === 'failed' ? 'failed' : 'pending',
+        status: 'pending',
         customerName: body.name,
         customerEmail: body.email,
         customerPhone: body.phone,
         details: body.details || null,
-        vencoTransactionId: vencoResponse.transactionId || null,
+        gatewayReference: paystackResponse?.data?.reference || reference,
         createdAt: new Date(),
         updatedAt: new Date(),
       });
@@ -118,7 +116,7 @@ export async function POST(request: NextRequest) {
             <p>Your ${paymentType.name} payment has been initiated successfully.</p>
             <p><strong>Amount:</strong> ₦${body.amount.toLocaleString()}</p>
             <p><strong>Reference:</strong> ${reference}</p>
-            <p><strong>Transaction ID:</strong> ${vencoResponse.transactionId || 'Pending'}</p>
+            <p><strong>Reference:</strong> ${paystackResponse?.data?.reference || reference}</p>
             <p>Please complete your payment in the checkout window.</p>
           `,
         });
@@ -130,7 +128,6 @@ export async function POST(request: NextRequest) {
     // Log transaction (you can later save this to a database)
     console.log('Payment initiated:', {
       reference: reference,
-      transactionId: vencoResponse.transactionId,
       category: body.category,
       amount: body.amount,
       customer: {
@@ -142,13 +139,13 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({
-      success: vencoResponse.status !== 'failed',
-      message: vencoResponse.message || 'Payment initiated successfully',
-      transactionId: vencoResponse.transactionId,
-      reference: reference,
-      paymentUrl: vencoResponse.paymentUrl,
-      isTestMode: !isVencoConfigured(),
-      data: vencoResponse.data,
+      success: true,
+      message: paystackResponse?.message || 'Payment initiated successfully',
+      reference: paystackResponse?.data?.reference || reference,
+      authorizationUrl: paystackResponse?.data?.authorization_url,
+      accessCode: paystackResponse?.data?.access_code,
+      publicKey: getPaystackPublicKey(),
+      isConfigured: isPaystackConfigured(),
     });
   } catch (error) {
     console.error('Payment API error:', error);
@@ -162,52 +159,36 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// GET /api/payments/venco?transactionId=...  -> verify payment status
+// GET /api/payments/venco?reference=...  -> verify payment status
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
-    const transactionId = searchParams.get('transactionId');
     const reference = searchParams.get('reference');
 
-    let resolvedTransactionId = transactionId || '';
-
-    if (!resolvedTransactionId && reference) {
-      try {
-        const record = await findPaymentByReference(reference);
-        resolvedTransactionId = (record?.vencoTransactionId as string) || '';
-      } catch (dbError) {
-        console.error('Failed to resolve transaction ID:', dbError);
-      }
-    }
-
-    if (!resolvedTransactionId) {
+    if (!reference) {
       return NextResponse.json(
-        { success: false, message: 'Transaction ID is required' },
+        { success: false, message: 'Reference is required' },
         { status: 400 }
       );
     }
 
-    const verification = await verifyVencoPayment(resolvedTransactionId);
+    const verification = await verifyPaystackTransaction(reference);
+
+    const status = verification?.data?.status;
+    const normalizedStatus = status === 'success' ? 'completed' : status === 'failed' ? 'failed' : 'pending';
 
     try {
-      const normalizedStatus =
-        verification.status === 'success' ? 'completed' : verification.status === 'pending' ? 'pending' : 'failed';
-
-      const resolvedReference = verification.reference || reference || '';
-      if (resolvedReference) {
-        await updatePaymentStatus(resolvedReference, normalizedStatus, resolvedTransactionId);
-      }
+      await updatePaymentStatus(reference, normalizedStatus, reference);
     } catch (dbError) {
       console.error('Failed to update payment status:', dbError);
     }
 
     return NextResponse.json({
-      success: verification.status !== 'failed',
-      status: verification.status,
-      message: verification.message,
-      transactionId: verification.transactionId,
-      reference: verification.reference || reference,
-      data: verification.data,
+      success: normalizedStatus !== 'failed',
+      status: normalizedStatus,
+      message: verification?.message || 'Verification complete',
+      reference,
+      data: verification?.data,
     });
   } catch (error) {
     console.error('Verification error:', error);

@@ -4,6 +4,15 @@ import { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import { PAYMENT_TYPES, generatePaymentReference } from '@/data/payments';
 import { PaymentCategory, PaymentFormData } from '@/types/payments';
+import type { User } from '@/types/auth';
+
+declare global {
+  interface Window {
+    PaystackPop?: {
+      setup: (options: Record<string, unknown>) => { openIframe: () => void } | undefined;
+    };
+  }
+}
 
 interface PaymentModalProps {
   isOpen: boolean;
@@ -26,11 +35,14 @@ export default function PaymentModal({
     details: '',
   });
   const [error, setError] = useState('');
-  const [transactionId, setTransactionId] = useState('');
-  const [paymentUrl, setPaymentUrl] = useState('');
   const [reference, setReference] = useState('');
-  const [isTestMode, setIsTestMode] = useState(false);
   const [verificationMessage, setVerificationMessage] = useState('');
+  const [isPaystackReady, setIsPaystackReady] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [walletUser, setWalletUser] = useState<User | null>(null);
+  const [walletBalance, setWalletBalance] = useState(0);
+  const [isWalletLoading, setIsWalletLoading] = useState(false);
+  const [isWalletPaying, setIsWalletPaying] = useState(false);
 
   const selectedPaymentType = PAYMENT_TYPES.find((p) => p.id === formData.category);
 
@@ -40,10 +52,10 @@ export default function PaymentModal({
   };
 
   const checkPaymentStatus = async () => {
-    if (!transactionId) return;
+    if (!reference) return;
 
     try {
-      const response = await fetch(`/api/payments/venco?transactionId=${encodeURIComponent(transactionId)}&reference=${encodeURIComponent(reference)}`);
+      const response = await fetch(`/api/payments/paystack?reference=${encodeURIComponent(reference)}`);
       const result = await response.json();
 
       if (result.status === 'success') {
@@ -66,7 +78,59 @@ export default function PaymentModal({
   };
 
   useEffect(() => {
-    if (step !== 'processing' || !transactionId || isTestMode) return;
+    if (!isOpen) return;
+
+    if (window.PaystackPop) {
+      setIsPaystackReady(true);
+      return;
+    }
+
+    const scriptId = 'paystack-inline';
+    if (document.getElementById(scriptId)) {
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.src = 'https://js.paystack.co/v1/inline.js';
+    script.async = true;
+    script.onload = () => setIsPaystackReady(true);
+    script.onerror = () => setError('Unable to load Paystack checkout. Please try again.');
+    document.body.appendChild(script);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const userData = localStorage.getItem('user');
+    if (!userData) {
+      setWalletUser(null);
+      setWalletBalance(0);
+      return;
+    }
+
+    const parsedUser = JSON.parse(userData) as User;
+    setWalletUser(parsedUser);
+    setIsWalletLoading(true);
+
+    const fetchWallet = async () => {
+      try {
+        const response = await fetch(`/api/wallet?userId=${parsedUser.id}&email=${encodeURIComponent(parsedUser.email)}&name=${encodeURIComponent(`${parsedUser.firstName} ${parsedUser.lastName}`)}`);
+        const result = await response.json();
+        if (result.success) {
+          setWalletBalance(Number(result.wallet?.balance || 0));
+        }
+      } catch {
+        setWalletBalance(0);
+      } finally {
+        setIsWalletLoading(false);
+      }
+    };
+
+    fetchWallet();
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (step !== 'processing' || !reference) return;
 
     let cancelled = false;
     let attempts = 0;
@@ -87,7 +151,7 @@ export default function PaymentModal({
     return () => {
       cancelled = true;
     };
-  }, [step, transactionId, isTestMode, reference]);
+  }, [step, reference]);
 
   if (!isOpen) return null;
 
@@ -119,7 +183,14 @@ export default function PaymentModal({
 
     try {
       const reference = generatePaymentReference(formData.category);
-      const response = await fetch('/api/payments/venco', {
+      if (!isPaystackReady) {
+        setError('Payment system is still loading. Please try again in a moment.');
+        return;
+      }
+
+      setIsSubmitting(true);
+
+      const response = await fetch('/api/payments/paystack', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -131,23 +202,70 @@ export default function PaymentModal({
       const result = await response.json();
 
       if (result.success) {
-        setTransactionId(result.transactionId);
-        setReference(result.reference || reference);
-        setPaymentUrl(result.paymentUrl || '');
-        setIsTestMode(Boolean(result.isTestMode));
+        const paystackKey = result.publicKey || '';
+        const paystackReference = result.reference || reference;
+        const authorizationUrl = result.authorizationUrl || '';
 
-        if (result.isTestMode) {
-          setStep('success');
-          return;
-        }
+        setReference(paystackReference);
+        setStep('processing');
 
-        if (!result.paymentUrl || result.paymentUrl === '#') {
-          setError('Payment could not be initialized. Please try again.');
+        if (!paystackKey) {
+          if (authorizationUrl) {
+            window.open(authorizationUrl, '_blank', 'noopener,noreferrer');
+            setVerificationMessage('Checkout opened in a new tab. Complete payment, then verify here.');
+            return;
+          }
+
+          setError('Paystack public key is not configured.');
           setStep('form');
           return;
         }
 
-        setStep('processing');
+        try {
+          const handler = window.PaystackPop?.setup({
+            key: paystackKey,
+            email: formData.email,
+            amount: Math.round(formData.amount * 100),
+            ref: paystackReference,
+            metadata: {
+              custom_fields: [
+                { display_name: 'Name', variable_name: 'name', value: formData.name },
+                { display_name: 'Phone', variable_name: 'phone', value: formData.phone },
+                { display_name: 'Category', variable_name: 'category', value: formData.category },
+                { display_name: 'Details', variable_name: 'details', value: formData.details || '' },
+              ],
+            },
+            callback: async () => {
+              await checkPaymentStatus();
+            },
+            onClose: () => {
+              setVerificationMessage('Checkout closed. You can retry or verify payment status.');
+              setStep('processing');
+            },
+          });
+
+          if (!handler) {
+            if (authorizationUrl) {
+              window.open(authorizationUrl, '_blank', 'noopener,noreferrer');
+              setVerificationMessage('Checkout opened in a new tab. Complete payment, then verify here.');
+              return;
+            }
+
+            setError('Unable to open Paystack checkout.');
+            setStep('form');
+            return;
+          }
+
+          handler.openIframe();
+        } catch (setupError) {
+          if (authorizationUrl) {
+            window.open(authorizationUrl, '_blank', 'noopener,noreferrer');
+            setVerificationMessage('Checkout opened in a new tab. Complete payment, then verify here.');
+            return;
+          }
+
+          throw setupError;
+        }
       } else {
         setError(result.message || 'Payment initiation failed');
         setStep('form');
@@ -155,6 +273,64 @@ export default function PaymentModal({
     } catch (error) {
       setError('An error occurred. Please try again.');
       setStep('form');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleWalletPay = async () => {
+    setError('');
+    setVerificationMessage('');
+
+    if (!walletUser) {
+      setError('Please log in to use wallet payment.');
+      return;
+    }
+
+    if (selectedPaymentType?.id !== 'service-charge') {
+      setError('Wallet pay is available for service charges only.');
+      return;
+    }
+
+    if (formData.amount <= 0) {
+      setError('Please enter a valid amount');
+      return;
+    }
+
+    if (walletBalance < formData.amount) {
+      setError('Insufficient wallet balance.');
+      return;
+    }
+
+    setIsWalletPaying(true);
+
+    try {
+      const response = await fetch('/api/wallet/pay', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId: walletUser.id,
+          email: walletUser.email,
+          name: `${walletUser.firstName} ${walletUser.lastName}`,
+          amount: formData.amount,
+          category: formData.category,
+          description: `Wallet payment for ${selectedPaymentType?.name || 'service charge'}`,
+        }),
+      });
+
+      const result = await response.json();
+      if (!result.success) {
+        setError(result.message || 'Wallet payment failed');
+        return;
+      }
+
+      setReference(result.reference || '');
+      setStep('success');
+      setWalletBalance((prev) => prev - formData.amount);
+    } catch {
+      setError('Wallet payment failed. Please try again.');
+    } finally {
+      setIsWalletPaying(false);
     }
   };
 
@@ -169,11 +345,9 @@ export default function PaymentModal({
       details: '',
     });
     setError('');
-    setTransactionId('');
-    setPaymentUrl('');
     setReference('');
-    setIsTestMode(false);
     setVerificationMessage('');
+    setIsSubmitting(false);
     onClose();
   };
 
@@ -331,10 +505,35 @@ export default function PaymentModal({
                 </button>
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className="flex-1 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-semibold"
                 >
-                  Proceed to Payment
+                  {isSubmitting ? 'Initializing...' : 'Proceed to Payment'}
                 </button>
+              </div>
+
+              <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-semibold text-gray-700">Pay with Wallet</p>
+                    <p className="text-xs text-gray-500">
+                      {walletUser
+                        ? `Balance: ₦${walletBalance.toLocaleString()}`
+                        : 'Log in to use wallet payments.'}
+                    </p>
+                    {selectedPaymentType?.id !== 'service-charge' && (
+                      <p className="text-xs text-gray-500">Available for service charges only.</p>
+                    )}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleWalletPay}
+                    disabled={isWalletLoading || isWalletPaying || !walletUser || selectedPaymentType?.id !== 'service-charge'}
+                    className="rounded-lg border border-green-600 px-4 py-2 text-sm font-semibold text-green-700 hover:bg-green-50 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    {isWalletPaying ? 'Processing...' : 'Pay from Wallet'}
+                  </button>
+                </div>
               </div>
             </form>
           )}
@@ -344,33 +543,15 @@ export default function PaymentModal({
             <div className="space-y-4">
               <div className="text-center py-4">
                 <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-4 border-red-600"></div>
-                <p className="text-gray-600 mt-4">Complete payment in the secure checkout below.</p>
+                <p className="text-gray-600 mt-4">Complete payment in the Paystack secure checkout.</p>
                 {verificationMessage && (
                   <p className="text-sm text-gray-500 mt-2">{verificationMessage}</p>
                 )}
               </div>
-
-              {paymentUrl && (
-                <div className="border border-gray-200 rounded-lg overflow-hidden">
-                  <iframe
-                    src={paymentUrl}
-                    title="Venco Checkout"
-                    className="w-full h-[520px]"
-                  />
-                </div>
-              )}
-
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   type="button"
-                  onClick={() => window.open(paymentUrl, '_blank', 'noopener,noreferrer')}
-                  className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-                >
-                  Open Checkout in New Tab
-                </button>
-                <button
-                  type="button"
-                  onClick={checkPaymentStatus}
+                  onClick={() => void checkPaymentStatus()}
                   className="flex-1 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-semibold"
                 >
                   I’ve Completed Payment
@@ -398,14 +579,6 @@ export default function PaymentModal({
               <p className="text-sm text-gray-500 mb-6">
                 A confirmation receipt has been sent to your email address.
               </p>
-              {isTestMode && (
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-                  <p className="text-sm text-yellow-800">
-                    <strong>Test Mode:</strong> This is currently running in test mode.
-                    Real payments will be processed once Venco credentials are configured.
-                  </p>
-                </div>
-              )}
               <button
                 onClick={handleClose}
                 className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-semibold"

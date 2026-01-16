@@ -73,14 +73,16 @@ export default function MemberDashboard() {
               <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-2xl">
                 <div className="text-4xl mb-4">💝</div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Giving
+                  Giving & Wallet
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Manage your tithes and offerings with secure online giving
+                  Fund your wallet, pay service fees, and track transactions
                 </p>
-                <SpectacularButton size="sm" variant="outline">
-                  Coming Soon
-                </SpectacularButton>
+                <Link href="/member/wallet">
+                  <SpectacularButton size="sm" variant="outline">
+                    Open Wallet
+                  </SpectacularButton>
+                </Link>
               </div>
 
               <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-2xl">

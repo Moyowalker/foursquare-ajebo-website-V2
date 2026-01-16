@@ -53,6 +53,7 @@ export interface VencoPaymentResponse {
 export interface PaymentTransaction {
   id: string;
   reference: string;
+  gateway?: 'paystack' | 'venco' | 'wallet';
   category: PaymentCategory;
   amount: number;
   status: 'pending' | 'completed' | 'failed';
@@ -60,7 +61,7 @@ export interface PaymentTransaction {
   customerEmail: string;
   customerPhone: string;
   details?: string;
-  vencoTransactionId?: string;
+  gatewayReference?: string;
   createdAt: Date;
   completedAt?: Date;
 }
