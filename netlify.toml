@@ -4,8 +4,8 @@
   publish = ".next"
   
 [build.environment]
-  NODE_VERSION = "18"
-  NPM_VERSION = "9"
+  NODE_VERSION = "20.9.0"
+  NPM_VERSION = "10"
 
 # Production context
 [context.production]
@@ -19,16 +19,7 @@
 [context.branch-deploy]
   command = "npm run build"
 
-# Handle Next.js routing (for pages and API routes)
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Next.js routing and API routes are handled automatically by Netlify's Next.js runtime
 
 # Security headers
 [[headers]]
