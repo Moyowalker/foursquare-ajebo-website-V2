@@ -1,4 +1,5 @@
 import { VencoPaymentRequest, VencoPaymentResponse } from '@/types/payments';
+import crypto from 'crypto';
 
 // Venco API Configuration
 // TODO: Add your Venco API credentials when available
@@ -7,8 +8,25 @@ const VENCO_CONFIG = {
   apiSecret: process.env.VENCO_API_SECRET || '',
   merchantId: process.env.VENCO_MERCHANT_ID || '',
   baseUrl: process.env.VENCO_BASE_URL || 'https://api.venco.com/v1',
-  callbackUrl: process.env.NEXT_PUBLIC_URL + '/api/payments/venco/callback',
+  webhookSecret: process.env.VENCO_WEBHOOK_SECRET || process.env.VENCO_API_SECRET || '',
 };
+
+function getBaseUrl(): string {
+  return (
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.NEXT_PUBLIC_APP_URL ||
+    process.env.NEXT_PUBLIC_URL ||
+    'http://localhost:3000'
+  );
+}
+
+export function getVencoCallbackUrl(): string {
+  return `${getBaseUrl()}/api/payments/venco/callback`;
+}
+
+export function getVencoWebhookUrl(): string {
+  return `${getBaseUrl()}/api/payments/venco/webhook`;
+}
 
 /**
  * Initialize a Venco payment
@@ -43,6 +61,7 @@ export async function initiateVencoPayment(
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${VENCO_CONFIG.apiKey}`,
         'X-Merchant-ID': VENCO_CONFIG.merchantId,
+        ...(VENCO_CONFIG.apiSecret ? { 'X-API-SECRET': VENCO_CONFIG.apiSecret } : {}),
       },
       body: JSON.stringify({
         amount: request.amount,
@@ -54,7 +73,9 @@ export async function initiateVencoPayment(
           phone: request.customerPhone,
         },
         description: request.description,
-        callback_url: request.callbackUrl || VENCO_CONFIG.callbackUrl,
+        callback_url: request.callbackUrl || getVencoCallbackUrl(),
+        webhook_url: request.webhookUrl || getVencoWebhookUrl(),
+        return_url: request.returnUrl || request.callbackUrl || getVencoCallbackUrl(),
         metadata: request.metadata,
       }),
     });
@@ -67,9 +88,9 @@ export async function initiateVencoPayment(
 
     return {
       status: data.status === 'success' ? 'pending' : 'failed',
-      transactionId: data.transaction_id,
-      reference: data.reference,
-      paymentUrl: data.payment_url,
+      transactionId: data.transaction_id || data.transactionId || '',
+      reference: data.reference || request.reference,
+      paymentUrl: data.payment_url || data.paymentUrl,
       message: data.message || 'Payment initiated successfully',
       data: data,
     };
@@ -109,6 +130,7 @@ export async function verifyVencoPayment(
         headers: {
           'Authorization': `Bearer ${VENCO_CONFIG.apiKey}`,
           'X-Merchant-ID': VENCO_CONFIG.merchantId,
+          ...(VENCO_CONFIG.apiSecret ? { 'X-API-SECRET': VENCO_CONFIG.apiSecret } : {}),
         },
       }
     );
@@ -120,9 +142,9 @@ export async function verifyVencoPayment(
     const data = await response.json();
 
     return {
-      status: data.status,
-      transactionId: data.transaction_id,
-      reference: data.reference,
+      status: data.status || 'failed',
+      transactionId: data.transaction_id || transactionId,
+      reference: data.reference || '',
       message: data.message || 'Payment verification complete',
       data: data,
     };
@@ -151,4 +173,24 @@ export function formatVencoAmount(amount: number): number {
  */
 export function isVencoConfigured(): boolean {
   return !!(VENCO_CONFIG.apiKey && VENCO_CONFIG.merchantId);
+}
+
+export function verifyVencoWebhookSignature(
+  payload: string,
+  signature: string | null
+): boolean {
+  if (!VENCO_CONFIG.webhookSecret || !signature) {
+    return false;
+  }
+
+  const computed = crypto
+    .createHmac('sha256', VENCO_CONFIG.webhookSecret)
+    .update(payload, 'utf8')
+    .digest('hex');
+
+  if (computed.length !== signature.length) {
+    return false;
+  }
+
+  return crypto.timingSafeEqual(Buffer.from(computed), Buffer.from(signature));
 }

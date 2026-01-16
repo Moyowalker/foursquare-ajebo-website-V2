@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { initiateVencoPayment, isVencoConfigured } from '@/lib/venco';
+import { formatVencoAmount, getVencoCallbackUrl, getVencoWebhookUrl, initiateVencoPayment, isVencoConfigured, verifyVencoPayment } from '@/lib/venco';
 import { PaymentFormData } from '@/types/payments';
 import { getPaymentType } from '@/data/payments';
+import { resend } from '@/lib/email';
+import { findPaymentByReference, upsertPaymentTransaction, updatePaymentStatus } from '@/lib/payment-transactions';
 
 export async function POST(request: NextRequest) {
   try {
@@ -57,13 +59,16 @@ export async function POST(request: NextRequest) {
 
     // Initiate Venco payment
     const vencoResponse = await initiateVencoPayment({
-      amount: body.amount,
+      amount: formatVencoAmount(body.amount),
       currency: 'NGN',
       reference: reference,
       customerName: body.name,
       customerEmail: body.email,
       customerPhone: body.phone,
       description: `${paymentType.name} - Foursquare Gospel Church Ajebo`,
+      callbackUrl: getVencoCallbackUrl(),
+      webhookUrl: getVencoWebhookUrl(),
+      returnUrl: `${request.nextUrl.origin}/giving/thank-you`,
       metadata: {
         category: body.category,
         details: body.details || '',
@@ -81,18 +86,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send confirmation email (optional - you can use your existing email service)
+    // Persist transaction (best-effort)
     try {
-      await sendPaymentConfirmationEmail({
-        ...body,
-        reference: reference,
-        paymentType: paymentType.name,
-        transactionId: vencoResponse.transactionId,
-        isTestMode: !isVencoConfigured(),
+      await upsertPaymentTransaction({
+        reference,
+        category: body.category,
+        amount: body.amount,
+        status: vencoResponse.status === 'failed' ? 'failed' : 'pending',
+        customerName: body.name,
+        customerEmail: body.email,
+        customerPhone: body.phone,
+        details: body.details || null,
+        vencoTransactionId: vencoResponse.transactionId || null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       });
-    } catch (emailError) {
-      console.error('Failed to send confirmation email:', emailError);
-      // Don't fail the payment if email fails
+    } catch (dbError) {
+      console.error('Failed to persist payment transaction:', dbError);
+    }
+
+    // Send confirmation email (best-effort)
+    if (resend && body.email) {
+      try {
+        await resend.emails.send({
+          from: 'Foursquare Camp Ajebo <noreply@foursquareajebo.org>',
+          to: [body.email],
+          subject: `Payment Initiated - ${reference}`,
+          html: `
+            <h2>Payment Initiated</h2>
+            <p>Dear ${body.name},</p>
+            <p>Your ${paymentType.name} payment has been initiated successfully.</p>
+            <p><strong>Amount:</strong> ₦${body.amount.toLocaleString()}</p>
+            <p><strong>Reference:</strong> ${reference}</p>
+            <p><strong>Transaction ID:</strong> ${vencoResponse.transactionId || 'Pending'}</p>
+            <p>Please complete your payment in the checkout window.</p>
+          `,
+        });
+      } catch (emailError) {
+        console.error('Failed to send confirmation email:', emailError);
+      }
     }
 
     // Log transaction (you can later save this to a database)
@@ -110,8 +142,8 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({
-      success: true,
-      message: 'Payment initiated successfully',
+      success: vencoResponse.status !== 'failed',
+      message: vencoResponse.message || 'Payment initiated successfully',
       transactionId: vencoResponse.transactionId,
       reference: reference,
       paymentUrl: vencoResponse.paymentUrl,
@@ -130,107 +162,58 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Callback endpoint for Venco webhook
+// GET /api/payments/venco?transactionId=...  -> verify payment status
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
-    const transactionId = searchParams.get('transaction_id');
+    const transactionId = searchParams.get('transactionId');
     const reference = searchParams.get('reference');
-    const status = searchParams.get('status');
 
-    // TODO: Verify the callback signature with Venco credentials
-    // TODO: Update transaction status in database
-    // TODO: Send receipt email to customer
+    let resolvedTransactionId = transactionId || '';
 
-    console.log('Venco callback received:', {
-      transactionId,
-      reference,
-      status,
-      timestamp: new Date().toISOString(),
-    });
-
-    // Redirect to success page
-    if (status === 'success') {
-      return NextResponse.redirect(new URL('/giving/thank-you', request.url));
-    } else {
-      return NextResponse.redirect(new URL('/?payment=failed', request.url));
+    if (!resolvedTransactionId && reference) {
+      try {
+        const record = await findPaymentByReference(reference);
+        resolvedTransactionId = (record?.vencoTransactionId as string) || '';
+      } catch (dbError) {
+        console.error('Failed to resolve transaction ID:', dbError);
+      }
     }
+
+    if (!resolvedTransactionId) {
+      return NextResponse.json(
+        { success: false, message: 'Transaction ID is required' },
+        { status: 400 }
+      );
+    }
+
+    const verification = await verifyVencoPayment(resolvedTransactionId);
+
+    try {
+      const normalizedStatus =
+        verification.status === 'success' ? 'completed' : verification.status === 'pending' ? 'pending' : 'failed';
+
+      const resolvedReference = verification.reference || reference || '';
+      if (resolvedReference) {
+        await updatePaymentStatus(resolvedReference, normalizedStatus, resolvedTransactionId);
+      }
+    } catch (dbError) {
+      console.error('Failed to update payment status:', dbError);
+    }
+
+    return NextResponse.json({
+      success: verification.status !== 'failed',
+      status: verification.status,
+      message: verification.message,
+      transactionId: verification.transactionId,
+      reference: verification.reference || reference,
+      data: verification.data,
+    });
   } catch (error) {
-    console.error('Callback error:', error);
+    console.error('Verification error:', error);
     return NextResponse.json(
-      { success: false, message: 'Callback processing failed' },
+      { success: false, message: 'Verification failed' },
       { status: 500 }
     );
   }
-}
-
-// Helper function to send confirmation email
-async function sendPaymentConfirmationEmail(data: {
-  name: string;
-  email: string;
-  amount: number;
-  paymentType: string;
-  reference: string;
-  transactionId: string;
-  details?: string;
-  isTestMode: boolean;
-}) {
-  // Use your existing email service (Resend or similar)
-  const emailHtml = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background-color: #dc2626; color: white; padding: 20px; text-align: center; }
-        .content { padding: 20px; background-color: #f9f9f9; }
-        .details { background-color: white; padding: 15px; margin: 15px 0; border-left: 4px solid #dc2626; }
-        .footer { text-align: center; padding: 20px; font-size: 12px; color: #666; }
-        ${data.isTestMode ? '.test-mode { background-color: #fef3c7; padding: 10px; margin: 15px 0; border: 2px solid #f59e0b; }' : ''}
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <div class="header">
-          <h1>Payment Initiated</h1>
-          <p>Foursquare Gospel Church Ajebo</p>
-        </div>
-        <div class="content">
-          <p>Dear ${data.name},</p>
-          <p>Your payment has been initiated successfully. Here are the details:</p>
-          
-          ${data.isTestMode ? '<div class="test-mode"><strong>⚠️ TEST MODE:</strong> This is a test transaction. No real payment will be processed.</div>' : ''}
-          
-          <div class="details">
-            <p><strong>Payment Type:</strong> ${data.paymentType}</p>
-            <p><strong>Amount:</strong> ₦${data.amount.toLocaleString()}</p>
-            <p><strong>Reference:</strong> ${data.reference}</p>
-            <p><strong>Transaction ID:</strong> ${data.transactionId}</p>
-            ${data.details ? `<p><strong>Details:</strong> ${data.details}</p>` : ''}
-            <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
-          </div>
-          
-          <p>Please complete your payment using the secure payment link provided.</p>
-          <p>If you have any questions, please contact us at info@foursquareajebu.org</p>
-        </div>
-        <div class="footer">
-          <p>© ${new Date().getFullYear()} Foursquare Gospel Church Ajebo. All rights reserved.</p>
-        </div>
-      </div>
-    </body>
-    </html>
-  `;
-
-  // TODO: Integrate with your email service
-  // Example with Resend:
-  // await resend.emails.send({
-  //   from: 'payments@foursquareajebu.org',
-  //   to: data.email,
-  //   subject: `Payment Initiated - ${data.reference}`,
-  //   html: emailHtml,
-  // });
-
-  console.log('Email would be sent to:', data.email);
-  return true;
 }

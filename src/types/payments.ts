@@ -36,6 +36,8 @@ export interface VencoPaymentRequest {
   customerPhone: string;
   description: string;
   callbackUrl?: string;
+  webhookUrl?: string;
+  returnUrl?: string;
   metadata?: Record<string, any>;
 }
 
