@@ -2,6 +2,7 @@ import { MongoClient } from 'mongodb';
 
 const uri = process.env.MONGODB_URI;
 const dbName = process.env.MONGODB_DB || 'foursquare_ajebo';
+const allowInvalidTls = process.env.MONGODB_TLS_ALLOW_INVALID === 'true';
 
 if (!uri) {
   console.warn('MONGODB_URI is not set. Database operations will fail.');
@@ -29,6 +30,9 @@ export async function getMongoClient(): Promise<MongoClient> {
     cache.promise = new MongoClient(uri, {
       serverSelectionTimeoutMS: 5000,
       connectTimeoutMS: 5000,
+      tls: true,
+      tlsAllowInvalidCertificates: allowInvalidTls,
+      tlsAllowInvalidHostnames: allowInvalidTls,
     }).connect();
   }
 
