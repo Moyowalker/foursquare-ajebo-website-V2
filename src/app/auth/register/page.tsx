@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { RegisterFormData } from '@/types/auth';
+import { RegisterFormData, User } from '@/types/auth';
 import { NIGERIAN_STATES } from '@/types/auth';
 import { SpectacularButton, SpectacularCard } from '@/components/ui/spectacular';
 
@@ -88,11 +88,58 @@ export default function RegisterPage() {
     
     try {
       // Simulate registration API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // In a real app, this would create the user account
-      console.log('Registration data:', formData);
-      
+      await new Promise(resolve => setTimeout(resolve, 1200));
+
+      const now = new Date().toISOString();
+      const newUser: User = {
+        id: `user-${Date.now()}`,
+        email: formData.email,
+        password: formData.password,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        phone: formData.phone,
+        dateOfBirth: formData.dateOfBirth,
+        address: formData.address,
+        membershipDate: now,
+        membershipStatus: 'pending',
+        role: {
+          type: 'member',
+          permissions: [
+            { action: 'read', resource: 'events' },
+            { action: 'register', resource: 'events' },
+            { action: 'read', resource: 'blog' },
+            { action: 'submit', resource: 'prayer_requests' },
+          ],
+        },
+        emergencyContact: formData.emergencyContact,
+        ministries: [],
+        preferences: {
+          notifications: { email: true, sms: false, push: false },
+          privacy: { showInDirectory: true, shareContactInfo: true },
+          communication: {
+            newsletter: formData.subscribeNewsletter,
+            eventReminders: true,
+            givingReceipts: true,
+            prayerUpdates: true,
+          },
+        },
+        createdAt: now,
+        updatedAt: now,
+        emailVerified: false,
+        phoneVerified: false,
+      };
+
+      const existingRaw = localStorage.getItem('registeredUsers');
+      const existing = existingRaw ? (JSON.parse(existingRaw) as User[]) : [];
+      const alreadyExists = existing.some((u) => u.email.toLowerCase() === newUser.email.toLowerCase());
+      if (alreadyExists) {
+        setErrors({ submit: 'An account with this email already exists.' });
+        return;
+      }
+
+      localStorage.setItem('registeredUsers', JSON.stringify([...existing, newUser]));
+      window.dispatchEvent(new Event('auth:changed'));
+
       // Redirect to login with success message
       router.push('/auth/login?message=Registration successful! Please log in with your credentials.');
       
@@ -120,15 +167,15 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 py-12">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 pt-28 pb-16">
       <div className="container mx-auto px-4 max-w-2xl">
         
         {/* Header */}
         <div className="text-center mb-8">
-          <Link href="/" className="text-blue-400 hover:text-blue-300 mb-4 inline-block">
+          <Link href="/" className="text-slate-300 hover:text-white mb-4 inline-block">
             ← Back to Home
           </Link>
-          <h1 className="text-4xl font-bold text-white mb-4">Join Our Church Family</h1>
+          <h1 className="text-4xl font-bold text-white mb-3">Join Our Church Family</h1>
           <p className="text-slate-300">Create your member account to access exclusive features</p>
         </div>
 
@@ -154,73 +201,73 @@ export default function RegisterPage() {
           </div>
         </div>
 
-        <SpectacularCard className="p-8">
+        <SpectacularCard className="p-8 bg-white/95 border border-slate-200 shadow-2xl">
           <form onSubmit={handleSubmit}>
             
             {/* Step 1: Personal Information */}
             {currentStep === 1 && (
               <div>
-                <h2 className="text-2xl font-bold text-white mb-6">Personal Information</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-6">Personal Information</h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label className="block text-white font-medium mb-2">First Name *</label>
+                    <label className="block text-slate-700 font-medium mb-2">First Name *</label>
                     <input
                       type="text"
                       value={formData.firstName}
                       onChange={(e) => updateFormData('firstName', e.target.value)}
-                      className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                      className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                       placeholder="Enter your first name"
                     />
-                    {errors.firstName && <p className="text-red-400 text-sm mt-1">{errors.firstName}</p>}
+                    {errors.firstName && <p className="text-red-600 text-sm mt-1">{errors.firstName}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-white font-medium mb-2">Last Name *</label>
+                    <label className="block text-slate-700 font-medium mb-2">Last Name *</label>
                     <input
                       type="text"
                       value={formData.lastName}
                       onChange={(e) => updateFormData('lastName', e.target.value)}
-                      className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                      className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                       placeholder="Enter your last name"
                     />
-                    {errors.lastName && <p className="text-red-400 text-sm mt-1">{errors.lastName}</p>}
+                    {errors.lastName && <p className="text-red-600 text-sm mt-1">{errors.lastName}</p>}
                   </div>
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-white font-medium mb-2">Email Address *</label>
+                  <label className="block text-slate-700 font-medium mb-2">Email Address *</label>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => updateFormData('email', e.target.value)}
-                    className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                     placeholder="your.email@example.com"
                   />
-                  {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+                  {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-white font-medium mb-2">Phone Number *</label>
+                  <label className="block text-slate-700 font-medium mb-2">Phone Number *</label>
                   <input
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => updateFormData('phone', e.target.value)}
-                    className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                     placeholder="+234 XXX XXX XXXX"
                   />
-                  {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
+                  {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone}</p>}
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-white font-medium mb-2">Date of Birth *</label>
+                  <label className="block text-slate-700 font-medium mb-2">Date of Birth *</label>
                   <input
                     type="date"
                     value={formData.dateOfBirth}
                     onChange={(e) => updateFormData('dateOfBirth', e.target.value)}
-                    className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                   />
-                  {errors.dateOfBirth && <p className="text-red-400 text-sm mt-1">{errors.dateOfBirth}</p>}
+                  {errors.dateOfBirth && <p className="text-red-600 text-sm mt-1">{errors.dateOfBirth}</p>}
                 </div>
               </div>
             )}
@@ -228,86 +275,86 @@ export default function RegisterPage() {
             {/* Step 2: Address & Emergency Contact */}
             {currentStep === 2 && (
               <div>
-                <h2 className="text-2xl font-bold text-white mb-6">Address & Emergency Contact</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-6">Address & Emergency Contact</h2>
                 
                 <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-white mb-4">Your Address</h3>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-4">Your Address</h3>
                   
                   <div className="mb-4">
-                    <label className="block text-white font-medium mb-2">Street Address *</label>
+                    <label className="block text-slate-700 font-medium mb-2">Street Address *</label>
                     <input
                       type="text"
                       value={formData.address.street}
                       onChange={(e) => updateFormData('address.street', e.target.value)}
-                      className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                      className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                       placeholder="Enter your street address"
                     />
-                    {errors.street && <p className="text-red-400 text-sm mt-1">{errors.street}</p>}
+                    {errors.street && <p className="text-red-600 text-sm mt-1">{errors.street}</p>}
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <label className="block text-white font-medium mb-2">City *</label>
+                      <label className="block text-slate-700 font-medium mb-2">City *</label>
                       <input
                         type="text"
                         value={formData.address.city}
                         onChange={(e) => updateFormData('address.city', e.target.value)}
-                        className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                        className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                         placeholder="City"
                       />
-                      {errors.city && <p className="text-red-400 text-sm mt-1">{errors.city}</p>}
+                      {errors.city && <p className="text-red-600 text-sm mt-1">{errors.city}</p>}
                     </div>
 
                     <div>
-                      <label className="block text-white font-medium mb-2">State *</label>
+                      <label className="block text-slate-700 font-medium mb-2">State *</label>
                       <select
                         value={formData.address.state}
                         onChange={(e) => updateFormData('address.state', e.target.value)}
-                        className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                        className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                       >
                         <option value="">Select State</option>
                         {NIGERIAN_STATES.map((state) => (
                           <option key={state} value={state}>{state}</option>
                         ))}
                       </select>
-                      {errors.state && <p className="text-red-400 text-sm mt-1">{errors.state}</p>}
+                      {errors.state && <p className="text-red-600 text-sm mt-1">{errors.state}</p>}
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-white font-medium mb-2">Postal Code</label>
+                    <label className="block text-slate-700 font-medium mb-2">Postal Code</label>
                     <input
                       type="text"
                       value={formData.address.zipCode}
                       onChange={(e) => updateFormData('address.zipCode', e.target.value)}
-                      className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                      className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                       placeholder="Postal code (optional)"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-4">Emergency Contact</h3>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-4">Emergency Contact</h3>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <label className="block text-white font-medium mb-2">Full Name *</label>
+                      <label className="block text-slate-700 font-medium mb-2">Full Name *</label>
                       <input
                         type="text"
                         value={formData.emergencyContact.name}
                         onChange={(e) => updateFormData('emergencyContact.name', e.target.value)}
-                        className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                        className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                         placeholder="Emergency contact name"
                       />
-                      {errors.emergencyContactName && <p className="text-red-400 text-sm mt-1">{errors.emergencyContactName}</p>}
+                      {errors.emergencyContactName && <p className="text-red-600 text-sm mt-1">{errors.emergencyContactName}</p>}
                     </div>
 
                     <div>
-                      <label className="block text-white font-medium mb-2">Relationship *</label>
+                      <label className="block text-slate-700 font-medium mb-2">Relationship *</label>
                       <select
                         value={formData.emergencyContact.relationship}
                         onChange={(e) => updateFormData('emergencyContact.relationship', e.target.value)}
-                        className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                        className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                       >
                         <option value="">Select Relationship</option>
                         <option value="Spouse">Spouse</option>
@@ -317,30 +364,30 @@ export default function RegisterPage() {
                         <option value="Friend">Friend</option>
                         <option value="Other">Other</option>
                       </select>
-                      {errors.emergencyContactRelationship && <p className="text-red-400 text-sm mt-1">{errors.emergencyContactRelationship}</p>}
+                      {errors.emergencyContactRelationship && <p className="text-red-600 text-sm mt-1">{errors.emergencyContactRelationship}</p>}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-white font-medium mb-2">Phone Number *</label>
+                      <label className="block text-slate-700 font-medium mb-2">Phone Number *</label>
                       <input
                         type="tel"
                         value={formData.emergencyContact.phone}
                         onChange={(e) => updateFormData('emergencyContact.phone', e.target.value)}
-                        className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                        className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                         placeholder="+234 XXX XXX XXXX"
                       />
-                      {errors.emergencyContactPhone && <p className="text-red-400 text-sm mt-1">{errors.emergencyContactPhone}</p>}
+                      {errors.emergencyContactPhone && <p className="text-red-600 text-sm mt-1">{errors.emergencyContactPhone}</p>}
                     </div>
 
                     <div>
-                      <label className="block text-white font-medium mb-2">Email (Optional)</label>
+                      <label className="block text-slate-700 font-medium mb-2">Email (Optional)</label>
                       <input
                         type="email"
                         value={formData.emergencyContact.email}
                         onChange={(e) => updateFormData('emergencyContact.email', e.target.value)}
-                        className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                        className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                         placeholder="email@example.com"
                       />
                     </div>
@@ -352,31 +399,31 @@ export default function RegisterPage() {
             {/* Step 3: Password & Agreement */}
             {currentStep === 3 && (
               <div>
-                <h2 className="text-2xl font-bold text-white mb-6">Create Your Account</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-6">Create Your Account</h2>
                 
                 <div className="mb-6">
-                  <label className="block text-white font-medium mb-2">Password *</label>
+                  <label className="block text-slate-700 font-medium mb-2">Password *</label>
                   <input
                     type="password"
                     value={formData.password}
                     onChange={(e) => updateFormData('password', e.target.value)}
-                    className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                     placeholder="Enter a strong password"
                   />
-                  {errors.password && <p className="text-red-400 text-sm mt-1">{errors.password}</p>}
-                  <p className="text-slate-400 text-sm mt-1">Must be at least 8 characters long</p>
+                  {errors.password && <p className="text-red-600 text-sm mt-1">{errors.password}</p>}
+                  <p className="text-slate-500 text-sm mt-1">Must be at least 8 characters long</p>
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-white font-medium mb-2">Confirm Password *</label>
+                  <label className="block text-slate-700 font-medium mb-2">Confirm Password *</label>
                   <input
                     type="password"
                     value={formData.confirmPassword}
                     onChange={(e) => updateFormData('confirmPassword', e.target.value)}
-                    className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                     placeholder="Confirm your password"
                   />
-                  {errors.confirmPassword && <p className="text-red-400 text-sm mt-1">{errors.confirmPassword}</p>}
+                  {errors.confirmPassword && <p className="text-red-600 text-sm mt-1">{errors.confirmPassword}</p>}
                 </div>
 
                 <div className="mb-6">
@@ -385,21 +432,21 @@ export default function RegisterPage() {
                       type="checkbox"
                       checked={formData.agreeToTerms}
                       onChange={(e) => updateFormData('agreeToTerms', e.target.checked)}
-                      className="w-5 h-5 text-blue-500 bg-slate-700 border-slate-600 rounded focus:ring-blue-500 mt-1"
+                      className="w-5 h-5 text-blue-600 bg-white border-slate-300 rounded focus:ring-blue-500 mt-1"
                     />
-                    <span className="text-white">
+                    <span className="text-slate-700">
                       I agree to the{' '}
-                      <Link href="/terms" className="text-blue-400 hover:text-blue-300">
+                      <Link href="/terms" className="text-blue-600 hover:text-blue-700">
                         Terms and Conditions
                       </Link>{' '}
                       and{' '}
-                      <Link href="/privacy" className="text-blue-400 hover:text-blue-300">
+                      <Link href="/privacy" className="text-blue-600 hover:text-blue-700">
                         Privacy Policy
                       </Link>
                       *
                     </span>
                   </label>
-                  {errors.agreeToTerms && <p className="text-red-400 text-sm mt-1">{errors.agreeToTerms}</p>}
+                  {errors.agreeToTerms && <p className="text-red-600 text-sm mt-1">{errors.agreeToTerms}</p>}
                 </div>
 
                 <div className="mb-6">
@@ -408,17 +455,17 @@ export default function RegisterPage() {
                       type="checkbox"
                       checked={formData.subscribeNewsletter}
                       onChange={(e) => updateFormData('subscribeNewsletter', e.target.checked)}
-                      className="w-5 h-5 text-blue-500 bg-slate-700 border-slate-600 rounded focus:ring-blue-500"
+                      className="w-5 h-5 text-blue-600 bg-white border-slate-300 rounded focus:ring-blue-500"
                     />
-                    <span className="text-white">
+                    <span className="text-slate-700">
                       Subscribe to our newsletter for church updates and announcements
                     </span>
                   </label>
                 </div>
 
                 {errors.submit && (
-                  <div className="mb-6 p-4 bg-red-900/50 border border-red-500 rounded-lg">
-                    <p className="text-red-300">{errors.submit}</p>
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-red-700">{errors.submit}</p>
                   </div>
                 )}
               </div>
@@ -456,9 +503,9 @@ export default function RegisterPage() {
 
         {/* Login Link */}
         <div className="text-center mt-8">
-          <p className="text-slate-400">
+          <p className="text-slate-300">
             Already have an account?{' '}
-            <Link href="/auth/login" className="text-blue-400 hover:text-blue-300 font-medium">
+            <Link href="/auth/login" className="text-emerald-400 hover:text-emerald-300 font-medium">
               Sign in here
             </Link>
           </p>

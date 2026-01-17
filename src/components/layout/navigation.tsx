@@ -6,11 +6,13 @@ import { ChevronDown } from 'lucide-react';
 
 import { FoursquareLogo } from '../ui/logo';
 import { mainNav, type NavItem } from '@/lib/navigation';
+import type { User } from '@/types/auth';
 
 export function SpectacularNavigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -21,6 +23,36 @@ export function SpectacularNavigation() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const loadUser = () => {
+      const stored = localStorage.getItem('user');
+      if (!stored) {
+        setCurrentUser(null);
+        return;
+      }
+
+      try {
+        setCurrentUser(JSON.parse(stored) as User);
+      } catch {
+        setCurrentUser(null);
+      }
+    };
+
+    loadUser();
+    window.addEventListener('storage', loadUser);
+    window.addEventListener('auth:changed', loadUser as EventListener);
+
+    return () => {
+      window.removeEventListener('storage', loadUser);
+      window.removeEventListener('auth:changed', loadUser as EventListener);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    window.dispatchEvent(new Event('auth:changed'));
+  };
 
   const handleDropdownHover = (itemTitle: string) => {
     if (closeTimeoutRef.current) {
@@ -126,18 +158,38 @@ export function SpectacularNavigation() {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/auth/login"
-              className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-white/90 hover:text-white hover:border-white/40 transition-colors"
-            >
-              Login
-            </Link>
-            <Link
-              href="/auth/register"
-              className="inline-flex items-center rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-600 transition-colors"
-            >
-              Register
-            </Link>
+            {currentUser ? (
+              <>
+                <Link
+                  href="/member/dashboard"
+                  className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-white/90 hover:text-white hover:border-white/40 transition-colors"
+                >
+                  My Account
+                </Link>
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className="inline-flex items-center rounded-full bg-red-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-red-500/30 hover:bg-red-600 transition-colors"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/auth/login"
+                  className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-white/90 hover:text-white hover:border-white/40 transition-colors"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/auth/register"
+                  className="inline-flex items-center rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-600 transition-colors"
+                >
+                  Register
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -218,20 +270,44 @@ export function SpectacularNavigation() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-slate-700/50 space-y-3">
-                <Link
-                  href="/auth/login"
-                  className="block w-full rounded-xl border border-white/20 px-4 py-3 text-center text-sm font-semibold text-white/90 hover:text-white hover:border-white/40 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Login
-                </Link>
-                <Link
-                  href="/auth/register"
-                  className="block w-full rounded-xl bg-emerald-500 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-emerald-600 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Register
-                </Link>
+                {currentUser ? (
+                  <>
+                    <Link
+                      href="/member/dashboard"
+                      className="block w-full rounded-xl border border-white/20 px-4 py-3 text-center text-sm font-semibold text-white/90 hover:text-white hover:border-white/40 transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      My Account
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        handleLogout();
+                        setMobileMenuOpen(false);
+                      }}
+                      className="block w-full rounded-xl bg-red-500 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-red-600 transition-colors"
+                    >
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      href="/auth/login"
+                      className="block w-full rounded-xl border border-white/20 px-4 py-3 text-center text-sm font-semibold text-white/90 hover:text-white hover:border-white/40 transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      href="/auth/register"
+                      className="block w-full rounded-xl bg-emerald-500 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-emerald-600 transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Register
+                    </Link>
+                  </>
+                )}
               </div>
               
               {/* Mobile menu footer with quick contact */}

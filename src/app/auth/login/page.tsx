@@ -67,6 +67,7 @@ function LoginContent() {
         
         // Store user data in localStorage (in a real app, use proper auth management)
         localStorage.setItem('user', JSON.stringify(user));
+        window.dispatchEvent(new Event('auth:changed'));
         
         // Redirect to member dashboard
         router.push('/member/dashboard');
@@ -93,15 +94,15 @@ function LoginContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 py-12">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 pt-28 pb-16">
       <div className="container mx-auto px-4 max-w-md">
         
         {/* Header */}
         <div className="text-center mb-8">
-          <Link href="/" className="text-blue-400 hover:text-blue-300 mb-4 inline-block">
+          <Link href="/" className="text-slate-300 hover:text-white mb-4 inline-block">
             ← Back to Home
           </Link>
-          <h1 className="text-4xl font-bold text-white mb-4">Welcome Back</h1>
+          <h1 className="text-4xl font-bold text-white mb-3">Welcome Back</h1>
           <p className="text-slate-300">Sign in to access your member portal</p>
         </div>
 
@@ -112,61 +113,61 @@ function LoginContent() {
           </div>
         )}
 
-        <SpectacularCard className="p-8">
+        <SpectacularCard className="p-8 bg-white/95 border border-slate-200 shadow-2xl">
           <form onSubmit={handleSubmit}>
             
             <div className="mb-6">
-              <label className="block text-white font-medium mb-2">Email Address</label>
+              <label className="block text-slate-700 font-medium mb-2">Email Address</label>
               <input
                 type="email"
                 value={credentials.email}
                 onChange={(e) => setCredentials(prev => ({ ...prev, email: e.target.value }))}
-                className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+                className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                 placeholder="your.email@example.com"
                 disabled={isLoading}
               />
-              {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+              {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
             </div>
 
             <div className="mb-6">
-              <label className="block text-white font-medium mb-2">Password</label>
+              <label className="block text-slate-700 font-medium mb-2">Password</label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={credentials.password}
                   onChange={(e) => setCredentials(prev => ({ ...prev, password: e.target.value }))}
-                  className="w-full p-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none pr-12"
+                  className="w-full p-3 bg-white text-slate-900 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none pr-12"
                   placeholder="Enter your password"
                   disabled={isLoading}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-500 hover:text-slate-800"
                 >
                   {showPassword ? '🙈' : '👁️'}
                 </button>
               </div>
-              {errors.password && <p className="text-red-400 text-sm mt-1">{errors.password}</p>}
+              {errors.password && <p className="text-red-600 text-sm mt-1">{errors.password}</p>}
             </div>
 
             <div className="flex justify-between items-center mb-6">
               <label className="flex items-center space-x-2 cursor-pointer">
                 <input
                   type="checkbox"
-                  className="w-4 h-4 text-blue-500 bg-slate-700 border-slate-600 rounded focus:ring-blue-500"
+                  className="w-4 h-4 text-blue-600 bg-white border-slate-300 rounded focus:ring-blue-500"
                 />
-                <span className="text-white text-sm">Remember me</span>
+                <span className="text-slate-600 text-sm">Remember me</span>
               </label>
               
-              <Link href="/auth/forgot-password" className="text-blue-400 hover:text-blue-300 text-sm">
+              <Link href="/auth/forgot-password" className="text-blue-600 hover:text-blue-700 text-sm">
                 Forgot password?
               </Link>
             </div>
 
             {errors.submit && (
-              <div className="mb-6 p-4 bg-red-900/50 border border-red-500 rounded-lg">
-                <p className="text-red-300">{errors.submit}</p>
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-red-700">{errors.submit}</p>
               </div>
             )}
 
@@ -180,8 +181,8 @@ function LoginContent() {
           </form>
 
           {/* Demo Login Section */}
-          <div className="border-t border-slate-600 pt-6">
-            <p className="text-slate-400 text-sm text-center mb-4">
+          <div className="border-t border-slate-200 pt-6">
+            <p className="text-slate-500 text-sm text-center mb-4">
               Demo Accounts (for testing):
             </p>
             <div className="space-y-2">
@@ -215,26 +216,26 @@ function LoginContent() {
 
         {/* Register Link */}
         <div className="text-center mt-8">
-          <p className="text-slate-400">
+          <p className="text-slate-300">
             New to our church family?{' '}
-            <Link href="/auth/register" className="text-blue-400 hover:text-blue-300 font-medium">
+            <Link href="/auth/register" className="text-emerald-400 hover:text-emerald-300 font-medium">
               Create an account
             </Link>
           </p>
         </div>
 
         {/* Church Contact */}
-        <div className="text-center mt-8 p-4 bg-slate-800/50 rounded-lg">
-          <p className="text-slate-300 text-sm mb-2">
+        <div className="text-center mt-8 p-4 bg-slate-900/60 rounded-lg">
+          <p className="text-slate-200 text-sm mb-2">
             Need help with your account?
           </p>
           <p className="text-slate-400 text-xs">
             Contact us at{' '}
-            <a href="mailto:admin@foursquareajebo.org" className="text-blue-400 hover:text-blue-300">
+            <a href="mailto:admin@foursquareajebo.org" className="text-emerald-300 hover:text-emerald-200">
               admin@foursquareajebo.org
             </a>{' '}
             or call{' '}
-            <a href="tel:+234XXXXXXXXX" className="text-blue-400 hover:text-blue-300">
+            <a href="tel:+234XXXXXXXXX" className="text-emerald-300 hover:text-emerald-200">
               +234 XXX XXX XXXX
             </a>
           </p>
@@ -247,7 +248,7 @@ function LoginContent() {
 export default function LoginPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-4">
         <div className="text-center">
           <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
           <p className="text-white">Loading...</p>
