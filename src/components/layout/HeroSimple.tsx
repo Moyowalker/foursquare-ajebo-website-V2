@@ -24,6 +24,12 @@ export default function HeroSimple({ onQuickPay }: Props) {
               <button onClick={onQuickPay} className="inline-flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-5 py-3 text-stone-900 hover:bg-stone-50">
                 <CreditCard className="h-5 w-5" /> Quick Pay
               </button>
+              <Link href="/auth/login" className="inline-flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-5 py-3 text-stone-900 hover:bg-stone-50">
+                Login
+              </Link>
+              <Link href="/auth/register" className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-3 text-white hover:bg-emerald-700">
+                Register
+              </Link>
             </div>
           </div>
 
@@ -32,7 +38,8 @@ export default function HeroSimple({ onQuickPay }: Props) {
               src="/images/facilities/real/main-conference-hall.jpeg.JPG"
               alt="Camp Ajebo Conference Hall"
               fill
-              className="object-cover"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover object-center"
               priority
             />
           </div>

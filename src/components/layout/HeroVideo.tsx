@@ -54,6 +54,12 @@ export default function HeroVideo({ onQuickPay }: Props) {
             <button onClick={onQuickPay} className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-5 py-3 text-white hover:bg-white/20">
               <CreditCard className="h-5 w-5" /> Quick Pay
             </button>
+            <Link href="/auth/login" className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-5 py-3 text-white hover:bg-white/20">
+              Login
+            </Link>
+            <Link href="/auth/register" className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-5 py-3 text-white hover:bg-emerald-600">
+              Register
+            </Link>
           </div>
         </div>
       </div>

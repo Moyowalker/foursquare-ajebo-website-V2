@@ -6,6 +6,18 @@ import Link from 'next/link';
 import { CreditCard, Sparkles, ArrowRight, CalendarDays, Building2, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+              <Link
+                href="/auth/login"
+                className="inline-flex items-center justify-center gap-2.5 rounded-2xl border border-slate-700 bg-slate-800/60 backdrop-blur-xl px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-slate-800 hover:border-slate-600"
+              >
+                Login
+              </Link>
+              <Link
+                href="/auth/register"
+                className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-emerald-500 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/30 transition-all hover:bg-emerald-600"
+              >
+                Register
+              </Link>
 type Props = { onQuickPay?: () => void };
 
 // Animated counter component
@@ -162,8 +174,8 @@ export default function HeroModern({ onQuickPay }: Props) {
                 alt="Main Conference Center at Camp Ajebo"
                 fill
                 priority
-                sizes="50vw"
-                className="object-cover"
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent" />
             </div>
@@ -174,8 +186,8 @@ export default function HeroModern({ onQuickPay }: Props) {
                 src="/images/facilities/real/accommodation/international-guest-house.jpg"
                 alt="International Guest House"
                 fill
-                sizes="15rem"
-                className="object-cover"
+                sizes="(min-width: 1024px) 12rem, 40vw"
+                className="object-cover object-center"
               />
 
             </div>
@@ -184,8 +196,8 @@ export default function HeroModern({ onQuickPay }: Props) {
                 src="/images/facilities/real/dining-restaurant.JPG"
                 alt="Delish Fingers Restaurant"
                 fill
-                sizes="18rem"
-                className="object-cover"
+                sizes="(min-width: 1024px) 16rem, 45vw"
+                className="object-cover object-center"
               />
 
             </div>

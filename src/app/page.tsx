@@ -188,7 +188,8 @@ export default function HomePage() {
                     src="/images/facilities/real/international-guest-house.jpeg.jpg"
                     alt="International Guest House - Premium Accommodation at Camp Ajebo"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 </div>
@@ -224,7 +225,8 @@ export default function HomePage() {
                   src="/images/facilities/real/jehovah-shammah-house.jpeg"
                   alt="Jehovah Shammah House - Peaceful Retreat Accommodation"
                   fill
-                  className="object-cover"
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover object-center"
                 />
               </div>
               <div className="p-8">
@@ -249,7 +251,8 @@ export default function HomePage() {
                   src="/images/facilities/real/main-conference-hall.jpeg.JPG"
                   alt="Rev. Gabriel Adome Building - Main Worship and Conference Center"
                   fill
-                  className="object-cover"
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover object-center"
                 />
               </div>
               <div className="p-8">
@@ -274,7 +277,8 @@ export default function HomePage() {
                   src="/images/facilities/real/accommodation/executive-guest-house.jpg"
                   alt="Executive Guest House - Premium Conference Accommodation"
                   fill
-                  className="object-cover"
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover object-center"
                 />
               </div>
               <div className="p-8">
@@ -299,7 +303,8 @@ export default function HomePage() {
                   src="/images/facilities/real/outdoor-stadium.JPG"
                   alt="Sports Stadium - Youth Recreation and Activities"
                   fill
-                  className="object-cover"
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover object-center"
                 />
               </div>
               <div className="p-8">
@@ -324,7 +329,8 @@ export default function HomePage() {
                   src="/images/facilities/real/dining-restaurant.JPG"
                   alt="Delishringers Restaurant - Community Dining and Fellowship"
                   fill
-                  className="object-cover"
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover object-center"
                 />
               </div>
               <div className="p-8">
@@ -349,7 +355,8 @@ export default function HomePage() {
                   src="/images/facilities/real/modern-guest-rooms.JPG"
                   alt="Modern Guest Houses - Peaceful Accommodation for Prayer and Reflection"
                   fill
-                  className="object-cover"
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover object-center"
                 />
               </div>
               <div className="p-8">
@@ -393,7 +400,8 @@ export default function HomePage() {
                   src="/images/facilities/real/accommodation/international-guest-house.jpg"
                   alt="International Guest House - Premium Accommodation"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-stone-900/40"></div>
                 <div className="absolute bottom-8 left-8 right-8 text-white">
@@ -410,7 +418,8 @@ export default function HomePage() {
                   src="/images/facilities/real/conference/gabriel-adombe-building.jpg"
                   alt="Gabriel Adombe Building - Main Conference Center"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-stone-900/40"></div>
                 <div className="absolute bottom-8 left-8 right-8 text-white">
@@ -492,7 +501,8 @@ export default function HomePage() {
                   src="/images/facilities/real/main-conference-hall.jpeg.JPG"
                   alt="Foursquare Camp Ajebo Main Conference Center"
                   fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
+                  sizes="(min-width: 1024px) 60vw, 100vw"
+                  className="object-cover object-center hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
@@ -507,28 +517,35 @@ export default function HomePage() {
                   src="/images/facilities/real/modern-guest-rooms.JPG"
                   alt="Modern Guest Rooms - Premium Accommodation"
                   fill
-                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  sizes="(min-width: 1024px) 20vw, 45vw"
+                  className="object-cover object-center hover:scale-105 transition-transform duration-300"
                 />
-              </div>              <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+              </div>
+              <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
                 <Image
                   src="/images/facilities/real/dining-restaurant.JPG"
                   alt="Delishringers Restaurant - Quality Dining Experience"
                   fill
-                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  sizes="(min-width: 1024px) 20vw, 45vw"
+                  className="object-cover object-center hover:scale-105 transition-transform duration-300"
                 />
-              </div>              <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+              </div>
+              <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
                 <Image
                   src="/images/facilities/real/jehovah-shammah-house.jpeg"
                   alt="Jehovah Shammah House - Spiritual Retreat Center"
                   fill
-                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  sizes="(min-width: 1024px) 20vw, 45vw"
+                  className="object-cover object-center hover:scale-105 transition-transform duration-300"
                 />
-              </div>            <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+              </div>
+            <div className="relative h-36 lg:h-44 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
               <Image
                 src="/images/facilities/real/outdoor-stadium.JPG"
                 alt="Outdoor Stadium - Recreation and Events"
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
+                sizes="(min-width: 1024px) 20vw, 45vw"
+                className="object-cover object-center hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>

@@ -124,6 +124,22 @@ export function SpectacularNavigation() {
             </div>
           </div>
 
+          {/* Desktop Auth Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Link
+              href="/auth/login"
+              className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-white/90 hover:text-white hover:border-white/40 transition-colors"
+            >
+              Login
+            </Link>
+            <Link
+              href="/auth/register"
+              className="inline-flex items-center rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-600 transition-colors"
+            >
+              Register
+            </Link>
+          </div>
+
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden p-2 rounded-xl hover:bg-white/10 transition-colors text-slate-300 hover:text-white flex-shrink-0"
@@ -199,6 +215,23 @@ export function SpectacularNavigation() {
                     )}
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-slate-700/50 space-y-3">
+                <Link
+                  href="/auth/login"
+                  className="block w-full rounded-xl border border-white/20 px-4 py-3 text-center text-sm font-semibold text-white/90 hover:text-white hover:border-white/40 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/auth/register"
+                  className="block w-full rounded-xl bg-emerald-500 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-emerald-600 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Register
+                </Link>
               </div>
               
               {/* Mobile menu footer with quick contact */}

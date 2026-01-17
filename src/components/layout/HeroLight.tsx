@@ -33,6 +33,12 @@ export default function HeroLight({ onQuickPay }: Props) {
               <button onClick={onQuickPay} className="inline-flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-5 py-3 text-stone-900 hover:bg-stone-50">
                 <CreditCard className="h-5 w-5" /> Quick Pay
               </button>
+              <Link href="/auth/login" className="inline-flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-5 py-3 text-stone-900 hover:bg-stone-50">
+                Login
+              </Link>
+              <Link href="/auth/register" className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-3 text-white hover:bg-emerald-700">
+                Register
+              </Link>
             </div>
 
             <div className="mt-8 flex flex-wrap gap-4 text-sm text-stone-600">
@@ -44,14 +50,32 @@ export default function HeroLight({ onQuickPay }: Props) {
 
           <div className="relative">
             <div className="relative h-[22rem] rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
-              <Image src="/images/facilities/real/conference/gabriel-adombe-building.jpg" alt="Conference Center" fill className="object-cover" />
+              <Image
+                src="/images/facilities/real/conference/gabriel-adombe-building.jpg"
+                alt="Conference Center"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover object-center"
+              />
             </div>
             <div className="grid grid-cols-2 gap-4 mt-4">
               <div className="relative h-40 rounded-xl overflow-hidden shadow ring-1 ring-black/5">
-                <Image src="/images/facilities/real/accommodation/international-guest-house.jpg" alt="Guest House" fill className="object-cover" />
+                <Image
+                  src="/images/facilities/real/accommodation/international-guest-house.jpg"
+                  alt="Guest House"
+                  fill
+                  sizes="(min-width: 1024px) 20vw, 45vw"
+                  className="object-cover object-center"
+                />
               </div>
               <div className="relative h-40 rounded-xl overflow-hidden shadow ring-1 ring-black/5">
-                <Image src="/images/facilities/real/dining-restaurant.JPG" alt="Restaurant" fill className="object-cover" />
+                <Image
+                  src="/images/facilities/real/dining-restaurant.JPG"
+                  alt="Restaurant"
+                  fill
+                  sizes="(min-width: 1024px) 20vw, 45vw"
+                  className="object-cover object-center"
+                />
               </div>
             </div>
           </div>
