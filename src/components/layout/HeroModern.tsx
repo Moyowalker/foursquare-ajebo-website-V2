@@ -5,19 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CreditCard, Sparkles, ArrowRight, CalendarDays, Building2, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-              <Link
-                href="/auth/login"
-                className="inline-flex items-center justify-center gap-2.5 rounded-2xl border border-slate-700 bg-slate-800/60 backdrop-blur-xl px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-slate-800 hover:border-slate-600"
-              >
-                Login
-              </Link>
-              <Link
-                href="/auth/register"
-                className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-emerald-500 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/30 transition-all hover:bg-emerald-600"
-              >
-                Register
-              </Link>
 type Props = { onQuickPay?: () => void };
 
 // Animated counter component
