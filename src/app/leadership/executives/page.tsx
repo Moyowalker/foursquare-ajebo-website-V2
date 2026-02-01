@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const EXECUTIVES = [
   {
-    name: 'Mr Sameul Adenekan',
+    name: 'Mr Samuel Adenekan',
     role: 'Camp Manager',
     image: '/images/leadership/executives/sameul-adenekan.jpeg',
     summary: 'Coordinates daily camp operations, guest services, and cross-team execution.',
