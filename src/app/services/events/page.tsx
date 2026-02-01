@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, Calendar, Clock, MapPin, Users, Star, Gift } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, MapPin, Users, Star, Gift, Baby, Briefcase, Heart, Mic, Globe, Book } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Events | Foursquare Gospel Church Ajebo',
-  description: 'Join us for exciting church events, conferences, revivals, and community gatherings throughout the year.',
-  keywords: ['events', 'conferences', 'revivals', 'church activities', 'community', 'Foursquare Camp Ajebo'],
+  title: 'Events & Ministry Programs | Foursquare Gospel Church Ajebo',
+  description: 'Discover upcoming events, camps, retreats, and ministry programs designed for spiritual growth and community impact.',
+  keywords: ['events', 'ministry programs', 'retreats', 'church activities', 'community', 'Foursquare Camp Ajebo'],
 };
 
 export default function EventsPage() {
@@ -21,9 +21,9 @@ export default function EventsPage() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Services
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Church Events</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Events & Ministry Programs</h1>
           <p className="text-xl text-purple-100 max-w-3xl">
-            Join us for life-changing events, conferences, and community gatherings
+            Join our events, camps, retreats, and ministry programs designed to help you grow and serve.
           </p>
         </div>
       </div>
@@ -305,6 +305,88 @@ export default function EventsPage() {
           {/* Event Guidelines */}
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8 mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Event Guidelines</h2>
+                      {/* Ministry Programs Overview */}
+                      <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Ministry Programs</h2>
+                        <p className="text-gray-600 text-center mb-8 max-w-3xl mx-auto">
+                          Find your place to serve, grow, and build community through our ministry departments.
+                        </p>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                          <div className="rounded-xl border border-gray-200 p-6 text-center">
+                            <div className="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                              <Baby className="w-7 h-7 text-yellow-600" />
+                            </div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">Children's Ministry</h3>
+                            <p className="text-sm text-gray-600">Nurturing young hearts through age-appropriate teaching.</p>
+                          </div>
+                          <div className="rounded-xl border border-gray-200 p-6 text-center">
+                            <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                              <Users className="w-7 h-7 text-blue-600" />
+                            </div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">Youth Ministry</h3>
+                            <p className="text-sm text-gray-600">Empowering young people to live boldly for Christ.</p>
+                          </div>
+                          <div className="rounded-xl border border-gray-200 p-6 text-center">
+                            <div className="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                              <Briefcase className="w-7 h-7 text-purple-600" />
+                            </div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">Young Adults</h3>
+                            <p className="text-sm text-gray-600">Support for career, relationships, and spiritual growth.</p>
+                          </div>
+                          <div className="rounded-xl border border-gray-200 p-6 text-center">
+                            <div className="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                              <Heart className="w-7 h-7 text-pink-600" />
+                            </div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">Women's Ministry</h3>
+                            <p className="text-sm text-gray-600">Empowering women to walk in purpose together.</p>
+                          </div>
+                          <div className="rounded-xl border border-gray-200 p-6 text-center">
+                            <div className="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                              <Users className="w-7 h-7 text-indigo-600" />
+                            </div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">Men's Ministry</h3>
+                            <p className="text-sm text-gray-600">Building men who lead with integrity and faith.</p>
+                          </div>
+                          <div className="rounded-xl border border-gray-200 p-6 text-center">
+                            <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                              <Mic className="w-7 h-7 text-green-600" />
+                            </div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">Worship & Media</h3>
+                            <p className="text-sm text-gray-600">Serve through music, media, and creative support.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Ministry Leadership */}
+                      <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 mb-12">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Serve & Lead</h2>
+                        <p className="text-gray-600 text-center mb-8 max-w-3xl mx-auto">
+                          We provide mentorship, training, and leadership development for ministry teams.
+                        </p>
+                        <div className="grid md:grid-cols-3 gap-6">
+                          <div className="bg-white rounded-lg p-6 text-center">
+                            <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                              <Book className="w-5 h-5 text-blue-600" />
+                            </div>
+                            <h3 className="font-semibold text-gray-900 mb-2">Leadership Training</h3>
+                            <p className="text-sm text-gray-600">Training programs for emerging leaders.</p>
+                          </div>
+                          <div className="bg-white rounded-lg p-6 text-center">
+                            <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                              <Users className="w-5 h-5 text-green-600" />
+                            </div>
+                            <h3 className="font-semibold text-gray-900 mb-2">Mentorship</h3>
+                            <p className="text-sm text-gray-600">Guidance from experienced ministry leaders.</p>
+                          </div>
+                          <div className="bg-white rounded-lg p-6 text-center">
+                            <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                              <Heart className="w-5 h-5 text-purple-600" />
+                            </div>
+                            <h3 className="font-semibold text-gray-900 mb-2">Ministry Development</h3>
+                            <p className="text-sm text-gray-600">Support for new and growing ministry teams.</p>
+                          </div>
+                        </div>
+                      </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Registration & Attendance</h3>
@@ -329,10 +411,9 @@ export default function EventsPage() {
 
           {/* Contact for Events */}
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl shadow-lg p-8 text-white text-center">
-            <h2 className="text-2xl font-bold mb-4">Stay Updated on Events</h2>
+            <h2 className="text-2xl font-bold mb-4">Stay Updated on Events & Programs</h2>
             <p className="text-purple-100 mb-6 max-w-2xl mx-auto">
-              Don't miss out on our upcoming events! Contact us to get on our event 
-              notification list and be the first to know about registration openings.
+              Reach out to join upcoming events, retreats, or ministry teams. We would love to help you get involved.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 

@@ -39,31 +39,13 @@ export default function ServicesPage() {
       features: ["Sunday Services", "Midweek Services", "Special Celebrations", "Prayer Meetings"]
     },
     {
-      title: "Events & Programs",
-      description: "Life-changing camps, retreats, and special programs",
+      title: "Events & Ministry Programs",
+      description: "Camps, retreats, and ministry departments for every age group",
       icon: "🎪",
       href: "/services/events",
       color: "from-blue-400 to-purple-600",
-      preview: "Experience transformation through our carefully designed camps, retreats, and special events...",
-      features: ["Youth Camps", "Leadership Retreats", "Family Programs", "Special Events"]
-    },
-    {
-      title: "Ministry Programs",
-      description: "Discipleship and leadership development opportunities",
-      icon: "👥",
-      href: "/services/ministry",
-      color: "from-green-400 to-teal-600",
-      preview: "Grow in your faith and leadership abilities through our comprehensive ministry programs...",
-      features: ["Discipleship Training", "Leadership Development", "Mentorship", "Skills Training"]
-    },
-    {
-      title: "Live Streaming",
-      description: "Connect with us online from anywhere in the world",
-      icon: "📺",
-      href: "/services/streaming",
-      color: "from-yellow-400 to-orange-600",
-      preview: "Never miss a service or event with our high-quality live streaming platform...",
-      features: ["Live Services", "Event Broadcasts", "On-Demand Content", "Interactive Features"]
+      preview: "Explore upcoming events and discover ministry teams that help you grow and serve...",
+      features: ["Youth Camps", "Retreats", "Family Programs", "Ministry Teams"]
     }
   ];
 
@@ -132,7 +114,7 @@ export default function ServicesPage() {
                 grow in faith, character, and purpose.
               </p>
               <div className="inline-flex items-center bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full">
-                <span className="text-blue-100 font-medium">🙏 Worship • 🎪 Events • 👥 Ministry • 📺 Streaming</span>
+                <span className="text-blue-100 font-medium">🙏 Worship • 🎪 Events • 👥 Ministry</span>
               </div>
             </ScrollReveal>
           </div>

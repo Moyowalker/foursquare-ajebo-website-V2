@@ -46,19 +46,9 @@ export const mainNav: NavItem[] = [
         description: "Join us for inspiring worship experiences"
       },
       {
-        title: "Events & Programs", 
+        title: "Events & Ministry Programs", 
         href: "/services/events",
-        description: "Special events, conferences, and programs"
-      },
-      {
-        title: "Ministry Programs",
-        href: "/services/ministry", 
-        description: "Youth, adult, and family ministries"
-      },
-      {
-        title: "Live Streaming",
-        href: "/services/streaming",
-        description: "Join us online for live services"
+        description: "Events, camps, retreats, and ministry departments"
       },
       {
         title: "Accommodation",
@@ -124,9 +114,7 @@ export const footerNav = [
     title: "Services",
     items: [
       { title: "Worship", href: "/services/worship" },
-      { title: "Events", href: "/services/events" },
-      { title: "Ministry", href: "/services/ministry" },
-      { title: "Streaming", href: "/services/streaming" },
+      { title: "Events & Ministry", href: "/services/events" },
     ]
   },
   {
