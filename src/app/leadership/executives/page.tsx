@@ -5,7 +5,7 @@ const EXECUTIVES = [
   {
     name: 'Mr Sameul Adenekan',
     role: 'Camp Manager',
-    image: '/images/leadership/executives/sameul-adenekan.jpg',
+    image: '/images/leadership/executives/sameul-adenekan.jpeg',
     summary: 'Coordinates daily camp operations, guest services, and cross-team execution.',
     focus: [
       'Daily operational planning and oversight',
@@ -17,7 +17,7 @@ const EXECUTIVES = [
   {
     name: 'Mrs Blessing Igberaese',
     role: 'HOD, Sanitation',
-    image: '/images/leadership/executives/blessing-igberaese.jpg',
+    image: '/images/leadership/executives/blessing-igberaese.jpeg',
     summary: 'Leads sanitation standards, hygiene protocols, and cleanliness across the camp grounds.',
     focus: [
       'Hygiene protocols for guest rooms and facilities',
@@ -29,7 +29,7 @@ const EXECUTIVES = [
   {
     name: 'Pastor John Onwughai',
     role: 'Chief Security Officer',
-    image: '/images/leadership/executives/john-onwughai.jpg',
+    image: '/images/leadership/executives/john-onwughai.jpeg',
     summary: 'Oversees security operations, guest safety, and emergency preparedness.',
     focus: [
       'Safety planning and emergency readiness',
@@ -41,7 +41,7 @@ const EXECUTIVES = [
   {
     name: 'Mr Anthony Etioloja',
     role: 'Finance Manager',
-    image: '/images/leadership/executives/anthony-etioloja.jpg',
+    image: '/images/leadership/executives/anthony-etioloja.jpeg',
     summary: 'Manages financial stewardship, budgeting, and resource accountability.',
     focus: [
       'Budget planning and financial oversight',
@@ -53,7 +53,7 @@ const EXECUTIVES = [
   {
     name: 'Mr Femi Olapade',
     role: 'HOD, Electricals',
-    image: '/images/leadership/executives/femi-olapade.jpg',
+    image: '/images/leadership/executives/femi-olapade.jpeg',
     summary: 'Supervises electrical systems, maintenance planning, and power reliability.',
     focus: [
       'Power reliability and maintenance planning',
