@@ -169,18 +169,11 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-                {[
-                  'Guest rooms',
-                  'Retreat lodging',
-                  'Conference halls',
-                  'Serene grounds',
-                ].map((item) => (
-                  <div key={item} className="rounded-xl border border-stone-200 bg-white/80 px-3 py-2 text-sm text-stone-600">
-                    {item}
-                  </div>
-                ))}
-              </div>
+              <p className="text-sm text-stone-500">
+                Guest rooms • Retreat lodging • Conference halls • Serene grounds
+              </p>
+
+
             </div>
 
             <div className="relative">
