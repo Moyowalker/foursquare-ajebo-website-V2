@@ -7,6 +7,8 @@ const EXECUTIVES = [
     role: 'Camp Manager',
     image: '/images/leadership/executives/sameul-adenekan.jpeg',
     summary: 'Coordinates daily camp operations, guest services, and cross-team execution.',
+    phone: '+234 800 000 0001',
+    email: 'camp.manager@foursquarecampajebo.org',
     focus: [
       'Daily operational planning and oversight',
       'Guest services coordination',
@@ -19,6 +21,8 @@ const EXECUTIVES = [
     role: 'Finance Manager',
     image: '/images/leadership/executives/anthony-etioloja.jpeg',
     summary: 'Manages financial stewardship, budgeting, and resource accountability.',
+    phone: '+234 800 000 0002',
+    email: 'finance@foursquarecampajebo.org',
     focus: [
       'Budget planning and financial oversight',
       'Payment reconciliation and reporting',
@@ -31,6 +35,8 @@ const EXECUTIVES = [
     role: 'Chief Security Officer',
     image: '/images/leadership/executives/john-onwughai.jpeg',
     summary: 'Oversees security operations, guest safety, and emergency preparedness.',
+    phone: '+234 800 000 0003',
+    email: 'security@foursquarecampajebo.org',
     focus: [
       'Safety planning and emergency readiness',
       'Security team coordination and training',
@@ -43,6 +49,8 @@ const EXECUTIVES = [
     role: 'HOD, Electricals',
     image: '/images/leadership/executives/femi-olapade.jpeg',
     summary: 'Supervises electrical systems, maintenance planning, and power reliability.',
+    phone: '+234 800 000 0004',
+    email: 'electricals@foursquarecampajebo.org',
     focus: [
       'Power reliability and maintenance planning',
       'Electrical safety inspections',
@@ -55,6 +63,8 @@ const EXECUTIVES = [
     role: 'HOD, Sanitation',
     image: '/images/leadership/executives/blessing-igberaese.jpeg',
     summary: 'Leads sanitation standards, hygiene protocols, and cleanliness across the camp grounds.',
+    phone: '+234 800 000 0005',
+    email: 'sanitation@foursquarecampajebo.org',
     focus: [
       'Hygiene protocols for guest rooms and facilities',
       'Sanitation team coordination and scheduling',
@@ -103,6 +113,14 @@ export default function ExecutiveLeadershipPage() {
                     <p className="text-sm uppercase tracking-wide text-emerald-600">{leader.role}</p>
                     <h2 className="mt-2 text-2xl font-semibold text-slate-900">{leader.name}</h2>
                     <p className="mt-3 text-slate-600">{leader.summary}</p>
+                    <div className="mt-4 flex flex-col gap-2 text-sm text-slate-600">
+                      <a className="hover:text-emerald-700" href={`tel:${leader.phone.replace(/\s+/g, '')}`}>
+                        {leader.phone}
+                      </a>
+                      <a className="hover:text-emerald-700" href={`mailto:${leader.email}`}>
+                        {leader.email}
+                      </a>
+                    </div>
                     <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
                       <h3 className="text-sm font-semibold text-slate-900">Focus areas</h3>
                       <ul className="mt-3 space-y-2 text-sm text-slate-600">
