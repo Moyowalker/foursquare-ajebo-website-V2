@@ -58,12 +58,13 @@ export default function PaymentModal({
       const response = await fetch(`/api/payments/paystack?reference=${encodeURIComponent(reference)}`);
       const result = await response.json();
 
-      if (result.status === 'success') {
+      if (result.status === 'success' || result.status === 'completed' || result.success === true) {
+        setVerificationMessage('Payment verified. Thank you!');
         setStep('success');
         return true;
       }
 
-      if (result.status === 'failed') {
+      if (result.status === 'failed' || result.success === false) {
         setError(result.message || 'Payment failed. Please try again.');
         setStep('failed');
         return true;
@@ -150,6 +151,63 @@ export default function PaymentModal({
 
     return () => {
       cancelled = true;
+    };
+  }, [step, reference]);
+
+  useEffect(() => {
+    if (!reference) return;
+
+    const resolveFromStorage = () => {
+      const stored = localStorage.getItem('payment:status');
+      if (!stored) return;
+
+      try {
+        const payload = JSON.parse(stored) as { reference?: string; status?: string };
+        if (payload.reference !== reference) return;
+
+        if (payload.status === 'success' || payload.status === 'completed') {
+          setVerificationMessage('Payment confirmed in another tab.');
+          setStep('success');
+        }
+
+        if (payload.status === 'failed') {
+          setError('Payment failed. Please try again.');
+          setStep('failed');
+        }
+      } catch {
+        /* ignore malformed storage payload */
+      }
+    };
+
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key !== 'payment:status') return;
+      resolveFromStorage();
+    };
+
+    resolveFromStorage();
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
+  }, [reference]);
+
+  useEffect(() => {
+    if (step !== 'processing' || !reference) return;
+
+    const handleFocus = () => {
+      void checkPaymentStatus();
+    };
+
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        void checkPaymentStatus();
+      }
+    };
+
+    window.addEventListener('focus', handleFocus);
+    document.addEventListener('visibilitychange', handleVisibility);
+
+    return () => {
+      window.removeEventListener('focus', handleFocus);
+      document.removeEventListener('visibilitychange', handleVisibility);
     };
   }, [step, reference]);
 
@@ -581,13 +639,11 @@ export default function PaymentModal({
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Payment Initiated!</h3>
-              <p className="text-gray-600 mb-4">
-                {transactionId && (
-                  <>
-                    Transaction ID: <span className="font-mono font-semibold">{transactionId}</span>
-                  </>
-                )}
-              </p>
+              {reference && (
+                <p className="text-gray-600 mb-4">
+                  Transaction ID: <span className="font-mono font-semibold">{reference}</span>
+                </p>
+              )}
               <p className="text-sm text-gray-500 mb-6">
                 A confirmation receipt has been sent to your email address.
               </p>

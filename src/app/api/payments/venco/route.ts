@@ -6,7 +6,7 @@ import { PaymentFormData } from '@/types/payments';
 import { getPaymentType } from '@/data/payments';
 import { resend } from '@/lib/email';
 import { upsertPaymentTransaction, updatePaymentStatus } from '@/lib/payment-transactions';
-import { formatPaystackAmount, getPaystackPublicKey, initializePaystackTransaction, isPaystackConfigured, verifyPaystackTransaction } from '@/lib/paystack';
+import { formatPaystackAmount, getPaystackPublicKey, getPaystackSubaccount, initializePaystackTransaction, isPaystackConfigured, verifyPaystackTransaction } from '@/lib/paystack';
 
 export async function POST(request: NextRequest) {
   try {
@@ -74,6 +74,7 @@ export async function POST(request: NextRequest) {
         customerName: body.name,
         customerPhone: body.phone,
       },
+      subaccount: getPaystackSubaccount() || undefined,
     });
 
     if (!paystackResponse?.status) {

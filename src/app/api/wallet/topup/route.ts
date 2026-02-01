@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-import { initializePaystackTransaction, formatPaystackAmount, getPaystackPublicKey } from '@/lib/paystack';
+import { initializePaystackTransaction, formatPaystackAmount, getPaystackPublicKey, getPaystackSubaccount } from '@/lib/paystack';
 import { upsertPaymentTransaction } from '@/lib/payment-transactions';
 
 export async function POST(request: NextRequest) {
@@ -27,6 +27,7 @@ export async function POST(request: NextRequest) {
         name,
         email,
       },
+      subaccount: getPaystackSubaccount() || undefined,
     });
 
     if (!paystackResponse?.status) {

@@ -3,6 +3,7 @@ import crypto from 'crypto';
 const PAYSTACK_CONFIG = {
   secretKey: process.env.PAYSTACK_SECRET_KEY || '',
   publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || '',
+  subaccount: process.env.PAYSTACK_SUBACCOUNT || '',
   baseUrl: 'https://api.paystack.co',
 };
 
@@ -12,6 +13,10 @@ export function isPaystackConfigured() {
 
 export function getPaystackPublicKey() {
   return PAYSTACK_CONFIG.publicKey;
+}
+
+export function getPaystackSubaccount() {
+  return PAYSTACK_CONFIG.subaccount;
 }
 
 export function formatPaystackAmount(amount: number) {
@@ -39,6 +44,7 @@ export async function initializePaystackTransaction(payload: {
   reference: string;
   callbackUrl: string;
   metadata?: Record<string, unknown>;
+  subaccount?: string;
 }) {
   if (!PAYSTACK_CONFIG.secretKey) {
     throw new Error('Paystack secret key is not configured');
@@ -56,6 +62,7 @@ export async function initializePaystackTransaction(payload: {
       reference: payload.reference,
       callback_url: payload.callbackUrl,
       metadata: payload.metadata || {},
+      ...(payload.subaccount ? { subaccount: payload.subaccount } : {}),
     }),
   });
 

@@ -2,11 +2,13 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import PaymentModal from '@/components/payments/PaymentModal';
 import FloatingPayButton from '@/components/payments/FloatingPayButton';
 import { PaymentCategory } from '@/types/payments';
 import Hero from '@/components/layout/Hero';
+import type { User } from '@/types/auth';
 
 // Payments data used by redesigned grid
 import type { PaymentCategory as Cat } from '@/types/payments';
@@ -30,12 +32,29 @@ const PAYMENT_ITEMS: PaymentItem[] = [
 ];
 
 export default function HomePage() {
+  const router = useRouter();
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [selectedPaymentCategory, setSelectedPaymentCategory] = useState<PaymentCategory | undefined>();
   const [activeTab, setActiveTab] = useState<'all' | 'services' | 'utilities' | 'facilities'>('all');
   const [query, setQuery] = useState('');
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const stored = typeof window !== 'undefined' ? localStorage.getItem('user') : null;
+    if (stored) {
+      try {
+        setUser(JSON.parse(stored));
+      } catch {
+        setUser(null);
+      }
+    }
+  }, []);
 
   const openPaymentModal = (category?: PaymentCategory) => {
+    if (!user) {
+      router.push('/auth/login');
+      return;
+    }
     setSelectedPaymentCategory(category);
     setIsPaymentModalOpen(true);
   };
@@ -44,8 +63,8 @@ export default function HomePage() {
     <div className="min-h-screen bg-white">
       <Hero onQuickPay={() => openPaymentModal()} />
 
-      {/* Quick Payments Section */}
-  <section className="relative py-20 overflow-hidden">
+      {/* Quick Payments Section (auth-gated) */}
+      <section className="relative py-20 overflow-hidden">
         {/* Soft gradient + decor */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-b from-teal-50 via-white to-emerald-50" />
@@ -62,57 +81,77 @@ export default function HomePage() {
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-6xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs text-stone-600 border border-stone-200">
-                Payments
+            {!user ? (
+              <div className="text-center max-w-3xl mx-auto bg-white/90 border border-stone-200 shadow-lg rounded-3xl px-8 py-12">
+                <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 text-amber-700 px-4 py-2 text-sm font-semibold border border-amber-200">
+                  Sign in required
+                </div>
+                <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-stone-900">Login to make payments</h2>
+                <p className="mt-2 text-stone-600">Please sign in to view and initiate payments for services, utilities, and facilities.</p>
+                <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link href="/auth/login" className="sm:w-auto w-full">
+                    <SpectacularButton className="w-full">Login</SpectacularButton>
+                  </Link>
+                  <Link href="/auth/register" className="sm:w-auto w-full">
+                    <SpectacularButton variant="outline" className="w-full">Create Account</SpectacularButton>
+                  </Link>
+                </div>
               </div>
-              <h2 className="mt-4 text-4xl md:text-5xl font-semibold mb-3">
-                <span className="bg-gradient-to-r from-teal-700 to-emerald-600 bg-clip-text text-transparent">Quick & Secure Payments</span>
-              </h2>
-              <p className="text-lg md:text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-                Make payments conveniently for church services, utilities, and facilities.
-              </p>
-            </div>
+            ) : (
+              <>
+                {/* Header */}
+                <div className="text-center mb-10">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs text-stone-600 border border-stone-200">
+                    Payments
+                  </div>
+                  <h2 className="mt-4 text-4xl md:text-5xl font-semibold mb-3">
+                    <span className="bg-gradient-to-r from-teal-700 to-emerald-600 bg-clip-text text-transparent">Quick & Secure Payments</span>
+                  </h2>
+                  <p className="text-lg md:text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
+                    Make payments conveniently for church services, utilities, and facilities.
+                  </p>
+                </div>
 
-            {/* Controls: Tabs + Search */}
-            <Controls
-              activeTab={activeTab}
-              setActiveTab={setActiveTab}
-              query={query}
-              setQuery={setQuery}
-              onAll={() => openPaymentModal()}
-            />
+                {/* Controls: Tabs + Search */}
+                <Controls
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                  query={query}
+                  setQuery={setQuery}
+                  onAll={() => openPaymentModal()}
+                />
 
-            {/* Grid */}
-            <PaymentsGrid
-              items={PAYMENT_ITEMS}
-              activeTab={activeTab}
-              query={query}
-              onSelect={(c) => openPaymentModal(c)}
-            />
+                {/* Grid */}
+                <PaymentsGrid
+                  items={PAYMENT_ITEMS}
+                  activeTab={activeTab}
+                  query={query}
+                  onSelect={(c) => openPaymentModal(c)}
+                />
 
-            {/* Security Features */}
-            <div className="mt-10 flex flex-wrap justify-center items-center gap-4 text-sm">
-              <div className="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-2 border border-stone-200 text-stone-700">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                <span>Secure Payments</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-2 border border-stone-200 text-stone-700">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>Instant Confirmation</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-2 border border-stone-200 text-stone-700">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <span>Email Receipt</span>
-              </div>
-            </div>
+                {/* Security Features */}
+                <div className="mt-10 flex flex-wrap justify-center items-center gap-4 text-sm">
+                  <div className="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-2 border border-stone-200 text-stone-700">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <span>Secure Payments</span>
+                  </div>
+                  <div className="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-2 border border-stone-200 text-stone-700">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Instant Confirmation</span>
+                  </div>
+                  <div className="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-2 border border-stone-200 text-stone-700">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span>Email Receipt</span>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>
