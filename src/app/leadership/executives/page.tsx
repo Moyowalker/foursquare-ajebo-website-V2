@@ -15,15 +15,15 @@ const EXECUTIVES = [
     ],
   },
   {
-    name: 'Mrs Blessing Igberaese',
-    role: 'HOD, Sanitation',
-    image: '/images/leadership/executives/blessing-igberaese.jpeg',
-    summary: 'Leads sanitation standards, hygiene protocols, and cleanliness across the camp grounds.',
+    name: 'Mr Anthony Etioloja',
+    role: 'Finance Manager',
+    image: '/images/leadership/executives/anthony-etioloja.jpeg',
+    summary: 'Manages financial stewardship, budgeting, and resource accountability.',
     focus: [
-      'Hygiene protocols for guest rooms and facilities',
-      'Sanitation team coordination and scheduling',
-      'Daily inspections and cleanliness assurance',
-      'Support for event and retreat readiness',
+      'Budget planning and financial oversight',
+      'Payment reconciliation and reporting',
+      'Resource allocation for camp operations',
+      'Compliance and financial documentation',
     ],
   },
   {
@@ -39,18 +39,6 @@ const EXECUTIVES = [
     ],
   },
   {
-    name: 'Mr Anthony Etioloja',
-    role: 'Finance Manager',
-    image: '/images/leadership/executives/anthony-etioloja.jpeg',
-    summary: 'Manages financial stewardship, budgeting, and resource accountability.',
-    focus: [
-      'Budget planning and financial oversight',
-      'Payment reconciliation and reporting',
-      'Resource allocation for camp operations',
-      'Compliance and financial documentation',
-    ],
-  },
-  {
     name: 'Mr Femi Olapade',
     role: 'HOD, Electricals',
     image: '/images/leadership/executives/femi-olapade.jpeg',
@@ -60,6 +48,18 @@ const EXECUTIVES = [
       'Electrical safety inspections',
       'Event support and equipment readiness',
       'Energy efficiency and system upgrades',
+    ],
+  },
+  {
+    name: 'Mrs Blessing Igberaese',
+    role: 'HOD, Sanitation',
+    image: '/images/leadership/executives/blessing-igberaese.jpeg',
+    summary: 'Leads sanitation standards, hygiene protocols, and cleanliness across the camp grounds.',
+    focus: [
+      'Hygiene protocols for guest rooms and facilities',
+      'Sanitation team coordination and scheduling',
+      'Daily inspections and cleanliness assurance',
+      'Support for event and retreat readiness',
     ],
   },
 ];
