@@ -491,8 +491,16 @@ export default function PaymentModal({
                   id="amount"
                   required
                   min={selectedPaymentType?.minAmount || 1}
+                  step="0.01"
+                  inputMode="decimal"
                   value={formData.amount || ''}
-                  onChange={(e) => setFormData({ ...formData, amount: parseFloat(e.target.value) })}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    setFormData({
+                      ...formData,
+                      amount: value === '' ? 0 : Number(value),
+                    });
+                  }}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
                   placeholder="Enter amount"
                 />
