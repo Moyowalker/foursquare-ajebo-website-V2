@@ -175,20 +175,12 @@ export function SpectacularNavigation() {
                 </button>
               </>
             ) : (
-              <>
-                <Link
-                  href="/auth/login"
-                  className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-white/90 hover:text-white hover:border-white/40 transition-colors"
-                >
-                  Login
-                </Link>
-                <Link
-                  href="/auth/register"
-                  className="inline-flex items-center rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-600 transition-colors"
-                >
-                  Register
-                </Link>
-              </>
+              <Link
+                href="/auth/login"
+                className="inline-flex items-center rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-600 transition-colors"
+              >
+                Member's Login
+              </Link>
             )}
           </div>
 
@@ -291,22 +283,13 @@ export function SpectacularNavigation() {
                     </button>
                   </>
                 ) : (
-                  <>
-                    <Link
-                      href="/auth/login"
-                      className="block w-full rounded-xl border border-white/20 px-4 py-3 text-center text-sm font-semibold text-white/90 hover:text-white hover:border-white/40 transition-colors"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Login
-                    </Link>
-                    <Link
-                      href="/auth/register"
-                      className="block w-full rounded-xl bg-emerald-500 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-emerald-600 transition-colors"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Register
-                    </Link>
-                  </>
+                  <Link
+                    href="/auth/login"
+                    className="block w-full rounded-xl bg-emerald-500 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-emerald-600 transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Member's Login
+                  </Link>
                 )}
               </div>
               
