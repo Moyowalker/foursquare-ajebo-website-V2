@@ -37,6 +37,15 @@ export default function LeadershipPage() {
       color: "from-blue-400 to-purple-600",
       preview: "For more than 70 years, our board has guided the ministry with wisdom, integrity, and a clear vision for Camp Ajebo's future...",
       highlights: ["70-Year Legacy", "Strategic Leadership", "Global Ministry Vision", "Millions of Lives Touched"]
+    },
+    {
+      title: "Camp Executive Team",
+      description: "Meet the executives overseeing camp operations, facilities, and guest services",
+      icon: "🏡",
+      href: "/leadership/executives",
+      color: "from-emerald-400 to-teal-600",
+      preview: "Our executive team ensures every guest experience is safe, organized, and welcoming, from facilities management to finance and security...",
+      highlights: ["Operations Leadership", "Guest Experience", "Facilities Oversight", "Trusted Stewards"]
     }
   ];
 

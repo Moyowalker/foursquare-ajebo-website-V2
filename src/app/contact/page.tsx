@@ -1,13 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { ErrorBoundary, ContactFormErrorFallback } from '@/components/ui/error-boundary';
 import { LoadingButton, LoadingOverlay } from '@/components/ui/loading';
 import { Alert, SuccessMessage, ErrorMessage } from '@/components/ui/feedback';
 import { useContactForm } from '@/hooks/useApi';
 
 function ContactFormSection() {
+  const searchParams = useSearchParams();
+  const hasPrefilled = useRef(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,6 +21,42 @@ function ContactFormSection() {
   });
 
   const { submitForm, submissionStatus, errorMessage, reset, isSubmitting, isSuccess, isError } = useContactForm();
+
+  useEffect(() => {
+    if (hasPrefilled.current) return;
+
+    const isBooking = searchParams.get('booking') === 'true';
+    if (!isBooking) return;
+
+    const roomType = searchParams.get('roomType') || 'Executive Guest House';
+    const checkIn = searchParams.get('checkIn') || '';
+    const checkOut = searchParams.get('checkOut') || '';
+    const guests = searchParams.get('guests') || '2';
+
+    const normalizedEventType = roomType.toLowerCase().includes('conference')
+      ? 'conference'
+      : roomType.toLowerCase().includes('retreat')
+        ? 'retreat'
+        : 'private-booking';
+
+    const messageLines = [
+      `Room Type: ${roomType}`,
+      checkIn ? `Check-in: ${checkIn}` : null,
+      checkOut ? `Check-out: ${checkOut}` : null,
+      `Guests: ${guests}`,
+      '',
+      'Please confirm availability and next steps.'
+    ].filter(Boolean).join('\n');
+
+    setFormData((prev) => ({
+      ...prev,
+      subject: prev.subject || `Booking request: ${roomType}`,
+      message: prev.message || messageLines,
+      eventType: prev.eventType || normalizedEventType,
+    }));
+
+    hasPrefilled.current = true;
+  }, [searchParams]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -235,7 +274,9 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
             <ErrorBoundary fallback={<ContactFormErrorFallback />}>
-              <ContactFormSection />
+              <Suspense fallback={<div className="rounded-xl border border-gray-200 bg-white p-8">Loading booking form...</div>}>
+                <ContactFormSection />
+              </Suspense>
             </ErrorBoundary>
 
             {/* Contact Information */}
