@@ -12,29 +12,7 @@ export const mainNav: NavItem[] = [
   },
   {
     title: "About Us", 
-    href: "/about",
-    items: [
-      {
-        title: "Our Mission",
-        href: "/about/mission",
-        description: "How we host retreats, events, and stays"
-      },
-      {
-        title: "Our Vision", 
-        href: "/about/vision",
-        description: "Where the camp is headed as a retreat campus"
-      },
-      {
-        title: "Our Values",
-        href: "/about/values", 
-        description: "The hosting principles that guide the campus"
-      },
-      {
-        title: "Our Journey",
-        href: "/about/journey",
-        description: "How the camp grew into a full campus"
-      },
-    ]
+    href: "/about"
   },
   {
     title: "Services",
