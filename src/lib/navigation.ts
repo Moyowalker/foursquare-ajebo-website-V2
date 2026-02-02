@@ -41,11 +41,6 @@ export const mainNav: NavItem[] = [
     href: "/services",
     items: [
       {
-        title: "Worship Services",
-        href: "/services/worship",
-        description: "Join us for inspiring worship experiences"
-      },
-      {
         title: "Events & Ministry Programs", 
         href: "/services/events",
         description: "Events, camps, retreats, and ministry departments"
@@ -128,7 +123,6 @@ export const footerNav = [
   {
     title: "Services",
     items: [
-      { title: "Worship", href: "/services/worship" },
       { title: "Events & Ministry", href: "/services/events" },
       { title: "Nursery & Primary School", href: "/services/nursery-primary-school" },
       { title: "Medical Centre", href: "/services/medical-centre" },
