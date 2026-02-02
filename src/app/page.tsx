@@ -23,6 +23,18 @@ type Audience = {
   icon: string;
 };
 
+type Stat = {
+  label: string;
+  value: string;
+  detail: string;
+};
+
+type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+};
+
 const ROOMS: Room[] = [
   {
     name: 'Executive Guest House',
@@ -100,6 +112,36 @@ const AUDIENCES: Audience[] = [
     icon: '🕊️',
   },
 ];
+
+const STATS: Stat[] = [
+  {
+    label: 'Lodging styles',
+    value: '4+',
+    detail: 'Executive, international, group-friendly, and modern rooms.',
+  },
+  {
+    label: 'Facility pillars',
+    value: '4',
+    detail: 'Conference halls, dining, serene grounds, and accessible layout.',
+  },
+  {
+    label: 'Booking support',
+    value: '1:1',
+    detail: 'Guided assistance from inquiry to checkout.',
+  },
+  {
+    label: 'On-site essentials',
+    value: 'All-in-one',
+    detail: 'Accommodation, recreation, medical centre, and hospitality.',
+  },
+];
+
+const FEATURED_TESTIMONIAL: Testimonial = {
+  quote:
+    'Our teams rest well here. The halls, rooms, and support staff make it easy to focus on the retreat itself.',
+  name: 'Pastor T. A.',
+  role: 'Retreat organizer',
+};
 
 export default function HomePage() {
   const [selectedRoomType, setSelectedRoomType] = useState('Executive Guest House');
@@ -563,27 +605,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-20">
+      {/* Social proof + testimonial */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 via-white to-sky-50 p-10 md:p-14 text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold">Ready to plan your stay?</h2>
-            <p className="mt-3 text-lg text-stone-600 max-w-2xl mx-auto">
-              Share your dates and goals, and we’ll help you create a peaceful, well-organized retreat.
-            </p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-emerald-700 px-6 py-3 text-white font-medium hover:bg-emerald-800"
-              >
-                Request Booking
-              </Link>
-              <Link
-                href="/facilities"
-                className="inline-flex items-center justify-center rounded-xl border border-emerald-200 bg-white px-6 py-3 text-emerald-800 font-medium hover:bg-emerald-50"
-              >
-                Explore Facilities
-              </Link>
+          <div className="grid lg:grid-cols-3 gap-10 items-center">
+            <div className="lg:col-span-2 space-y-6">
+              <div className="space-y-3">
+                <p className="inline-flex items-center rounded-full bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-800 border border-emerald-100">
+                  Guests choose Ajebo for focused retreats
+                </p>
+                <h2 className="text-3xl md:text-4xl font-semibold text-stone-900">
+                  Trusted spaces, thoughtful hosting, guided support
+                </h2>
+                <p className="text-lg text-stone-600 max-w-3xl">
+                  Everything you need in one campus: restful rooms, flexible halls, on-site dining, recreation, and a team that helps you plan every detail.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                {STATS.map((stat) => (
+                  <div key={stat.label} className="rounded-2xl border border-stone-200 bg-stone-50 p-5 shadow-sm">
+                    <div className="text-2xl font-semibold text-emerald-700">{stat.value}</div>
+                    <div className="mt-1 text-sm font-semibold text-stone-900">{stat.label}</div>
+                    <p className="mt-2 text-sm text-stone-600">{stat.detail}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/blog"
+                  className="inline-flex items-center justify-center rounded-xl bg-emerald-700 px-6 py-3 text-white font-medium hover:bg-emerald-800"
+                >
+                  See guest stories
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-xl border border-emerald-200 bg-white px-6 py-3 text-emerald-800 font-medium hover:bg-emerald-50"
+                >
+                  Book a stay
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-emerald-100 via-white to-sky-100 blur-2xl" aria-hidden />
+              <div className="relative rounded-3xl border border-emerald-100 bg-white p-8 shadow-xl">
+                <div className="text-sm uppercase tracking-wide text-emerald-700 font-semibold">Featured testimonial</div>
+                <p className="mt-4 text-lg text-stone-900 leading-relaxed">"{FEATURED_TESTIMONIAL.quote}"</p>
+                <div className="mt-6 text-sm font-semibold text-stone-900">{FEATURED_TESTIMONIAL.name}</div>
+                <div className="text-sm text-stone-600">{FEATURED_TESTIMONIAL.role}</div>
+              </div>
             </div>
           </div>
         </div>
