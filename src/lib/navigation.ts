@@ -41,6 +41,11 @@ export const mainNav: NavItem[] = [
     href: "/services",
     items: [
       {
+        title: "Accommodation",
+        href: "/facilities/accommodation",
+        description: "Comfortable lodging for retreats and events"
+      },
+      {
         title: "Events & Ministry Programs", 
         href: "/services/events",
         description: "Events, camps, retreats, and ministry departments"
@@ -59,11 +64,6 @@ export const mainNav: NavItem[] = [
         title: "Block Industry",
         href: "/services/block-industry",
         description: "Quality block production and construction support"
-      },
-      {
-        title: "Accommodation",
-        href: "/facilities/accommodation",
-        description: "Comfortable lodging for retreats and events"
       },
       {
         title: "Conference Halls",
