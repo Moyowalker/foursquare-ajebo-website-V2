@@ -13,6 +13,11 @@ export interface Facility {
   images: FacilityImage[];
   features?: string[];
   capacity?: string;
+  commerciallyAvailable?: boolean;
+  startingRate?: number;
+  maxGuests?: number;
+  roomType?: string;
+  availabilityNote?: string;
 }
 
 // Facility data with image paths ready for Google Drive downloads
@@ -24,6 +29,11 @@ export const facilities: Facility[] = [
     description: 'Our premium accommodation facility offering luxury comfort for distinguished guests and international visitors.',
     category: 'accommodation',
     subcategory: 'premium',
+    commerciallyAvailable: true,
+    startingRate: 45000,
+    maxGuests: 2,
+    roomType: 'Executive Suite',
+    availabilityNote: 'Limited rooms available weekly',
     images: [
       { 
         src: '/images/facilities/real/international-guest-house.jpeg.jpg', 
@@ -45,6 +55,11 @@ export const facilities: Facility[] = [
     description: 'Premium residential accommodation with modern amenities and beautiful landscaping.',
     category: 'accommodation',
     subcategory: 'premium',
+    commerciallyAvailable: true,
+    startingRate: 35000,
+    maxGuests: 4,
+    roomType: 'Family Suite',
+    availabilityNote: 'Best for families and small teams',
     images: [
       { 
         src: '/images/facilities/real/modern-guest-rooms.JPG', 
@@ -61,6 +76,11 @@ export const facilities: Facility[] = [
     description: 'Named in honor of our heritage, this building provides comfortable lodging for ministry leaders and special guests.',
     category: 'accommodation',
     subcategory: 'leadership',
+    commerciallyAvailable: true,
+    startingRate: 28000,
+    maxGuests: 2,
+    roomType: 'Leadership Room',
+    availabilityNote: 'Priority for ministry visitors',
     images: [
       { 
         src: '/images/facilities/real/residential-building.jpg', 
@@ -77,6 +97,11 @@ export const facilities: Facility[] = [
     description: 'Comfortable accommodation facility designed for ministry teams and visiting pastors.',
     category: 'accommodation',
     subcategory: 'leadership',
+    commerciallyAvailable: true,
+    startingRate: 25000,
+    maxGuests: 3,
+    roomType: 'Ministry Suite',
+    availabilityNote: 'Group-friendly units available',
     images: [
       { 
         src: '/images/facilities/real/accommodation/modern-guest-houses.jpg', 
@@ -93,6 +118,11 @@ export const facilities: Facility[] = [
     description: 'Standard comfortable accommodation for camp participants and retreat attendees.',
     category: 'accommodation',
     subcategory: 'standard',
+    commerciallyAvailable: true,
+    startingRate: 12000,
+    maxGuests: 6,
+    roomType: 'Shared Lodge',
+    availabilityNote: 'Great for retreats and group bookings',
     images: [
       { 
         src: '/images/facilities/real/modern-guest-rooms.JPG', 
@@ -109,6 +139,11 @@ export const facilities: Facility[] = [
     description: 'A place where God\'s presence is acknowledged - comfortable lodging for spiritual retreats and conferences.',
     category: 'accommodation',
     subcategory: 'standard',
+    commerciallyAvailable: true,
+    startingRate: 15000,
+    maxGuests: 4,
+    roomType: 'Retreat Rooms',
+    availabilityNote: 'Quiet wing for spiritual retreats',
     images: [
       { 
         src: '/images/facilities/real/jehovah-shammah-house.jpeg', 
@@ -130,6 +165,11 @@ export const facilities: Facility[] = [
     description: 'Beautiful estate accommodation offering a peaceful environment for extended stays and family gatherings.',
     category: 'accommodation',
     subcategory: 'premium',
+    commerciallyAvailable: true,
+    startingRate: 40000,
+    maxGuests: 6,
+    roomType: 'Estate Villa',
+    availabilityNote: 'Ideal for extended stays',
     images: [
       { 
         src: '/images/facilities/real/accommodation/executive-guest-house.jpg', 

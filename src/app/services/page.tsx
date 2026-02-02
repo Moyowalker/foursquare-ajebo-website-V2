@@ -46,6 +46,33 @@ export default function ServicesPage() {
       color: "from-blue-400 to-purple-600",
       preview: "Explore upcoming events and discover ministry teams that help you grow and serve...",
       features: ["Youth Camps", "Retreats", "Family Programs", "Ministry Teams"]
+    },
+    {
+      title: "Nursery & Primary School",
+      description: "Quality early learning in a safe, faith-centered environment",
+      icon: "🧒",
+      href: "/services/nursery-primary-school",
+      color: "from-emerald-400 to-teal-600",
+      preview: "A nurturing school community that blends academic excellence with strong Christian values...",
+      features: ["Nursery Classes", "Primary Education", "Qualified Teachers", "Safe Campus"]
+    },
+    {
+      title: "Medical Centre",
+      description: "Standard healthcare for guests, residents, and staff",
+      icon: "🏥",
+      href: "/services/medical-centre",
+      color: "from-rose-400 to-orange-500",
+      preview: "Access reliable medical care and wellness support right within the camp premises...",
+      features: ["Primary Care", "First Aid", "Health Checks", "Emergency Support"]
+    },
+    {
+      title: "Block Industry",
+      description: "On-site block production supporting construction projects",
+      icon: "🧱",
+      href: "/services/block-industry",
+      color: "from-slate-400 to-gray-600",
+      preview: "Durable building blocks produced to serve camp expansion and community building needs...",
+      features: ["Quality Materials", "Bulk Orders", "Reliable Supply", "Construction Support"]
     }
   ];
 
@@ -114,7 +141,7 @@ export default function ServicesPage() {
                 grow in faith, character, and purpose.
               </p>
               <div className="inline-flex items-center bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full">
-                <span className="text-blue-100 font-medium">🙏 Worship • 🎪 Events • 👥 Ministry</span>
+                <span className="text-blue-100 font-medium">🙏 Worship • 🎪 Events • 🧒 School • 🏥 Medical • 🧱 Block Industry</span>
               </div>
             </ScrollReveal>
           </div>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, Bed, Wifi, Car, Coffee, Shield, Users, Phone, MapPin, Star } from 'lucide-react';
 import { getFacilitiesByCategory, getAccommodationBySubcategory } from '@/lib/image-config';
 import FacilityCard from '@/components/ui/FacilityCard';
+import AccommodationAvailability from '@/components/facilities/AccommodationAvailability';
 
 export const metadata: Metadata = {
   title: 'Accommodation | Foursquare Camp Ajebo',
@@ -15,6 +16,7 @@ export default function AccommodationPage() {
   const premiumFacilities = getAccommodationBySubcategory('premium');
   const leadershipFacilities = getAccommodationBySubcategory('leadership');
   const standardFacilities = getAccommodationBySubcategory('standard');
+  const commerciallyAvailableFacilities = accommodationFacilities.filter((facility) => facility.commerciallyAvailable);
 
   const amenities = [
     {
@@ -99,6 +101,9 @@ export default function AccommodationPage() {
               </div>
             </div>
           </div>
+
+          {/* Commercial Availability */}
+          <AccommodationAvailability facilities={commerciallyAvailableFacilities} />
 
           {/* Our Accommodation Buildings */}
           <div className="mb-16">

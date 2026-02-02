@@ -51,6 +51,21 @@ export const mainNav: NavItem[] = [
         description: "Events, camps, retreats, and ministry departments"
       },
       {
+        title: "Nursery & Primary School",
+        href: "/services/nursery-primary-school",
+        description: "Early childhood and primary education on campus"
+      },
+      {
+        title: "Medical Centre",
+        href: "/services/medical-centre",
+        description: "Standard healthcare services for guests and residents"
+      },
+      {
+        title: "Block Industry",
+        href: "/services/block-industry",
+        description: "Quality block production and construction support"
+      },
+      {
         title: "Accommodation",
         href: "/facilities/accommodation",
         description: "Comfortable lodging for retreats and events"
@@ -115,6 +130,9 @@ export const footerNav = [
     items: [
       { title: "Worship", href: "/services/worship" },
       { title: "Events & Ministry", href: "/services/events" },
+      { title: "Nursery & Primary School", href: "/services/nursery-primary-school" },
+      { title: "Medical Centre", href: "/services/medical-centre" },
+      { title: "Block Industry", href: "/services/block-industry" },
     ]
   },
   {
