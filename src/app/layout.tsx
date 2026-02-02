@@ -75,7 +75,7 @@ export default function RootLayout({
             <ErrorBoundary>
               <SpectacularNavigation />
             </ErrorBoundary>
-            <div className="flex-1">
+            <div className="flex-1 pt-24 lg:pt-28">
               <ErrorBoundary>
                 {children}
               </ErrorBoundary>
