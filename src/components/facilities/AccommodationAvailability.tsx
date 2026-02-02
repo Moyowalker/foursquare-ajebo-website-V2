@@ -1,23 +1,43 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Bed, CalendarClock, CheckCircle, ChevronDown, Users } from 'lucide-react';
+import { Bed, CalendarClock, CheckCircle, Users, X } from 'lucide-react';
 import type { Facility } from '@/lib/image-config';
+
+export interface BookingDetails {
+  checkIn: string;
+  checkOut: string;
+  guests: string;
+  phone: string;
+}
 
 interface AccommodationAvailabilityProps {
   facilities: Facility[];
+  bookingDetails: BookingDetails;
+  buildMailto: (propertyName: string | undefined, bookingDetails: BookingDetails) => string;
 }
 
-export default function AccommodationAvailability({ facilities }: AccommodationAvailabilityProps) {
-  const [expandedFacilityId, setExpandedFacilityId] = useState<string | null>(null);
+export default function AccommodationAvailability({ facilities, bookingDetails, buildMailto }: AccommodationAvailabilityProps) {
+  const [selectedFacility, setSelectedFacility] = useState<Facility | null>(null);
   const [activeImageByFacility, setActiveImageByFacility] = useState<Record<string, number>>({});
 
   const formatCurrency = (amount?: number) =>
     typeof amount === 'number'
       ? `₦${amount.toLocaleString()}`
       : 'Contact for rates';
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedFacility(null);
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   if (!facilities.length) return null;
 
@@ -107,24 +127,17 @@ export default function AccommodationAvailability({ facilities }: AccommodationA
               <div className="mt-6 flex flex-col gap-3">
                 <button
                   type="button"
-                  onClick={() =>
-                    setExpandedFacilityId((prev) => (prev === facility.id ? null : facility.id))
-                  }
+                  onClick={() => setSelectedFacility(facility)}
                   className="inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors"
                 >
-                  {expandedFacilityId === facility.id ? 'Hide room details' : 'View room details'}
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform ${
-                      expandedFacilityId === facility.id ? 'rotate-180' : ''
-                    }`}
-                  />
+                  View property
                 </button>
-                <Link
-                  href={`/contact?purpose=Accommodation%20Booking&facility=${encodeURIComponent(facility.name)}`}
+                <a
+                  href={buildMailto(facility.name, bookingDetails)}
                   className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 transition-colors"
                 >
-                  Check availability
-                </Link>
+                  Book now
+                </a>
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center rounded-lg border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors"
@@ -133,84 +146,97 @@ export default function AccommodationAvailability({ facilities }: AccommodationA
                 </Link>
               </div>
             </div>
+          </div>
+        ))}
+      </div>
 
-            {expandedFacilityId === facility.id && (
-              <div className="border-t border-gray-100 bg-emerald-50/40 p-6">
-                <div className="grid lg:grid-cols-3 gap-6">
-                  <div className="lg:col-span-2">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-3">Room gallery</h4>
-                    <div className="relative h-64 md:h-72 lg:h-80 overflow-hidden rounded-2xl border border-emerald-100 bg-white shadow-sm">
-                      {facility.images?.[activeImageByFacility[facility.id] ?? 0] && (
-                        <Image
-                          src={facility.images[activeImageByFacility[facility.id] ?? 0].src}
-                          alt={facility.images[activeImageByFacility[facility.id] ?? 0].alt}
-                          fill
-                          className="object-cover"
-                        />
-                      )}
-                    </div>
-                    <div className="mt-4 grid grid-cols-4 sm:grid-cols-6 gap-3">
-                      {facility.images?.map((image, index) => (
-                        <button
-                          key={image.src}
-                          type="button"
-                          onClick={() =>
-                            setActiveImageByFacility((prev) => ({
-                              ...prev,
-                              [facility.id]: index,
-                            }))
-                          }
-                          className={`relative h-16 overflow-hidden rounded-lg border ${
-                            (activeImageByFacility[facility.id] ?? 0) === index
-                              ? 'border-emerald-500 ring-2 ring-emerald-200'
-                              : 'border-transparent'
-                          }`}
-                        >
-                          <Image
-                            src={image.src}
-                            alt={image.alt}
-                            fill
-                            className="object-cover"
-                          />
-                        </button>
-                      ))}
-                    </div>
+      {selectedFacility && (
+        <div className="fixed inset-0 z-40">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setSelectedFacility(null)} />
+          <div
+            className="relative z-10 mx-auto mt-10 max-w-5xl rounded-2xl bg-white shadow-2xl overflow-hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${selectedFacility.name} details`}
+          >
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+              <div>
+                <p className="text-xs uppercase tracking-wide text-gray-400">From</p>
+                <p className="text-2xl font-bold text-emerald-700">{formatCurrency(selectedFacility.startingRate)}</p>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900">{selectedFacility.name}</h3>
+              <button
+                type="button"
+                onClick={() => setSelectedFacility(null)}
+                className="rounded-full p-2 text-gray-500 hover:bg-gray-100"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-6 p-6">
+              <div className="lg:col-span-2 space-y-4">
+                <div className="relative h-72 md:h-80 overflow-hidden rounded-2xl border border-emerald-100 bg-gray-50">
+                  {selectedFacility.images?.[activeImageByFacility[selectedFacility.id] ?? 0] && (
+                    <Image
+                      src={selectedFacility.images[activeImageByFacility[selectedFacility.id] ?? 0].src}
+                      alt={selectedFacility.images[activeImageByFacility[selectedFacility.id] ?? 0].alt}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
+                </div>
+                <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">
+                  {selectedFacility.images?.map((image, index) => (
+                    <button
+                      key={image.src}
+                      type="button"
+                      onClick={() =>
+                        setActiveImageByFacility((prev) => ({
+                          ...prev,
+                          [selectedFacility.id]: index,
+                        }))
+                      }
+                      className={`relative h-16 overflow-hidden rounded-lg border ${
+                        (activeImageByFacility[selectedFacility.id] ?? 0) === index
+                          ? 'border-emerald-500 ring-2 ring-emerald-200'
+                          : 'border-transparent'
+                      }`}
+                    >
+                      <Image src={image.src} alt={image.alt} fill className="object-cover" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="space-y-2 text-sm text-gray-700">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-500">Room type</span>
+                    <span className="font-semibold text-gray-900">{selectedFacility.roomType ?? 'Standard room'}</span>
                   </div>
-
-                  <div>
-                    <h4 className="text-sm font-semibold text-gray-700 mb-3">Room details</h4>
-                    <div className="space-y-3 text-sm text-gray-700">
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500">Room type</span>
-                        <span className="font-semibold text-gray-900">{facility.roomType ?? 'Standard room'}</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500">Capacity</span>
-                        <span className="font-semibold text-gray-900">
-                          {facility.maxGuests ? `${facility.maxGuests} guests` : 'Flexible'}
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500">Starting rate</span>
-                        <span className="font-semibold text-emerald-700">{formatCurrency(facility.startingRate)}</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500">Check-in</span>
-                        <span className="font-semibold text-gray-900">2:00 PM</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500">Check-out</span>
-                        <span className="font-semibold text-gray-900">12:00 PM</span>
-                      </div>
-                    </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-500">Capacity</span>
+                    <span className="font-semibold text-gray-900">
+                      {selectedFacility.maxGuests ? `${selectedFacility.maxGuests} guests` : 'Flexible'}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-500">Check-in</span>
+                    <span className="font-semibold text-gray-900">2:00 PM</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-500">Check-out</span>
+                    <span className="font-semibold text-gray-900">12:00 PM</span>
                   </div>
                 </div>
 
-                {facility.features && facility.features.length > 0 && (
-                  <div className="mt-6">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-3">What this room offers</h4>
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      {facility.features.map((feature) => (
+                {selectedFacility.features && selectedFacility.features.length > 0 && (
+                  <div className="space-y-2 text-sm text-gray-700">
+                    <p className="font-semibold text-gray-900">What this room offers</p>
+                    <div className="grid sm:grid-cols-2 gap-2">
+                      {selectedFacility.features.map((feature) => (
                         <div key={feature} className="flex items-center gap-2 text-sm text-gray-700">
                           <CheckCircle className="h-4 w-4 text-emerald-600" />
                           <span>{feature}</span>
@@ -219,11 +245,26 @@ export default function AccommodationAvailability({ facilities }: AccommodationA
                     </div>
                   </div>
                 )}
+
+                <div className="space-y-3">
+                  <a
+                    href={buildMailto(selectedFacility.name, bookingDetails)}
+                    className="inline-flex w-full items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 transition-colors"
+                  >
+                    Book now with these details
+                  </a>
+                  <Link
+                    href="/contact"
+                    className="inline-flex w-full items-center justify-center rounded-lg border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors"
+                  >
+                    Ask a question
+                  </Link>
+                </div>
               </div>
-            )}
+            </div>
           </div>
-        ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

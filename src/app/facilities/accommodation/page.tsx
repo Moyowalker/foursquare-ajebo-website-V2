@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, Bed, Wifi, Car, Coffee, Shield, Users, Phone, MapPin, Star } from 'lucide-react';
 import { getFacilitiesByCategory, getAccommodationBySubcategory } from '@/lib/image-config';
 import FacilityCard from '@/components/ui/FacilityCard';
-import AccommodationAvailability from '@/components/facilities/AccommodationAvailability';
+import AccommodationBookingExperience from '@/components/facilities/AccommodationBookingExperience';
 
 export const metadata: Metadata = {
   title: 'Accommodation | Foursquare Camp Ajebo',
@@ -17,6 +17,8 @@ export default function AccommodationPage() {
   const leadershipFacilities = getAccommodationBySubcategory('leadership');
   const standardFacilities = getAccommodationBySubcategory('standard');
   const commerciallyAvailableFacilities = accommodationFacilities.filter((facility) => facility.commerciallyAvailable);
+  const generalMailto =
+    'mailto:bookings@foursquarecamp.com?subject=Accommodation%20Booking%20Request&body=Please%20include%20your%20check-in%20date%2C%20check-out%20date%2C%20number%20of%20guests%2C%20and%20phone%20number.';
 
   const amenities = [
     {
@@ -102,8 +104,8 @@ export default function AccommodationPage() {
             </div>
           </div>
 
-          {/* Commercial Availability */}
-          <AccommodationAvailability facilities={commerciallyAvailableFacilities} />
+          {/* Commercial Availability with booking */}
+          <AccommodationBookingExperience facilities={commerciallyAvailableFacilities} />
 
           {/* Our Accommodation Buildings */}
           <div className="mb-16">
@@ -277,7 +279,7 @@ export default function AccommodationPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link 
-                    href="/contact" 
+                    href={generalMailto} 
                     className="bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors font-medium text-center"
                   >
                     Book Now
