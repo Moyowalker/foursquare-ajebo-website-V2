@@ -17,22 +17,22 @@ export const mainNav: NavItem[] = [
       {
         title: "Our Mission",
         href: "/about/mission",
-        description: "Our calling and purpose as a church"
+        description: "How we host retreats, events, and stays"
       },
       {
         title: "Our Vision", 
         href: "/about/vision",
-        description: "Where we're headed as a faith community"
+        description: "Where the camp is headed as a retreat campus"
       },
       {
         title: "Our Values",
         href: "/about/values", 
-        description: "The principles that guide our ministry"
+        description: "The hosting principles that guide the campus"
       },
       {
         title: "Our Journey",
         href: "/about/journey",
-        description: "The history and growth of our church"
+        description: "How the camp grew into a full campus"
       },
     ]
   },

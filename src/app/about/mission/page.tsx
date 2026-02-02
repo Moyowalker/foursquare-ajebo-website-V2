@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, Heart, Users, Globe } from 'lucide-react';
+import { ArrowLeft, Heart, Users, Globe, Shield } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Our Mission | Foursquare Gospel Church Ajebo',
-  description: 'Empowering spiritual growth and community through worship, prayer, and fellowship at Foursquare Gospel Church Ajebo.',
-  keywords: ['mission', 'purpose', 'spiritual growth', 'community', 'Foursquare Camp Ajebo'],
+  title: 'Our Mission | Foursquare Camp Ajebo',
+  description: 'Our mission is to host restful retreats and impactful gatherings with safe facilities, attentive hospitality, and spiritual support at Foursquare Camp Ajebo.',
+  keywords: ['mission', 'camp mission', 'retreat hosting', 'hospitality', 'Foursquare Camp Ajebo'],
 };
 
 export default function MissionPage() {
@@ -23,7 +23,7 @@ export default function MissionPage() {
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Mission</h1>
           <p className="text-xl text-slate-300 max-w-3xl">
-            Empowering spiritual growth and community through worship, prayer, and fellowship
+            Host every guest and program with safety, serenity, and attentive hospitality so retreats and gatherings thrive.
           </p>
         </div>
       </div>
@@ -42,12 +42,10 @@ export default function MissionPage() {
             
             <div className="prose prose-lg max-w-none text-center">
               <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                Empowering spiritual growth and community through worship, prayer, and fellowship.
+                Provide a reliable retreat campus where guests can rest, connect, and encounter God through well-run facilities, caring teams, and secure grounds.
               </p>
               <p className="text-lg text-gray-600">
-                We are committed to building a vibrant spiritual community where every person can encounter 
-                God's love, experience meaningful worship, engage in powerful prayer, and find authentic fellowship 
-                that nurtures their spiritual journey and personal growth.
+                We ensure accommodation, halls, and on-site services work seamlessly so ministries, churches, families, and organizations can focus on their purpose while we handle the environment, safety, and hospitality.
               </p>
             </div>
           </div>
@@ -55,32 +53,32 @@ export default function MissionPage() {
           {/* Core Pillars */}
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Heart className="w-6 h-6 text-red-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Salvation</h3>
-              <p className="text-gray-600">
-                Proclaiming the Gospel and leading people to a personal relationship with Jesus Christ.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-6 text-center">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Users className="w-6 h-6 text-blue-600" />
+                <Heart className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Sanctification</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Hospitality</h3>
               <p className="text-gray-600">
-                Helping believers grow in holiness and spiritual maturity through discipleship.
+                Warm, attentive hosting that helps every guest feel welcomed, cared for, and ready to focus on their retreat purpose.
               </p>
             </div>
 
             <div className="bg-white rounded-xl shadow-lg p-6 text-center">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Globe className="w-6 h-6 text-green-600" />
+                <Shield className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Service</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Safety & Reliability</h3>
               <p className="text-gray-600">
-                Equipping and empowering believers to serve God and impact their communities.
+                Secure grounds, dependable utilities, and prepared teams so programs run smoothly day and night.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center">
+              <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Users className="w-6 h-6 text-amber-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Supportive Service</h3>
+              <p className="text-gray-600">
+                Coordinated booking, setup, and on-site support for retreats, conferences, camps, and family stays.
               </p>
             </div>
           </div>
@@ -92,19 +90,19 @@ export default function MissionPage() {
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Local Impact</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>• Building strong families and communities</li>
-                  <li>• Supporting the underprivileged and vulnerable</li>
-                  <li>• Promoting education and youth development</li>
-                  <li>• Caring for the sick and elderly</li>
+                  <li>• Providing safe, serene lodging for nearby churches and families</li>
+                  <li>• Hosting trainings, conferences, and community programs</li>
+                  <li>• Offering recreation and dining that keeps groups on-site</li>
+                  <li>• Maintaining grounds that encourage rest and reflection</li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">Global Reach</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Broader Reach</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>• Planting churches across Nigeria and beyond</li>
-                  <li>• Supporting missions and evangelism</li>
-                  <li>• Training and sending missionaries</li>
-                  <li>• Partnering with global ministries</li>
+                  <li>• Welcoming national conventions and international guests</li>
+                  <li>• Enabling hybrid and in-person events with reliable halls</li>
+                  <li>• Partnering with ministries to deliver impactful retreats</li>
+                  <li>• Sharing best practices for safe, guest-ready campuses</li>
                 </ul>
               </div>
             </div>
@@ -114,31 +112,29 @@ export default function MissionPage() {
           <div className="bg-white rounded-xl shadow-lg p-8 text-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Foundation</h2>
             <blockquote className="text-xl italic text-gray-700 mb-4">
-              "Go therefore and make disciples of all nations, baptizing them in the name 
-              of the Father and of the Son and of the Holy Spirit, teaching them to observe 
-              all that I have commanded you."
+              "Offer hospitality to one another without grumbling. Each of you should use whatever gift you have received to serve others, as faithful stewards of God's grace."
             </blockquote>
-            <p className="text-gray-600 font-medium">- Matthew 28:19-20</p>
+            <p className="text-gray-600 font-medium">- 1 Peter 4:9-10</p>
           </div>
 
           {/* Call to Action */}
           <div className="text-center mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Join Our Mission</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Plan with Our Team</h2>
             <p className="text-gray-600 mb-6">
-              Be part of something greater. Discover how you can contribute to our mission.
+              Tell us your dates and goals. We will pair you with the right rooms, halls, and on-site services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/contact" 
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
               >
-                Get Involved
+                Start a booking
               </Link>
               <Link 
                 href="/about/vision" 
                 className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors font-medium"
               >
-                Read Our Vision
+                See our vision
               </Link>
             </div>
           </div>

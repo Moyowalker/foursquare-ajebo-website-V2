@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { ArrowLeft, Target, Eye, Heart, Map } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About Us | Foursquare Camp Ajebo',
-  description: 'Learn about Foursquare Camp Ajebo, our mission, vision, values, and journey in empowering spiritual growth and community.',
-  keywords: ['about', 'mission', 'vision', 'values', 'journey', 'Foursquare Camp Ajebo'],
+  title: 'About the Camp | Foursquare Camp Ajebo',
+  description: 'Discover Foursquare Camp Ajebo as a full retreat and events campus: our mission, vision, values, and story as a destination for stays, gatherings, and ministry programs.',
+  keywords: ['about', 'camp', 'retreat', 'mission', 'vision', 'values', 'journey', 'Foursquare Camp Ajebo'],
 };
 
 export default function AboutPage() {
@@ -20,27 +20,27 @@ export default function AboutPage() {
     },
     {
       title: "Our Vision",
-      description: "Creating a serene spiritual retreat centre",
+      description: "Building Nigeria's trusted retreat destination",
       icon: Eye,
       href: "/about/vision",
       color: "bg-slate-600",
-      preview: "To provide a serene, comfortable, and secured spiritual retreat centre for worship, fellowship, and community building..."
+      preview: "A full-service camp that hosts retreats, conferences, and family stays with safety, comfort, and excellence..."
     },
     {
       title: "Our Values",
-      description: "The principles that guide everything we do",
+      description: "How we host every guest and group",
       icon: Heart,
       href: "/about/values",
       color: "bg-gray-700",
-      preview: "Faith, Community, Excellence, Love, Purpose, and Growth - the core values that shape our ministry..."
+      preview: "Hospitality, safety, stewardship, excellence, and community care guide how we run the camp..."
     },
     {
       title: "Our Journey",
-      description: "The story of our ministry from beginning to now",
+      description: "The camp's growth from fields to a full campus",
       icon: Map,
       href: "/about/journey",
       color: "bg-indigo-600",
-      preview: "From humble beginnings in 2003 to becoming a transformative force in youth ministry across Nigeria..."
+      preview: "From early convention grounds to a modern campus with accommodation, halls, recreation, and support teams..."
     }
   ];
 
@@ -67,16 +67,15 @@ export default function AboutPage() {
           
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              About <span className="text-blue-400">Our Story</span>
+              About <span className="text-blue-400">Foursquare Camp Ajebo</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
-              For over seven decades, Foursquare Camp Ajebo has been a beacon of hope, 
-              transformation, and spiritual growth for thousands of young people across Nigeria.
+              A dedicated retreat and events campus designed for restful stays, conferences, camps, and ministry gatherings with reliable facilities and hosting support.
             </p>
             
             <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
-              <span className="text-slate-200 font-medium">📖 Discover Our Journey • ⭐ Our Mission • 💎 Our Values</span>
+              <span className="text-slate-200 font-medium">🏕️ Accommodation • 🏛️ Halls • 🌿 Serenity • 🤝 Guided hosting</span>
             </div>
           </div>
         </div>
@@ -87,10 +86,10 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Learn About Us
+              Learn About the Campus
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Dive deeper into what makes Foursquare Camp Ajebo special
+              Explore how the camp serves guests, hosts programs, and supports ministry experiences
             </p>
           </div>
 
@@ -128,19 +127,19 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Our Impact at a Glance
+              Campus at a Glance
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Numbers that tell the story of transformation
+              Capacity and services we provide for retreats, conferences, and family stays
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { number: "70+", label: "Years of Ministry", icon: "🎂" },
-              { number: "2,000,000+", label: "Lives Impacted", icon: "💝" },
-              { number: "50,000+", label: "Annual Guests", icon: "🏕️" },
-              { number: "50+", label: "Leadership Programs", icon: "👑" }
+              { number: "200+", label: "Guest rooms and beds", icon: "🛏️" },
+              { number: "7+", label: "Event and conference halls", icon: "🏛️" },
+              { number: "50,000+", label: "Annual convention guests hosted", icon: "🏕️" },
+              { number: "24/7", label: "Power, water, and security", icon: "⚡" }
             ].map((stat) => (
               <div key={stat.label} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300">
                 <div className="text-4xl mb-4">{stat.icon}</div>
@@ -159,24 +158,23 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-white rounded-xl shadow-lg p-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Be Part of Our Story
+              Plan your stay or event
             </h2>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Join thousands of young people who have discovered their purpose and 
-              deepened their faith at Foursquare Camp Ajebo.
+              Bring your retreat, conference, or family getaway to Ajebo. Our team will help you plan the right rooms, halls, and on-site services for your group.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                href="/events" 
+                href="/contact" 
                 className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg"
               >
-                Upcoming Events ✨
+                Plan a stay ✨
               </Link>
               <Link 
-                href="/contact" 
+                href="/facilities" 
                 className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors font-medium text-lg"
               >
-                Contact Us 📞
+                Explore facilities 📍
               </Link>
             </div>
           </div>

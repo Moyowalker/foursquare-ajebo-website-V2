@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { ArrowLeft, Calendar, MapPin, Users, Building, Award, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Our Journey | Foursquare Gospel Church Ajebo',
-  description: 'Discover the inspiring story of our church journey from humble beginnings to a thriving community impacting lives across Nigeria.',
-  keywords: ['history', 'journey', 'story', 'growth', 'milestones', 'Foursquare Camp Ajebo'],
+  title: 'Our Journey | Foursquare Camp Ajebo',
+  description: 'See how Foursquare Camp Ajebo grew from open grounds to a full retreat and events campus with lodging, halls, and year-round hosting.',
+  keywords: ['camp history', 'journey', 'campus development', 'retreat center', 'Foursquare Camp Ajebo'],
 };
 
 export default function JourneyPage() {
@@ -23,7 +23,7 @@ export default function JourneyPage() {
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Journey</h1>
           <p className="text-xl text-slate-300 max-w-3xl">
-            Celebrating 70 years of faithful ministry and community impact across Nigeria
+            From open grounds to a trusted retreat campus welcoming tens of thousands each year
           </p>
         </div>
       </div>
@@ -33,12 +33,9 @@ export default function JourneyPage() {
         <div className="max-w-4xl mx-auto">
           {/* Introduction */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">A Story of Faith and Growth</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">A Story of Building a Campus</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our journey began with a simple vision: to create a place where people could 
-              experience God's love, grow in their faith, and make a positive impact in their 
-              community. Today, we celebrate seven decades of God's faithfulness, millions of 
-              lives transformed, and the vibrant legacy that continues to grow.
+              We began with simple camp meetings and open fields. Over time, we invested in roads, power, water, accommodation, and halls so guests could gather safely and comfortably. Today the campus runs year-round for retreats, conventions, trainings, and family stays.
             </p>
           </div>
 
@@ -57,16 +54,14 @@ export default function JourneyPage() {
                     <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium mr-4">
                       1990s
                     </span>
-                    <h3 className="text-xl font-bold text-gray-900">The Beginning</h3>
+                    <h3 className="text-xl font-bold text-gray-900">Campfire Gatherings</h3>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    Started as a small fellowship group meeting in homes, with a handful of 
-                    committed believers sharing the vision of establishing a strong Foursquare 
-                    presence in the Ajebo community.
+                    Early youth and family camp meetings on open grounds with temporary tents and basic lighting, building desire for a dedicated retreat site.
                   </p>
                   <div className="flex items-center text-sm text-gray-500">
                     <MapPin className="w-4 h-4 mr-2" />
-                    Home fellowship meetings
+                    Temporary camp grounds
                   </div>
                 </div>
               </div>
@@ -83,21 +78,19 @@ export default function JourneyPage() {
                     <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium mr-4">
                       Early 2000s
                     </span>
-                    <h3 className="text-xl font-bold text-gray-900">First Church Building</h3>
+                    <h3 className="text-xl font-bold text-gray-900">Securing the Camp Grounds</h3>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    Acquired our first church property and constructed a modest building that 
-                    could accommodate our growing congregation. This marked the beginning of 
-                    our formal ministry in the Ajebo community.
+                    Land was secured and basic infrastructure (access roads, water points, perimeter definition) began so annual conventions could be hosted safely on-site.
                   </p>
                   <div className="grid grid-cols-2 gap-4 text-sm text-gray-500">
                     <div className="flex items-center">
                       <Users className="w-4 h-4 mr-2" />
-                      50+ regular members
+                      Thousands in annual camps
                     </div>
                     <div className="flex items-center">
                       <Building className="w-4 h-4 mr-2" />
-                      First dedicated building
+                      First permanent structures
                     </div>
                   </div>
                 </div>
@@ -115,21 +108,19 @@ export default function JourneyPage() {
                     <span className="bg-slate-600 text-white px-3 py-1 rounded-full text-sm font-medium mr-4">
                       2010s
                     </span>
-                    <h3 className="text-xl font-bold text-gray-900">Rapid Growth & Expansion</h3>
+                    <h3 className="text-xl font-bold text-gray-900">Infrastructure Build-Out</h3>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    Experienced significant growth in membership and ministry impact. Launched 
-                    multiple ministries including youth programs, women's fellowship, men's 
-                    ministry, and community outreach initiatives.
+                    Built guest houses, conference halls, dining facilities, and improved utilities to support multiple simultaneous retreats and trainings.
                   </p>
                   <div className="grid grid-cols-2 gap-4 text-sm text-gray-500">
                     <div className="flex items-center">
                       <Users className="w-4 h-4 mr-2" />
-                      500+ active members
+                      20k+ annual guests
                     </div>
                     <div className="flex items-center">
                       <Award className="w-4 h-4 mr-2" />
-                      10+ active ministries
+                      Multiple halls and lodging blocks
                     </div>
                   </div>
                 </div>
@@ -147,22 +138,19 @@ export default function JourneyPage() {
                     <span className="bg-indigo-600 text-white px-3 py-1 rounded-full text-sm font-medium mr-4">
                       2020s
                     </span>
-                    <h3 className="text-xl font-bold text-gray-900">Digital Innovation & Modern Ministry</h3>
+                    <h3 className="text-xl font-bold text-gray-900">Modern Campus & Hybrid Hosting</h3>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    Embraced digital ministry during the pandemic, launched online services, 
-                    and developed modern facilities. Recently celebrated our 70th anniversary 
-                    convention as more than 50,000 annual guests gather and millions are reached 
-                    through hybrid experiences.
+                    Added upgraded lodging, improved roads, signage, reliable backups, and hybrid-ready halls. Annual conventions now welcome over 50,000 guests with coordinated logistics and safety.
                   </p>
                   <div className="grid grid-cols-2 gap-4 text-sm text-gray-500">
                     <div className="flex items-center">
                       <Users className="w-4 h-4 mr-2" />
-                      Millions reached worldwide
+                      50,000+ guests annually
                     </div>
                     <div className="flex items-center">
                       <Zap className="w-4 h-4 mr-2" />
-                      50,000+ annual guests
+                      Hybrid and in-person ready
                     </div>
                   </div>
                 </div>
@@ -172,47 +160,47 @@ export default function JourneyPage() {
 
           {/* Key Achievements */}
           <div className="bg-blue-50 rounded-2xl p-8 mb-12 border border-blue-100">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Our Achievements</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Our Campus Today</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">2,000,000+</div>
-                <p className="text-gray-700 font-medium">Lives Transformed</p>
+                <div className="text-3xl font-bold text-blue-600 mb-2">200+</div>
+                <p className="text-gray-700 font-medium">Beds & rooms</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-slate-600 mb-2">50+</div>
-                <p className="text-gray-700 font-medium">Years of Ministry Legacy</p>
+                <div className="text-3xl font-bold text-slate-600 mb-2">7+</div>
+                <p className="text-gray-700 font-medium">Halls & meeting spaces</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-indigo-600 mb-2">50000+</div>
-                <p className="text-gray-700 font-medium">Annual Guests Welcomed</p>
+                <p className="text-gray-700 font-medium">Convention guests yearly</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-600 mb-2">25+</div>
-                <p className="text-gray-700 font-medium">Community Programs</p>
+                <div className="text-3xl font-bold text-gray-600 mb-2">24/7</div>
+                <p className="text-gray-700 font-medium">Power, water, security</p>
               </div>
             </div>
           </div>
 
           {/* Our Impact */}
           <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Our Community Impact</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">How the Campus Serves</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Spiritual Impact</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Guests & Programs</h3>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Millions of people brought to faith in Christ</li>
-                  <li>• Hundreds of baptisms and dedications</li>
-                  <li>• Strong discipleship and leadership development</li>
-                  <li>• Active prayer and worship community</li>
+                  <li>• Retreats, conferences, and leadership trainings</li>
+                  <li>• Youth camps, family camps, and conventions</li>
+                  <li>• Hybrid-ready halls for wider audiences</li>
+                  <li>• Prayer-friendly, serene environments</li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Social Impact</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Community & Services</h3>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Educational scholarships and support</li>
-                  <li>• Healthcare and wellness programs</li>
-                  <li>• Annual conventions welcoming 50,000+ guests</li>
-                  <li>• Community development initiatives</li>
+                  <li>• Local jobs and vendor partnerships</li>
+                  <li>• Dining, recreation, and medical centre access</li>
+                  <li>• Grounds upkeep that preserves the environment</li>
+                  <li>• Event logistics that keep guests and hosts safe</li>
                 </ul>
               </div>
             </div>
@@ -222,9 +210,7 @@ export default function JourneyPage() {
           <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Leadership Through the Years</h2>
             <p className="text-gray-600 text-center mb-8">
-              For seventy years, our church has been blessed with dedicated pastoral leadership 
-              that has guided us through seasons of growth, challenges, and triumph. Each leader 
-              has brought unique gifts and vision that have shaped who we are today.
+              Over the decades, teams have led campus development, operations, and guest services to keep Ajebo ready for every season of gatherings.
             </p>
             <div className="text-center">
               <Link 
@@ -241,9 +227,7 @@ export default function JourneyPage() {
           <div className="bg-slate-800 rounded-xl shadow-lg p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-4">Looking Forward</h2>
             <p className="text-slate-200 mb-6 max-w-2xl mx-auto">
-              Fresh from our 70th anniversary convention, we are excited about the opportunities ahead. 
-              We are planning new facilities, expanding our community outreach, 
-              and preparing for the next chapter of our journey together.
+              We are adding more accommodation, refreshing halls, improving roads and signage, and investing in sustainable power and water so every future guest enjoys a seamless stay.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
@@ -256,7 +240,7 @@ export default function JourneyPage() {
                 href="/contact" 
                 className="border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-slate-800 transition-colors font-medium"
               >
-                Be Part of Our Story
+                Plan your next stay
               </Link>
             </div>
           </div>

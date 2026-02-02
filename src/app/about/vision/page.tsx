@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { ArrowLeft, Eye, Target, Star, Lightbulb } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Our Vision | Foursquare Gospel Church Ajebo',
-  description: 'To provide a serene, comfortable, and secured spiritual retreat centre for worship, fellowship, and community building.',
-  keywords: ['vision', 'future', 'retreat centre', 'spiritual growth', 'Foursquare Camp Ajebo'],
+  title: 'Our Vision | Foursquare Camp Ajebo',
+  description: 'We envision Foursquare Camp Ajebo as Nigeria’s most trusted retreat and events campus—serene, secure, and fully equipped for gatherings of all sizes.',
+  keywords: ['vision', 'camp vision', 'retreat campus', 'events campus', 'Foursquare Camp Ajebo'],
 };
 
 export default function VisionPage() {
@@ -23,7 +23,7 @@ export default function VisionPage() {
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Vision</h1>
           <p className="text-xl text-slate-300 max-w-3xl">
-            A serene spiritual retreat centre fostering growth and community
+            A premier retreat and events campus where guests feel safe, rested, and ready for impactful gatherings.
           </p>
         </div>
       </div>
@@ -42,10 +42,10 @@ export default function VisionPage() {
             
             <div className="prose prose-lg max-w-none text-center">
               <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                To provide a serene, comfortable, and secured spiritual retreat centre for worship, fellowship, and community building, fostering spiritual growth and deepening faith among its visitors and stakeholders.
+                Become the most trusted destination for retreats, conventions, trainings, and family stays—offering serene grounds, dependable infrastructure, and thoughtful hospitality.
               </p>
               <p className="text-lg text-gray-600">
-                We envision a place where people from all walks of life can come to experience God's presence in a peaceful and secure environment, building lasting relationships and growing in their spiritual journey.
+                We see a campus where ministries, organizations, and families gather with confidence, knowing the halls, lodging, power, water, and support teams are ready so they can focus on their purpose.
               </p>
             </div>
           </div>
@@ -57,17 +57,16 @@ export default function VisionPage() {
                 <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
                   <Target className="w-5 h-5 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Spiritual Transformation</h3>
+                <h3 className="text-xl font-bold text-gray-900">Guest-Centered Hosting</h3>
               </div>
               <p className="text-gray-600 mb-4">
-                Seeing lives radically changed by the power of the Gospel, with believers 
-                growing in spiritual maturity and Christlike character.
+                Every stay and event feels guided, peaceful, and ready—rooms, halls, dining, and support aligned to each program.
               </p>
               <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Deep personal relationship with Jesus</li>
-                <li>• Biblical literacy and spiritual growth</li>
-                <li>• Active prayer and worship life</li>
-                <li>• Character development and integrity</li>
+                <li>• Thoughtful room blocks and hall setup</li>
+                <li>• Clear arrival, parking, and wayfinding</li>
+                <li>• On-call support during events</li>
+                <li>• Quiet, restful environments</li>
               </ul>
             </div>
 
@@ -76,17 +75,16 @@ export default function VisionPage() {
                 <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center mr-4">
                   <Star className="w-5 h-5 text-slate-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Community Impact</h3>
+                <h3 className="text-xl font-bold text-gray-900">Infrastructure Reliability</h3>
               </div>
               <p className="text-gray-600 mb-4">
-                Creating positive change in our local community through compassionate 
-                service, social justice, and practical support.
+                Power, water, connectivity, and security are planned with redundancy so large gatherings run without disruption.
               </p>
               <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Educational and skill development programs</li>
-                <li>• Healthcare and social services</li>
-                <li>• Economic empowerment initiatives</li>
-                <li>• Environmental stewardship</li>
+                <li>• 24/7 utilities with backups</li>
+                <li>• Proactive maintenance culture</li>
+                <li>• Safety-first campus operations</li>
+                <li>• Health and medical support proximity</li>
               </ul>
             </div>
 
@@ -95,17 +93,16 @@ export default function VisionPage() {
                 <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
                   <Lightbulb className="w-5 h-5 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Innovation & Excellence</h3>
+                <h3 className="text-xl font-bold text-gray-900">Innovation & Sustainability</h3>
               </div>
               <p className="text-gray-600 mb-4">
-                Embracing innovative approaches to ministry while maintaining excellence 
-                in all aspects of church life and service.
+                Modernize facilities and adopt sustainable practices to keep the campus future-ready and environmentally responsible.
               </p>
               <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Modern worship and teaching methods</li>
-                <li>• Technology-enhanced ministries</li>
-                <li>• Creative outreach strategies</li>
-                <li>• Continuous learning and development</li>
+                <li>• Smart lighting and energy efficiency</li>
+                <li>• Water stewardship across the grounds</li>
+                <li>• Tech-enabled bookings and check-ins</li>
+                <li>• Continuous upgrades to halls and rooms</li>
               </ul>
             </div>
 
@@ -114,17 +111,16 @@ export default function VisionPage() {
                 <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mr-4">
                   <Eye className="w-5 h-5 text-indigo-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Global Expansion</h3>
+                <h3 className="text-xl font-bold text-gray-900">Reach & Partnerships</h3>
               </div>
               <p className="text-gray-600 mb-4">
-                Extending our reach beyond local boundaries to plant churches, 
-                support missions, and partner with global ministry efforts.
+                Serve national conventions, regional retreats, and global guests through partnerships that expand capacity and impact.
               </p>
               <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Church planting across Nigeria</li>
-                <li>• International missions support</li>
-                <li>• Cross-cultural ministry training</li>
-                <li>• Global partnership networks</li>
+                <li>• Hosting multi-thousand conventions</li>
+                <li>• Collaborative events with ministries and NGOs</li>
+                <li>• Hybrid-ready halls for wider audiences</li>
+                <li>• Training teams for best-in-class hosting</li>
               </ul>
             </div>
           </div>
@@ -134,24 +130,21 @@ export default function VisionPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Our Vision in Action</h2>
             <div className="space-y-6">
               <div className="border-l-4 border-blue-500 pl-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Transformed Lives</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Effortless Guest Experience</h3>
                 <p className="text-gray-600">
-                  We see individuals discovering their identity in Christ, overcoming 
-                  challenges, and becoming agents of positive change in their families and communities.
+                  Clear itineraries, wayfinding, and onsite help desks keep guests relaxed and focused on why they came.
                 </p>
               </div>
               <div className="border-l-4 border-slate-500 pl-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Strong Families</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Reliable Operations</h3>
                 <p className="text-gray-600">
-                  Families built on biblical foundations, experiencing love, unity, and 
-                  purpose while raising the next generation of godly leaders.
+                  Planned maintenance, trained teams, and safety protocols prevent disruptions during peak events.
                 </p>
               </div>
               <div className="border-l-4 border-indigo-500 pl-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Healthy Communities</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Shared Impact</h3>
                 <p className="text-gray-600">
-                  Communities marked by justice, compassion, and prosperity where 
-                  everyone has the opportunity to thrive and reach their full potential.
+                  Ministries, organizations, and families leave with lasting outcomes because the campus amplified their program goals.
                 </p>
               </div>
             </div>
@@ -161,17 +154,16 @@ export default function VisionPage() {
           <div className="bg-white rounded-xl shadow-lg p-8 text-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Vision Scripture</h2>
             <blockquote className="text-xl italic text-gray-700 mb-4">
-              "For I know the plans I have for you, declares the Lord, plans for welfare 
-              and not for evil, to give you a future and a hope."
+              "You will be blessed when you come in and blessed when you go out. The Lord will command the blessing on your barns and in all that you undertake."
             </blockquote>
-            <p className="text-gray-600 font-medium">- Jeremiah 29:11</p>
+            <p className="text-gray-600 font-medium">- Deuteronomy 28:6,8</p>
           </div>
 
           {/* Call to Action */}
           <div className="text-center mt-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Be Part of the Vision</h2>
             <p className="text-gray-600 mb-6">
-              Join us in building this vision for our community and beyond.
+              Partner with us to host your next retreat, conference, or training at Ajebo.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 

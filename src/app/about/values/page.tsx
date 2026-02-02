@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { ArrowLeft, Book, Heart, Lightbulb, Shield, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Our Values | Foursquare Gospel Church Ajebo',
-  description: 'Discover the core values that guide our church community: integrity, love, unity, biblical foundation, innovation, and service.',
-  keywords: ['values', 'principles', 'integrity', 'love', 'unity', 'Foursquare Camp Ajebo'],
+  title: 'Our Values | Foursquare Camp Ajebo',
+  description: 'The hosting values that shape Foursquare Camp Ajebo: hospitality, safety, stewardship, excellence, community care, and sustainability.',
+  keywords: ['values', 'hospitality', 'safety', 'camp values', 'Foursquare Camp Ajebo'],
 };
 
 export default function ValuesPage() {
@@ -23,7 +23,7 @@ export default function ValuesPage() {
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Values</h1>
           <p className="text-xl text-slate-300 max-w-3xl">
-            The principles that shape our character and guide our actions
+            The hosting principles that shape every stay, event, and interaction on the campus
           </p>
         </div>
       </div>
@@ -35,77 +35,38 @@ export default function ValuesPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">What We Stand For</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our values are not just words on a page—they are the living principles 
-              that guide every decision, action, and relationship in our church community. 
-              These values reflect the character of Christ and shape who we are as His followers.
+              These values guide how we host guests, protect the grounds, steward resources, and partner with ministries so every retreat or event can succeed.
             </p>
           </div>
 
           {/* Core Values */}
           <div className="space-y-12">
-            {/* Integrity */}
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <div className="flex items-start space-x-6">
-                <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <Shield className="w-8 h-8 text-blue-600" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Integrity</h3>
-                  <p className="text-gray-600 mb-4 text-lg">
-                    We commit to honesty, transparency, and ethical conduct in all our dealings. 
-                    Our words and actions align with biblical principles, and we take responsibility 
-                    for our commitments.
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">In Practice:</h4>
-                      <ul className="text-gray-600 space-y-1">
-                        <li>• Transparent financial stewardship</li>
-                        <li>• Honest communication and feedback</li>
-                        <li>• Keeping our promises and commitments</li>
-                        <li>• Admitting mistakes and seeking forgiveness</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Scripture:</h4>
-                      <blockquote className="text-gray-600 italic">
-                        "The integrity of the upright guides them"
-                        <span className="block text-sm mt-1">- Proverbs 11:3</span>
-                      </blockquote>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Love */}
+            {/* Hospitality */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-start space-x-6">
                 <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center flex-shrink-0">
                   <Heart className="w-8 h-8 text-red-600" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Love</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Hospitality</h3>
                   <p className="text-gray-600 mb-4 text-lg">
-                    Love is our highest value and greatest commandment. We love God with all our heart, 
-                    soul, mind, and strength, and we love our neighbors as ourselves, showing compassion 
-                    to all people regardless of their background.
+                    Welcome every guest with warmth, clarity, and care so they can focus on why they are here.
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">In Practice:</h4>
                       <ul className="text-gray-600 space-y-1">
-                        <li>• Caring for the vulnerable and needy</li>
-                        <li>• Showing kindness and patience</li>
-                        <li>• Forgiving and reconciling relationships</li>
-                        <li>• Welcoming everyone with open arms</li>
+                        <li>• Clear pre-arrival guidance and wayfinding</li>
+                        <li>• Attentive check-in and hall support</li>
+                        <li>• Warm, respectful service for all groups</li>
+                        <li>• Quiet, clean, restful spaces</li>
                       </ul>
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">Scripture:</h4>
                       <blockquote className="text-gray-600 italic">
-                        "Love the Lord your God... and love your neighbor as yourself"
-                        <span className="block text-sm mt-1">- Matthew 22:37-39</span>
+                        "Offer hospitality to one another"
+                        <span className="block text-sm mt-1">- 1 Peter 4:9</span>
                       </blockquote>
                     </div>
                   </div>
@@ -113,34 +74,32 @@ export default function ValuesPage() {
               </div>
             </div>
 
-            {/* Unity */}
+            {/* Safety & Reliability */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-start space-x-6">
-                <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <Users className="w-8 h-8 text-purple-600" />
+                <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <Shield className="w-8 h-8 text-blue-600" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Unity</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Safety & Reliability</h3>
                   <p className="text-gray-600 mb-4 text-lg">
-                    We believe in the power of unity in diversity. Despite our different backgrounds, 
-                    cultures, and experiences, we are one body in Christ, working together towards 
-                    common goals and supporting one another.
+                    Keep the campus secure and dependable with prepared teams and maintained utilities.
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">In Practice:</h4>
                       <ul className="text-gray-600 space-y-1">
-                        <li>• Celebrating diversity and inclusion</li>
-                        <li>• Resolving conflicts with grace</li>
-                        <li>• Supporting one another's growth</li>
-                        <li>• Working together as a team</li>
+                        <li>• 24/7 security presence and protocols</li>
+                        <li>• Backup power and water readiness</li>
+                        <li>• Safety briefings for large events</li>
+                        <li>• Coordinated response with medical support</li>
                       </ul>
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">Scripture:</h4>
                       <blockquote className="text-gray-600 italic">
-                        "How good and pleasant it is when God's people live together in unity"
-                        <span className="block text-sm mt-1">- Psalm 133:1</span>
+                        "The Lord will watch over your coming and going"
+                        <span className="block text-sm mt-1">- Psalm 121:8</span>
                       </blockquote>
                     </div>
                   </div>
@@ -148,34 +107,32 @@ export default function ValuesPage() {
               </div>
             </div>
 
-            {/* Biblical Foundation */}
+            {/* Stewardship */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-start space-x-6">
                 <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center flex-shrink-0">
                   <Book className="w-8 h-8 text-green-600" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Biblical Foundation</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Stewardship</h3>
                   <p className="text-gray-600 mb-4 text-lg">
-                    The Word of God is our ultimate authority and guide for life and ministry. 
-                    We believe in the inspiration, inerrancy, and sufficiency of Scripture for 
-                    all matters of faith and practice.
+                    Care for facilities, finances, and the land responsibly so they remain ready for future guests.
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">In Practice:</h4>
                       <ul className="text-gray-600 space-y-1">
-                        <li>• Expository biblical preaching</li>
-                        <li>• Regular Bible study and meditation</li>
-                        <li>• Decision-making based on Scripture</li>
-                        <li>• Teaching sound doctrine</li>
+                        <li>• Transparent maintenance and upgrades</li>
+                        <li>• Thoughtful budgeting for reliability</li>
+                        <li>• Preventive care for rooms and halls</li>
+                        <li>• Protecting green spaces and water</li>
                       </ul>
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">Scripture:</h4>
                       <blockquote className="text-gray-600 italic">
-                        "All Scripture is God-breathed and is useful for teaching"
-                        <span className="block text-sm mt-1">- 2 Timothy 3:16</span>
+                        "It is required that those who have been given a trust must prove faithful"
+                        <span className="block text-sm mt-1">- 1 Corinthians 4:2</span>
                       </blockquote>
                     </div>
                   </div>
@@ -183,33 +140,31 @@ export default function ValuesPage() {
               </div>
             </div>
 
-            {/* Excellence & Innovation */}
+            {/* Excellence & Care */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-start space-x-6">
                 <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
                   <Lightbulb className="w-8 h-8 text-yellow-600" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Excellence & Innovation</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Excellence & Care</h3>
                   <p className="text-gray-600 mb-4 text-lg">
-                    We strive for excellence in all we do as an offering to God and service to others. 
-                    We embrace innovation and creativity while maintaining our biblical foundation, 
-                    always seeking better ways to fulfill our mission.
+                    Deliver quality in cleanliness, setup, and responsiveness for every size of gathering.
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">In Practice:</h4>
                       <ul className="text-gray-600 space-y-1">
-                        <li>• Continuous learning and improvement</li>
-                        <li>• Creative worship and ministry approaches</li>
-                        <li>• Professional development and training</li>
-                        <li>• Embracing helpful technology</li>
+                        <li>• Pre-event checklists and walkthroughs</li>
+                        <li>• Timely room turns and hall resets</li>
+                        <li>• Feedback loops after events</li>
+                        <li>• Training teams for consistency</li>
                       </ul>
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">Scripture:</h4>
                       <blockquote className="text-gray-600 italic">
-                        "Whatever you do, work at it with all your heart, as working for the Lord"
+                        "Whatever you do, work at it with all your heart"
                         <span className="block text-sm mt-1">- Colossians 3:23</span>
                       </blockquote>
                     </div>
@@ -218,34 +173,32 @@ export default function ValuesPage() {
               </div>
             </div>
 
-            {/* Service */}
+            {/* Community & Sustainability */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="flex items-start space-x-6">
                 <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center flex-shrink-0">
                   <Users className="w-8 h-8 text-teal-600" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Service</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Community & Sustainability</h3>
                   <p className="text-gray-600 mb-4 text-lg">
-                    Following Christ's example, we are called to serve others with humility and joy. 
-                    We believe that everyone has gifts and talents to contribute to God's kingdom, 
-                    and we encourage all to find their place in ministry and service.
+                    Serve guests and neighbors while protecting the environment that makes Ajebo serene.
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">In Practice:</h4>
                       <ul className="text-gray-600 space-y-1">
-                        <li>• Volunteering in church ministries</li>
-                        <li>• Community outreach and missions</li>
-                        <li>• Mentoring and discipleship</li>
-                        <li>• Using gifts to serve others</li>
+                        <li>• Partner with local services and vendors</li>
+                        <li>• Waste reduction and recycling where possible</li>
+                        <li>• Quiet-hour respect for retreat rhythms</li>
+                        <li>• Supporting community events on campus</li>
                       </ul>
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">Scripture:</h4>
                       <blockquote className="text-gray-600 italic">
-                        "Whoever wants to become great among you must be your servant"
-                        <span className="block text-sm mt-1">- Matthew 20:26</span>
+                        "The earth is the Lord's, and everything in it"
+                        <span className="block text-sm mt-1">- Psalm 24:1</span>
                       </blockquote>
                     </div>
                   </div>
