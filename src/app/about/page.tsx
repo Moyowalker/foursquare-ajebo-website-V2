@@ -4,7 +4,7 @@ import { ArrowLeft, Target, Eye, Heart, Map } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About the Camp | Foursquare Camp Ajebo',
-  description: 'Discover Foursquare Camp Ajebo as a full retreat and events campus: our mission, vision, values, and story as a destination for stays, gatherings, and ministry programs.',
+  description: 'Discover Foursquare Camp Ajebo as a full retreat and events campground: our mission, vision, values, and story as a destination for stays, gatherings, and ministry programs.',
   keywords: ['about', 'camp', 'retreat', 'mission', 'vision', 'values', 'journey', 'Foursquare Camp Ajebo'],
 };
 
@@ -36,11 +36,11 @@ export default function AboutPage() {
     },
     {
       title: "Our Journey",
-      description: "The camp's growth from fields to a full campus",
+      description: "The camp's growth from fields to a full campground",
       icon: Map,
       href: "/about/journey",
       color: "bg-indigo-600",
-      preview: "From early convention grounds to a modern campus with accommodation, halls, recreation, and support teams..."
+      preview: "From early convention grounds to a modern campground with accommodation, halls, recreation, and support teams..."
     }
   ];
 
@@ -71,7 +71,7 @@ export default function AboutPage() {
             </h1>
             
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
-              A dedicated retreat and events campus designed for restful stays, conferences, camps, and ministry gatherings with reliable facilities and hosting support.
+              A dedicated retreat and events campground designed for restful stays, conferences, camps, and ministry gatherings with reliable facilities and hosting support.
             </p>
             
             <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
@@ -86,7 +86,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Learn About the Campus
+              Learn About the Campground
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Explore how the camp serves guests, hosts programs, and supports ministry experiences
@@ -127,7 +127,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Campus at a Glance
+              Campground at a Glance
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
               Capacity and services we provide for retreats, conferences, and family stays

@@ -323,7 +323,7 @@ export default function GalleryPage() {
                   360° Facility Tour
                 </h3>
                 <p className="text-slate-300 mb-6 leading-relaxed">
-                  Explore every corner of our beautiful campus with our interactive virtual tour. 
+                  Explore every corner of our beautiful campground with our interactive virtual tour. 
                   See our accommodation, conference halls, recreational facilities, and more.
                 </p>
                 <SpectacularButton variant="primary" className="px-8 py-3">

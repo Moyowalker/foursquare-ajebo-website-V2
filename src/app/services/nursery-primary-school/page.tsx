@@ -149,7 +149,7 @@ export default function NurseryPrimarySchoolPage() {
               <div>
                 <div className="flex items-center mb-4">
                   <ShieldCheck className="w-6 h-6 text-emerald-600 mr-3" />
-                  <h3 className="text-lg font-semibold text-gray-900">Safe & Secure Campus</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">Safe & Secure Grounds</h3>
                 </div>
                 <p className="text-gray-600 mb-4">
                   Child-friendly classrooms, secure access, and attentive staff ensure a safe learning environment.
@@ -279,7 +279,7 @@ export default function NurseryPrimarySchoolPage() {
                   <div className="flex items-start">
                     <MapPin className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">Campus Location</p>
+                      <p className="font-medium">Grounds Location</p>
                       <p className="text-emerald-100 text-sm">Foursquare Camp Ajebo, Ogun State, Nigeria</p>
                     </div>
                   </div>
@@ -303,7 +303,7 @@ export default function NurseryPrimarySchoolPage() {
               <div>
                 <h2 className="text-2xl font-bold mb-4">Enrol Your Child</h2>
                 <p className="text-emerald-100 mb-6">
-                  Ready to get started? Reach out for admissions, fees, and a guided campus tour.
+                  Ready to get started? Reach out for admissions, fees, and a guided grounds tour.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link 

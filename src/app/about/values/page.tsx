@@ -23,7 +23,7 @@ export default function ValuesPage() {
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Values</h1>
           <p className="text-xl text-slate-300 max-w-3xl">
-            The hosting principles that shape every stay, event, and interaction on the campus
+            The hosting principles that shape every stay, event, and interaction on the campground
           </p>
         </div>
       </div>
@@ -83,7 +83,7 @@ export default function ValuesPage() {
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">Safety & Reliability</h3>
                   <p className="text-gray-600 mb-4 text-lg">
-                    Keep the campus secure and dependable with prepared teams and maintained utilities.
+                    Keep the campground secure and dependable with prepared teams and maintained utilities.
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
@@ -191,7 +191,7 @@ export default function ValuesPage() {
                         <li>• Partner with local services and vendors</li>
                         <li>• Waste reduction and recycling where possible</li>
                         <li>• Quiet-hour respect for retreat rhythms</li>
-                        <li>• Supporting community events on campus</li>
+                        <li>• Supporting community events on the campground</li>
                       </ul>
                     </div>
                     <div>

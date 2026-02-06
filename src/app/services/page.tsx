@@ -54,7 +54,7 @@ export default function ServicesPage() {
       href: "/services/nursery-primary-school",
       color: "from-emerald-400 to-teal-600",
       preview: "A nurturing school community that blends academic excellence with strong Christian values...",
-      features: ["Nursery Classes", "Primary Education", "Qualified Teachers", "Safe Campus"]
+      features: ["Nursery Classes", "Primary Education", "Qualified Teachers", "Safe Grounds"]
     },
     {
       title: "Medical Centre",

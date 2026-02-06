@@ -40,7 +40,7 @@ export default function MedicalCentrePage() {
           </Link>
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1 text-sm text-rose-50 mb-3">
             <HeartHandshake className="w-4 h-4" />
-            On-campus healthcare you can trust
+            On-site healthcare you can trust
           </div>
           <div className="flex flex-col lg:flex-row gap-10 lg:items-center">
             <div className="max-w-3xl space-y-6">

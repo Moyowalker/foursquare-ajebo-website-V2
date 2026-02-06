@@ -4,8 +4,8 @@ import { ArrowLeft, Eye, Target, Star, Lightbulb } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Our Vision | Foursquare Camp Ajebo',
-  description: 'We envision Foursquare Camp Ajebo as Nigeria’s most trusted retreat and events campus—serene, secure, and fully equipped for gatherings of all sizes.',
-  keywords: ['vision', 'camp vision', 'retreat campus', 'events campus', 'Foursquare Camp Ajebo'],
+  description: 'We envision Foursquare Camp Ajebo as Nigeria’s most trusted retreat and events campground—serene, secure, and fully equipped for gatherings of all sizes.',
+  keywords: ['vision', 'camp vision', 'retreat campground', 'events campground', 'Foursquare Camp Ajebo'],
 };
 
 export default function VisionPage() {
@@ -23,7 +23,7 @@ export default function VisionPage() {
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Vision</h1>
           <p className="text-xl text-slate-300 max-w-3xl">
-            A premier retreat and events campus where guests feel safe, rested, and ready for impactful gatherings.
+            A premier retreat and events campground where guests feel safe, rested, and ready for impactful gatherings.
           </p>
         </div>
       </div>
@@ -45,7 +45,7 @@ export default function VisionPage() {
                 Become the most trusted destination for retreats, conventions, trainings, and family stays—offering serene grounds, dependable infrastructure, and thoughtful hospitality.
               </p>
               <p className="text-lg text-gray-600">
-                We see a campus where ministries, organizations, and families gather with confidence, knowing the halls, lodging, power, water, and support teams are ready so they can focus on their purpose.
+                We see a campground where ministries, organizations, and families gather with confidence, knowing the halls, lodging, power, water, and support teams are ready so they can focus on their purpose.
               </p>
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function VisionPage() {
               <ul className="text-sm text-gray-600 space-y-1">
                 <li>• 24/7 utilities with backups</li>
                 <li>• Proactive maintenance culture</li>
-                <li>• Safety-first campus operations</li>
+                <li>• Safety-first campground operations</li>
                 <li>• Health and medical support proximity</li>
               </ul>
             </div>
@@ -96,7 +96,7 @@ export default function VisionPage() {
                 <h3 className="text-xl font-bold text-gray-900">Innovation & Sustainability</h3>
               </div>
               <p className="text-gray-600 mb-4">
-                Modernize facilities and adopt sustainable practices to keep the campus future-ready and environmentally responsible.
+                Modernize facilities and adopt sustainable practices to keep the campground future-ready and environmentally responsible.
               </p>
               <ul className="text-sm text-gray-600 space-y-1">
                 <li>• Smart lighting and energy efficiency</li>
@@ -144,7 +144,7 @@ export default function VisionPage() {
               <div className="border-l-4 border-indigo-500 pl-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Shared Impact</h3>
                 <p className="text-gray-600">
-                  Ministries, organizations, and families leave with lasting outcomes because the campus amplified their program goals.
+                  Ministries, organizations, and families leave with lasting outcomes because the campground amplified their program goals.
                 </p>
               </div>
             </div>

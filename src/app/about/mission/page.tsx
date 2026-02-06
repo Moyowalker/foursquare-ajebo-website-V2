@@ -42,7 +42,7 @@ export default function MissionPage() {
             
             <div className="prose prose-lg max-w-none text-center">
               <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                Provide a reliable retreat campus where guests can rest, connect, and encounter God through well-run facilities, caring teams, and secure grounds.
+                Provide a reliable retreat campground where guests can rest, connect, and encounter God through well-run facilities, caring teams, and secure grounds.
               </p>
               <p className="text-lg text-gray-600">
                 We ensure accommodation, halls, and on-site services work seamlessly so ministries, churches, families, and organizations can focus on their purpose while we handle the environment, safety, and hospitality.
@@ -102,7 +102,7 @@ export default function MissionPage() {
                   <li>• Welcoming national conventions and international guests</li>
                   <li>• Enabling hybrid and in-person events with reliable halls</li>
                   <li>• Partnering with ministries to deliver impactful retreats</li>
-                  <li>• Sharing best practices for safe, guest-ready campuses</li>
+                  <li>• Sharing best practices for safe, guest-ready campgrounds</li>
                 </ul>
               </div>
             </div>

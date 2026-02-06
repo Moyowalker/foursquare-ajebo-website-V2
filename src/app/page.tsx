@@ -70,10 +70,12 @@ const FACILITY_GALLERY = [
   { src: '/images/facilities/real/accommodation/executive-guest-house.jpg', label: 'Executive Guest House' },
   { src: '/images/facilities/real/main-conference-hall.jpeg.JPG', label: 'Main Conference Hall' },
   { src: '/images/facilities/real/dining-restaurant.JPG', label: 'Dining Facilities' },
-  { src: '/images/facilities/real/outdoor-stadium.JPG', label: 'Outdoor Grounds' },
+  { src: '/images/facilities/real/residential-building.jpg', label: 'Residential Building' },
+  { src: '/images/facilities/real/outdoor-stadium.JPG', label: 'Serene Environment' },
+  { src: '/images/facilities/real/international-guest-house.jpeg.jpg', label: 'International Guest House' },
+  { src: '/images/facilities/real/accommodation/executive-guest-house.jpg', label: 'Executive Guest House' },
   { src: '/images/facilities/real/modern-guest-rooms.JPG', label: 'Modern Guest Rooms' },
   { src: '/images/facilities/real/jehovah-shammah-house.jpeg', label: 'Jehovah Shammah House' },
-  { src: '/images/facilities/real/residential-building.jpg', label: 'Residential Building' },
 ];
 
 const HERO_IMAGES = [
@@ -781,7 +783,7 @@ export default function HomePage() {
                   Trusted spaces, thoughtful hosting, guided support
                 </h2>
                 <p className="text-lg text-stone-600 max-w-3xl">
-                  Everything you need in one campus: restful rooms, flexible halls, on-site dining, recreation, and a team that helps you plan every detail.
+                  Everything you need in one campground: restful rooms, flexible halls, on-site dining, recreation, and a team that helps you plan every detail.
                 </p>
               </div>
 
