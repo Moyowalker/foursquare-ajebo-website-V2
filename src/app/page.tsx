@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import { mockEvents } from '@/data/events';
 
 type Room = {
   name: string;
@@ -60,6 +61,17 @@ const ROOMS: Room[] = [
     image: '/images/facilities/real/modern-guest-rooms.JPG',
     amenities: ['Comfort beds', 'Fresh linens', 'Easy access'],
   },
+];
+
+const FACILITY_GALLERY = [
+  { src: '/images/facilities/real/international-guest-house.jpeg.jpg', label: 'International Guest House' },
+  { src: '/images/facilities/real/accommodation/executive-guest-house.jpg', label: 'Executive Guest House' },
+  { src: '/images/facilities/real/main-conference-hall.jpeg.JPG', label: 'Main Conference Hall' },
+  { src: '/images/facilities/real/dining-restaurant.JPG', label: 'Dining Facilities' },
+  { src: '/images/facilities/real/outdoor-stadium.JPG', label: 'Outdoor Grounds' },
+  { src: '/images/facilities/real/modern-guest-rooms.JPG', label: 'Modern Guest Rooms' },
+  { src: '/images/facilities/real/jehovah-shammah-house.jpeg', label: 'Jehovah Shammah House' },
+  { src: '/images/facilities/real/residential-building.jpg', label: 'Residential Building' },
 ];
 
 const HERO_IMAGES = [
@@ -188,6 +200,7 @@ export default function HomePage() {
   });
 
   const contactHref = `/contact?${contactQuery.toString()}`;
+  const programs = mockEvents.slice(0, 6);
 
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
@@ -369,6 +382,52 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Facilities Carousel */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-semibold">Explore our facilities</h2>
+              <p className="mt-2 text-lg text-stone-600 max-w-2xl">
+                A quick visual tour of guest houses, halls, dining, and outdoor spaces.
+              </p>
+            </div>
+            <Link
+              href="/facilities"
+              className="inline-flex items-center text-emerald-700 hover:text-emerald-800 font-medium"
+            >
+              View all facilities →
+            </Link>
+          </div>
+
+          <div className="relative overflow-hidden rounded-3xl border border-stone-200 bg-stone-50">
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-white to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-white to-transparent" />
+            <div className="flex w-max gap-6 px-6 py-6 animate-marquee pause-marquee-on-hover">
+              {[...FACILITY_GALLERY, ...FACILITY_GALLERY].map((image, index) => (
+                <div
+                  key={`${image.src}-${index}`}
+                  className="relative h-48 w-72 overflow-hidden rounded-2xl shadow-sm"
+                  aria-hidden={index >= FACILITY_GALLERY.length}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.label}
+                    fill
+                    sizes="288px"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 text-sm font-semibold text-white">
+                    {image.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Guest Rooms */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -495,6 +554,58 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Programs & Booked Events */}
+      <section className="py-20 bg-stone-100/70">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-semibold">National programs & booked events</h2>
+            <p className="mt-3 text-lg text-stone-600 max-w-3xl mx-auto">
+              A snapshot of the programs already scheduled by churches and organizations.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {programs.map((event) => (
+              <div key={event.id} className="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-lg transition-shadow">
+                <div className="relative h-44">
+                  <Image
+                    src={event.imageUrl || '/images/facilities/real/main-conference-hall.jpeg.JPG'}
+                    alt={event.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-5">
+                  <p className="text-xs uppercase tracking-wide text-stone-400">
+                    {new Date(event.startDate).toLocaleDateString()} • {event.venue}
+                  </p>
+                  <h3 className="mt-2 text-lg font-semibold text-stone-900">{event.title}</h3>
+                  <p className="mt-2 text-sm text-stone-600">{event.shortDescription}</p>
+                  <div className="mt-4 flex items-center justify-between text-sm">
+                    <span className="font-semibold text-emerald-700">
+                      {event.price === 0 ? 'Free' : `₦${event.price.toLocaleString()}`}
+                    </span>
+                    <Link href="/events" className="text-emerald-700 hover:text-emerald-800 font-medium">
+                      View details →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/events"
+              className="inline-flex items-center justify-center rounded-xl bg-emerald-700 px-6 py-3 text-white font-medium shadow hover:bg-emerald-800"
+            >
+              See all programs
+            </Link>
           </div>
         </div>
       </section>
