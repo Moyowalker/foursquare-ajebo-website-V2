@@ -16,6 +16,8 @@ type Facility = {
   title: string;
   description: string;
   icon: string;
+  image: string;
+  href: string;
 };
 
 type Audience = {
@@ -86,21 +88,29 @@ const FACILITIES: Facility[] = [
     title: 'Conference Halls',
     description: 'Well-equipped halls for retreats, seminars, and conferences.',
     icon: '🏛️',
+    image: '/images/facilities/real/main-conference-hall.jpeg.JPG',
+    href: '/facilities/conference-halls',
   },
   {
     title: 'Dining Facilities',
     description: 'On-site dining for groups with wholesome meals and service.',
     icon: '🍽️',
+    image: '/images/facilities/real/dining-restaurant.JPG',
+    href: '/facilities',
   },
   {
     title: 'Serene Environment',
     description: 'Quiet gardens, prayer areas, and peaceful walking paths.',
     icon: '🌿',
+    image: '/images/facilities/real/outdoor-stadium.JPG',
+    href: '/facilities/recreation',
   },
   {
     title: 'Accessible Grounds',
     description: 'Easy-to-navigate camp layout with ample parking.',
     icon: '🧭',
+    image: '/images/facilities/real/residential-building.jpg',
+    href: '/facilities',
   },
 ];
 
@@ -504,10 +514,31 @@ export default function HomePage() {
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {FACILITIES.map((facility) => (
-                  <div key={facility.title} className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-                    <div className="text-2xl mb-2">{facility.icon}</div>
-                    <h3 className="font-semibold text-stone-900">{facility.title}</h3>
-                    <p className="text-sm text-stone-600 mt-1">{facility.description}</p>
+                  <div
+                    key={facility.title}
+                    className="rounded-2xl border border-stone-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+                  >
+                    <div className="relative h-32">
+                      <Image
+                        src={facility.image}
+                        alt={facility.title}
+                        fill
+                        sizes="(min-width: 1024px) 25vw, 50vw"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                      <div className="absolute top-3 left-3 text-xl">{facility.icon}</div>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-stone-900">{facility.title}</h3>
+                      <p className="text-sm text-stone-600 mt-1">{facility.description}</p>
+                      <Link
+                        href={facility.href}
+                        className="mt-3 inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+                      >
+                        Explore →
+                      </Link>
+                    </div>
                   </div>
                 ))}
               </div>

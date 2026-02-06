@@ -3,7 +3,6 @@
 import React, { useState, useMemo } from 'react';
 import { Event, EventCategory, CalendarEvent } from '@/types/events';
 import { mockEvents, eventCategories } from '@/data/events';
-import { SpectacularButton, SpectacularCard, GradientText } from '@/components/ui/spectacular';
 
 interface EventCalendarProps {
   events?: Event[];
@@ -118,29 +117,35 @@ function EventCalendar({
         {/* Header with view controls */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
           <div>
-            <GradientText className="text-3xl font-bold">
-              Event Calendar
-            </GradientText>
-            <p className="text-gray-600 mt-2">
+            <h2 className="text-3xl font-semibold text-stone-900">Event Calendar</h2>
+            <p className="text-stone-600 mt-2">
               {formatMonthYear(currentDate)} • {monthEvents.length} events
             </p>
           </div>
           
           <div className="flex flex-wrap gap-2">
-            <SpectacularButton
-              variant={viewMode === 'month' ? 'foursquare-blue' : 'outline'}
-              size="sm"
+            <button
+              type="button"
               onClick={() => setViewMode('month')}
+              className={`rounded-xl px-4 py-2 text-sm font-semibold transition-colors ${
+                viewMode === 'month'
+                  ? 'bg-emerald-700 text-white'
+                  : 'border border-emerald-200 bg-white text-emerald-700 hover:bg-emerald-50'
+              }`}
             >
               Month
-            </SpectacularButton>
-            <SpectacularButton
-              variant={viewMode === 'list' ? 'foursquare-blue' : 'outline'}
-              size="sm"
+            </button>
+            <button
+              type="button"
               onClick={() => setViewMode('list')}
+              className={`rounded-xl px-4 py-2 text-sm font-semibold transition-colors ${
+                viewMode === 'list'
+                  ? 'bg-emerald-700 text-white'
+                  : 'border border-emerald-200 bg-white text-emerald-700 hover:bg-emerald-50'
+              }`}
             >
               List
-            </SpectacularButton>
+            </button>
           </div>
         </div>
 
@@ -153,12 +158,12 @@ function EventCalendar({
                 onClick={() => toggleCategory(category.value as EventCategory)}
                 className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 ${
                   selectedCategories.includes(category.value as EventCategory)
-                    ? 'text-white shadow-md transform scale-105'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'text-white shadow-sm'
+                    : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
                 }`}
                 style={{
-                  backgroundColor: selectedCategories.includes(category.value as EventCategory) 
-                    ? category.color 
+                  backgroundColor: selectedCategories.includes(category.value as EventCategory)
+                    ? category.color
                     : undefined
                 }}
               >
@@ -172,14 +177,14 @@ function EventCalendar({
         <div className="space-y-4">
           {monthEvents.length > 0 ? (
             monthEvents.map(event => (
-              <SpectacularCard 
+              <div
                 key={event.id}
-                className="p-6 cursor-pointer transform hover:scale-[1.02]"
+                className="p-6 rounded-2xl border border-stone-200 bg-white shadow-sm hover:shadow-lg transition-shadow cursor-pointer"
                 onClick={() => onEventClick?.(event)}
               >
                 <div className="flex flex-col lg:flex-row gap-4">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-foursquare-blue-500 to-foursquare-purple-500 rounded-xl flex flex-col items-center justify-center text-white">
+                    <div className="w-16 h-16 bg-emerald-600 rounded-xl flex flex-col items-center justify-center text-white">
                       <div className="text-xs font-medium">
                         {event.startDate.toLocaleDateString('en-US', { month: 'short' }).toUpperCase()}
                       </div>
@@ -192,14 +197,14 @@ function EventCalendar({
                   <div className="flex-grow">
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                        <h3 className="text-xl font-semibold text-stone-900 mb-2">
                           {event.title}
                         </h3>
-                        <p className="text-gray-600 mb-3">
+                        <p className="text-stone-600 mb-3">
                           {event.shortDescription}
                         </p>
                         
-                        <div className="flex flex-wrap gap-4 text-sm text-gray-500">
+                        <div className="flex flex-wrap gap-4 text-sm text-stone-500">
                           <div className="flex items-center gap-1">
                             <span>📅</span>
                             {event.startTime} - {event.endTime}
@@ -216,7 +221,7 @@ function EventCalendar({
                       </div>
                       
                       <div className="text-right">
-                        <div className="text-lg font-bold text-foursquare-blue-600">
+                        <div className="text-lg font-bold text-emerald-700">
                           {event.price === 0 ? 'Free' : `₦${event.price.toLocaleString()}`}
                         </div>
                         <span 
@@ -229,7 +234,7 @@ function EventCalendar({
                     </div>
                   </div>
                 </div>
-              </SpectacularCard>
+              </div>
             ))
           ) : (
             <div className="text-center py-12">
@@ -252,59 +257,65 @@ function EventCalendar({
       {/* Header */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
         <div>
-          <GradientText className="text-3xl font-bold">
-            Event Calendar
-          </GradientText>
-          <p className="text-gray-600 mt-2">
+          <h2 className="text-3xl font-semibold text-stone-900">Event Calendar</h2>
+          <p className="text-stone-600 mt-2">
             {monthEvents.length} events in {formatMonthYear(currentDate)}
           </p>
         </div>
         
         <div className="flex flex-wrap gap-2">
-          <SpectacularButton
-            variant={viewMode === 'month' ? 'foursquare-blue' : 'outline'}
-            size="sm"
+          <button
+            type="button"
             onClick={() => setViewMode('month')}
+            className={`rounded-xl px-4 py-2 text-sm font-semibold transition-colors ${
+              viewMode === 'month'
+                ? 'bg-emerald-700 text-white'
+                : 'border border-emerald-200 bg-white text-emerald-700 hover:bg-emerald-50'
+            }`}
           >
             Month
-          </SpectacularButton>
-          <SpectacularButton
-            variant={viewMode === 'list' ? 'foursquare-blue' : 'outline'}
-            size="sm"
+          </button>
+          <button
+            type="button"
             onClick={() => setViewMode('list')}
+            className={`rounded-xl px-4 py-2 text-sm font-semibold transition-colors ${
+              viewMode === 'list'
+                ? 'bg-emerald-700 text-white'
+                : 'border border-emerald-200 bg-white text-emerald-700 hover:bg-emerald-50'
+            }`}
           >
             List
-          </SpectacularButton>
+          </button>
         </div>
       </div>
 
       {/* Navigation */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <SpectacularButton
-            variant="outline"
-            size="sm"
+          <button
+            type="button"
             onClick={() => navigateMonth('prev')}
+            className="rounded-xl border border-stone-200 bg-white px-3 py-2 text-sm font-semibold text-stone-700 hover:bg-stone-50"
           >
             ← Previous
-          </SpectacularButton>
-          <SpectacularButton
-            variant="ghost"
-            size="sm"
+          </button>
+          <button
+            type="button"
             onClick={navigateToToday}
+            className="rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-100"
           >
             Today
-          </SpectacularButton>
-          <SpectacularButton
-            variant="outline"
-            size="sm"
+          </button>
+          <button
+            type="button"
             onClick={() => navigateMonth('next')}
+            className="rounded-xl border border-stone-200 bg-white px-3 py-2 text-sm font-semibold text-stone-700 hover:bg-stone-50"
           >
             Next →
-          </SpectacularButton>
+          </button>
         </div>
         
-        <h2 className="text-2xl font-bold text-gray-800">
+        <h2 className="text-2xl font-semibold text-stone-800">
           {formatMonthYear(currentDate)}
         </h2>
       </div>
@@ -318,12 +329,12 @@ function EventCalendar({
               onClick={() => toggleCategory(category.value as EventCategory)}
               className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 ${
                 selectedCategories.includes(category.value as EventCategory)
-                  ? 'text-white shadow-md transform scale-105'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'text-white shadow-sm'
+                  : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
               }`}
               style={{
-                backgroundColor: selectedCategories.includes(category.value as EventCategory) 
-                  ? category.color 
+                backgroundColor: selectedCategories.includes(category.value as EventCategory)
+                  ? category.color
                   : undefined
               }}
             >
@@ -334,11 +345,11 @@ function EventCalendar({
       )}
 
       {/* Calendar Grid */}
-      <SpectacularCard className="p-6">
+      <div className="p-6 rounded-2xl border border-stone-200 bg-white shadow-sm">
         {/* Days of week header */}
         <div className="grid grid-cols-7 gap-1 mb-4">
           {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-            <div key={day} className="text-center text-sm font-semibold text-gray-600 py-2">
+            <div key={day} className="text-center text-sm font-semibold text-stone-600 py-2">
               {day}
             </div>
           ))}
@@ -354,15 +365,15 @@ function EventCalendar({
             return (
               <div
                 key={index}
-                className={`min-h-[100px] p-2 border border-gray-100 rounded-lg transition-colors duration-200 ${
+                className={`min-h-[100px] p-2 border border-stone-100 rounded-lg transition-colors duration-200 ${
                   isCurrentMonthDay 
-                    ? 'bg-white hover:bg-gray-50' 
-                    : 'bg-gray-50 text-gray-400'
-                } ${isTodayDate ? 'ring-2 ring-foursquare-blue-500 bg-foursquare-blue-50' : ''}`}
+                    ? 'bg-white hover:bg-stone-50' 
+                    : 'bg-stone-50 text-stone-400'
+                } ${isTodayDate ? 'ring-2 ring-emerald-500 bg-emerald-50' : ''}`}
               >
                 <div className={`text-sm font-medium mb-1 ${
-                  isTodayDate ? 'text-foursquare-blue-700' : 
-                  isCurrentMonthDay ? 'text-gray-800' : 'text-gray-400'
+                  isTodayDate ? 'text-emerald-700' : 
+                  isCurrentMonthDay ? 'text-stone-800' : 'text-stone-400'
                 }`}>
                   {date.getDate()}
                 </div>
@@ -384,7 +395,7 @@ function EventCalendar({
                     </div>
                   ))}
                   {dayEvents.length > 3 && (
-                    <div className="text-xs text-gray-500 text-center">
+                    <div className="text-xs text-stone-500 text-center">
                       +{dayEvents.length - 3} more
                     </div>
                   )}
@@ -393,7 +404,7 @@ function EventCalendar({
             );
           })}
         </div>
-      </SpectacularCard>
+      </div>
     </div>
   );
 }
