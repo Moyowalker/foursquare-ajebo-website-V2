@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Activity,
@@ -25,20 +26,20 @@ export const metadata: Metadata = {
 
 export default function MedicalCentrePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-sky-50">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-rose-700 via-rose-600 to-orange-600 text-white py-16">
+      <div className="relative overflow-hidden bg-gradient-to-r from-emerald-700 via-teal-600 to-sky-600 text-white py-16">
         <div className="absolute -left-32 -top-24 h-64 w-64 rounded-full bg-white/10 blur-3xl" aria-hidden="true" />
         <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-orange-400/20 blur-3xl" aria-hidden="true" />
         <div className="container mx-auto px-4 relative">
           <Link
             href="/services"
-            className="inline-flex items-center text-rose-100 hover:text-white mb-4 transition-colors"
+            className="inline-flex items-center text-emerald-100 hover:text-white mb-4 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Services
           </Link>
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1 text-sm text-rose-50 mb-3">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1 text-sm text-emerald-50 mb-3">
             <HeartHandshake className="w-4 h-4" />
             On-site healthcare you can trust
           </div>
@@ -46,7 +47,7 @@ export default function MedicalCentrePage() {
             <div className="max-w-3xl space-y-6">
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold leading-tight">Medical Centre</h1>
-                <p className="text-lg md:text-xl text-rose-50/90 mt-3">
+                <p className="text-lg md:text-xl text-emerald-50/90 mt-3">
                   Reliable healthcare for guests, residents, and camp staff with round-the-clock emergency response and warm bedside care.
                 </p>
               </div>
@@ -70,7 +71,7 @@ export default function MedicalCentrePage() {
                       <item.icon className="w-5 h-5" />
                       <p className="font-semibold">{item.title}</p>
                     </div>
-                    <p className="text-sm text-rose-50/80">{item.description}</p>
+                    <p className="text-sm text-emerald-50/80">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -78,7 +79,7 @@ export default function MedicalCentrePage() {
               <div className="flex flex-wrap items-center gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-white text-rose-700 px-5 py-3 rounded-lg font-semibold shadow-md hover:-translate-y-0.5 transition-transform"
+                  className="inline-flex items-center gap-2 bg-white text-emerald-700 px-5 py-3 rounded-lg font-semibold shadow-md hover:-translate-y-0.5 transition-transform"
                 >
                   <Phone className="w-5 h-5" />
                   Call medical team
@@ -90,7 +91,7 @@ export default function MedicalCentrePage() {
                   <MapPin className="w-5 h-5" />
                   See hours & location
                 </Link>
-                <span className="inline-flex items-center gap-2 text-sm text-rose-50/90 bg-white/10 border border-white/10 rounded-full px-4 py-2">
+                <span className="inline-flex items-center gap-2 text-sm text-emerald-50/90 bg-white/10 border border-white/10 rounded-full px-4 py-2">
                   <Stethoscope className="w-4 h-4" />
                   Daily checks • Emergency support
                 </span>
@@ -103,7 +104,7 @@ export default function MedicalCentrePage() {
                   <HeartPulse className="w-6 h-6" />
                   <p className="font-semibold">Care readiness</p>
                 </div>
-                <ul className="space-y-3 text-sm text-rose-50/85">
+                <ul className="space-y-3 text-sm text-emerald-50/85">
                   <li className="flex items-start gap-3">
                     <ShieldCheck className="w-5 h-5 mt-0.5 flex-shrink-0" />
                     <span>Vital signs, first aid, and stabilization handled on-site before escalation.</span>
@@ -122,7 +123,7 @@ export default function MedicalCentrePage() {
                     <Bandage className="w-4 h-4" />
                     Rapid help within the first 10 minutes.
                   </div>
-                  <p className="text-rose-50/80 mt-1">Walk in or call ahead—our team is ready to assist.</p>
+                  <p className="text-emerald-50/80 mt-1">Walk in or call ahead—our team is ready to assist.</p>
                 </div>
               </div>
             </div>
@@ -141,6 +142,21 @@ export default function MedicalCentrePage() {
             </p>
           </div>
 
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            {[
+              { src: '/images/facilities/real/residential-building.jpg', caption: 'Medical centre exterior' },
+              { src: '/images/facilities/real/modern-guest-rooms.JPG', caption: 'Consultation & care rooms' },
+              { src: '/images/facilities/real/IMG_6592.JPG', caption: 'On-site support infrastructure' },
+            ].map((photo) => (
+              <div key={photo.src} className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div className="relative h-48">
+                  <Image src={photo.src} alt={photo.caption} fill className="object-cover" />
+                </div>
+                <div className="p-4 text-sm text-gray-600">{photo.caption}</div>
+              </div>
+            ))}
+          </div>
+
           <div className="grid md:grid-cols-3 gap-6 mb-14">
             {[{
               title: 'Rapid triage',
@@ -156,8 +172,8 @@ export default function MedicalCentrePage() {
               icon: Ambulance,
             }].map((item) => (
               <div key={item.title} className="bg-white rounded-xl shadow-lg p-6 flex gap-4">
-                <div className="w-12 h-12 rounded-lg bg-rose-50 flex items-center justify-center">
-                  <item.icon className="w-6 h-6 text-rose-600" />
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center">
+                  <item.icon className="w-6 h-6 text-emerald-600" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900">{item.title}</h3>
@@ -223,7 +239,7 @@ export default function MedicalCentrePage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <div className="flex items-center mb-4">
-                  <Clock className="w-6 h-6 text-rose-600 mr-3" />
+                  <Clock className="w-6 h-6 text-emerald-600 mr-3" />
                   <h3 className="text-lg font-semibold text-gray-900">Clinic Hours</h3>
                 </div>
                 <p className="text-gray-600 mb-4">
@@ -254,7 +270,7 @@ export default function MedicalCentrePage() {
           </div>
 
           {/* Emergency Ready Banner */}
-          <div className="bg-gradient-to-r from-rose-600 to-orange-500 rounded-2xl shadow-lg p-8 text-white mb-12">
+          <div className="bg-gradient-to-r from-emerald-600 to-sky-500 rounded-2xl shadow-lg p-8 text-white mb-12">
             <div className="grid md:grid-cols-3 gap-6 items-center">
               <div className="md:col-span-2 space-y-3">
                 <div className="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full px-3 py-1 text-sm">
@@ -262,11 +278,11 @@ export default function MedicalCentrePage() {
                   Emergency-ready
                 </div>
                 <h3 className="text-2xl font-bold">Need urgent attention?</h3>
-                <p className="text-rose-50/90">Our team responds swiftly with stabilization, first aid, and referrals when needed. Let us know what&apos;s wrong and we&apos;ll guide you straight to care.</p>
+                <p className="text-emerald-50/90">Our team responds swiftly with stabilization, first aid, and referrals when needed. Let us know what&apos;s wrong and we&apos;ll guide you straight to care.</p>
                 <div className="flex flex-wrap gap-3">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 bg-white text-rose-700 px-5 py-3 rounded-lg font-semibold shadow hover:-translate-y-0.5 transition-transform"
+                    className="inline-flex items-center gap-2 bg-white text-emerald-700 px-5 py-3 rounded-lg font-semibold shadow hover:-translate-y-0.5 transition-transform"
                   >
                     <Phone className="w-5 h-5" />
                     Call for assistance
@@ -282,7 +298,7 @@ export default function MedicalCentrePage() {
                   <Bandage className="w-4 h-4" />
                   What to expect
                 </div>
-                <ul className="text-sm text-rose-50/85 space-y-2">
+                <ul className="text-sm text-emerald-50/85 space-y-2">
                   <li className="flex items-start gap-2">
                     <HeartPulse className="w-4 h-4 mt-1" />
                     Vital checks, first aid, and reassurance.
@@ -301,7 +317,7 @@ export default function MedicalCentrePage() {
           </div>
 
           {/* Location & Contact */}
-          <div className="bg-gradient-to-r from-rose-600 to-orange-600 rounded-xl shadow-lg p-8 text-white">
+          <div className="bg-gradient-to-r from-emerald-600 to-sky-600 rounded-xl shadow-lg p-8 text-white">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h2 className="text-2xl font-bold mb-4">Visit the Medical Centre</h2>
@@ -310,14 +326,14 @@ export default function MedicalCentrePage() {
                     <MapPin className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-medium">Location</p>
-                      <p className="text-rose-100 text-sm">Foursquare Camp Ajebo, Ogun State, Nigeria</p>
+                      <p className="text-emerald-100 text-sm">Foursquare Camp Ajebo, Ogun State, Nigeria</p>
                     </div>
                   </div>
                   <div className="flex items-start">
                     <Phone className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-medium">Hotline</p>
-                      <p className="text-rose-100 text-sm">Contact the medical desk for assistance</p>
+                      <p className="text-emerald-100 text-sm">Contact the medical desk for assistance</p>
                     </div>
                   </div>
                 </div>
@@ -325,19 +341,19 @@ export default function MedicalCentrePage() {
 
               <div>
                 <h2 className="text-2xl font-bold mb-4">Need Medical Support?</h2>
-                <p className="text-rose-100 mb-6">
+                <p className="text-emerald-100 mb-6">
                   Reach out to our team for health consultations, emergency support, or wellness guidance.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link 
                     href="/contact" 
-                    className="bg-white text-rose-700 px-6 py-3 rounded-lg hover:bg-rose-50 transition-colors font-medium text-center"
+                    className="bg-white text-emerald-700 px-6 py-3 rounded-lg hover:bg-emerald-50 transition-colors font-medium text-center"
                   >
                     Contact Medical Team
                   </Link>
                   <Link 
                     href="/contact" 
-                    className="border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-rose-600 transition-colors font-medium text-center"
+                    className="border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-emerald-600 transition-colors font-medium text-center"
                   >
                     Request Assistance
                   </Link>
