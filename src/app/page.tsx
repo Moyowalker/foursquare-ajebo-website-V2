@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { mockEvents } from '@/data/events';
+import PaymentModal from '@/components/payments/PaymentModal';
 
 type Room = {
   name: string;
@@ -181,6 +182,7 @@ export default function HomePage() {
   const [checkOutDate, setCheckOutDate] = useState('');
   const [guestCount, setGuestCount] = useState(2);
   const [heroIndex, setHeroIndex] = useState(0);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const roomMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -389,6 +391,40 @@ export default function HomePage() {
               >
                 View rooms
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Online Payment Portal */}
+      <section className="py-14">
+        <div className="container mx-auto px-4">
+          <div className="rounded-3xl border border-emerald-200 bg-white shadow-lg p-6 md:p-8">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+              <div>
+                <p className="text-sm font-semibold text-emerald-700">Online payment portal</p>
+                <h2 className="text-3xl md:text-4xl font-semibold text-stone-900 mt-2">
+                  Make a payment in minutes
+                </h2>
+                <p className="text-stone-600 mt-2 max-w-2xl">
+                  Pay service charges, bookings, and other camp services securely online.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsPaymentModalOpen(true)}
+                  className="rounded-xl bg-emerald-700 px-6 py-3 text-white font-semibold hover:bg-emerald-800"
+                >
+                  Make a payment
+                </button>
+                <Link
+                  href="/giving/donate"
+                  className="rounded-xl border border-emerald-200 px-6 py-3 text-emerald-700 font-semibold hover:bg-emerald-50"
+                >
+                  Giving & donations
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -825,6 +861,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <PaymentModal
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+      />
     </main>
   );
 }
