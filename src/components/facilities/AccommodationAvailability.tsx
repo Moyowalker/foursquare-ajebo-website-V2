@@ -151,10 +151,10 @@ export default function AccommodationAvailability({ facilities, bookingDetails, 
       </div>
 
       {selectedFacility && (
-        <div className="fixed inset-0 z-40">
+        <div className="fixed inset-0 z-[70] flex items-start justify-center overflow-y-auto px-4 py-10 sm:py-16">
           <div className="absolute inset-0 bg-black/50" onClick={() => setSelectedFacility(null)} />
           <div
-            className="relative z-10 mx-auto mt-10 max-w-5xl rounded-2xl bg-white shadow-2xl overflow-hidden"
+            className="relative z-10 w-full max-w-6xl rounded-2xl bg-white shadow-2xl overflow-hidden flex max-h-[calc(100vh-6rem)] flex-col"
             role="dialog"
             aria-modal="true"
             aria-label={`${selectedFacility.name} details`}
@@ -175,7 +175,7 @@ export default function AccommodationAvailability({ facilities, bookingDetails, 
               </button>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-6 p-6">
+            <div className="grid lg:grid-cols-3 gap-6 p-6 overflow-y-auto">
               <div className="lg:col-span-2 space-y-4">
                 <div className="relative h-72 md:h-80 overflow-hidden rounded-2xl border border-emerald-100 bg-gray-50">
                   {selectedFacility.images?.[activeImageByFacility[selectedFacility.id] ?? 0] && (
