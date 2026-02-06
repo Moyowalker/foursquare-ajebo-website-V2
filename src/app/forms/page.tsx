@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, FileText, MapPin, Users, Building } from 'lucide-react';
+import { ArrowLeft, FileText, MapPin, Users, Building, AlertTriangle } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Forms & Applications | Foursquare Camp Ajebo',
@@ -20,6 +20,17 @@ export default function FormsPage() {
       status: 'Available',
       requirements: ['Church membership verification', 'Valid identification', 'Financial capability assessment'],
       estimatedTime: '15-20 minutes'
+    },
+    {
+      id: 'damages-to-camp-assets',
+      title: 'Damages to Camp Assets Form',
+      description: 'Report any damage observed to camp assets before, during, or after program use of facilities.',
+      href: '/forms/damages-to-camp-assets',
+      icon: AlertTriangle,
+      category: 'Facilities',
+      status: 'Available',
+      requirements: ['Program details and dates', 'Asset condition checklist', 'Signatures from program and board'],
+      estimatedTime: '10-15 minutes'
     },
     // Future forms can be added here
     {

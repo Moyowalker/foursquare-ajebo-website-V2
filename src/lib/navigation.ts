@@ -80,6 +80,11 @@ export const mainNav: NavItem[] = [
         href: "/forms/land-allocation",
         description: "Apply for land allocation at Allen Camp"
       },
+      {
+        title: "Damages to Camp Assets Form",
+        href: "/forms/damages-to-camp-assets",
+        description: "Report damages to camp assets after facility use"
+      },
     ]
   },
   {
