@@ -62,6 +62,13 @@ const ROOMS: Room[] = [
   },
 ];
 
+const HERO_IMAGES = [
+  '/images/facilities/real/international-guest-house.jpeg.jpg',
+  '/images/facilities/real/modern-guest-rooms.JPG',
+  '/images/facilities/real/main-conference-hall.jpeg.JPG',
+  '/images/facilities/real/outdoor-stadium.JPG',
+];
+
 const FACILITIES: Facility[] = [
   {
     title: 'Conference Halls',
@@ -149,6 +156,7 @@ export default function HomePage() {
   const [checkInDate, setCheckInDate] = useState('');
   const [checkOutDate, setCheckOutDate] = useState('');
   const [guestCount, setGuestCount] = useState(2);
+  const [heroIndex, setHeroIndex] = useState(0);
   const roomMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -161,6 +169,14 @@ export default function HomePage() {
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 4500);
+
+    return () => window.clearInterval(interval);
   }, []);
 
   const contactQuery = new URLSearchParams({
@@ -220,14 +236,19 @@ export default function HomePage() {
 
             <div className="relative">
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/facilities/real/international-guest-house.jpeg.jpg"
-                  alt="Guest house at Foursquare Gospel Camp, Ajebo"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                  priority
-                />
+                {HERO_IMAGES.map((src, index) => (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt="Foursquare Gospel Camp Ajebo accommodation"
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className={`object-cover transition-opacity duration-1000 ${
+                      index === heroIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    priority={index === 0}
+                  />
+                ))}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
               </div>
               <div className="absolute -bottom-6 -left-6 rounded-2xl bg-white p-4 shadow-lg border border-stone-200">
