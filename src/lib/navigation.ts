@@ -69,6 +69,11 @@ export const mainNav: NavItem[] = [
         href: "/leadership/executives",
         description: "Meet the camp management and operations leaders"
       },
+      {
+        title: "Foursquare Nigeria Leadership",
+        href: "https://foursquare.org.ng/about/the_leadership",
+        description: "View the national leadership of The Foursquare Gospel Church in Nigeria"
+      },
     ]
   },
   {

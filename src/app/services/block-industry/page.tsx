@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Factory, Layers, Truck, CheckCircle2, Hammer, MapPin, Phone, ShieldCheck } from 'lucide-react';
 
