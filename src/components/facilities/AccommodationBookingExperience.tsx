@@ -3,35 +3,12 @@
 import { useMemo, useState } from "react";
 import { Calendar, Phone, Users, Wallet } from "lucide-react";
 import AccommodationAvailability, { BookingDetails } from "@/components/facilities/AccommodationAvailability";
+import { AccommodationBookingModal } from "@/components/facilities/AccommodationBookingModal";
 import type { Facility } from "@/lib/image-config";
 
 interface AccommodationBookingExperienceProps {
   facilities: Facility[];
 }
-
-const buildMailto = (
-  propertyName: string | undefined,
-  bookingDetails: BookingDetails
-) => {
-  const subject = propertyName
-    ? `Booking Request: ${propertyName}`
-    : "Accommodation Booking Request";
-
-  const bodyLines = [
-    propertyName ? `Property: ${propertyName}` : "Property: (please specify)",
-    `Check-in: ${bookingDetails.checkIn || "(add date)"}`,
-    `Check-out: ${bookingDetails.checkOut || "(add date)"}`,
-    `Guests: ${bookingDetails.guests || "(add number)"}`,
-    `Phone: ${bookingDetails.phone || "(add phone)"}`,
-    "\nPlease confirm availability and next steps. Thank you!",
-  ];
-
-  const mailto = `mailto:bookings@foursquarecamp.com?subject=${encodeURIComponent(
-    subject
-  )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-
-  return mailto;
-};
 
 export default function AccommodationBookingExperience({
   facilities,
@@ -43,6 +20,8 @@ export default function AccommodationBookingExperience({
     phone: "",
   });
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [selectedProperty, setSelectedProperty] = useState<string | undefined>(undefined);
 
   const minPrice = useMemo(() => {
     const prices = facilities
@@ -60,6 +39,11 @@ export default function AccommodationBookingExperience({
     setBookingDetails((prev) => ({ ...prev, [field]: value }));
   };
 
+  const openBooking = (propertyName?: string) => {
+    setSelectedProperty(propertyName);
+    setBookingModalOpen(true);
+  };
+
   return (
     <div className="space-y-10">
       {/* Sticky booking bar */}
@@ -70,13 +54,14 @@ export default function AccommodationBookingExperience({
               <p className="text-sm font-semibold text-emerald-700">Book your stay</p>
               <p className="text-xs text-gray-600">{priceSummary}</p>
             </div>
-            <a
-              href={buildMailto(undefined, bookingDetails)}
+            <button
+              type="button"
+              onClick={() => openBooking(undefined)}
               className="hidden sm:inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 transition-colors"
             >
               <Wallet className="w-4 h-4" />
               Book now
-            </a>
+            </button>
             <button
               type="button"
               onClick={() => setMobileOpen((prev) => !prev)}
@@ -141,14 +126,15 @@ export default function AccommodationBookingExperience({
               </div>
             </div>
             <div className="mt-3 flex flex-wrap gap-3 sm:hidden">
-              <a
-                href={buildMailto(undefined, bookingDetails)}
+              <button
+                type="button"
+                onClick={() => openBooking(undefined)}
                 className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 transition-colors"
               >
                 <Wallet className="w-4 h-4" />
                 Book now
-              </a>
-              <p className="text-xs text-gray-600">We’ll include these details in your booking email.</p>
+              </button>
+              <p className="text-xs text-gray-600">We’ll include these details in your booking request.</p>
             </div>
           </div>
         </div>
@@ -157,7 +143,14 @@ export default function AccommodationBookingExperience({
       <AccommodationAvailability
         facilities={facilities}
         bookingDetails={bookingDetails}
-        buildMailto={buildMailto}
+        onBook={(facility) => openBooking(facility?.name)}
+      />
+
+      <AccommodationBookingModal
+        open={bookingModalOpen}
+        onClose={() => setBookingModalOpen(false)}
+        defaultPropertyName={selectedProperty}
+        defaultBookingDetails={bookingDetails}
       />
     </div>
   );

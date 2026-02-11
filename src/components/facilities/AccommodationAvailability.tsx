@@ -16,10 +16,10 @@ export interface BookingDetails {
 interface AccommodationAvailabilityProps {
   facilities: Facility[];
   bookingDetails: BookingDetails;
-  buildMailto: (propertyName: string | undefined, bookingDetails: BookingDetails) => string;
+  onBook: (facility?: Facility) => void;
 }
 
-export default function AccommodationAvailability({ facilities, bookingDetails, buildMailto }: AccommodationAvailabilityProps) {
+export default function AccommodationAvailability({ facilities, bookingDetails, onBook }: AccommodationAvailabilityProps) {
   const [selectedFacility, setSelectedFacility] = useState<Facility | null>(null);
   const [activeImageByFacility, setActiveImageByFacility] = useState<Record<string, number>>({});
 
@@ -132,12 +132,13 @@ export default function AccommodationAvailability({ facilities, bookingDetails, 
                 >
                   View property
                 </button>
-                <a
-                  href={buildMailto(facility.name, bookingDetails)}
+                <button
+                  type="button"
+                  onClick={() => onBook(facility)}
                   className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 transition-colors"
                 >
                   Book now
-                </a>
+                </button>
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center rounded-lg border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors"
@@ -247,12 +248,13 @@ export default function AccommodationAvailability({ facilities, bookingDetails, 
                 )}
 
                 <div className="space-y-3">
-                  <a
-                    href={buildMailto(selectedFacility.name, bookingDetails)}
+                  <button
+                    type="button"
+                    onClick={() => onBook(selectedFacility)}
                     className="inline-flex w-full items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 transition-colors"
                   >
                     Book now with these details
-                  </a>
+                  </button>
                   <Link
                     href="/contact"
                     className="inline-flex w-full items-center justify-center rounded-lg border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors"
