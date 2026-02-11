@@ -245,7 +245,7 @@ export default function HomePage() {
                   href="/facilities/accommodation"
                   className="inline-flex items-center justify-center rounded-xl bg-emerald-700 px-6 py-3 text-white font-medium shadow-lg hover:bg-emerald-800 transition-colors"
                 >
-                  View Guest Rooms
+                  View Guest Houses
                 </Link>
                 <Link
                   href="/contact"
