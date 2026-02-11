@@ -60,6 +60,11 @@ export const mainNav: NavItem[] = [
     href: "/leadership", 
     items: [
       {
+        title: "Foursquare Nigeria Leadership",
+        href: "https://foursquare.org.ng/about/the_leadership",
+        description: "View the national leadership of The Foursquare Gospel Church in Nigeria"
+      },
+      {
         title: "Board of Directors",
         href: "/leadership/board",
         description: "Meet our church leadership team"
@@ -68,11 +73,6 @@ export const mainNav: NavItem[] = [
         title: "Camp Executive Team",
         href: "/leadership/executives",
         description: "Meet the camp management and operations leaders"
-      },
-      {
-        title: "Foursquare Nigeria Leadership",
-        href: "https://foursquare.org.ng/about/the_leadership",
-        description: "View the national leadership of The Foursquare Gospel Church in Nigeria"
       },
     ]
   },
