@@ -152,14 +152,14 @@ const AUDIENCES: Audience[] = [
 
 const STATS: Stat[] = [
   {
-    label: 'Lodging styles',
-    value: '4+',
-    detail: 'Executive, international, group-friendly, and modern rooms.',
+    label: 'Capacity',
+    value: '20,000+',
+    detail: 'we accommodate every budget and group size.',
   },
   {
     label: 'Facility pillars',
     value: '4',
-    detail: 'Conference halls, dining, serene grounds, and accessible layout.',
+    detail: 'Serene grounds, A+ security, 24/7 Electricity, World-class accommodations',
   },
   {
     label: 'Booking support',
@@ -175,9 +175,9 @@ const STATS: Stat[] = [
 
 const FEATURED_TESTIMONIAL: Testimonial = {
   quote:
-    'Our teams rest well here. The halls, rooms, and support staff make it easy to focus on the retreat itself.',
-  name: 'Pastor T. A.',
-  role: 'Retreat organizer',
+    'Hosting over 10,000 people requires more than just space; it demands exceptional organization and a truly peaceful atmosphere. For five years, Foursquare Camp Ajebo has delivered exactly that. The facilities are outstanding, but it\'s the dedicated support staff that keeps us coming back. They take the stress out of logistics so we can focus entirely on the spiritual impact of our retreat.',
+  name: 'Pastor Tunde Ogunripe',
+  role: 'Coordinator, Saints Community Church',
 };
 
 export default function HomePage() {
@@ -820,10 +820,10 @@ export default function HomePage() {
             <div className="lg:col-span-2 space-y-6">
               <div className="space-y-3">
                 <p className="inline-flex items-center rounded-full bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-800 border border-emerald-100">
-                  Guests choose Ajebo for focused retreats
+                  Our score card
                 </p>
                 <h2 className="text-3xl md:text-4xl font-semibold text-stone-900">
-                  Trusted spaces, thoughtful hosting, guided support
+                  See what makes us SHINE
                 </h2>
                 <p className="text-lg text-stone-600 max-w-3xl">
                   Everything you need in one campground: restful rooms, flexible halls, on-site dining, recreation, and a team that helps you plan every detail.
@@ -863,6 +863,41 @@ export default function HomePage() {
                 <p className="mt-4 text-lg text-stone-900 leading-relaxed">"{FEATURED_TESTIMONIAL.quote}"</p>
                 <div className="mt-6 text-sm font-semibold text-stone-900">{FEATURED_TESTIMONIAL.name}</div>
                 <div className="text-sm text-stone-600">{FEATURED_TESTIMONIAL.role}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stakeholder CTA */}
+      <section className="py-16 bg-stone-900 text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 items-start">
+            <div className="space-y-4">
+              <h2 className="text-3xl md:text-4xl font-semibold">Becoming a Stakeholder?</h2>
+              <p className="text-lg text-white/80">
+                Secure your land allocation, manage your on-site facilities, and handle service charges easily all in one place.
+              </p>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <Link
+                  href="/auth/login"
+                  className="inline-flex items-center justify-center rounded-xl bg-white text-stone-900 px-5 py-3 font-medium hover:bg-stone-100"
+                >
+                  Members Login
+                </Link>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-white/15 bg-white/5 px-5 py-4 shadow-lg">
+                <p className="text-sm text-white/70">New members</p>
+                <p className="mt-1 text-sm text-white/90">Application for Land Allocation is made simple.</p>
+              </div>
+              <div className="rounded-2xl border border-white/15 bg-white/5 px-5 py-4 shadow-lg">
+                <p className="text-sm text-white/70">Existing Members</p>
+                <p className="mt-1 text-sm text-white/90">
+                  Manage your facility from the members portal i.e payment your service charge on the go.
+                </p>
               </div>
             </div>
           </div>

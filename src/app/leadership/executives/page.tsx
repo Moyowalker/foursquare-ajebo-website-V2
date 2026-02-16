@@ -100,13 +100,13 @@ export default function ExecutiveLeadershipPage() {
                 className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
               >
                 <div className="grid gap-6 lg:grid-cols-[320px_1fr] lg:items-start">
-                  <div className="relative h-72 w-full overflow-hidden rounded-2xl">
+                  <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-slate-100">
                     <Image
                       src={leader.image}
                       alt={leader.name}
                       fill
                       sizes="(min-width: 1024px) 30vw, 100vw"
-                      className="object-cover"
+                      className="object-cover object-top"
                     />
                   </div>
                   <div>
