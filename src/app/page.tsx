@@ -740,7 +740,7 @@ export default function HomePage() {
                 },
                 {
                   step: '2',
-                  title: 'Tell us your needs',
+                  title: 'Check Availability',
                   description: 'Share dates, group size, and facility requirements.',
                 },
                 {
