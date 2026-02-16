@@ -231,32 +231,35 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm text-emerald-700">
-                Guest room bookings • Retreats • Conferences
+                Open to the public
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-stone-900">
-                Stay at Foursquare Gospel Camp, Ajebo
+                Sanctuary.
+                <br />
+                Community.
+                <br />
+                Renewal.
               </h1>
               <p className="text-lg md:text-xl text-stone-600 leading-relaxed max-w-xl">
-                A peaceful retreat destination with welcoming guest rooms, serene grounds, and
-                spaces designed for rest, reflection, and meaningful gatherings.
+                Experience the perfect blend of spiritual tranquility and modern hospitality. Whether you're planning a corporate conference, a church retreat, or a quiet weekend escape, Foursquare Camp Ajebo is your destination for peace.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/facilities/accommodation"
                   className="inline-flex items-center justify-center rounded-xl bg-emerald-700 px-6 py-3 text-white font-medium shadow-lg hover:bg-emerald-800 transition-colors"
                 >
-                  View Guest Houses
+                  Explore Accommodation
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/gallery"
                   className="inline-flex items-center justify-center rounded-xl border border-emerald-200 bg-white px-6 py-3 text-emerald-800 font-medium hover:bg-emerald-50 transition-colors"
                 >
-                  Plan a Retreat
+                  Visual Tour
                 </Link>
               </div>
 
               <p className="text-sm text-stone-500">
-                Guest rooms • Retreat lodging • Conference halls • Serene grounds
+                24/7 Electricity • 24/7 Security • Serene grounds • World-class Facilities
               </p>
 
 
