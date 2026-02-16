@@ -870,7 +870,7 @@ export default function HomePage() {
       </section>
 
       {/* Stakeholder CTA */}
-      <section className="py-16 bg-stone-900 text-white">
+      <section className="py-16 bg-stone-900 text-white mb-16">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 items-start">
             <div className="space-y-4">
