@@ -89,30 +89,34 @@ const HERO_IMAGES = [
 
 const FACILITIES: Facility[] = [
   {
-    title: 'Conference Halls',
-    description: 'Well-equipped halls for retreats, seminars, and conferences.',
+    title: 'Premium Lodging',
+    description:
+      'From executive suites with modern amenities to comfortable group dormitories, we accommodate every budget and group size.',
+    icon: '🛏️',
+    image: '/images/facilities/real/modern-guest-rooms.JPG',
+    href: '/facilities/accommodation',
+  },
+  {
+    title: 'Conference Centers',
+    description:
+      'State-of-the-art auditoriums and breakout rooms equipped with sound systems, perfect for corporate or spiritual events.',
     icon: '🏛️',
     image: '/images/facilities/real/main-conference-hall.jpeg.JPG',
     href: '/facilities/conference-halls',
   },
   {
-    title: 'Dining Facilities',
-    description: 'On-site dining for groups with wholesome meals and service.',
-    icon: '🍽️',
-    image: '/images/facilities/real/dining-restaurant.JPG',
-    href: '/facilities',
-  },
-  {
     title: 'Serene Environment',
-    description: 'Quiet gardens, prayer areas, and peaceful walking paths.',
+    description:
+      'Acres of manicured landscapes, prayer gardens, and walking trails designed to help you disconnect and reconnect.',
     icon: '🌿',
     image: '/images/facilities/real/outdoor-stadium.JPG',
     href: '/facilities/recreation',
   },
   {
-    title: 'Accessible Grounds',
-    description: 'Easy-to-navigate camp layout with ample parking.',
-    icon: '🧭',
+    title: 'Secure Environment',
+    description:
+      'Located in a gated, secure environment at Ajebo, offering peace of mind for families and organizers.',
+    icon: '🛡️',
     image: '/images/facilities/real/residential-building.jpg',
     href: '/facilities',
   },
@@ -549,10 +553,9 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-semibold">Facilities built for retreats</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold">Designed for Rest, Built for Gathering</h2>
               <p className="text-lg text-stone-600">
-                From conference halls to serene outdoor spaces, everything is designed to help
-                guests feel welcomed, rested, and focused.
+                We go beyond basic camping. Our facilities are engineered to support large-scale conventions while maintaining intimate pockets of peace for personal reflection.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {FACILITIES.map((facility) => (
