@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { Search } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { mockEvents } from '@/data/events';
 import PaymentModal from '@/components/payments/PaymentModal';
@@ -388,9 +389,10 @@ export default function HomePage() {
 
               <Link
                 href={contactHref}
-                className="inline-flex items-center justify-center rounded-2xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-800"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white hover:bg-emerald-700"
               >
-                Request booking
+                <Search className="h-4 w-4" />
+                Check availability
               </Link>
 
               <Link
