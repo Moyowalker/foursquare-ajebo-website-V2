@@ -112,13 +112,13 @@ export default function MedicalCentrePage() {
             <div className="relative">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden bg-white/10 border border-white/15">
-                  <Image src="/images/facilities/real/residential-building.jpg" alt="Medical centre exterior" fill className="object-cover" priority />
+                  <Image src="/images/medical-centre/front-desk.jpeg" alt="Medical centre exterior" fill className="object-cover" priority />
                 </div>
                 <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden bg-white/10 border border-white/15">
-                  <Image src="/images/facilities/real/IMG_6592.JPG" alt="Care team working" fill className="object-cover" />
+                  <Image src="/images/medical-centre/team.jpeg" alt="Care team working" fill className="object-cover" />
                 </div>
                 <div className="relative sm:col-span-2 h-56 rounded-2xl overflow-hidden bg-white/10 border border-white/15">
-                  <Image src="/images/facilities/real/modern-guest-rooms.JPG" alt="Consultation and observation" fill className="object-cover" />
+                  <Image src="/images/medical-centre/triage.jpeg" alt="Consultation and observation" fill className="object-cover" />
                 </div>
               </div>
             </div>
