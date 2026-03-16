@@ -84,7 +84,7 @@ const HERO_IMAGES = [
   '/images/facilities/real/international-guest-house.jpeg.jpg',
   '/images/facilities/real/modern-guest-rooms.JPG',
   '/images/facilities/real/main-conference-hall.jpeg.JPG',
-  '/images/campground-entrance.jpg',
+  '/images/campground-entrance.jpeg',
   '/images/facilities/real/outdoor-stadium.JPG',
 ];
 
