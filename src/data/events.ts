@@ -18,7 +18,7 @@ export const mockEvents: Event[] = [
     registeredCount: 89,
     price: 25000,
     currency: 'NGN',
-    imageUrl: '/images/events/youth-camp-2025.jpg',
+    imageUrl: '/images/facilities/outdoor-stadium.JPG',
     images: [
       '/images/events/youth-camp-1.jpg',
       '/images/events/youth-camp-2.jpg',
@@ -70,7 +70,7 @@ export const mockEvents: Event[] = [
     registeredCount: 34,
     price: 15000,
     currency: 'NGN',
-    imageUrl: '/images/events/family-retreat.jpg',
+    imageUrl: '/images/facilities/accommodation/international-guest-house.jpg',
     images: [
       '/images/events/family-1.jpg',
       '/images/events/family-2.jpg'
@@ -119,7 +119,7 @@ export const mockEvents: Event[] = [
     registeredCount: 156,
     price: 35000,
     currency: 'NGN',
-    imageUrl: '/images/events/leadership-conference.jpg',
+    imageUrl: '/images/facilities/main-conference-hall.jpeg.JPG',
     images: [
       '/images/events/leadership-1.jpg',
       '/images/events/leadership-2.jpg',
@@ -169,7 +169,7 @@ export const mockEvents: Event[] = [
     registeredCount: 0,
     price: 0,
     currency: 'NGN',
-    imageUrl: '/images/events/prayer-night.jpg',
+    imageUrl: '/images/facilities/conference/gabriel-adombe-building.jpg',
     images: [
       '/images/events/prayer-1.jpg',
       '/images/events/worship-1.jpg'
@@ -215,7 +215,7 @@ export const mockEvents: Event[] = [
     registeredCount: 23,
     price: 5000,
     currency: 'NGN',
-    imageUrl: '/images/events/bible-study.jpg',
+    imageUrl: '/images/campground-entrance.jpeg',
     images: [
       '/images/events/study-1.jpg',
       '/images/events/study-2.jpg'
@@ -263,7 +263,7 @@ export const mockEvents: Event[] = [
     registeredCount: 45,
     price: 0,
     currency: 'NGN',
-    imageUrl: '/images/events/outreach-day.jpg',
+    imageUrl: '/images/facilities/dining-restaurant.JPG',
     images: [
       '/images/events/outreach-1.jpg',
       '/images/events/community-1.jpg'

@@ -157,7 +157,7 @@ export default function HeroModern({ onQuickPay }: Props) {
             {/* Large hero image */}
             <div className="relative h-[550px] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10 will-change-transform hover:scale-[1.02] transition-transform duration-300">
               <Image
-                src="/images/facilities/real/main-conference-hall.jpeg.JPG"
+                src="/images/facilities/main-conference-hall.jpeg.JPG"
                 alt="Main Conference Center at Camp Ajebo"
                 fill
                 priority
@@ -170,7 +170,7 @@ export default function HeroModern({ onQuickPay }: Props) {
             {/* Offset secondary images with parallax effect */}
             <div className="absolute -right-6 top-8 w-52 h-40 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 will-change-transform hover:scale-110 hover:-rotate-2 transition-all duration-300">
               <Image
-                src="/images/facilities/real/accommodation/international-guest-house.jpg"
+                src="/images/facilities/accommodation/international-guest-house.jpg"
                 alt="International Guest House"
                 fill
                 sizes="(min-width: 1024px) 12rem, 40vw"
@@ -180,7 +180,7 @@ export default function HeroModern({ onQuickPay }: Props) {
             </div>
             <div className="absolute -right-10 bottom-16 w-60 h-48 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 will-change-transform hover:scale-110 hover:rotate-2 transition-all duration-300">
               <Image
-                src="/images/facilities/real/dining-restaurant.JPG"
+                src="/images/facilities/dining-restaurant.JPG"
                 alt="Delish Fingers Restaurant"
                 fill
                 sizes="(min-width: 1024px) 16rem, 45vw"

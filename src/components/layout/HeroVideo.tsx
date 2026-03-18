@@ -9,7 +9,7 @@ type Props = { onQuickPay?: () => void };
 export default function HeroVideo({ onQuickPay }: Props) {
   const [canPlay, setCanPlay] = useState(false);
   const videoUrl = process.env.NEXT_PUBLIC_HERO_VIDEO_URL || '/videos/camp-ambient.mp4';
-  const posterUrl = process.env.NEXT_PUBLIC_HERO_VIDEO_POSTER || '/images/facilities/real/main-conference-hall.jpeg.JPG';
+  const posterUrl = process.env.NEXT_PUBLIC_HERO_VIDEO_POSTER || '/images/facilities/main-conference-hall.jpeg.JPG';
 
   useEffect(() => {
     const t = setTimeout(() => setCanPlay(true), 300); // small delay to avoid layout jank

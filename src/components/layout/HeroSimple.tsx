@@ -35,7 +35,7 @@ export default function HeroSimple({ onQuickPay }: Props) {
 
           <div className="relative h-[22rem] md:h-[26rem] rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
             <Image
-              src="/images/facilities/real/main-conference-hall.jpeg.JPG"
+              src="/images/facilities/main-conference-hall.jpeg.JPG"
               alt="Camp Ajebo Conference Hall"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

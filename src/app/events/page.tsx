@@ -99,7 +99,7 @@ export default function EventsPage() {
               >
                 <div className="relative h-44">
                   <Image
-                    src={event.imageUrl || '/images/facilities/real/main-conference-hall.jpeg.JPG'}
+                    src={event.imageUrl || '/images/facilities/main-conference-hall.jpeg.JPG'}
                     alt={event.title}
                     fill
                     sizes="(min-width: 1024px) 33vw, 100vw"

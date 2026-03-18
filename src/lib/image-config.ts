@@ -20,7 +20,7 @@ export interface Facility {
   availabilityNote?: string;
 }
 
-// Facility data with image paths ready for Google Drive downloads
+// Facility data mapped to uploaded facility images
 export const facilities: Facility[] = [
   // ACCOMMODATION FACILITIES
   {
@@ -36,14 +36,19 @@ export const facilities: Facility[] = [
     availabilityNote: 'Limited rooms available weekly',
     images: [
       { 
-        src: '/images/facilities/real/international-guest-house.jpeg.jpg', 
+        src: '/images/facilities/accommodation/international-guest-house/IMG_6618.jpg', 
         alt: 'International Guest House - Premium Accommodation',
         caption: 'Luxury accommodation for distinguished guests'
       },
       { 
-        src: '/images/facilities/real/accommodation/international-guest-house.jpg', 
+        src: '/images/facilities/accommodation/international-guest-house/IMG_6643.JPG', 
         alt: 'International Guest House Interior',
         caption: 'Comfortable and modern interior facilities'
+      },
+      {
+        src: '/images/facilities/accommodation/international-guest-house/IMG_6665.JPG',
+        alt: 'International Guest House Guest Room',
+        caption: 'A restful and well-appointed guest room'
       }
     ],
     features: ['Private bathrooms', 'Air conditioning', 'Conference facilities', 'Restaurant access'],
@@ -62,9 +67,14 @@ export const facilities: Facility[] = [
     availabilityNote: 'Best for families and small teams',
     images: [
       { 
-        src: '/images/facilities/real/modern-guest-rooms.JPG', 
-        alt: 'Diamond Estate - Modern Guest Rooms',
-        caption: 'Modern and comfortable guest rooms'
+        src: '/images/facilities/accommodation/diamond-estate/IMG_6669.JPG', 
+        alt: 'Diamond Estate Exterior',
+        caption: 'A welcoming view of Diamond Estate'
+      },
+      {
+        src: '/images/facilities/accommodation/diamond-estate/IMG_6673.JPG',
+        alt: 'Diamond Estate Accommodation',
+        caption: 'Modern and comfortable estate accommodation'
       }
     ],
     features: ['Modern facilities', 'Spacious rooms', 'Garden views', 'Security'],
@@ -83,9 +93,14 @@ export const facilities: Facility[] = [
     availabilityNote: 'Priority for ministry visitors',
     images: [
       { 
-        src: '/images/facilities/real/residential-building.jpg', 
+        src: '/images/facilities/accommodation/gabriel-farombi-building/IMG_6582.JPG', 
         alt: 'Gabriel Farombi Building - Leadership Accommodation',
         caption: 'Dedicated accommodation for ministry leaders'
+      },
+      {
+        src: '/images/facilities/accommodation/gabriel-farombi-building/IMG_6594.JPG',
+        alt: 'Gabriel Farombi Building Interior',
+        caption: 'Comfortable spaces prepared for guests and leaders'
       }
     ],
     features: ['Conference rooms', 'Office spaces', 'Meeting facilities', 'Guest rooms'],
@@ -104,9 +119,14 @@ export const facilities: Facility[] = [
     availabilityNote: 'Group-friendly units available',
     images: [
       { 
-        src: '/images/facilities/real/accommodation/modern-guest-houses.jpg', 
+        src: '/images/facilities/accommodation/jonathan-odega-house/IMG_6603.JPG', 
         alt: 'Jonathan Odega House - Ministry Accommodation',
         caption: 'Comfortable lodging for ministry teams'
+      },
+      {
+        src: '/images/facilities/accommodation/jonathan-odega-house/IMG_6612.JPG',
+        alt: 'Jonathan Odega House Interior',
+        caption: 'Warm and practical rooms for visiting teams'
       }
     ],
     features: ['Pastor quarters', 'Study areas', 'Prayer rooms', 'Meeting spaces'],
@@ -125,7 +145,7 @@ export const facilities: Facility[] = [
     availabilityNote: 'Great for retreats and group bookings',
     images: [
       { 
-        src: '/images/facilities/real/modern-guest-rooms.JPG', 
+        src: '/images/facilities/accommodation/odunaike-house/44da24b1-b643-458b-892c-56c9dd2600b1.jpeg', 
         alt: 'Odunaike House - Standard Accommodation',
         caption: 'Comfortable standard accommodation'
       }
@@ -146,14 +166,9 @@ export const facilities: Facility[] = [
     availabilityNote: 'Quiet wing for spiritual retreats',
     images: [
       { 
-        src: '/images/facilities/real/jehovah-shammah-house.jpeg', 
+        src: '/images/facilities/jehovah-shammah-house.jpeg', 
         alt: 'Jehovah Shammah House - Spiritual Retreat Accommodation',
         caption: 'Peaceful environment for spiritual retreats'
-      },
-      { 
-        src: '/images/facilities/real/accommodation/jehovah-shammah-house.jpg', 
-        alt: 'Jehovah Shammah House Interior',
-        caption: 'Comfortable interior spaces for reflection'
       }
     ],
     features: ['Prayer areas', 'Quiet environment', 'Basic amenities', 'Spiritual atmosphere'],
@@ -172,9 +187,14 @@ export const facilities: Facility[] = [
     availabilityNote: 'Ideal for extended stays',
     images: [
       { 
-        src: '/images/facilities/real/accommodation/executive-guest-house.jpg', 
+        src: '/images/facilities/accommodation/ruby-estate/IMG_6664.jpg', 
         alt: 'Ruby Estate - Premium Family Accommodation',
         caption: 'Beautiful estate for family gatherings'
+      },
+      {
+        src: '/images/facilities/accommodation/ruby-estate/IMG_6681.JPG',
+        alt: 'Ruby Estate Interior',
+        caption: 'Comfortable and serene spaces for extended stays'
       }
     ],
     features: ['Family facilities', 'Extended stay options', 'Kitchen facilities', 'Garden access'],
@@ -189,12 +209,12 @@ export const facilities: Facility[] = [
     category: 'conference',
     images: [
       { 
-        src: '/images/facilities/real/main-conference-hall.jpeg.JPG', 
+        src: '/images/facilities/conference/auditorium/a54474d6-2bb6-44f7-b2c7-41c5a6cb66ce.jpeg', 
         alt: 'Main Auditorium - Rev. Gabriel Adome Building',
         caption: 'State-of-the-art conference and worship facility'
       },
       { 
-        src: '/images/facilities/real/conference/gabriel-adombe-building.jpg', 
+        src: '/images/facilities/conference/auditorium/09bedef6-413c-4c3a-afd0-349e0659362f.jpeg', 
         alt: 'Gabriel Adombe Building Exterior',
         caption: 'Modern conference facility exterior'
       }
@@ -211,12 +231,12 @@ export const facilities: Facility[] = [
     category: 'recreation',
     images: [
       { 
-        src: '/images/facilities/real/outdoor-stadium.JPG', 
+        src: '/images/facilities/recreation/sports-centre/IMG_6691.JPG', 
         alt: 'Sports Centre - Outdoor Stadium',
         caption: 'Modern sports and recreation facilities'
       },
       { 
-        src: '/images/facilities/real/recreation/sports-stadium.jpg', 
+        src: '/images/facilities/recreation/sports-centre/IMG_6704.JPG', 
         alt: 'Sports Stadium',
         caption: 'Complete sports complex for various activities'
       }
@@ -231,9 +251,14 @@ export const facilities: Facility[] = [
     category: 'recreation',
     images: [
       { 
-        src: '/images/facilities/real/outdoor-stadium.JPG', 
+        src: '/images/facilities/recreation/gym/IMG_6710.JPG', 
         alt: 'Fitness and Recreation Area',
         caption: 'Modern fitness and wellness facilities'
+      },
+      {
+        src: '/images/facilities/recreation/gym/IMG_6724.JPG',
+        alt: 'Gym Equipment and Interior',
+        caption: 'Well-equipped spaces for fitness and wellness'
       }
     ],
     features: ['Modern equipment', 'Personal training', 'Group fitness', 'Health programs'],
@@ -248,12 +273,12 @@ export const facilities: Facility[] = [
     category: 'dining',
     images: [
       { 
-        src: '/images/facilities/real/dining-restaurant.JPG', 
+        src: '/images/facilities/dining/delish-fingers/IMG_6578.JPG', 
         alt: 'Delish Fingers Restaurant',
         caption: 'Quality dining experience with local and international cuisine'
       },
       { 
-        src: '/images/facilities/real/dining/delishringers-restaurant.jpg', 
+        src: '/images/facilities/dining/delish-fingers/IMG_6581.JPG', 
         alt: 'Delishringers Restaurant Interior',
         caption: 'Modern restaurant interior and dining facilities'
       }
@@ -270,9 +295,14 @@ export const facilities: Facility[] = [
     category: 'infrastructure',
     images: [
       { 
-        src: '/images/facilities/real/main-conference-hall.jpeg.JPG', 
+        src: '/images/facilities/infrastructure/main-gate/IMG_6771.jpeg', 
         alt: 'Camp Ajebo Main Entrance Area',
         caption: 'Welcome to Foursquare Camp Ajebo'
+      },
+      {
+        src: '/images/facilities/infrastructure/main-gate/IMG_6766.jpeg',
+        alt: 'Main Gate View',
+        caption: 'A secure and welcoming entrance for guests and visitors'
       }
     ],
     features: ['Security checkpoint', 'Visitor registration', 'Welcome center', 'Parking coordination'],
@@ -285,9 +315,14 @@ export const facilities: Facility[] = [
     category: 'infrastructure',
     images: [
       { 
-        src: '/images/facilities/real/IMG_6592.JPG', 
+        src: '/images/facilities/infrastructure/mast/IMG_6598.JPG', 
         alt: 'Communication Infrastructure',
         caption: 'Modern communication and infrastructure systems'
+      },
+      {
+        src: '/images/facilities/infrastructure/mast/IMG_6599.JPG',
+        alt: 'Communication Mast',
+        caption: 'Reliable communication systems serving the camp'
       }
     ],
     features: ['Communication tower', 'Network coverage', 'Broadcasting capability', 'Emergency communications'],

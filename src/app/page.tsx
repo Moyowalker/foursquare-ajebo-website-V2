@@ -42,50 +42,50 @@ type Testimonial = {
 
 const ROOMS: Room[] = [
   {
-    name: 'Executive Guest House',
-    description: 'Spacious suites for leaders, families, and special retreats.',
-    image: '/images/facilities/real/accommodation/executive-guest-house.jpg',
-    amenities: ['En-suite', 'Quiet setting', 'Premium bedding'],
+    name: 'Diamond Estate',
+    description: 'Premium family-friendly accommodation with spacious rooms and a calm residential setting.',
+    image: '/images/facilities/accommodation/diamond-estate/IMG_6673.JPG',
+    amenities: ['Spacious rooms', 'Quiet setting', 'Family-friendly'],
   },
   {
     name: 'International Guest House',
     description: 'Comfortable, well-appointed rooms for rest and reflection.',
-    image: '/images/facilities/real/accommodation/international-guest-house.jpg',
+    image: '/images/facilities/accommodation/international-guest-house/IMG_6618.jpg',
     amenities: ['Air-conditioned', 'Work desk', 'Private bath'],
   },
   {
-    name: 'Jehovah Shammah House',
-    description: 'Warm, peaceful lodging ideal for small retreats and teams.',
-    image: '/images/facilities/real/jehovah-shammah-house.jpeg',
-    amenities: ['Group-friendly', 'Serene views', 'Daily housekeeping'],
+    name: 'Jonathan Odega House',
+    description: 'Warm, peaceful lodging ideal for ministry teams, small retreats, and visiting guests.',
+    image: '/images/facilities/accommodation/jonathan-odega-house/IMG_6603.JPG',
+    amenities: ['Group-friendly', 'Serene views', 'Retreat-ready'],
   },
   {
-    name: 'Modern Guest Rooms',
-    description: 'Simple, restful rooms designed for quiet nights and early mornings.',
-    image: '/images/facilities/real/modern-guest-rooms.JPG',
-    amenities: ['Comfort beds', 'Fresh linens', 'Easy access'],
+    name: 'Ruby Estate',
+    description: 'A peaceful estate-style stay designed for extended visits, family gatherings, and comfort.',
+    image: '/images/facilities/accommodation/ruby-estate/IMG_6681.JPG',
+    amenities: ['Estate setting', 'Comfort beds', 'Extended-stay comfort'],
   },
 ];
 
 const FACILITY_GALLERY = [
-  { src: '/images/facilities/real/international-guest-house.jpeg.jpg', label: 'International Guest House' },
-  { src: '/images/facilities/real/accommodation/executive-guest-house.jpg', label: 'Executive Guest House' },
-  { src: '/images/facilities/real/main-conference-hall.jpeg.JPG', label: 'Main Conference Hall' },
-  { src: '/images/facilities/real/dining-restaurant.JPG', label: 'Dining Facilities' },
-  { src: '/images/facilities/real/residential-building.jpg', label: 'Residential Building' },
-  { src: '/images/facilities/real/outdoor-stadium.JPG', label: 'Serene Environment' },
-  { src: '/images/facilities/real/international-guest-house.jpeg.jpg', label: 'International Guest House' },
-  { src: '/images/facilities/real/accommodation/executive-guest-house.jpg', label: 'Executive Guest House' },
-  { src: '/images/facilities/real/modern-guest-rooms.JPG', label: 'Modern Guest Rooms' },
-  { src: '/images/facilities/real/jehovah-shammah-house.jpeg', label: 'Jehovah Shammah House' },
+  { src: '/images/facilities/accommodation/international-guest-house/IMG_6643.JPG', label: 'International Guest House' },
+  { src: '/images/facilities/accommodation/diamond-estate/IMG_6671.JPG', label: 'Diamond Estate' },
+  { src: '/images/facilities/conference/auditorium/a54474d6-2bb6-44f7-b2c7-41c5a6cb66ce.jpeg', label: 'Main Auditorium' },
+  { src: '/images/facilities/dining/delish-fingers/IMG_6578.JPG', label: 'Delish Fingers' },
+  { src: '/images/facilities/infrastructure/main-gate/IMG_6771.jpeg', label: 'Camp Entrance' },
+  { src: '/images/facilities/recreation/sports-centre/IMG_6691.JPG', label: 'Sports Centre' },
+  { src: '/images/facilities/accommodation/gabriel-farombi-building/IMG_6582.JPG', label: 'Gabriel Farombi Building' },
+  { src: '/images/facilities/accommodation/jonathan-odega-house/IMG_6612.JPG', label: 'Jonathan Odega House' },
+  { src: '/images/facilities/accommodation/ruby-estate/IMG_6688.JPG', label: 'Ruby Estate' },
+  { src: '/images/facilities/recreation/gym/IMG_6710.JPG', label: 'Fitness Gym' },
 ];
 
 const HERO_IMAGES = [
-  '/images/facilities/real/international-guest-house.jpeg.jpg',
-  '/images/facilities/real/modern-guest-rooms.JPG',
-  '/images/facilities/real/main-conference-hall.jpeg.JPG',
-  '/images/campground-entrance.jpeg',
-  '/images/facilities/real/outdoor-stadium.JPG',
+  '/images/facilities/infrastructure/main-gate/IMG_6771.jpeg',
+  '/images/facilities/accommodation/international-guest-house/IMG_6618.jpg',
+  '/images/facilities/conference/auditorium/09bedef6-413c-4c3a-afd0-349e0659362f.jpeg',
+  '/images/facilities/accommodation/ruby-estate/IMG_6681.JPG',
+  '/images/facilities/recreation/sports-centre/IMG_6700.JPG',
 ];
 
 const FACILITIES: Facility[] = [
@@ -94,7 +94,7 @@ const FACILITIES: Facility[] = [
     description:
       'From executive suites with modern amenities to comfortable group dormitories, we accommodate every budget and group size.',
     icon: '🛏️',
-    image: '/images/facilities/real/modern-guest-rooms.JPG',
+    image: '/images/facilities/accommodation/diamond-estate/IMG_6674.JPG',
     href: '/facilities/accommodation',
   },
   {
@@ -102,7 +102,7 @@ const FACILITIES: Facility[] = [
     description:
       'State-of-the-art auditoriums and breakout rooms equipped with sound systems, perfect for corporate or spiritual events.',
     icon: '🏛️',
-    image: '/images/facilities/real/main-conference-hall.jpeg.JPG',
+    image: '/images/facilities/conference/auditorium/8a8b9a2d-15a1-492b-a1b9-9b4dfabd4590.jpeg',
     href: '/facilities/conference-halls',
   },
   {
@@ -110,7 +110,7 @@ const FACILITIES: Facility[] = [
     description:
       'Acres of manicured landscapes, prayer gardens, and walking trails designed to help you disconnect and reconnect.',
     icon: '🌿',
-    image: '/images/facilities/real/outdoor-stadium.JPG',
+    image: '/images/facilities/recreation/sports-centre/IMG_6704.JPG',
     href: '/facilities/recreation',
   },
   {
@@ -118,7 +118,7 @@ const FACILITIES: Facility[] = [
     description:
       'Located in a gated, secure environment at Ajebo, offering peace of mind for families and organizers.',
     icon: '🛡️',
-    image: '/images/facilities/real/residential-building.jpg',
+    image: '/images/facilities/infrastructure/main-gate/IMG_6766.jpeg',
     href: '/facilities',
   },
 ];
@@ -605,19 +605,19 @@ export default function HomePage() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 {
-                  src: '/images/facilities/real/main-conference-hall.jpeg.JPG',
+                  src: '/images/facilities/conference/auditorium/a54474d6-2bb6-44f7-b2c7-41c5a6cb66ce.jpeg',
                   alt: 'Main conference hall at Camp Ajebo',
                 },
                 {
-                  src: '/images/facilities/real/dining-restaurant.JPG',
+                  src: '/images/facilities/dining/delish-fingers/IMG_6579.JPG',
                   alt: 'Dining facilities at Camp Ajebo',
                 },
                 {
-                  src: '/images/facilities/real/outdoor-stadium.JPG',
+                  src: '/images/facilities/recreation/sports-centre/IMG_6706.JPG',
                   alt: 'Outdoor grounds and recreation space',
                 },
                 {
-                  src: '/images/facilities/real/modern-guest-rooms.JPG',
+                  src: '/images/facilities/accommodation/ruby-estate/IMG_6685.JPG',
                   alt: 'Modern guest rooms at Camp Ajebo',
                 },
               ].map((image) => (
@@ -637,52 +637,145 @@ export default function HomePage() {
       </section>
 
       {/* Programs & Booked Events */}
-      <section className="py-20 bg-stone-100/70">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold">National programs & booked events</h2>
-            <p className="mt-3 text-lg text-stone-600 max-w-3xl mx-auto">
+      <section className="py-20 bg-gradient-to-br from-stone-900 via-stone-800 to-emerald-950 text-white overflow-hidden relative">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-medium tracking-wide uppercase mb-4">
+              Upcoming Programs
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+              National programs &<br className="hidden sm:block" /> booked events
+            </h2>
+            <p className="mt-4 text-lg text-white/60 max-w-2xl mx-auto">
               A snapshot of the programs already scheduled by churches and organizations.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {programs.map((event) => (
-              <div key={event.id} className="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-lg transition-shadow">
-                <div className="relative h-44">
-                  <Image
-                    src={event.imageUrl || '/images/facilities/real/main-conference-hall.jpeg.JPG'}
-                    alt={event.title}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-5">
-                  <p className="text-xs uppercase tracking-wide text-stone-400">
-                    {new Date(event.startDate).toLocaleDateString()} • {event.venue}
-                  </p>
-                  <h3 className="mt-2 text-lg font-semibold text-stone-900">{event.title}</h3>
-                  <p className="mt-2 text-sm text-stone-600">{event.shortDescription}</p>
-                  <div className="mt-4 flex items-center justify-between text-sm">
-                    <span className="font-semibold text-emerald-700">
-                      {event.price === 0 ? 'Free' : `₦${event.price.toLocaleString()}`}
-                    </span>
-                    <Link href="/events" className="text-emerald-700 hover:text-emerald-800 font-medium">
-                      View details →
-                    </Link>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {programs.map((event, index) => {
+              const startDate = new Date(event.startDate);
+              const endDate = new Date(event.endDate);
+              const month = startDate.toLocaleString('en', { month: 'short' }).toUpperCase();
+              const day = startDate.getDate();
+              const isMultiDay = startDate.toDateString() !== endDate.toDateString();
+              const spotsLeft = event.capacity - event.registeredCount;
+              const fillPercent = Math.round((event.registeredCount / event.capacity) * 100);
+              const isFree = event.price === 0;
+              const typeIcons: Record<string, string> = { camp: '🏕️', retreat: '🌿', conference: '🎤', service: '🙏', workshop: '📖', outreach: '🤝' };
+              const typeIcon = typeIcons[event.type] || '✨';
+              const accentColors = [
+                'from-emerald-500 to-teal-600',
+                'from-amber-500 to-orange-600',
+                'from-blue-500 to-indigo-600',
+                'from-violet-500 to-purple-600',
+                'from-rose-500 to-pink-600',
+                'from-cyan-500 to-sky-600',
+              ];
+              const accent = accentColors[index % accentColors.length];
+
+              return (
+                <div
+                  key={event.id}
+                  className="group relative bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-0 overflow-hidden hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300 hover:-translate-y-1"
+                >
+                  {/* Accent gradient top bar */}
+                  <div className={`h-1.5 bg-gradient-to-r ${accent}`} />
+
+                  <div className="p-6">
+                    {/* Top row: date block + badges */}
+                    <div className="flex items-start gap-4">
+                      {/* Date Block */}
+                      <div className={`flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br ${accent} flex flex-col items-center justify-center shadow-lg`}>
+                        <span className="text-[10px] font-bold tracking-widest text-white/80">{month}</span>
+                        <span className="text-2xl font-black leading-none text-white">{day}</span>
+                      </div>
+
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-wrap gap-1.5 mb-2">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/10 text-[11px] font-medium text-white/80">
+                            {typeIcon} {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
+                          </span>
+                          {isFree && (
+                            <span className="px-2 py-0.5 rounded-full bg-emerald-500/25 text-emerald-300 text-[11px] font-bold tracking-wide">
+                              FREE
+                            </span>
+                          )}
+                          {event.featured && (
+                            <span className="px-2 py-0.5 rounded-full bg-amber-500/25 text-amber-300 text-[11px] font-bold tracking-wide">
+                              ⭐ FEATURED
+                            </span>
+                          )}
+                        </div>
+                        <h3 className="text-base font-bold text-white leading-tight truncate">{event.title}</h3>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p className="mt-3 text-sm text-white/50 line-clamp-2 leading-relaxed">{event.shortDescription}</p>
+
+                    {/* Meta details */}
+                    <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs text-white/40">
+                      <span>📍 {event.venue}</span>
+                      {isMultiDay && (
+                        <span>📅 {startDate.toLocaleDateString('en', { month: 'short', day: 'numeric' })} – {endDate.toLocaleDateString('en', { month: 'short', day: 'numeric' })}</span>
+                      )}
+                      <span>👥 {event.ageGroup === 'all-ages' ? 'All Ages' : event.ageGroup.charAt(0).toUpperCase() + event.ageGroup.slice(1)}</span>
+                    </div>
+
+                    {/* Capacity progress bar */}
+                    <div className="mt-4">
+                      <div className="flex justify-between text-[11px] mb-1.5">
+                        <span className="text-white/40">{event.registeredCount} registered</span>
+                        <span className={`font-semibold ${spotsLeft < 20 ? 'text-amber-400' : 'text-white/50'}`}>
+                          {spotsLeft} spots left
+                        </span>
+                      </div>
+                      <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+                        <div
+                          className={`h-full rounded-full bg-gradient-to-r ${accent} transition-all duration-700`}
+                          style={{ width: `${fillPercent}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Footer: price + CTA */}
+                    <div className="mt-5 flex items-center justify-between">
+                      <div>
+                        {isFree ? (
+                          <span className="text-lg font-bold text-emerald-400">Free</span>
+                        ) : (
+                          <span className="text-lg font-bold text-white">
+                            ₦{event.price.toLocaleString()}
+                            <span className="text-xs font-normal text-white/40 ml-1">/ person</span>
+                          </span>
+                        )}
+                      </div>
+                      <Link
+                        href="/events"
+                        className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r ${accent} text-white text-xs font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200`}
+                      >
+                        View details
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="mt-12 text-center">
             <Link
               href="/events"
-              className="inline-flex items-center justify-center rounded-xl bg-emerald-700 px-6 py-3 text-white font-medium shadow hover:bg-emerald-800"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-3.5 text-stone-900 font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200"
             >
-              See all programs
+              Explore all programs
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </Link>
           </div>
         </div>
@@ -785,20 +878,20 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               {
-                src: '/images/facilities/real/main-conference-hall.jpeg.JPG',
+                src: '/images/facilities/conference/auditorium/09bedef6-413c-4c3a-afd0-349e0659362f.jpeg',
                 alt: 'Conference hall interior',
               },
               {
-                src: '/images/facilities/real/accommodation/executive-guest-house.jpg',
-                alt: 'Executive guest house exterior',
+                src: '/images/facilities/accommodation/diamond-estate/IMG_6675.JPG',
+                alt: 'Diamond Estate accommodation exterior',
               },
               {
-                src: '/images/facilities/real/dining-restaurant.JPG',
+                src: '/images/facilities/dining/delish-fingers/IMG_6581.JPG',
                 alt: 'Dining facility at the camp',
               },
               {
-                src: '/images/facilities/real/outdoor-stadium.JPG',
-                alt: 'Outdoor grounds and pathways',
+                src: '/images/facilities/infrastructure/main-gate/IMG_6770.jpeg',
+                alt: 'Camp entrance and surrounding grounds',
               },
             ].map((image) => (
               <div key={image.src} className="relative h-40 md:h-48 rounded-2xl overflow-hidden">
